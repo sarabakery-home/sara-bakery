@@ -30,16 +30,72 @@
         html{scroll-behavior:smooth}
         body{font-family:'Assistant',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden}
 
-```
-    /* ─── NAV ─── */
-    nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,239,0.97);backdrop-filter:blur(12px);display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;padding:0 5%;height:64px;border-bottom:1px solid var(--warm2);box-shadow:0 2px 20px rgba(200,112,74,0.1)}
-    .logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--brown)}
-    .logo span{color:var(--copper)}
-    .nav-links{display:flex;gap:6px;align-items:center}
-    .nav-link{color:var(--brown-mid);text-decoration:none;font-size:13px;font-weight:700;padding:6px 12px;border-radius:20px;transition:all .2s}
-    .nav-link:hover{background:var(--warm1);color:var(--copper)}
-    .nav-wa{background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;padding:9px 18px;border-radius:22px;font-weight:800;font-size:13px;text-decoration:none;box-shadow:0 4px 12px rgba(37,211,102,0.3);transition:transform .2s}
-    .nav-wa:hover{transform:scale(1.05)}
+/* ─── NAV FIX (החלפה מלאה) ─── */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+    background: rgba(253, 246, 239, 0.97);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* דוחף את הלוגו והכפתור לקצוות */
+    padding: 0 5%;
+    height: 64px;
+    border-bottom: 1px solid var(--warm2);
+    box-shadow: 0 2px 20px rgba(200, 112, 74, 0.1);
+    direction: rtl; /* מבטיח שהלוגו יהיה בימין והכפתור בשמאל */
+}
+
+.logo {
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--brown);
+    flex-shrink: 0; /* מונע מהלוגו להימעך */
+}
+
+.logo span { color: var(--copper); }
+
+.nav-links {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--brown-mid);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all .2s;
+}
+
+.nav-link:hover { background: var(--warm1); color: var(--copper); }
+
+.nav-wa {
+    background: linear-gradient(135deg, var(--wa), var(--wa-dark));
+    color: #fff;
+    padding: 9px 18px;
+    border-radius: 22px;
+    font-weight: 800;
+    font-size: 13px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: transform .2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap; /* התיקון הקריטי: מונע מהטקסט להיחתך */
+    flex-shrink: 0;      /* התיקון הקריטי: מונע מהכפתור להתכווץ */
+}
+
+.nav-wa:hover { transform: scale(1.05); }
+ 
 
     /* ─── HERO ─── */
     .hero{min-height:100vh;background:linear-gradient(160deg,#fff8f2 0%,#fde8d0 40%,#f5d4b5 70%,#edd4b0 100%);display:flex;align-items:center;justify-content:center;padding:90px 5% 60px;text-align:center;position:relative;overflow:hidden}
@@ -248,15 +304,16 @@
 <body>
 
 <nav>
-    <a href="https://wa.me/972523394838" target="_blank" class="nav-wa">💬 וואטסאפ</a>
+    <a class="logo" href="#">שרה <span>❤</span></a>
+
     <div class="nav-links">
         <a href="#catalog" class="nav-link">קטלוג</a>
         <a href="#reviews" class="nav-link">ביקורות</a>
         <a href="#info" class="nav-link">מידע</a>
     </div>
-    <a class="logo" href="#">שרה <span>❤</span></a>
-</nav>
 
+    <a href="https://wa.me/972523394838" target="_blank" class="nav-wa">וואטסאפ 💬</a>
+</nav>
 <section class="hero">
     <div class="hero-floats">
         <div class="hf hf1"></div>
@@ -852,3 +909,4 @@
 
 </body>
 </html>
+
