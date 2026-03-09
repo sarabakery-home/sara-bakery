@@ -1,7 +1,16 @@
-‏
-<!DOCTYPE html>
+השיחה נפתחה. כבר קראת הודעה אחת. 
 
-<html lang="he" dir="rtl">
+דילוג לתוכן
+שימוש ב-Gmail עם קוראי מסך
+1 מתוך 537
+(ללא נושא)
+דואר נכנס
+
+yotam <yotamk1011@gmail.com‏>
+12:05 ‎(לפני 0 דקות)‎
+אני
+
+<!DOCTYPE html><html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,18 +38,64 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Assistant',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden}
-
-```
-/* ─── NAV ─── */
-nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,239,0.97);backdrop-filter:blur(12px);display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;padding:0 5%;height:64px;border-bottom:1px solid var(--warm2);box-shadow:0 2px 20px rgba(200,112,74,0.1)}
-.logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--brown)}
-.logo span{color:var(--copper)}
-.nav-links{display:flex;gap:6px;align-items:center}
-.nav-link{color:var(--brown-mid);text-decoration:none;font-size:13px;font-weight:700;padding:6px 12px;border-radius:20px;transition:all .2s}
-.nav-link:hover{background:var(--warm1);color:var(--copper)}
-.nav-wa{background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;padding:9px 18px;border-radius:22px;font-weight:800;font-size:13px;text-decoration:none;box-shadow:0 4px 12px rgba(37,211,102,0.3);transition:transform .2s}
-.nav-wa:hover{transform:scale(1.05)}
+body{font-family:'Assistant',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden}/* ─── NAV FIX (החלפה מלאה) ─── /
+nav {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 200;
+background: rgba(253, 246, 239, 0.97);
+backdrop-filter: blur(12px);
+display: flex;
+align-items: center;
+justify-content: space-between; / דוחף את הלוגו והכפתור לקצוות /
+padding: 0 5%;
+height: 64px;
+border-bottom: 1px solid var(–warm2);
+box-shadow: 0 2px 20px rgba(200, 112, 74, 0.1);
+direction: rtl; / מבטיח שהלוגו יהיה בימין והכפתור בשמאל */
+}
+.logo {
+text-decoration: none;
+font-family: ‘Playfair Display’, serif;
+font-size: 22px;
+font-weight: 900;
+color: var(–brown);
+flex-shrink: 0; /* מונע מהלוגו להימעך */
+}
+.logo span { color: var(–copper); }
+.nav-links {
+display: flex;
+gap: 6px;
+align-items: center;
+}
+.nav-link {
+color: var(–brown-mid);
+text-decoration: none;
+font-size: 13px;
+font-weight: 700;
+padding: 6px 12px;
+border-radius: 20px;
+transition: all .2s;
+}
+.nav-link:hover { background: var(–warm1); color: var(–copper); }
+.nav-wa {
+background: linear-gradient(135deg, var(–wa), var(–wa-dark));
+color: #fff;
+padding: 9px 18px;
+border-radius: 22px;
+font-weight: 800;
+font-size: 13px;
+text-decoration: none;
+box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+transition: transform .2s;
+display: flex;
+align-items: center;
+gap: 6px;
+white-space: nowrap; /* התיקון הקריטי: מונע מהטקסט להיחתך /
+flex-shrink: 0; / התיקון הקריטי: מונע מהכפתור להתכווץ */
+}
+.nav-wa:hover { transform: scale(1.05); }
 
 /* ─── HERO ─── */
 .hero{min-height:100vh;background:linear-gradient(160deg,#fff8f2 0%,#fde8d0 40%,#f5d4b5 70%,#edd4b0 100%);display:flex;align-items:center;justify-content:center;padding:90px 5% 60px;text-align:center;position:relative;overflow:hidden}
@@ -234,43 +289,7 @@ nav .nav-links{display:none}
 .info-grid{grid-template-columns:1fr}
 }
 
-/* ─── CUSTOM BUILDER MODAL ─── */
-```
-
-.builder-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,5,0.7);z-index:600;align-items:center;justify-content:center;padding:12px;backdrop-filter:blur(4px)}
-.builder-overlay.open{display:flex}
-.builder-modal{background:#fff;border-radius:26px;max-width:560px;width:100%;max-height:94vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,0.35);direction:rtl}
-.builder-header{background:linear-gradient(135deg,#fde8c8,#f5c87a);padding:22px 24px 18px;border-radius:26px 26px 0 0;position:relative}
-.builder-header h2{font-family:‘Playfair Display’,serif;font-size:22px;font-weight:900;color:#7a5010;margin-bottom:4px}
-.builder-header p{font-size:13px;color:#a85535;font-weight:700}
-.builder-close{position:absolute;top:14px;left:14px;background:rgba(0,0,0,0.2);border:none;width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;color:#7a5010}
-.builder-body{padding:20px}
-.builder-section{margin-bottom:20px}
-.builder-section-title{font-family:‘Playfair Display’,serif;font-size:16px;font-weight:700;color:var(–brown);margin-bottom:4px;padding-bottom:6px;border-bottom:2px solid var(–warm2)}
-.builder-section-sub{font-size:12px;color:var(–brown-light);font-weight:600;margin-bottom:12px}
-.builder-items{display:flex;flex-direction:column;gap:8px}
-.builder-item{display:flex;align-items:center;justify-content:space-between;background:var(–warm1);border:2px solid var(–warm2);border-radius:14px;padding:10px 14px;transition:all .2s}
-.builder-item.selected{border-color:var(–copper);background:#fff8f2}
-.builder-item-right{display:flex;align-items:center;gap:10px}
-.builder-item-name{font-size:14px;font-weight:700;color:var(–brown)}
-.builder-item-price{font-size:13px;color:var(–copper);font-weight:800}
-.builder-item-note{font-size:11px;color:var(–brown-light);font-weight:600;margin-top:2px}
-.builder-qty{display:flex;align-items:center;gap:8px}
-.qty-btn{width:28px;height:28px;border-radius:50%;border:2px solid var(–copper);background:#fff;color:var(–copper);font-size:16px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
-.qty-num{font-size:15px;font-weight:800;color:var(–brown);min-width:20px;text-align:center}
-.builder-sticky{position:sticky;bottom:0;background:#fff;padding:16px 20px;border-top:2px solid var(–warm2);border-radius:0 0 26px 26px}
-.builder-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.builder-total-label{font-size:14px;font-weight:700;color:var(–brown-mid)}
-.builder-total-price{font-family:‘Playfair Display’,serif;font-size:26px;font-weight:900;color:var(–copper)}
-.builder-total-note{font-size:11px;color:var(–brown-light);font-weight:600}
-.builder-btn{width:100%;background:linear-gradient(135deg,var(–copper),var(–copper-dark));color:#fff;border:none;padding:14px;border-radius:16px;font-size:15px;font-weight:800;cursor:pointer;font-family:‘Assistant’,sans-serif}
-.builder-btn:disabled{opacity:.4;cursor:not-allowed}
-.moss-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
-.moss-opt{border:2px solid var(–warm2);border-radius:14px;padding:12px;text-align:center;cursor:pointer;transition:all .2s;background:var(–warm1)}
-.moss-opt.selected{border-color:var(–copper);background:#fff8f2}
-.moss-opt-name{font-size:13px;font-weight:800;color:var(–brown);margin-bottom:2px}
-.moss-opt-price{font-size:14px;font-weight:900;color:var(–copper)}
-.moss-opt-note{font-size:10px;color:var(–brown-light);font-weight:600}
+/* entrance animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .hero-inner>*{animation:fadeUp .7s ease both}
 .hero-inner>.hero-badge{animation-delay:.1s}
@@ -278,21 +297,23 @@ nav .nav-links{display:none}
 .hero-inner>.hero-desc{animation-delay:.4s}
 .hero-inner>.hero-btns{animation-delay:.55s}
 .hero-inner>.hero-scroll{animation-delay:.7s}
+
+
 </style>
+```</head>
+<body><nav>
+<a class="logo" href="#">שרה <span>❤</span></a>
 
-</head>
-<body>
-
-<nav>
-<a href="https://wa.me/972523394838" target="_blank" class="nav-wa">💬 וואטסאפ</a>
 <div class="nav-links">
 <a href="#catalog" class="nav-link">קטלוג</a>
 <a href="#reviews" class="nav-link">ביקורות</a>
 <a href="#info" class="nav-link">מידע</a>
 </div>
-<a class="logo" href="#">שרה <span>❤</span></a>
-</nav>
 
+<a href="https://wa.me/972523394838" target="_blank" class="nav-wa">וואטסאפ 💬</a>
+
+
+</nav>
 <section class="hero">
 <div class="hero-floats">
 <div class="hf hf1"></div>
@@ -309,17 +330,13 @@ nav .nav-links{display:none}
 </div>
 <div class="hero-scroll">↓ גלגלו למטה ↓</div>
 </div>
-</section>
-
-<div class="trust">
+</section><div class="trust">
 <div class="trust-item">🏠 עבודת יד בלבד</div>
 <div class="trust-item">✨ מרכיבים איכותיים</div>
 <div class="trust-item">🎨 התאמה אישית</div>
 <div class="trust-item">🛵 משלוח בחריש ₪10</div>
 <div class="trust-item">💳 ביט / מזומן</div>
-</div>
-
-<section class="catalog" id="catalog">
+</div><section class="catalog" id="catalog">
 <div class="section-header">
 <span class="sec-tag">🛒 הקטלוג</span>
 <h2>בחרו את המארז שלכם</h2>
@@ -334,7 +351,6 @@ nav .nav-links{display:none}
 </div>
 <div class="prod-grid" id="prodGrid">
 
-```
 <!-- MAARATZIM -->
 <div class="prod-card" data-cat="maarz" data-desc-full="לב מוס גדול עם כיתוב אישי + פחזניות קרמבל מסביב" onclick="openModal(this)">
 <div class="prod-img"><img src="mousse_box.jpg" alt="מארז מוס לב"><div class="prod-ribbon rb-best">⭐ פופולרי</div></div>
@@ -491,29 +507,24 @@ nav .nav-links{display:none}
 </div>
 </div>
 
-<!-- CUSTOM BUILDER -->
-<div class="prod-card" data-cat="custom" onclick="openCustomBuilder()" style="grid-column:1/-1;cursor:pointer">
-<div class="prod-img" style="background:linear-gradient(135deg,#fde8c8,#f5c87a);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;height:160px">
-<span style="font-size:48px">✨</span>
-<span style="font-family:'Playfair Display',serif;font-size:20px;color:#7a5010;font-weight:700">בנו את המארז שלכם</span>
-<span style="font-size:13px;color:#a85535;font-weight:700">לחצו לפתיחת בונה המארז</span>
+<!-- CUSTOM -->
+<div class="prod-card" data-cat="custom" data-desc-full="מארז מותאם אישית לפי הבקשה שלך – ספרו לשרה מה אתם רוצים!" onclick="openModal(this)">
+<div class="prod-img" style="background:linear-gradient(135deg,#fde8c8,#f5c87a);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px">
+<span style="font-size:64px">✨</span>
+<span style="font-family:'Playfair Display',serif;font-size:18px;color:#7a5010;font-weight:700">מארז חלומות</span>
 </div>
-<div class="prod-body" style="background:linear-gradient(160deg,#fff8e8,#fdefd0)">
-<div class="prod-ribbon rb-custom" style="position:static;display:inline-block;margin-bottom:10px">✨ הרכבה אישית</div>
-<div class="prod-name">תפריט מארזים – הרכבה אישית</div>
-<div class="prod-desc">בחרו בסיס מוס, קינוחים, עוגיות ופחזניות – המחיר מחושב אוטומטית!</div>
-<button class="prod-btn" style="pointer-events:none">✨ פתחו את בונה המארז</button>
+<div class="prod-body">
+<div class="prod-ribbon rb-custom" style="position:static;display:inline-block;margin-bottom:10px">✨ מותאם אישית</div>
+<div class="prod-name">מארז מותאם אישית</div>
+<div class="prod-desc">ספרו לשרה בדיוק מה אתם רוצים – כיתוב, צבעים, תכולה – והיא תבנה בשבילכם מארז חלומות!</div>
+<button class="prod-btn">✨ בנו את המארז שלכם</button>
 </div>
 </div>
 
 </div>
-```
 
-</section>
 
-<!-- REVIEWS -->
-
-<section class="reviews" id="reviews">
+</section><!-- REVIEWS --><section class="reviews" id="reviews">
 <div class="section-header">
 <span class="sec-tag">⭐ ביקורות</span>
 <h2>מה אומרות הלקוחות</h2>
@@ -537,11 +548,7 @@ nav .nav-links{display:none}
 <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">ש</div><div><div class="rc-name">שירה מ.</div><div class="rc-loc">זכרון יעקב</div></div></div><div class="rc-stars">★★★★☆</div></div><div class="rc-text">"הזמנתי מגש לאירוע משפחתי. כל המשפחה שאלה מאיפה. שרה תמיד עונה מהר בוואטסאפ ומאוד נחמדה. בהחלט אזמין שוב!"</div></div>
 </div>
 </div>
-</section>
-
-<!-- INFO -->
-
-<section class="info-section" id="info">
+</section><!-- INFO --><section class="info-section" id="info">
 <div class="section-header">
 <span class="sec-tag">ℹ️ פרטים</span>
 <h2 style="color:#fff">כל מה שצריך לדעת</h2>
@@ -569,15 +576,11 @@ nav .nav-links{display:none}
 <div><span class="kosher-badge">✡️ כשר למהדרין</span></div>
 </div>
 </div>
-</section>
-
-<section class="cta">
+</section><section class="cta">
 <h2>רוצים <span>מארז מיוחד</span>? 🎁</h2>
 <p>שלחו הודעה בוואטסאפ ושרה תחזור אליכם עם כל הפרטים 💕</p>
 <a href="https://wa.me/972523394838" target="_blank" class="btn-wa-big">💬 שלחו הודעה לשרה</a>
-</section>
-
-<footer>
+</section><footer>
 <div class="footer-brand">🎂 שרה <span>חברוני</span></div>
 <div class="footer-links">
 <a href="tel:+972523394838">📞 052-3394838</a>
@@ -585,11 +588,7 @@ nav .nav-links{display:none}
 <a href="https://waze.com/ul?q=התמדה+4+חריש" target="_blank">📍 התמדה 4, חריש</a>
 </div>
 <div class="footer-bottom">©️ 2025 שרה חברוני · Home Made Bakery · נבנה עם ❤️</div>
-</footer>
-
-<!-- MODAL -->
-
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOut(event)">
+</footer><!-- MODAL --><div class="modal-overlay" id="modalOverlay" onclick="closeModalOut(event)">
 <div class="modal">
 <button class="modal-close" onclick="closeModal()">✕</button>
 <img id="mImg" src="" alt="" class="modal-img" onerror="this.style.display='none'">
@@ -598,9 +597,8 @@ nav .nav-links{display:none}
 <div class="modal-prod-name" id="mTitle"></div>
 <div class="modal-prod-desc" id="mDesc"></div>
 <div id="modalForm">
-<div class="modal-info">📋 <strong>איך זה עובד:</strong> הכניסו שם וטלפון → יפתח וואטסאפ עם ההזמנה לשרה 💕</div>
+<div class="modal-info">📋 <strong>איך זה עובד:</strong> הכניסו שם טלפון ופרטים → ההזמנה תגיע לשרה 💕</div>
 
-```
 <h4>💳 שיטת תשלום</h4>
 <div class="modal-pay">
 <div class="pay-opt" onclick="selectPay(this,'ביט 💙')"><span class="pay-icon">💙</span>ביט</div>
@@ -693,11 +691,9 @@ nav .nav-links{display:none}
 </div>
 </div>
 </div>
-```
 
-</div>
 
-<script>
+</div><script>
 var selProd={name:'',img:'',descFull:'',isCustom:false}, selPay='', selOcc='', wantsDelivery=false;
 
 function filterCat(cat,el){
@@ -885,226 +881,5 @@ document.getElementById('successWaLink').href = 'https://wa.me/972523394838?text
 
 document.getElementById('modalSuccess').style.display = 'block';
 }
-</script>
-
-<!-- CUSTOM BUILDER MODAL -->
-
-<div class="builder-overlay" id="builderOverlay" onclick="closeBuilderOut(event)">
-<div class="builder-modal">
-<div class="builder-header">
-<button class="builder-close" onclick="closeBuilder()">✕</button>
-<h2>✨ בונה המארז שלך</h2>
-<p>בחרו רכיבים – המחיר מתעדכן אוטומטית</p>
-</div>
-<div class="builder-body">
-
-```
-<!-- בסיס מוס -->
-<div class="builder-section">
-<div class="builder-section-title">🍮 בסיס מוס <span style="color:var(--copper);font-size:12px">(חובה לבחור אחד)</span></div>
-<div class="builder-section-sub">לוטוס / קינדר / פסקזמן / שוקולד חלב / שוקולד לבן / גבינה קראמבל</div>
-<div class="moss-options">
-<div class="moss-opt" onclick="selectMoss(this,'לב בינוני קוטר 12',60)">
-<div class="moss-opt-name">לב בינוני קוטר 12</div>
-<div class="moss-opt-price">₪60</div>
-</div>
-<div class="moss-opt" onclick="selectMoss(this,'לב גדול קוטר 16',80)">
-<div class="moss-opt-name">לב גדול קוטר 16</div>
-<div class="moss-opt-price">₪80</div>
-</div>
-<div class="moss-opt" onclick="selectMoss(this,'קריסטל עגול קוטר 16',90)">
-<div class="moss-opt-name">קריסטל עגול קוטר 16</div>
-<div class="moss-opt-price">₪90</div>
-</div>
-<div class="moss-opt" onclick="selectMoss(this,'קינוח כוס',15)">
-<div class="moss-opt-name">קינוח כוס</div>
-<div class="moss-opt-price">₪15</div>
-<div class="moss-opt-note">+ ₪10 קישוט הקדשה / 2 מיל</div>
-</div>
-</div>
-<div style="font-size:11px;color:var(--brown-light);font-weight:600;text-align:center;margin-top:2px">* תוספת קישוט הקדשה – ₪10 (2 מיל ש"ח)</div>
-</div>
-
-<!-- קינוחים -->
-<div class="builder-section">
-<div class="builder-section-title">🍰 קינוחים <span style="color:var(--brown-light);font-size:12px">(מחיר ליחידה)</span></div>
-<div class="builder-items" id="dessertItems">
-<div class="builder-item" data-name="קרם ברולה אישי" data-price="22">
-<div class="builder-item-right"><div><div class="builder-item-name">קרם ברולה אישי</div></div></div>
-<div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪22</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div>
-</div>
-<div class="builder-item" data-name="מיני מגנום פיסטוק/נוגט" data-price="15">
-<div class="builder-item-right"><div><div class="builder-item-name">מיני מגנום פיסטוק/נוגט</div></div></div>
-<div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪15</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div>
-</div>
-<div class="builder-item" data-name="טארט לימון" data-price="38" data-price2="22">
-<div class="builder-item-right"><div><div class="builder-item-name">טארט לימון</div><div class="builder-item-note">אישי ₪38 / זוגי ₪22</div></div></div>
-<div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪38</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div>
-</div>
-<div class="builder-item" data-name="טארט שוקולד" data-price="38" data-price2="22">
-<div class="builder-item-right"><div><div class="builder-item-name">טארט שוקולד</div><div class="builder-item-note">אישי ₪38 / זוגי ₪22</div></div></div>
-<div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪38</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div>
-</div>
-<div class="builder-item" data-name="ביגלה גדול מצופה שוקולד" data-price="7">
-<div class="builder-item-right"><div><div class="builder-item-name">ביגלה גדול מצופה שוקולד לבן/חלב</div></div></div>
-<div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪7</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div>
-</div>
-</div>
-</div>
-
-<!-- עוגיות -->
-<div class="builder-section">
-<div class="builder-section-title">🍪 עוגיות <span style="color:var(--brown-light);font-size:12px">(מחיר ליחידה)</span></div>
-<div class="builder-items">
-<div class="builder-item" data-name="לב אלפחורס" data-price="8"><div class="builder-item-right"><div><div class="builder-item-name">לב אלפחורס</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪8</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="מגולגלת קינדר" data-price="8"><div class="builder-item-right"><div><div class="builder-item-name">מגולגלת קינדר</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪8</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="שקדים פרלינה" data-price="8"><div class="builder-item-right"><div><div class="builder-item-name">שקדים פרלינה</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪8</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="כדור לוטוס/ריבת חלב" data-price="6"><div class="builder-item-right"><div><div class="builder-item-name">כדור לוטוס/ריבת חלב</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪6</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="חיתוכית בראוניז אמסטרדם" data-price="8"><div class="builder-item-right"><div><div class="builder-item-name">חיתוכית בראוניז אמסטרדם</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪8</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="חיתוכית בראוניז טריקולד" data-price="8"><div class="builder-item-right"><div><div class="builder-item-name">חיתוכית בראוניז טריקולד</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪8</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="כדור פררו" data-price="9"><div class="builder-item-right"><div><div class="builder-item-name">כדור פררו</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪9</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="עוגיית אמסטרדם" data-price="10"><div class="builder-item-right"><div><div class="builder-item-name">עוגיית אמסטרדם</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪10</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-</div>
-</div>
-
-<!-- פחזניות -->
-<div class="builder-section">
-<div class="builder-section-title">🥐 פחזניות קראמבל <span style="color:var(--brown-light);font-size:12px">(מחיר ליחידה)</span></div>
-<div class="builder-items">
-<div class="builder-item" data-name="פחזנית מילוי וניל" data-price="6"><div class="builder-item-right"><div><div class="builder-item-name">מילוי וניל</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪6</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="פחזנית מילוי פטיסייר" data-price="8"><div class="builder-item-right"><div><div class="builder-item-name">מילוי פטיסייר</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪8</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-<div class="builder-item" data-name="פחזנית מילוי מסקרפונה" data-price="8"><div class="builder-item-right"><div><div class="builder-item-name">מילוי מסקרפונה</div></div></div><div style="display:flex;align-items:center;gap:10px"><span class="builder-item-price">₪8</span><div class="builder-qty"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">0</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div></div></div>
-</div>
-</div>
-
-</div><!-- end builder-body -->
-
-<div class="builder-sticky">
-<div class="builder-total">
-<div><div class="builder-total-label">סה"כ משוער:</div><div class="builder-total-note" id="builderSummaryNote">בחרו בסיס מוס להתחיל</div></div>
-<div class="builder-total-price" id="builderTotal">₪0</div>
-</div>
-<button class="builder-btn" id="builderOrderBtn" onclick="submitBuilderOrder()" disabled>✨ שלחו הזמנה לשרה</button>
-</div>
-```
-
-</div>
-</div>
-
-<script>
-// ─── BUILDER LOGIC ───────────────────────────────
-var selMoss = null, selMossPrice = 0;
-var builderTotal = 0;
-
-function openCustomBuilder(){
-document.getElementById('builderOverlay').classList.add('open');
-document.body.style.overflow='hidden';
-}
-function closeBuilder(){
-document.getElementById('builderOverlay').classList.remove('open');
-document.body.style.overflow='';
-}
-function closeBuilderOut(e){
-if(e.target===document.getElementById('builderOverlay')) closeBuilder();
-}
-
-function selectMoss(el, name, price){
-document.querySelectorAll('.moss-opt').forEach(m=>m.classList.remove('selected'));
-el.classList.add('selected');
-selMoss = name;
-selMossPrice = price;
-updateBuilderTotal();
-}
-
-function changeQty(btn, delta){
-var qtySpan = btn.parentElement.querySelector('.qty-num');
-var current = parseInt(qtySpan.textContent);
-var newVal = Math.max(0, current + delta);
-qtySpan.textContent = newVal;
-var item = btn.closest('.builder-item');
-if(newVal > 0) item.classList.add('selected');
-else item.classList.remove('selected');
-updateBuilderTotal();
-}
-
-function updateBuilderTotal(){
-var total = selMossPrice;
-var items = [];
-if(selMoss) items.push(selMoss + ' – ₪' + selMossPrice);
-
-document.querySelectorAll('.builder-item').forEach(function(item){
-var qty = parseInt(item.querySelector('.qty-num').textContent);
-if(qty > 0){
-var price = parseInt(item.dataset.price);
-var name = item.dataset.name;
-total += price * qty;
-items.push(name + ' x' + qty + ' – ₪' + (price*qty));
-}
-});
-
-builderTotal = total;
-document.getElementById('builderTotal').textContent = '₪' + total;
-var note = selMoss ? (items.length > 1 ? items.length-1 + ' תוספות' : 'רק בסיס מוס') : 'בחרו בסיס מוס להתחיל';
-document.getElementById('builderSummaryNote').textContent = note;
-document.getElementById('builderOrderBtn').disabled = !selMoss;
-}
-
-function submitBuilderOrder(){
-if(!selMoss) return;
-
-// בנה סיכום הרכבה
-var lines = ['בסיס: ' + selMoss + ' (₪' + selMossPrice + ')'];
-document.querySelectorAll('.builder-item').forEach(function(item){
-var qty = parseInt(item.querySelector('.qty-num').textContent);
-if(qty > 0){
-lines.push(item.dataset.name + ' x' + qty + ' (₪' + (parseInt(item.dataset.price)*qty) + ')');
-}
-});
-lines.push('סה"כ: ₪' + builderTotal);
-
-var descFull = lines.join('\n');
-
-// פתח modal הזמנה רגיל עם פרטי ההרכבה
-closeBuilder();
-
-// מלא selProd ופתח modal
-selProd = {
-name: 'מארז מותאם אישית – הרכבה אישית',
-img: '',
-descFull: descFull,
-isCustom: true
-};
-
-// איפוס שדות
-document.getElementById('nameInput').value='';
-document.getElementById('phoneInput').value='';
-document.getElementById('noteInput').value='';
-document.getElementById('inscriptionInput').value='';
-document.getElementById('deliveryDate').value='';
-document.getElementById('deliveryAddress').value='';
-document.getElementById('cfColors').value='';
-document.getElementById('cfFreeText').value='';
-document.getElementById('modalForm').style.display='block';
-document.getElementById('modalSuccess').style.display='none';
-document.getElementById('confirmBar').style.display='none';
-document.getElementById('submitBtn').style.display='flex';
-document.querySelectorAll('.pay-opt').forEach(p=>p.classList.remove('selected'));
-document.querySelectorAll('.occ-chip').forEach(c=>c.classList.remove('selected'));
-wantsDelivery=false;
-document.getElementById('deliveryToggle').classList.remove('on');
-document.getElementById('deliveryAddressWrap').style.display='none';
-document.getElementById('customFields').style.display='block';
-document.getElementById('inscriptionArea').style.display='block';
-document.getElementById('mImgPlaceholder').style.display='flex';
-document.getElementById('mImg').style.display='none';
-document.getElementById('mTitle').textContent='✨ מארז מותאם אישית';
-document.getElementById('mDesc').textContent='ההרכבה שלך: ' + lines.slice(0,-1).join(' | ');
-selPay=''; selOcc='';
-
-document.getElementById('modalOverlay').classList.add('open');
-document.body.style.overflow='hidden';
-}
-</script>
-
-</body>
+</script></body>
 </html>
