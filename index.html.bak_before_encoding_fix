@@ -1,0 +1,1911 @@
+﻿<!DOCTYPE html>
+
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שרה | Home Made Bakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #fdf6ef;
+            --warm1: #f9ede0;
+            --warm2: #f2d9c0;
+            --copper: #c8704a;
+            --copper-dark: #a85535;
+            --copper-light: #e8905a;
+            --brown: #2d1a0e;
+            --brown-mid: #7a5040;
+            --brown-light: #9a7060;
+            --blush: #f5c6a8;
+            --rose: #e8956d;
+            --mint: #a8d5b5;
+            --green: #27ae60;
+            --gold: #d4a24e;
+            --gold-light: #f0c97a;
+            --wa: #25d366;
+            --wa-dark: #128c7e;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Assistant',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden}
+
+    /* ג”€ג”€ג”€ NAV ג”€ג”€ג”€ */
+    nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,239,0.97);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;border-bottom:1px solid var(--warm2);box-shadow:0 2px 20px rgba(200,112,74,0.1);direction:rtl}
+    .logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--brown);flex-shrink:0}
+    .logo span{color:var(--copper)}
+    .nav-links{display:flex;gap:6px;align-items:center}
+    .nav-link{color:var(--brown-mid);text-decoration:none;font-size:13px;font-weight:700;padding:6px 12px;border-radius:20px;transition:all .2s}
+    .nav-link:hover{background:var(--warm1);color:var(--copper)}
+    .nav-wa{background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;padding:9px 18px;border-radius:22px;font-weight:800;font-size:13px;text-decoration:none;box-shadow:0 4px 12px rgba(37,211,102,0.3);transition:transform .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0}
+    .nav-wa:hover{transform:scale(1.05)}
+
+    /* ג”€ג”€ג”€ HERO ג”€ג”€ג”€ */
+    .hero{min-height:100vh;background:linear-gradient(160deg,#fff8f2 0%,#fde8d0 40%,#f5d4b5 70%,#edd4b0 100%);display:flex;align-items:center;justify-content:center;padding:90px 5% 60px;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8704a' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .hero-floats{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .hf{position:absolute;border-radius:50%;opacity:0.12;animation:float 8s ease-in-out infinite}
+    .hf1{width:300px;height:300px;background:radial-gradient(circle,var(--copper),transparent);top:-80px;left:-80px;animation-delay:0s}
+    .hf2{width:200px;height:200px;background:radial-gradient(circle,var(--gold),transparent);bottom:20%;right:-60px;animation-delay:-3s}
+    .hf3{width:150px;height:150px;background:radial-gradient(circle,var(--rose),transparent);top:30%;left:10%;animation-delay:-5s}
+    @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.05)}}
+    .hero-inner{position:relative;z-index:2}
+    .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(200,112,74,0.12);border:1.5px solid rgba(200,112,74,0.25);color:var(--copper-dark);padding:7px 18px;border-radius:20px;font-size:11px;letter-spacing:2.5px;font-weight:800;margin-bottom:24px;text-transform:uppercase}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(48px,9vw,88px);font-weight:900;line-height:1;margin-bottom:18px;color:var(--brown)}
+    .hero h1 .accent{color:var(--copper);display:block}
+    .hero-desc{color:var(--brown-mid);font-size:16px;line-height:1.9;margin-bottom:34px;max-width:480px;margin-inline:auto;font-weight:600}
+    .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;padding:15px 34px;border-radius:30px;font-weight:800;font-size:15px;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(200,112,74,0.35);transition:all .3s;font-family:'Assistant',sans-serif}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(200,112,74,0.45)}
+    .btn-wa-hero{background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;padding:15px 34px;border-radius:30px;font-weight:800;font-size:15px;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,0.3);transition:all .3s;display:inline-block}
+    .btn-wa-hero:hover{transform:translateY(-3px)}
+    .hero-scroll{margin-top:40px;color:var(--brown-light);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;animation:bounce 2s infinite}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+    /* ג”€ג”€ג”€ TRUST BAR ג”€ג”€ג”€ */
+    .trust{background:linear-gradient(135deg,var(--brown) 0%,#4a2510 100%);padding:16px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+    .trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.9);font-size:13px;font-weight:700;padding:6px 20px;border-left:1px solid rgba(255,255,255,0.15)}
+    .trust-item:last-child{border-left:none}
+    .trust-item:first-child{border-left:none}
+
+    /* ג”€ג”€ג”€ SECTION SHARED ג”€ג”€ג”€ */
+    .section-header{text-align:center;margin-bottom:50px}
+    .sec-tag{color:var(--copper);font-size:11px;letter-spacing:3.5px;font-weight:800;text-transform:uppercase;margin-bottom:10px;display:block}
+    .section-header h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:var(--brown)}
+    .section-header p{color:var(--brown-light);font-size:14px;margin-top:10px;font-weight:600}
+
+    /* ג”€ג”€ג”€ CATALOG ג”€ג”€ג”€ */
+    .catalog{padding:90px 5%;background:var(--cream);position:relative}
+    .catalog::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--copper),var(--gold),var(--copper-light),var(--copper))}
+
+    .cat-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+    .cat-tab{background:#fff;border:2px solid var(--warm2);color:var(--brown-mid);padding:10px 22px;border-radius:24px;font-size:13px;font-weight:800;cursor:pointer;transition:all .3s;font-family:'Assistant',sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .cat-tab.active,.cat-tab:hover{background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(200,112,74,0.3)}
+
+    .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px;max-width:1160px;margin:0 auto}
+    .prod-card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,0.07);transition:all .35s;border:2px solid transparent;cursor:pointer}
+    .prod-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(200,112,74,0.14);border-color:var(--blush)}
+    .prod-img{height:210px;overflow:hidden;position:relative;background:var(--warm1)}
+    .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+    .prod-card:hover .prod-img img{transform:scale(1.07)}
+    .prod-ribbon{position:absolute;top:12px;right:12px;padding:5px 13px;border-radius:14px;font-size:11px;font-weight:800;z-index:2;letter-spacing:.5px}
+    .rb-best{background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff}
+    .rb-bday{background:linear-gradient(135deg,#e91e8c,#c2185b);color:#fff}
+    .rb-love{background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff}
+    .rb-num{background:linear-gradient(135deg,#9b59b6,#7d3c98);color:#fff}
+    .rb-tray{background:linear-gradient(135deg,var(--green),#1e8449);color:#fff}
+    .rb-custom{background:linear-gradient(135deg,var(--gold),#b8860b);color:#fff}
+    .prod-body{padding:20px;background:linear-gradient(160deg,#fff8f2,#fdeee0)}
+    .prod-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--brown);margin-bottom:7px}
+    .prod-desc{color:var(--brown-mid);font-size:13px;line-height:1.6;margin-bottom:16px;font-weight:600}
+    .prod-btn{width:100%;background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;border:none;padding:12px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif;transition:opacity .2s;pointer-events:none}
+    .prod-card:hover .prod-btn{opacity:.9}
+
+    /* ג”€ג”€ג”€ REVIEWS ג”€ג”€ג”€ */
+    .reviews{background:linear-gradient(160deg,#fff9f4,var(--warm1));padding:90px 5%;position:relative}
+    .reviews-layout{max-width:1020px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:50px;align-items:start}
+    .reviews-summary{background:linear-gradient(145deg,var(--brown),#4a2510);border-radius:26px;padding:36px 28px;text-align:center;position:sticky;top:80px;color:#fff}
+    .rs-score{font-family:'Playfair Display',serif;font-size:76px;font-weight:900;color:#fff;line-height:1}
+    .rs-stars{color:var(--gold-light);font-size:26px;margin:10px 0;letter-spacing:3px}
+    .rs-count{color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:26px;font-weight:600}
+    .rs-bars{text-align:right}
+    .rs-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .rs-bar-label{font-size:13px;color:rgba(255,255,255,0.8);font-weight:700;white-space:nowrap;min-width:48px}
+    .rs-bar-track{flex:1;background:rgba(255,255,255,0.15);border-radius:6px;height:8px;overflow:hidden}
+    .rs-bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--gold-light),var(--copper-light))}
+    .rs-bar-num{font-size:12px;color:rgba(255,255,255,0.5);min-width:18px}
+    .reviews-list{display:flex;flex-direction:column;gap:16px}
+    .review-card{background:#fff;border:1.5px solid var(--warm2);border-radius:18px;padding:22px;transition:all .3s;box-shadow:0 3px 12px rgba(0,0,0,0.04)}
+    .review-card:hover{border-color:var(--copper);box-shadow:0 8px 24px rgba(200,112,74,0.1)}
+    .rc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .rc-author{display:flex;align-items:center;gap:10px}
+    .rc-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--copper),var(--copper-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;flex-shrink:0}
+    .rc-name{font-weight:800;font-size:15px;color:var(--brown)}
+    .rc-loc{color:#bbb;font-size:11px;font-weight:600}
+    .rc-stars{color:var(--gold);font-size:15px;letter-spacing:1px}
+    .rc-text{color:#5a3a28;font-size:14px;line-height:1.8;font-style:italic;font-weight:600}
+
+    /* ג”€ג”€ג”€ INFO ג”€ג”€ג”€ */
+    .info-section{background:linear-gradient(135deg,var(--brown) 0%,#3d1f10 50%,#5a2d16 100%);padding:80px 5%;position:relative;overflow:hidden}
+    .info-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10S0 14.5 0 20s4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5 4.5-10 10-10s0 14.5 0 20-4.5 10-10 10-10-4.5-10-10z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .info-section .section-header{position:relative;z-index:1}
+    .info-section .sec-tag{color:var(--gold-light)}
+    .info-section .section-header h2{color:#fff}
+    .info-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;z-index:1}
+    .info-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(4px);border:1.5px solid rgba(255,255,255,0.12);border-radius:20px;padding:28px 20px;text-align:center;transition:all .3s}
+    .info-card:hover{background:rgba(255,255,255,0.13);border-color:rgba(200,112,74,0.5);transform:translateY(-4px)}
+    .info-icon{font-size:38px;margin-bottom:14px;display:block}
+    .info-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:10px}
+    .info-text{color:rgba(255,255,255,0.7);font-size:13px;line-height:1.75;font-weight:600}
+    .info-text strong{color:var(--gold-light)}
+
+    /* ג”€ג”€ג”€ KOSHER BADGE ג”€ג”€ג”€ */
+    .kosher-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),#c8860a);color:#fff;padding:8px 20px;border-radius:20px;font-size:12px;font-weight:800;letter-spacing:1px;margin-top:12px;box-shadow:0 4px 14px rgba(212,162,78,0.4)}
+
+    /* ג”€ג”€ג”€ CTA ג”€ג”€ג”€ */
+    .cta{background:linear-gradient(135deg,#3d1f10,#5a2d16);color:#fff;padding:80px 5%;text-align:center;position:relative;overflow:hidden}
+    .cta::before{content:'ג¦';position:absolute;font-size:300px;opacity:.03;top:-60px;left:-40px;pointer-events:none}
+    .cta h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,42px);font-weight:900;margin-bottom:14px;position:relative}
+    .cta h2 span{color:var(--gold-light)}
+    .cta p{font-size:15px;opacity:.8;margin-bottom:32px;max-width:440px;margin-inline:auto;line-height:1.8;font-weight:600;position:relative}
+    .btn-wa-big{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;padding:16px 38px;border-radius:32px;font-weight:800;font-size:16px;text-decoration:none;box-shadow:0 10px 28px rgba(37,211,102,0.35);transition:all .3s;position:relative}
+    .btn-wa-big:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(37,211,102,0.45)}
+
+    /* ג”€ג”€ג”€ FOOTER ג”€ג”€ג”€ */
+    footer{background:#1a0e06;padding:40px 5% 24px;color:rgba(255,255,255,.5);text-align:center}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#fff;margin-bottom:12px}
+    .footer-brand span{color:var(--copper-light)}
+    .footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+    .footer-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}
+    .footer-links a:hover{color:var(--copper-light)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-size:12px;font-weight:600}
+
+    /* ג”€ג”€ג”€ MODAL ג”€ג”€ג”€ */
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,5,0.65);z-index:500;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
+    .modal-overlay.open{display:flex}
+    .modal{background:#fff;border-radius:26px;max-width:460px;width:100%;position:relative;max-height:92vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,0.3)}
+    .modal-img{width:100%;height:210px;object-fit:cover;border-radius:26px 26px 0 0;display:block}
+    .modal-body{padding:26px}
+    .modal-close{position:absolute;top:14px;left:14px;background:rgba(0,0,0,0.45);border:none;width:32px;height:32px;border-radius:50%;font-size:14px;cursor:pointer;color:#fff;z-index:10;transition:background .2s}
+    .modal-close:hover{background:rgba(0,0,0,0.7)}
+    .modal-prod-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--brown);margin-bottom:6px}
+    .modal-prod-desc{color:var(--brown-light);font-size:13px;margin-bottom:18px;line-height:1.65;font-weight:600}
+    .modal-info{background:var(--warm1);border-radius:14px;padding:13px 15px;margin-bottom:18px;font-size:13px;color:var(--brown-mid);line-height:1.7;border:1.5px solid var(--warm2);font-weight:600}
+    .modal h4{font-size:13px;font-weight:800;color:var(--brown);margin-bottom:10px;letter-spacing:.5px}
+    .modal-pay{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
+    .pay-opt{border:2px solid var(--warm2);border-radius:14px;padding:11px 6px;text-align:center;cursor:pointer;transition:all .25s;font-size:13px;color:var(--brown-mid);font-weight:700;font-family:'Assistant',sans-serif}
+    .pay-opt.selected{border-color:var(--copper);background:#fff8f3;color:var(--copper)}
+    .pay-icon{font-size:22px;display:block;margin-bottom:5px}
+    .modal-input{width:100%;border:2px solid var(--warm2);border-radius:14px;padding:12px 16px;font-size:15px;font-family:'Assistant',sans-serif;color:var(--brown);outline:none;transition:border .25s;margin-bottom:12px;direction:rtl;font-weight:600;background:#fff}
+    .modal-input:focus{border-color:var(--copper)}
+    .modal-submit{width:100%;background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;border:none;padding:15px;border-radius:16px;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Assistant',sans-serif;transition:opacity .2s;box-shadow:0 6px 18px rgba(37,211,102,0.3)}
+    .modal-submit:hover{opacity:.93}
+    .modal-success{text-align:center;padding:34px 20px;display:none}
+    .success-icon{font-size:62px;margin-bottom:14px}
+    .success-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--brown);margin-bottom:10px}
+    .success-text{color:var(--brown-mid);font-size:14px;line-height:1.75;font-weight:600}
+
+    /* custom textarea */
+    .custom-note-area{background:linear-gradient(135deg,#fff8f0,#fdf0e5);border:2px solid var(--warm2);border-radius:16px;padding:16px;margin-bottom:14px}
+    .custom-note-area h4{margin-bottom:10px;color:var(--copper-dark)}
+    .custom-note-area .modal-input{margin-bottom:0;background:rgba(255,255,255,0.8)}
+
+    /* custom fields box */
+    .custom-fields-box{background:linear-gradient(135deg,#fff5e8,#ffecd6);border:2px dashed var(--copper-light);border-radius:18px;padding:18px;margin-bottom:14px}
+    .cf-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--copper-dark);margin-bottom:14px;text-align:center}
+    .occasion-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+    .occ-chip{background:#fff;border:2px solid var(--warm2);border-radius:20px;padding:7px 14px;font-size:13px;font-weight:700;color:var(--brown-mid);cursor:pointer;transition:all .2s;font-family:'Assistant',sans-serif}
+    .occ-chip.selected{background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;border-color:transparent}
+
+    /* delivery box */
+    .delivery-box{background:linear-gradient(135deg,#f0f9ff,#dff0fb);border:2px solid #a8d8f0;border-radius:16px;padding:14px 16px;margin-bottom:14px}
+    .delivery-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:14px;font-weight:700;color:#1a4d6e}
+    .delivery-price{font-size:12px;color:#c8704a;font-weight:800;margin-right:6px}
+    .delivery-toggle-wrap{flex-shrink:0}
+    .delivery-toggle{width:44px;height:24px;background:#ccc;border-radius:12px;position:relative;transition:background .25s;cursor:pointer}
+    .delivery-toggle.on{background:linear-gradient(135deg,#25d366,#128c7e)}
+    .toggle-knob{width:20px;height:20px;background:#fff;border-radius:50%;position:absolute;top:2px;right:2px;transition:transform .25s;box-shadow:0 1px 4px rgba(0,0,0,0.2)}
+    .delivery-toggle.on .toggle-knob{transform:translateX(-20px)}
+    .delivery-address-wrap{margin-top:12px}
+    .delivery-address-wrap .modal-input{margin-bottom:0}
+
+    /* confirm */
+    .confirm-bar{background:linear-gradient(135deg,#f0faf4,#d6f5e3);border:2px solid #27ae60;border-radius:18px;padding:18px;margin-bottom:14px}
+    .confirm-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1a6e35;margin-bottom:10px;text-align:center}
+    .confirm-summary{background:rgba(255,255,255,0.7);border-radius:12px;padding:12px;font-size:13px;color:#2d4a35;line-height:1.8;margin-bottom:14px;font-weight:600;white-space:pre-line}
+    .confirm-btns{display:flex;gap:10px}
+    .confirm-yes{flex:2;background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;border:none;padding:13px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif}
+    .confirm-no{flex:1;background:#fff;color:var(--brown-mid);border:2px solid var(--warm2);padding:13px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif}
+    .custom-builder{background:linear-gradient(135deg,#fff8f0,#ffeedf);border:2px solid var(--warm2);border-radius:18px;padding:14px;margin-bottom:14px}
+    .builder-title{font-weight:800;color:var(--copper-dark);margin-bottom:10px}
+    .builder-sub{font-size:12px;color:var(--brown-light);margin-bottom:10px}
+    .builder-group{border:1px solid var(--warm2);border-radius:14px;padding:10px;margin-bottom:10px;background:#fff}
+    .builder-group h5{font-size:13px;margin-bottom:8px;color:var(--brown)}
+    .builder-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;margin-bottom:6px}
+    .builder-name{font-size:13px;color:var(--brown-mid);font-weight:700}
+    .builder-price{font-size:12px;color:var(--copper-dark);font-weight:800}
+    .builder-qty{width:72px;border:2px solid var(--warm2);border-radius:10px;padding:6px 8px;font-size:14px;font-weight:700;text-align:center}
+    .builder-qty:focus{outline:none;border-color:var(--copper)}
+    .builder-total{background:#fff;border:2px dashed var(--copper-light);border-radius:14px;padding:10px 12px;text-align:center;font-weight:900;color:var(--copper-dark);margin:8px 0}
+    .builder-actions{display:flex;gap:8px}
+    .builder-next,.builder-back{flex:1;border:none;border-radius:14px;padding:12px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif}
+    .builder-next{background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff}
+    .builder-back{background:#fff;color:var(--brown-mid);border:2px solid var(--warm2);margin-bottom:10px}
+    .builder-note{font-size:12px;color:#b23b2a;display:none;margin-top:6px}
+    @media(max-width:900px){
+        .info-grid{grid-template-columns:1fr 1fr}
+        .reviews-layout{grid-template-columns:1fr}
+        .reviews-summary{position:static}
+    }
+    @media(max-width:600px){
+        .info-grid{grid-template-columns:1fr 1fr}
+        .trust{gap:0}
+        .trust-item{font-size:11px;padding:5px 10px}
+        nav .nav-links{display:none}
+    }
+    @media(max-width:400px){
+        .info-grid{grid-template-columns:1fr}
+    }
+
+    /* entrance animations */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .hero-inner>*{animation:fadeUp .7s ease both}
+    .hero-inner>.hero-badge{animation-delay:.1s}
+    .hero-inner>h1{animation-delay:.25s}
+    .hero-inner>.hero-desc{animation-delay:.4s}
+    .hero-inner>.hero-btns{animation-delay:.55s}
+    .hero-inner>.hero-scroll{animation-delay:.7s}
+    </style>
+
+</head>
+<body>
+
+<nav>
+    <a class="logo" href="#">׳©׳¨׳” <span>ג₪</span></a>
+    <div class="nav-links">
+        <a href="#catalog" class="nav-link">׳§׳˜׳׳•׳’</a>
+        <a href="#reviews" class="nav-link">׳‘׳™׳§׳•׳¨׳•׳×</a>
+        <a href="#info" class="nav-link">׳׳™׳“׳¢</a>
+    </div>
+    <a href="https://wa.me/972523394838" target="_blank" class="nav-wa">נ’¬ ׳•׳•׳׳˜׳¡׳׳₪</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-floats">
+        <div class="hf hf1"></div>
+        <div class="hf hf2"></div>
+        <div class="hf hf3"></div>
+    </div>
+    <div class="hero-inner">
+        <div class="hero-badge">נ  Home Made Bakery ֲ· ׳—׳¨׳™׳©</div>
+        <h1>׳׳×׳•׳§׳™׳<span class="accent">׳׳”׳׳‘ ג₪</span></h1>
+        <p class="hero-desc">׳׳׳¨׳–׳™ ׳׳×׳•׳§׳™׳, ׳¢׳•׳’׳•׳× ׳׳¡׳₪׳¨׳™׳ ׳•׳׳’׳©׳™׳ ׳׳¨׳”׳™׳‘׳™׳ ג€“ ׳”׳›׳ ׳¢׳©׳•׳™ ׳‘׳¢׳‘׳•׳“׳× ׳™׳“ ׳¢׳ ׳׳”׳‘׳”. ׳›׳ ׳׳׳¨׳– ׳׳•׳×׳׳ ׳׳™׳©׳™׳× ׳׳₪׳™ ׳‘׳§׳©׳×׳›׳.</p>
+        <div class="hero-btns">
+            <button class="btn-primary" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">נ›’ ׳׳§׳˜׳׳•׳’ ׳”׳׳׳</button>
+            <a href="https://wa.me/972523394838" target="_blank" class="btn-wa-hero">נ’¬ ׳©׳׳—׳• ׳”׳•׳“׳¢׳”</a>
+        </div>
+        <div class="hero-scroll">ג†“ ׳’׳׳’׳׳• ׳׳׳˜׳” ג†“</div>
+    </div>
+</section>
+
+<div class="trust">
+    <div class="trust-item">נ  ׳¢׳‘׳•׳“׳× ׳™׳“ ׳‘׳׳‘׳“</div>
+    <div class="trust-item">ג¨ ׳׳¨׳›׳™׳‘׳™׳ ׳׳™׳›׳•׳×׳™׳™׳</div>
+    <div class="trust-item">נ¨ ׳”׳×׳׳׳” ׳׳™׳©׳™׳×</div>
+    <div class="trust-item">נ›µ ׳׳©׳׳•׳— ׳‘׳—׳¨׳™׳© ג‚×10</div>
+    <div class="trust-item">נ’³ ׳‘׳™׳˜ / ׳׳–׳•׳׳</div>
+</div>
+
+<section class="catalog" id="catalog">
+    <div class="section-header">
+        <span class="sec-tag">נ›’ ׳”׳§׳˜׳׳•׳’</span>
+        <h2>׳‘׳—׳¨׳• ׳׳× ׳”׳׳׳¨׳– ׳©׳׳›׳</h2>
+        <p>׳׳—׳¦׳• ׳¢׳ ׳׳•׳¦׳¨, ׳”׳›׳ ׳™׳¡׳• ׳©׳ ׳•׳˜׳׳₪׳•׳ ג€“ ׳•׳©׳¨׳” ׳×׳—׳–׳•׳¨ ׳׳׳™׳›׳ נ’•</p>
+    </div>
+    <div class="cat-tabs">
+        <div class="cat-tab active" onclick="filterCat('all',this)">נ« ׳”׳›׳</div>
+        <div class="cat-tab" onclick="filterCat('maarz',this)">נ ׳׳׳¨׳–׳™׳</div>
+        <div class="cat-tab" onclick="filterCat('mispar',this)">נ”¢ ׳¢׳•׳’׳•׳× ׳׳¡׳₪׳¨׳™׳</div>
+        <div class="cat-tab" onclick="filterCat('mgash',this)">נ× ׳׳’׳©׳™׳</div>
+        <div class="cat-tab" onclick="filterCat('custom',this)">ג¨ ׳׳•׳×׳׳ ׳׳™׳©׳™׳×</div>
+    </div>
+    <div class="prod-grid" id="prodGrid">
+
+        <!-- MAARATZIM -->
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳‘ ׳׳•׳¡ ׳’׳“׳•׳ ׳¢׳ ׳›׳™׳×׳•׳‘ ׳׳™׳©׳™ + ׳₪׳—׳–׳ ׳™׳•׳× ׳§׳¨׳׳‘׳ ׳׳¡׳‘׳™׳‘" onclick="openModal(this)">
+            <div class="prod-img"><img src="mousse_box.jpg" alt="׳׳׳¨׳– ׳׳•׳¡ ׳׳‘"><div class="prod-ribbon rb-best">ג­ ׳₪׳•׳₪׳•׳׳¨׳™</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳׳‘ ׳׳•׳¡ + ׳₪׳—׳–׳ ׳™׳•׳×</div>
+                <div class="prod-desc">׳׳‘ ׳׳•׳¡ ׳’׳“׳•׳ ׳¢׳ ׳›׳™׳×׳•׳‘ ׳׳™׳©׳™ + ׳₪׳—׳–׳ ׳™׳•׳× ׳§׳¨׳׳‘׳ ׳׳¡׳‘׳™׳‘</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳•׳¡ ׳¢׳’׳•׳ ׳’׳“׳•׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳׳’׳•׳׳’׳׳•׳× ׳§׳™׳ ׳“׳¨ + ׳׳׳₪׳—׳•׳¨׳¡" onclick="openModal(this)">
+            <div class="prod-img"><img src="mousse_big.jpg" alt="׳׳׳¨׳– ׳׳•׳¡ ׳’׳“׳•׳ ׳׳₪׳ ׳§"><div class="prod-ribbon rb-bday">נ‚ ׳׳™׳•׳—׳“</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳׳•׳¡ ׳’׳“׳•׳ ׳׳₪׳ ׳§</div>
+                <div class="prod-desc">׳׳•׳¡ ׳¢׳’׳•׳ ׳’׳“׳•׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳׳’׳•׳׳’׳׳•׳× ׳§׳™׳ ׳“׳¨ + ׳׳׳₪׳—׳•׳¨׳¡</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳•׳¡ ׳¢׳’׳•׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳׳’׳•׳׳’׳׳•׳× ׳§׳™׳ ׳“׳¨" onclick="openModal(this)">
+            <div class="prod-img"><img src="box1.jpg" alt="׳׳׳¨׳– ׳™׳•׳ ׳”׳•׳׳“׳×"><div class="prod-ribbon rb-bday">נ‚ ׳™׳•׳ ׳”׳•׳׳“׳×</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳™׳•׳ ׳”׳•׳׳“׳×</div>
+                <div class="prod-desc">׳׳•׳¡ ׳¢׳’׳•׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳׳’׳•׳׳’׳׳•׳× ׳§׳™׳ ׳“׳¨</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳‘ ׳׳•׳¡ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳₪׳×׳¢׳•׳×" onclick="openModal(this)">
+            <div class="prod-img"><img src="box2.jpg" alt="׳׳׳¨׳– ׳׳‘"><div class="prod-ribbon rb-best">ג­ ׳₪׳•׳₪׳•׳׳¨׳™</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳׳‘ ׳׳•׳¡ + ׳”׳₪׳×׳¢׳•׳×</div>
+                <div class="prod-desc">׳׳‘ ׳׳•׳¡ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳₪׳×׳¢׳•׳×</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳•׳¡ ׳׳‘׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳₪׳×׳¢׳•׳×" onclick="openModal(this)">
+            <div class="prod-img"><img src="box3.jpg" alt="׳׳׳¨׳– ׳׳™׳ ׳™׳׳׳™׳¡׳˜׳™"><div class="prod-ribbon rb-love">נ’ ׳׳×׳ ׳”</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳׳™׳ ׳™׳׳׳™׳¡׳˜׳™</div>
+                <div class="prod-desc">׳׳•׳¡ ׳׳‘׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳₪׳×׳¢׳•׳×</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳‘ ׳׳‘׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳›׳ ׳׳”׳›׳" onclick="openModal(this)">
+            <div class="prod-img"><img src="box4.jpg" alt="׳׳׳¨׳– ׳×׳•׳“׳” ׳¨׳‘׳”"><div class="prod-ribbon rb-love">נ₪ ׳×׳•׳“׳”</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳”׳›׳ ׳׳”׳›׳ ג€“ ׳×׳•׳“׳” ׳¨׳‘׳”</div>
+                <div class="prod-desc">׳׳‘ ׳׳‘׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳›׳ ׳׳”׳›׳</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳‘ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳›׳ ׳׳”׳›׳" onclick="openModal(this)">
+            <div class="prod-img"><img src="box5.jpg" alt="׳׳׳¨׳– ׳׳™׳•׳—׳“ ׳™׳•׳ ׳”׳•׳׳“׳×"><div class="prod-ribbon rb-bday">נ‚ ׳™׳•׳ ׳”׳•׳׳“׳×</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳׳™׳•׳—׳“ ׳™׳•׳ ׳”׳•׳׳“׳×</div>
+                <div class="prod-desc">׳׳‘ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳›׳ ׳׳”׳›׳</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳‘ ׳׳‘׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳׳׳₪׳—׳•׳¨׳¡ + ׳׳’׳•׳׳’׳׳•׳× ׳§׳™׳ ׳“׳¨" onclick="openModal(this)">
+            <div class="prod-img"><img src="box6.jpg" alt="׳׳׳¨׳– ׳׳“׳ ׳™׳§׳¨"><div class="prod-ribbon rb-love">נ’ ׳׳׳“׳ ׳™׳§׳¨</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳׳“׳ ׳™׳§׳¨</div>
+                <div class="prod-desc">׳׳‘ ׳׳‘׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳׳׳₪׳—׳•׳¨׳¡ + ׳׳’׳•׳׳’׳׳•׳× ׳§׳™׳ ׳“׳¨</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="maarz" data-desc-full="׳׳‘ ׳׳‘׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳₪׳×׳¢׳•׳×" onclick="openModal(this)">
+            <div class="prod-img"><img src="box7.jpg" alt="׳׳׳¨׳– ׳”׳¢׳¨׳›׳” ׳׳™׳•׳—׳“"><div class="prod-ribbon rb-love">׳”׳¢׳¨׳›׳”</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳׳¨׳– ׳”׳¢׳¨׳›׳” ׳׳™׳•׳—׳“</div>
+                <div class="prod-desc">׳׳‘ ׳׳‘׳ ׳¢׳ ׳›׳™׳×׳•׳‘ + ׳”׳₪׳×׳¢׳•׳×</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <!-- NUMBERS -->
+        <div class="prod-card" data-cat="mispar" data-desc-full="׳¢׳•׳’׳× ׳׳¡׳₪׳¨׳™׳ ׳—׳“ ׳¡׳₪׳¨׳×׳™ ׳¢׳ ׳׳׳×׳§׳™׳, ׳׳¨׳©׳׳׳• ׳•׳©׳•׳§׳•׳׳“׳™׳" onclick="openModal(this)">
+            <div class="prod-img"><img src="number1.jpg" alt="׳¢׳•׳’׳× ׳׳¡׳₪׳¨׳™׳ ׳—׳“ ׳¡׳₪׳¨׳×׳™"><div class="prod-ribbon rb-num">נ”¢ ׳—׳“ ׳¡׳₪׳¨׳×׳™</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳¢׳•׳’׳× ׳׳¡׳₪׳¨׳™׳ ג€“ ׳—׳“ ׳¡׳₪׳¨׳×׳™</div>
+                <div class="prod-desc">׳¢׳•׳’׳× ׳׳¡׳₪׳¨׳™׳ ׳¢׳ ׳׳׳×׳§׳™׳, ׳׳¨׳©׳׳׳• ׳•׳©׳•׳§׳•׳׳“׳™׳</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="mispar" data-desc-full="׳¢׳•׳’׳× ׳׳¡׳₪׳¨ ׳“׳• ׳¡׳₪׳¨׳×׳™ ׳¢׳ ׳׳׳×׳§׳™׳, ׳׳¨׳©׳׳׳•" onclick="openModal(this)">
+            <div class="prod-img"><img src="number2.jpg" alt="׳¢׳•׳’׳× ׳׳¡׳₪׳¨׳™׳ ׳“׳• ׳¡׳₪׳¨׳×׳™"><div class="prod-ribbon rb-num">נ”¢ ׳“׳• ׳¡׳₪׳¨׳×׳™</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳¢׳•׳’׳× ׳׳¡׳₪׳¨׳™׳ ג€“ ׳“׳• ׳¡׳₪׳¨׳×׳™</div>
+                <div class="prod-desc">׳¢׳•׳’׳× ׳׳¡׳₪׳¨ ׳“׳• ׳¡׳₪׳¨׳×׳™ ׳¢׳ ׳׳׳×׳§׳™׳, ׳׳¨׳©׳׳׳•</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="mispar" data-desc-full="׳¢׳•׳’׳× ׳׳¡׳₪׳¨ ׳—׳“ ׳¡׳₪׳¨׳×׳™ ׳¢׳ ׳׳׳×׳§׳™׳, ׳׳¨׳©׳׳׳• ׳•׳§׳¨׳ ׳£ ׳‘׳¦׳‘׳¢׳™׳ ׳•׳¨׳•׳“ ׳•׳׳‘׳" onclick="openModal(this)">
+            <div class="prod-img"><img src="number3.jpg" alt="׳¢׳•׳’׳× ׳׳¡׳₪׳¨ ׳•׳¨׳•׳“ ׳׳‘׳"><div class="prod-ribbon rb-num">נ”¢ ׳•׳¨׳•׳“ ׳•׳׳‘׳</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳¢׳•׳’׳× ׳׳¡׳₪׳¨׳™׳ ג€“ ׳•׳¨׳•׳“ ׳•׳׳‘׳</div>
+                <div class="prod-desc">׳¢׳•׳’׳× ׳׳¡׳₪׳¨ ׳—׳“ ׳¡׳₪׳¨׳×׳™ ׳¢׳ ׳׳׳×׳§׳™׳, ׳׳¨׳©׳׳׳• ׳•׳§׳¨׳ ׳£ ׳‘׳¦׳‘׳¢׳™׳ ׳•׳¨׳•׳“ ׳•׳׳‘׳</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <!-- TRAYS -->
+        <div class="prod-card" data-cat="mgash" data-desc-full="׳׳’׳© ׳׳×׳•׳§׳™׳ ׳’׳“׳•׳: ׳₪׳—׳–׳ ׳™׳•׳× + ׳׳’׳•׳׳’׳׳•׳× + ׳¢׳•׳’׳™׳•׳× + ׳׳׳₪׳—׳•׳¨׳¡" onclick="openModal(this)">
+            <div class="prod-img"><img src="sweet_tray1.jpg" alt="׳׳’׳© ׳׳×׳•׳§׳™׳ ׳’׳“׳•׳"><div class="prod-ribbon rb-tray">נ× ׳׳’׳©</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳’׳© ׳׳×׳•׳§׳™׳ ׳’׳“׳•׳</div>
+                <div class="prod-desc">׳₪׳—׳–׳ ׳™׳•׳× | ׳׳’׳•׳׳’׳׳•׳× | ׳¢׳•׳’׳™׳•׳× | ׳׳׳₪׳—׳•׳¨׳¡</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="mgash" data-desc-full="׳׳’׳© ׳׳×׳•׳§׳™׳ ׳׳׳ ׳₪׳—׳–׳ ׳™׳•׳×: ׳׳’׳•׳׳’׳׳•׳× + ׳¢׳•׳’׳™׳•׳× + ׳׳׳₪׳—׳•׳¨׳¡" onclick="openModal(this)">
+            <div class="prod-img"><img src="sweet_tray2.jpg" alt="׳׳’׳© ׳׳׳ ׳₪׳—׳–׳ ׳™׳•׳×"><div class="prod-ribbon rb-tray">נ× ׳׳’׳©</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳’׳© ׳׳×׳•׳§׳™׳ ג€“ ׳׳׳ ׳₪׳—׳–׳ ׳™׳•׳×</div>
+                <div class="prod-desc">׳׳’׳•׳׳’׳׳•׳× | ׳¢׳•׳’׳™׳•׳× | ׳׳׳₪׳—׳•׳¨׳¡</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="mgash" data-desc-full="׳׳’׳© ׳׳‘׳‘׳•׳×: ׳§׳¨׳ ׳‘׳•׳¨׳׳” + ׳׳’׳•׳׳’׳׳•׳× ׳§׳™׳ ׳“׳¨ + ׳¢׳•׳’׳™׳•׳×" onclick="openModal(this)">
+            <div class="prod-img"><img src="sweet_tray3.jpg" alt="׳׳’׳© ׳׳‘׳‘׳•׳×"><div class="prod-ribbon rb-tray">נ× ׳׳’׳©</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳’׳© ׳׳‘׳‘׳•׳×</div>
+                <div class="prod-desc">׳§׳¨׳ ׳‘׳•׳¨׳׳” | ׳׳’׳•׳׳’׳׳•׳× ׳§׳™׳ ׳“׳¨ | ׳¢׳•׳’׳™׳•׳×</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="mgash" data-desc-full="׳׳’׳©: ׳₪׳—׳–׳ ׳™׳•׳× + ׳׳’׳•׳׳’׳׳•׳× + ׳›׳“׳•׳¨׳™׳" onclick="openModal(this)">
+            <div class="prod-img"><img src="sweet_tray4.jpg" alt="׳׳’׳© ׳₪׳—׳–׳ ׳™׳•׳× ׳›׳“׳•׳¨׳™׳"><div class="prod-ribbon rb-tray">נ× ׳׳’׳©</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳’׳© ׳₪׳—׳–׳ ׳™׳•׳× ׳•׳›׳“׳•׳¨׳™׳</div>
+                <div class="prod-desc">׳₪׳—׳–׳ ׳™׳•׳× | ׳׳’׳•׳׳’׳׳•׳× | ׳›׳“׳•׳¨׳™׳</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <div class="prod-card" data-cat="mgash" data-desc-full="׳׳’׳©: ׳₪׳—׳–׳ ׳™׳•׳× + ׳¢׳•׳’׳™׳•׳× + ׳¢׳•׳’׳™׳•׳× ׳׳׳¡׳˜׳¨׳“׳" onclick="openModal(this)">
+            <div class="prod-img"><img src="sweet_tray5.jpg" alt="׳׳’׳© ׳׳׳¡׳˜׳¨׳“׳"><div class="prod-ribbon rb-best">ג­ ׳₪׳•׳₪׳•׳׳¨׳™</div></div>
+            <div class="prod-body">
+                <div class="prod-name">׳׳’׳© ׳׳׳¡׳˜׳¨׳“׳</div>
+                <div class="prod-desc">׳₪׳—׳–׳ ׳™׳•׳× | ׳¢׳•׳’׳™׳•׳× | ׳¢׳•׳’׳™׳•׳× ׳׳׳¡׳˜׳¨׳“׳</div>
+                <button class="prod-btn">נ›’ ׳׳”׳–׳׳ ׳”</button>
+            </div>
+        </div>
+
+        <!-- CUSTOM -->
+        <div class="prod-card" data-cat="custom" data-desc-full="׳׳׳¨׳– ׳׳•׳×׳׳ ׳׳™׳©׳™׳× ׳׳₪׳™ ׳”׳‘׳§׳©׳” ׳©׳׳ ג€“ ׳¡׳₪׳¨׳• ׳׳©׳¨׳” ׳׳” ׳׳×׳ ׳¨׳•׳¦׳™׳!" onclick="openModal(this)">
+            <div class="prod-img" style="background:linear-gradient(135deg,#fde8c8,#f5c87a);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px">
+                <span style="font-size:64px">ג¨</span>
+                <span style="font-family:'Playfair Display',serif;font-size:18px;color:#7a5010;font-weight:700">׳׳׳¨׳– ׳—׳׳•׳׳•׳×</span>
+            </div>
+            <div class="prod-body">
+                <div class="prod-ribbon rb-custom" style="position:static;display:inline-block;margin-bottom:10px">ג¨ ׳׳•׳×׳׳ ׳׳™׳©׳™׳×</div>
+                <div class="prod-name">׳׳׳¨׳– ׳׳•׳×׳׳ ׳׳™׳©׳™׳×</div>
+                <div class="prod-desc">׳¡׳₪׳¨׳• ׳׳©׳¨׳” ׳‘׳“׳™׳•׳§ ׳׳” ׳׳×׳ ׳¨׳•׳¦׳™׳ ג€“ ׳›׳™׳×׳•׳‘, ׳¦׳‘׳¢׳™׳, ׳×׳›׳•׳׳” ג€“ ׳•׳”׳™׳ ׳×׳‘׳ ׳” ׳‘׳©׳‘׳™׳׳›׳ ׳׳׳¨׳– ׳—׳׳•׳׳•׳×!</div>
+                <button class="prod-btn">ג¨ ׳‘׳ ׳• ׳׳× ׳”׳׳׳¨׳– ׳©׳׳›׳</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section class="reviews" id="reviews">
+    <div class="section-header">
+        <span class="sec-tag">ג­ ׳‘׳™׳§׳•׳¨׳•׳×</span>
+        <h2>׳׳” ׳׳•׳׳¨׳•׳× ׳”׳׳§׳•׳—׳•׳×</h2>
+    </div>
+    <div class="reviews-layout">
+        <div class="reviews-summary">
+            <div class="rs-score">4.9</div>
+            <div class="rs-stars">ג˜…ג˜…ג˜…ג˜…ג˜…</div>
+            <div class="rs-count">׳׳‘׳•׳¡׳¡ ׳¢׳ 47 ׳‘׳™׳§׳•׳¨׳•׳×</div>
+            <div class="rs-bars">
+                <div class="rs-bar-row"><div class="rs-bar-label">5 ג˜…</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:92%"></div></div><div class="rs-bar-num">43</div></div>
+                <div class="rs-bar-row"><div class="rs-bar-label">4 ג˜…</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:8%"></div></div><div class="rs-bar-num">4</div></div>
+                <div class="rs-bar-row"><div class="rs-bar-label">3 ג˜…</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:0%"></div></div><div class="rs-bar-num">0</div></div>
+            </div>
+        </div>
+        <div class="reviews-list">
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">׳</div><div><div class="rc-name">׳׳™׳›׳ ׳›.</div><div class="rc-loc">׳—׳¨׳™׳©</div></div></div><div class="rc-stars">ג˜…ג˜…ג˜…ג˜…ג˜…</div></div><div class="rc-text">"׳”׳–׳׳ ׳×׳™ ׳׳׳¨׳– ׳׳™׳•׳ ׳”׳•׳׳“׳× ׳©׳ ׳”׳‘׳× ׳©׳׳™ ׳•׳™׳¦׳ ׳₪׳©׳•׳˜ ׳׳“׳”׳™׳! ׳›׳•׳׳ ׳©׳׳׳• ׳׳׳™׳₪׳”. ׳”׳›׳™׳×׳•׳‘ ׳”׳™׳” ׳׳•׳©׳׳, ׳”׳˜׳¢׳ ׳׳¢׳•׳׳”. ׳©׳¨׳” ׳׳׳•׳₪׳”!"</div></div>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">׳¨</div><div><div class="rc-name">׳¨׳—׳ ׳.</div><div class="rc-loc">׳—׳¨׳™׳©</div></div></div><div class="rc-stars">ג˜…ג˜…ג˜…ג˜…ג˜…</div></div><div class="rc-text">"׳”׳–׳׳ ׳×׳™ ׳׳׳¨׳– ׳׳׳׳ ׳©׳׳™ ׳-60. ׳”׳™׳ ׳׳ ׳¨׳¦׳×׳” ׳׳׳›׳•׳ ׳›׳™ ׳–׳” ׳”׳™׳” ׳™׳₪׳” ׳׳“׳™! ׳©׳¨׳” ׳¢׳•׳©׳” ׳¢׳‘׳•׳“׳” ׳‘׳¨׳׳” ׳”׳›׳™ ׳’׳‘׳•׳”׳”, ׳׳׳׳™׳¦׳” ׳‘׳—׳•׳!"</div></div>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">׳“</div><div><div class="rc-name">׳“׳ ׳” ׳.</div><div class="rc-loc">׳₪׳¨׳“׳¡ ׳—׳ ׳”</div></div></div><div class="rc-stars">ג˜…ג˜…ג˜…ג˜…ג˜…</div></div><div class="rc-text">"׳¢׳•׳’׳× ׳”׳׳¡׳₪׳¨׳™׳ ׳׳‘׳ ׳©׳׳™ ׳׳™׳•׳ ׳”׳•׳׳“׳× ׳”-2 ׳™׳¦׳׳” ׳›׳ ׳›׳ ׳™׳₪׳”! ׳•׳¨׳•׳“ ׳•׳׳‘׳ ׳‘׳“׳™׳•׳§ ׳›׳׳• ׳©׳‘׳™׳§׳©׳×׳™. ׳©׳¨׳” ׳§׳©׳•׳‘׳” ׳•׳׳§׳¦׳•׳¢׳™׳×!"</div></div>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">׳ </div><div><div class="rc-name">׳ ׳˜׳¢ ׳‘.</div><div class="rc-loc">׳—׳¨׳™׳©</div></div></div><div class="rc-stars">ג˜…ג˜…ג˜…ג˜…ג˜…</div></div><div class="rc-text">"׳§׳ ׳™׳×׳™ ׳׳׳¨׳– ׳׳—׳‘׳¨׳” ׳©׳׳™ ׳׳™׳•׳ ׳”׳•׳׳“׳× ג€“ ׳”׳™׳ ׳‘׳›׳×׳” ׳׳¨׳•׳‘ ׳©׳׳—׳”! ׳”׳׳׳¨׳– ׳”׳™׳” ׳›׳ ׳›׳ ׳׳™׳•׳—׳“ ׳•׳׳™׳©׳™. ׳×׳•׳“׳” ׳©׳¨׳”, ׳׳× ׳§׳¡׳ ׳׳׳™׳×׳™!"</div></div>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">׳©</div><div><div class="rc-name">׳©׳™׳¨׳” ׳.</div><div class="rc-loc">׳–׳›׳¨׳•׳ ׳™׳¢׳§׳‘</div></div></div><div class="rc-stars">ג˜…ג˜…ג˜…ג˜…ג˜†</div></div><div class="rc-text">"׳”׳–׳׳ ׳×׳™ ׳׳’׳© ׳׳׳™׳¨׳•׳¢ ׳׳©׳₪׳—׳×׳™. ׳›׳ ׳”׳׳©׳₪׳—׳” ׳©׳׳׳” ׳׳׳™׳₪׳”. ׳©׳¨׳” ׳×׳׳™׳“ ׳¢׳•׳ ׳” ׳׳”׳¨ ׳‘׳•׳•׳׳˜׳¡׳׳₪ ׳•׳׳׳•׳“ ׳ ׳—׳׳“׳”. ׳‘׳”׳—׳׳˜ ׳׳–׳׳™׳ ׳©׳•׳‘!"</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- INFO -->
+
+<section class="info-section" id="info">
+    <div class="section-header">
+        <span class="sec-tag">ג„¹ן¸ ׳₪׳¨׳˜׳™׳</span>
+        <h2 style="color:#fff">׳›׳ ׳׳” ׳©׳¦׳¨׳™׳ ׳׳“׳¢׳×</h2>
+    </div>
+    <div class="info-grid">
+        <div class="info-card">
+            <span class="info-icon">נ“</span>
+            <div class="info-title">׳›׳×׳•׳‘׳×</div>
+            <div class="info-text">׳”׳×׳׳“׳” 4, ׳›׳ ׳™׳¡׳” ׳‘, ׳“׳™׳¨׳” 14<br><strong>׳—׳¨׳™׳©</strong><br>׳׳™׳¡׳•׳£ ׳¢׳¦׳׳™ ג€“ ׳—׳™׳ ׳</div>
+        </div>
+        <div class="info-card">
+            <span class="info-icon">נ›µ</span>
+            <div class="info-title">׳׳©׳׳•׳—׳™׳</div>
+            <div class="info-text">׳‘׳—׳¨׳™׳© ׳‘׳׳‘׳“<br><strong>ג‚×10 ׳‘׳׳‘׳“</strong><br>׳×׳™׳׳•׳ ׳‘׳•׳•׳׳˜׳¡׳׳₪</div>
+        </div>
+        <div class="info-card">
+            <span class="info-icon">נ’³</span>
+            <div class="info-title">׳×׳©׳׳•׳</div>
+            <div class="info-text">נ’™ ׳‘׳™׳˜<br>נ’µ ׳׳–׳•׳׳<br>׳‘׳§׳‘׳׳× ׳”׳”׳–׳׳ ׳”</div>
+        </div>
+        <div class="info-card">
+            <span class="info-icon">ג¡ן¸</span>
+            <div class="info-title">׳›׳©׳¨׳•׳×</div>
+            <div class="info-text">׳›׳ ׳”׳׳•׳¦׳¨׳™׳ <strong>׳›׳©׳¨׳™׳</strong><br>׳‘׳¨׳׳” ׳”׳’׳‘׳•׳”׳” ׳‘׳™׳•׳×׳¨<br>׳¢׳ ׳׳¨׳›׳™׳‘׳™׳ ׳׳™׳›׳•׳×׳™׳™׳ ׳‘׳׳‘׳“</div>
+            <div><span class="kosher-badge">ג¡ן¸ ׳›׳©׳¨ ׳׳׳”׳“׳¨׳™׳</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>׳¨׳•׳¦׳™׳ <span>׳׳׳¨׳– ׳׳™׳•׳—׳“</span>? נ</h2>
+    <p>׳©׳׳—׳• ׳”׳•׳“׳¢׳” ׳‘׳•׳•׳׳˜׳¡׳׳₪ ׳•׳©׳¨׳” ׳×׳—׳–׳•׳¨ ׳׳׳™׳›׳ ׳¢׳ ׳›׳ ׳”׳₪׳¨׳˜׳™׳ נ’•</p>
+    <a href="https://wa.me/972523394838" target="_blank" class="btn-wa-big">נ’¬ ׳©׳׳—׳• ׳”׳•׳“׳¢׳” ׳׳©׳¨׳”</a>
+</section>
+
+<footer>
+    <div class="footer-brand">נ‚ ׳©׳¨׳” <span>׳—׳‘׳¨׳•׳ ׳™</span></div>
+    <div class="footer-links">
+        <a href="tel:+972523394838">נ“ 052-3394838</a>
+        <a href="/cdn-cgi/l/email-protection#81f2e0f3e0e8e0f5b0b0b0b2c1e6ece0e8edafe2eeec">נ“§ <span class="__cf_email__" data-cfemail="aeddcfdccfc7cfda9f9f9f9deec9c3cfc7c280cdc1c3">[email&#160;protected]</span></a>
+        <a href="https://waze.com/ul?q=׳”׳×׳׳“׳”+4+׳—׳¨׳™׳©" target="_blank">נ“ ׳”׳×׳׳“׳” 4, ׳—׳¨׳™׳©</a>
+    </div>
+    <div class="footer-bottom">ֲ©ן¸ 2025 ׳©׳¨׳” ׳—׳‘׳¨׳•׳ ׳™ ֲ· Home Made Bakery ֲ· ׳ ׳‘׳ ׳” ׳¢׳ ג₪ן¸</div>
+</footer>
+
+<!-- MODAL -->
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOut(event)">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal()">ג•</button>
+        <img id="mImg" src="" alt="" class="modal-img" onerror="this.style.display='none'">
+        <div id="mImgPlaceholder" style="display:none;width:100%;height:210px;background:linear-gradient(135deg,#fde8c8,#f5c87a);border-radius:26px 26px 0 0;display:flex;align-items:center;justify-content:center;font-size:64px">ג¨</div>
+        <div class="modal-body">
+            <div class="modal-prod-name" id="mTitle"></div>
+            <div class="modal-prod-desc" id="mDesc"></div>
+                        <div id="modalForm">
+                <div class="modal-info">מלאו פרטים ושלחו הזמנה. במארז מותאם אישית בוחרים קודם רכיבים ומחיר.</div>
+
+                <div id="customBuilderStep" class="custom-builder" style="display:none">
+                    <div class="builder-title">תפריט הרכבת מארז</div>
+                    <div class="builder-sub">בחרו כמויות והמחיר יחושב אוטומטית לפי התפריט.</div>
+
+                    <div class="builder-group">
+                        <h5>מוס</h5>
+                        <div class="builder-row"><div class="builder-name">לב בינוני קוטר 12</div><div class="builder-price">₪60</div><input class="builder-qty" type="number" min="0" value="0" data-item="לב בינוני 12" data-price="60" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">לב גדול קוטר 16</div><div class="builder-price">₪80</div><input class="builder-qty" type="number" min="0" value="0" data-item="לב גדול 16" data-price="80" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">קריסטל עגול קוטר 16</div><div class="builder-price">₪90</div><input class="builder-qty" type="number" min="0" value="0" data-item="קריסטל עגול 16" data-price="90" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">קינוח כוס</div><div class="builder-price">₪15</div><input class="builder-qty" type="number" min="0" value="0" data-item="קינוח כוס" data-price="15" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">תוספת הקדשה (עד 2 מילים)</div><div class="builder-price">₪10</div><input class="builder-qty" type="number" min="0" max="1" value="0" data-item="תוספת הקדשה" data-price="10" oninput="updateCustomTotal()"></div>
+                    </div>
+
+                    <div class="builder-group">
+                        <h5>קינוחים (ליחידה)</h5>
+                        <div class="builder-row"><div class="builder-name">קרם ברולה אישי</div><div class="builder-price">₪22</div><input class="builder-qty" type="number" min="0" value="0" data-item="קרם ברולה אישי" data-price="22" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">מיני מגנום פיסטוק/נוגט</div><div class="builder-price">₪15</div><input class="builder-qty" type="number" min="0" value="0" data-item="מיני מגנום" data-price="15" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">טארט לימון אישי</div><div class="builder-price">₪22</div><input class="builder-qty" type="number" min="0" value="0" data-item="טארט לימון אישי" data-price="22" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">טארט לימון זוגי</div><div class="builder-price">₪38</div><input class="builder-qty" type="number" min="0" value="0" data-item="טארט לימון זוגי" data-price="38" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">טארט שוקולד אישי</div><div class="builder-price">₪22</div><input class="builder-qty" type="number" min="0" value="0" data-item="טארט שוקולד אישי" data-price="22" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">טארט שוקולד זוגי</div><div class="builder-price">₪38</div><input class="builder-qty" type="number" min="0" value="0" data-item="טארט שוקולד זוגי" data-price="38" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">בייגלה גדול מצופה</div><div class="builder-price">₪7</div><input class="builder-qty" type="number" min="0" value="0" data-item="בייגלה מצופה" data-price="7" oninput="updateCustomTotal()"></div>
+                    </div>
+
+                    <div class="builder-group">
+                        <h5>עוגיות (ליחידה)</h5>
+                        <div class="builder-row"><div class="builder-name">לב אלפחורס</div><div class="builder-price">₪8</div><input class="builder-qty" type="number" min="0" value="0" data-item="לב אלפחורס" data-price="8" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">מגולגלת קינדר</div><div class="builder-price">₪8</div><input class="builder-qty" type="number" min="0" value="0" data-item="מגולגלת קינדר" data-price="8" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">שקדים פרלינה</div><div class="builder-price">₪8</div><input class="builder-qty" type="number" min="0" value="0" data-item="שקדים פרלינה" data-price="8" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">כדור לוטוס/ריבת חלב</div><div class="builder-price">₪6</div><input class="builder-qty" type="number" min="0" value="0" data-item="כדור לוטוס/ריבת חלב" data-price="6" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">חיתוכית בראוניז אמסטרדם</div><div class="builder-price">₪8</div><input class="builder-qty" type="number" min="0" value="0" data-item="בראוניז אמסטרדם" data-price="8" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">חיתוכית בראוניז טריקולד</div><div class="builder-price">₪8</div><input class="builder-qty" type="number" min="0" value="0" data-item="בראוניז טריקולד" data-price="8" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">כדור פררו</div><div class="builder-price">₪9</div><input class="builder-qty" type="number" min="0" value="0" data-item="כדור פררו" data-price="9" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">עוגיית אמסטרדם</div><div class="builder-price">₪10</div><input class="builder-qty" type="number" min="0" value="0" data-item="עוגיית אמסטרדם" data-price="10" oninput="updateCustomTotal()"></div>
+                    </div>
+
+                    <div class="builder-group">
+                        <h5>פחזניות קראמבל (ליחידה)</h5>
+                        <div class="builder-row"><div class="builder-name">מילוי וניל</div><div class="builder-price">₪6</div><input class="builder-qty" type="number" min="0" value="0" data-item="פחזנית וניל" data-price="6" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">מילוי פטיסייר</div><div class="builder-price">₪8</div><input class="builder-qty" type="number" min="0" value="0" data-item="פחזנית פטיסייר" data-price="8" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">מילוי מסקרפונה</div><div class="builder-price">₪8</div><input class="builder-qty" type="number" min="0" value="0" data-item="פחזנית מסקרפונה" data-price="8" oninput="updateCustomTotal()"></div>
+                    </div>
+
+                    <div class="builder-total" id="customTotal">סה"כ משוער: ₪0</div>
+                    <div class="builder-actions">
+                        <button type="button" class="builder-next" onclick="goToOrderDetails()">המשך לפרטי הזמנה</button>
+                    </div>
+                    <div id="customBuilderNote" class="builder-note">צריך לבחור לפחות פריט אחד כדי להמשיך.</div>
+                </div>
+
+                <div id="orderDetailsStep">
+                    <button type="button" id="backToBuilderBtn" class="builder-back" style="display:none" onclick="backToBuilder()">חזרה לתפריט מארז</button>
+
+                    <h4>שיטת תשלום</h4>
+                    <div class="modal-pay">
+                        <div class="pay-opt" onclick="selectPay(this,'ביט 💙')"><span class="pay-icon">💙</span>ביט</div>
+                        <div class="pay-opt" onclick="selectPay(this,'מזומן 💵')"><span class="pay-icon">💵</span>מזומן</div>
+                        <div class="pay-opt" onclick="selectPay(this,'עוד לא החלטתי')"><span class="pay-icon">🤔</span>לא יודע</div>
+                    </div>
+
+                    <h4>שם הלקוח</h4>
+                    <input type="text" class="modal-input" id="nameInput" placeholder="שם מלא">
+
+                    <h4>מספר טלפון</h4>
+                    <input type="tel" class="modal-input" id="phoneInput" placeholder="05X-XXXXXXX" maxlength="11">
+
+                    <div class="custom-note-area" id="inscriptionArea">
+                        <h4>כיתוב על המארז</h4>
+                        <input type="text" class="modal-input" id="inscriptionInput" placeholder='למשל: "יום הולדת שמח רחל!"'>
+                    </div>
+
+                    <div id="customFields" style="display:none">
+                        <div class="custom-fields-box">
+                            <div class="cf-title">ספרי לשרה מה תרצי במארז</div>
+                            <h4>צבעים מועדפים?</h4>
+                            <input type="text" class="modal-input" id="cfColors" placeholder="למשל: ורוד ולבן, זהב, כחול...">
+                            <h4>מה המאורע?</h4>
+                            <div class="occasion-chips" id="occasionChips">
+                                <div class="occ-chip" onclick="selectOcc(this,'יום הולדת 🎂')">יום הולדת 🎂</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'תודה 🤍')">תודה 🤍</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'מתנה 🎁')">מתנה 🎁</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'אירוסין 💍')">אירוסין 💍</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'לידה 👶')">לידה 👶</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'אחר')">אחר</div>
+                            </div>
+                            <h4>תיאור חופשי</h4>
+                            <textarea class="modal-input" id="cfFreeText" placeholder="גודל, סגנון, ומה לא לכלול" style="height:75px;resize:none"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="delivery-box">
+                        <div class="delivery-header" onclick="toggleDelivery()">
+                            <span>האם תרצי משלוח? <span class="delivery-price">+₪10 בחריש בלבד</span></span>
+                            <div class="delivery-toggle-wrap">
+                                <div class="delivery-toggle" id="deliveryToggle"><div class="toggle-knob"></div></div>
+                            </div>
+                        </div>
+                        <div class="delivery-address-wrap" id="deliveryAddressWrap" style="display:none">
+                            <input type="text" class="modal-input" id="deliveryAddress" placeholder="כתובת מלאה + קומה / דירה">
+                        </div>
+                    </div>
+
+                    <h4>מתי צריך מוכן?</h4>
+                    <input type="text" class="modal-input" id="deliveryDate" placeholder="למשל: יום שישי 20/6 בצהריים">
+
+                    <h4>בקשות נוספות</h4>
+                    <textarea class="modal-input" id="noteInput" placeholder="כל דבר נוסף שחשוב לשרה לדעת" style="height:70px;resize:none"></textarea>
+
+                    <div class="confirm-bar" id="confirmBar" style="display:none">
+                        <div class="confirm-title">בטוחה שזה מה שאת רוצה?</div>
+                        <div class="confirm-summary" id="confirmSummary"></div>
+                        <div class="confirm-btns">
+                            <button class="confirm-yes" onclick="doSend()">כן, שלחי!</button>
+                            <button class="confirm-no" onclick="cancelConfirm()">ערכי</button>
+                        </div>
+                    </div>
+
+                    <button class="modal-submit" id="submitBtn" onclick="submitOrder()">שלחו הזמנה לשרה</button>
+                </div>
+            </div>
+            <div class="modal-success" id="modalSuccess">
+                <div class="success-icon">נ‰</div>
+                <div class="success-title">׳”׳”׳–׳׳ ׳” ׳ ׳§׳׳˜׳”!</div>
+                <div id="successOrderNum" style="font-family:'Playfair Display',serif;font-size:22px;color:var(--copper);font-weight:900;margin:8px 0 4px;letter-spacing:1px"></div>
+                <div style="background:var(--warm1);border-radius:14px;padding:14px;margin:12px 0 16px;border:1.5px solid var(--warm2);text-align:right">
+                    <div style="font-size:13px;color:var(--brown-mid);line-height:1.85;font-weight:700">
+                        נ“‹ <strong>׳©׳׳¨׳• ׳׳× ׳׳¡׳₪׳¨ ׳”׳”׳–׳׳ ׳”</strong><br>
+                        ׳©׳¨׳” ׳×׳™׳¦׳•׳¨ ׳׳™׳×׳›׳ ׳§׳©׳¨ ׳›׳©׳™׳”׳™׳” ׳׳•׳›׳ נ’•<br>
+                        ׳™׳© ׳©׳׳׳•׳×? ׳“׳‘׳¨׳• ׳׳™׳×׳” ׳™׳©׳™׳¨׳•׳× ׳‘׳•׳•׳׳˜׳¡׳׳₪ נ‘‡
+                    </div>
+                </div>
+                <a id="successWaLink" href="#" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:13px;border-radius:14px;font-size:15px;font-weight:800;text-decoration:none;margin-bottom:10px;box-sizing:border-box">
+                    נ’¬ ׳©׳׳׳•׳×? ׳›׳×׳‘׳• ׳׳©׳¨׳” ׳‘׳•׳•׳׳˜׳¡׳׳₪
+                </a>
+                <button onclick="closeModal()" style="width:100%;background:#fff;color:var(--brown-mid);border:2px solid var(--warm2);padding:11px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif">
+                    ׳¡׳’׳™׳¨׳” ג•
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var selProd={name:'',img:'',descFull:'',isCustom:false}, selPay='', selOcc='', wantsDelivery=false, customTotal=0, customSummary='';
+
+    function shekel(n){
+        return '₪' + Number(n||0).toLocaleString('he-IL');
+    }
+
+    function resetCustomBuilder(){
+        customTotal=0;
+        customSummary='';
+        document.querySelectorAll('#customBuilderStep .builder-qty').forEach(function(inp){
+            inp.value='0';
+        });
+        var totalEl=document.getElementById('customTotal');
+        if(totalEl) totalEl.textContent='סה"כ משוער: ' + shekel(0);
+        var noteEl=document.getElementById('customBuilderNote');
+        if(noteEl) noteEl.style.display='none';
+    }
+
+    function updateCustomTotal(){
+        var total=0;
+        var rows=[];
+        document.querySelectorAll('#customBuilderStep .builder-qty').forEach(function(inp){
+            var qty=Math.max(0, parseInt(inp.value||'0',10)||0);
+            inp.value=String(qty);
+            if(qty>0){
+                var price=parseInt(inp.getAttribute('data-price')||'0',10)||0;
+                var item=inp.getAttribute('data-item')||'';
+                var rowTotal=qty*price;
+                total+=rowTotal;
+                rows.push(item+' x'+qty+' = '+shekel(rowTotal));
+            }
+        });
+        customTotal=total;
+        customSummary=rows.join(' | ');
+        var totalEl=document.getElementById('customTotal');
+        if(totalEl) totalEl.textContent='סה"כ משוער: ' + shekel(total);
+        return total;
+    }
+
+    function goToOrderDetails(){
+        var total=updateCustomTotal();
+        var noteEl=document.getElementById('customBuilderNote');
+        if(total<=0){
+            if(noteEl) noteEl.style.display='block';
+            return;
+        }
+        if(noteEl) noteEl.style.display='none';
+        document.getElementById('customBuilderStep').style.display='none';
+        document.getElementById('orderDetailsStep').style.display='block';
+        document.getElementById('backToBuilderBtn').style.display='block';
+    }
+
+    function backToBuilder(){
+        document.getElementById('orderDetailsStep').style.display='none';
+        document.getElementById('customBuilderStep').style.display='block';
+    }
+
+    function filterCat(cat,el){
+        document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+        el.classList.add('active');
+        document.querySelectorAll('.prod-card').forEach(p=>{
+            p.style.display=(cat==='all'||p.dataset.cat===cat)?'block':'none';
+        });
+    }
+
+    function toggleDelivery(){
+        wantsDelivery=!wantsDelivery;
+        var tog=document.getElementById('deliveryToggle');
+        var wrap=document.getElementById('deliveryAddressWrap');
+        if(wantsDelivery){tog.classList.add('on');wrap.style.display='block';}
+        else{tog.classList.remove('on');wrap.style.display='none';}
+    }
+
+    function openModal(card){
+        var imgEl=card.querySelector('.prod-img img');
+        var img=imgEl?imgEl.src:'';
+        var name=card.querySelector('.prod-name').textContent;
+        var desc=card.querySelector('.prod-desc').textContent;
+        var descFull=card.dataset.descFull||desc;
+        var isCustom=card.dataset.cat==='custom';
+
+        var mImg=document.getElementById('mImg');
+        mImg.src=img;
+        mImg.style.display=img?'block':'none';
+
+        document.getElementById('mTitle').textContent=name;
+        document.getElementById('mDesc').textContent=desc;
+        document.getElementById('nameInput').value='';
+        document.getElementById('phoneInput').value='';
+        document.getElementById('noteInput').value='';
+        document.getElementById('inscriptionInput').value='';
+        document.getElementById('deliveryDate').value='';
+        document.getElementById('deliveryAddress').value='';
+        document.getElementById('cfColors').value='';
+        document.getElementById('cfFreeText').value='';
+        document.getElementById('modalForm').style.display='block';
+        document.getElementById('modalSuccess').style.display='none';
+        document.getElementById('confirmBar').style.display='none';
+        document.getElementById('submitBtn').style.display='flex';
+        document.querySelectorAll('.pay-opt').forEach(p=>p.classList.remove('selected'));
+        document.querySelectorAll('.occ-chip').forEach(c=>c.classList.remove('selected'));
+
+        // reset delivery
+        wantsDelivery=false;
+        document.getElementById('deliveryToggle').classList.remove('on');
+        document.getElementById('deliveryAddressWrap').style.display='none';
+
+        document.getElementById('customFields').style.display=isCustom?'block':'none';
+        document.getElementById('inscriptionArea').style.display='block';
+        document.getElementById('backToBuilderBtn').style.display='none';
+        document.getElementById('orderDetailsStep').style.display='block';
+        document.getElementById('customBuilderStep').style.display='none';
+
+        var ph=document.getElementById('mImgPlaceholder');
+        if(isCustom){ph.style.display='flex';mImg.style.display='none';}
+        else{ph.style.display='none';}
+
+        if(isCustom){
+            resetCustomBuilder();
+            document.getElementById('orderDetailsStep').style.display='none';
+            document.getElementById('customBuilderStep').style.display='block';
+            document.getElementById('mDesc').textContent='בחרו פריטים וכמויות לפי התפריט, ואז המשיכו לפרטי ההזמנה.';
+        }
+
+        selPay=''; selOcc=''; customTotal=0; customSummary='';
+        selProd={name,img,descFull,isCustom};
+        document.getElementById('modalOverlay').classList.add('open');
+        document.body.style.overflow='hidden';
+    }
+
+    function closeModal(){
+        document.getElementById('modalOverlay').classList.remove('open');
+        document.body.style.overflow='';
+    }
+
+    function closeModalOut(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
+
+    function selectPay(el,val){
+        document.querySelectorAll('.pay-opt').forEach(p=>p.classList.remove('selected'));
+        el.classList.add('selected'); selPay=val;
+    }
+
+    function selectOcc(el,val){
+        document.querySelectorAll('.occ-chip').forEach(c=>c.classList.remove('selected'));
+        el.classList.add('selected'); selOcc=val;
+    }
+
+    function submitOrder(){
+        var name=document.getElementById('nameInput').value.trim();
+        var phone=document.getElementById('phoneInput').value.trim();
+        if(!name){
+            document.getElementById('nameInput').style.borderColor='#e74c3c';
+            document.getElementById('nameInput').focus();
+            return;
+        }
+        document.getElementById('nameInput').style.borderColor='';
+        if(!phone||phone.length<9){
+            document.getElementById('phoneInput').style.borderColor='#e74c3c';
+            document.getElementById('phoneInput').focus();
+            return;
+        }
+        document.getElementById('phoneInput').style.borderColor='';
+
+        var inscription=document.getElementById('inscriptionInput').value.trim();
+        var deliveryDate=document.getElementById('deliveryDate').value.trim();
+        var deliveryAddress=document.getElementById('deliveryAddress').value.trim();
+        var cfColors=document.getElementById('cfColors').value.trim();
+        var cfFreeText=document.getElementById('cfFreeText').value.trim();
+
+        if(selProd.isCustom){
+            updateCustomTotal();
+        }
+
+        var summary='שם: '+name+'\n';
+        summary+='טלפון: '+phone+'\n';
+        summary+='מוצר: '+selProd.name+'\n';
+        if(selProd.isCustom){
+            if(customSummary) summary+='בחירת פריטים: '+customSummary+'\n';
+            summary+='סה"כ משוער: '+shekel(customTotal)+'\n';
+        }
+        if(inscription) summary+='כיתוב: '+inscription+'\n';
+        if(selOcc) summary+='מאורע: '+selOcc+'\n';
+        if(cfColors) summary+='צבעים: '+cfColors+'\n';
+        if(cfFreeText) summary+='פירוט: '+cfFreeText+'\n';
+        summary+='משלוח: '+(wantsDelivery?'כן +₪10':'לא - איסוף עצמי')+'\n';
+        if(wantsDelivery&&deliveryAddress) summary+='כתובת: '+deliveryAddress+'\n';
+        if(deliveryDate) summary+='מוכן עד: '+deliveryDate+'\n';
+        if(selPay) summary+='תשלום: '+selPay;
+
+        document.getElementById('confirmSummary').textContent=summary;
+        document.getElementById('confirmBar').style.display='block';
+        document.getElementById('submitBtn').style.display='none';
+        document.getElementById('confirmBar').scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+
+    function cancelConfirm(){
+        document.getElementById('confirmBar').style.display='none';
+        document.getElementById('submitBtn').style.display='flex';
+    }
+
+    // ====== GOOGLE SHEETS URL ======
+    // ׳©׳¨׳”: ׳׳—׳¨׳™ ׳©׳׳’׳“׳™׳¨׳” ׳׳× Apps Script, ׳׳—׳׳™׳₪׳” ׳׳× ׳”׳›׳×׳•׳‘׳× ׳›׳׳:
+    var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyk8ZDD8CL6K40r0Nw3OCUARqQPpqK4yObQw70hLTVFMzMsl3U6gXI86I3Dng5XUnNzcw/exec';
+
+    function doSend(){
+        var name        = document.getElementById('nameInput').value.trim();
+        var phone       = document.getElementById('phoneInput').value.trim();
+        var inscription = document.getElementById('inscriptionInput').value.trim();
+        var deliveryDate= document.getElementById('deliveryDate').value.trim();
+        var deliveryAddress = document.getElementById('deliveryAddress').value.trim();
+        var note        = document.getElementById('noteInput').value.trim();
+        var cfColors    = document.getElementById('cfColors').value.trim();
+        var cfFreeText  = document.getElementById('cfFreeText').value.trim();
+
+        var orderNum = 'S' + Date.now().toString().slice(-6);
+        var now = new Date();
+        var dateStr = now.toLocaleDateString('he-IL') + ' ' + now.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+
+                if(selProd.isCustom){
+            updateCustomTotal();
+        }
+        var builtDetails = selProd.isCustom ? (customSummary ? customSummary + ' | סה"כ משוער: ' + shekel(customTotal) : 'לא נבחרו פריטים') : '';
+        var freeDetails = cfFreeText ? cfFreeText : '';
+
+        var orderData = {
+            orderNum:      orderNum,
+            date:          dateStr,
+            name:          name,
+            phone:         phone,
+            product:       selProd.name,
+            description:   selProd.isCustom ? (selProd.descFull + ' | ' + builtDetails) : selProd.descFull,
+            inscription:   inscription,
+            occasion:      selOcc,
+            colors:        cfColors,
+            customDetails: [builtDetails, freeDetails].filter(Boolean).join(' | '),
+            delivery:      wantsDelivery ? 'כן - ₪10' : 'לא - איסוף עצמי',
+            address:       wantsDelivery ? (deliveryAddress||'לא הוזנה') : '',
+            readyBy:       deliveryDate,
+            payment:       selPay||'לא צוין',
+            notes:         note,
+            status:        'ממתינה'
+        };
+
+        // ׳©׳׳™׳¨׳” ׳‘-Google Sheets
+        try {
+            if(SHEETS_URL && SHEETS_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE'){
+                fetch(SHEETS_URL, {
+                    method: 'POST',
+                    mode:   'no-cors',
+                    headers:{'Content-Type':'application/json'},
+                    body:   JSON.stringify(orderData)
+                }).catch(()=>{});
+            }
+        } catch(e){}
+
+        // ׳׳¡׳ ׳”׳¦׳׳—׳”
+        document.getElementById('modalForm').style.display = 'none';
+        document.getElementById('successOrderNum').textContent = '׳”׳–׳׳ ׳” #' + orderNum;
+
+        // ׳›׳₪׳×׳•׳¨ ׳•׳•׳׳˜׳¡׳׳₪ ׳¢׳ ׳׳¡׳₪׳¨ ׳”׳–׳׳ ׳” ׳׳•׳›׳
+        var waMsg = '׳©׳׳•׳ ׳©׳¨׳”! ׳™׳© ׳׳™ ׳©׳׳׳” ׳׳’׳‘׳™ ׳”׳–׳׳ ׳” #' + orderNum + ' נ˜';
+        document.getElementById('successWaLink').href = 'https://wa.me/972523394838?text=' + encodeURIComponent(waMsg);
+
+        document.getElementById('modalSuccess').style.display = 'block';
+    }
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, addDoc, collection, serverTimestamp, increment, arrayUnion, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDUiu7JxAzdjmZS3Dp1A_TESM6fvxdPPaw",
+  authDomain: "sarabakery.firebaseapp.com",
+  projectId: "sarabakery",
+  storageBucket: "sarabakery.firebasestorage.app",
+  messagingSenderId: "595236323371",
+  appId: "1:595236323371:web:e2004d0f0d9cdbab23ea6e",
+  measurementId: "G-V5X0BKDWBZ"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+window.firebaseCtx = {
+  auth,
+  db,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  orderBy,
+  setDoc,
+  updateDoc,
+  addDoc,
+  collection,
+  serverTimestamp,
+  increment,
+  arrayUnion
+};
+
+window.dispatchEvent(new CustomEvent('firebase-ready'));
+</script>
+
+<script>
+(function(){
+  var fb = null;
+  var currentUser = null;
+  var profile = { points: 0, redeemedRewards: [] };
+  var cartItems = [];
+  var selectedRewardLevel = null;
+  var manualTotalTouched = false;
+  var uiReady = false;
+
+  var GIFT_TIERS = [
+    { level: 300, name: 'לב אלפחורס', value: 8, emoji: '🍪' },
+    { level: 600, name: '2 כדורי לוטוס', value: 12, emoji: '🍫' },
+    { level: 900, name: 'עוגיית אמסטרדם', value: 10, emoji: '🍪' },
+    { level: 1200, name: 'מיני מגנום', value: 15, emoji: '🍦' },
+    { level: 1500, name: 'קינוח כוס', value: 15, emoji: '🥤' }
+  ];
+
+  function shekel(n){
+    return '₪' + Number(n || 0).toLocaleString('he-IL');
+  }
+
+  function getGiftForLevel(level){
+    var known = GIFT_TIERS.find(function(t){ return t.level === level; });
+    if(known) return known;
+    var step = Math.round(level / 300);
+    var value = Math.min(8 + (step * 2), 40);
+    return { level: level, name: 'מתנה מיוחדת', value: value, emoji: '🎁' };
+  }
+
+  function toast(msg){
+    var el = document.getElementById('saraToast');
+    if(!el) return;
+    el.textContent = msg;
+    el.classList.add('show');
+    setTimeout(function(){ el.classList.remove('show'); }, 2600);
+  }
+
+  function getCartKey(){
+    return currentUser ? ('sara_cart_' + currentUser.uid) : 'sara_cart_guest';
+  }
+
+  function loadCart(){
+    try {
+      var raw = localStorage.getItem(getCartKey());
+      cartItems = raw ? JSON.parse(raw) : [];
+    } catch(e){
+      cartItems = [];
+    }
+  }
+
+  function saveCart(){
+    localStorage.setItem(getCartKey(), JSON.stringify(cartItems));
+  }
+
+  function ensureUI(){
+    if(uiReady) return;
+
+    var style = document.createElement('style');
+    style.textContent = [
+      '.auth-fab{position:fixed;left:14px;top:90px;z-index:900;background:#fff;border:2px solid #f2d9c0;border-radius:999px;width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:21px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.12)}',
+      '.cart-fab{position:fixed;left:14px;top:150px;z-index:900;background:#c8704a;color:#fff;border:none;border-radius:999px;width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:0 8px 20px rgba(200,112,74,.35)}',
+      '.cart-badge{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#27ae60;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}',
+      '.auth-modal{display:none;position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.45);align-items:center;justify-content:center;padding:14px}',
+      '.auth-modal.open{display:flex}',
+      '.auth-card{width:100%;max-width:380px;background:#fff;border-radius:16px;padding:18px;box-shadow:0 20px 40px rgba(0,0,0,.2)}',
+      '.auth-card h3{margin-bottom:10px;color:#2d1a0e}',
+      '.auth-row{display:flex;gap:8px;margin-top:8px}',
+      '.auth-btn{flex:1;padding:10px;border:none;border-radius:10px;cursor:pointer;font-weight:700}',
+      '.auth-btn.primary{background:#c8704a;color:#fff}',
+      '.auth-btn.secondary{background:#f3eee8;color:#5a3a28}',
+      '.cart-drawer{position:fixed;left:0;top:0;height:100vh;width:min(460px,94vw);background:#fff;z-index:1100;box-shadow:20px 0 40px rgba(0,0,0,.2);transform:translateX(-102%);transition:transform .25s ease;display:flex;flex-direction:column}',
+      '.cart-drawer.open{transform:translateX(0)}',
+      '.cart-head{padding:14px 16px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between}',
+      '.cart-body{padding:14px 16px;overflow:auto;flex:1}',
+      '.cart-item{border:1px solid #f2d9c0;border-radius:12px;padding:10px;margin-bottom:10px;background:#fffaf4}',
+      '.cart-item-top{display:flex;align-items:center;justify-content:space-between;gap:8px}',
+      '.cart-remove{border:none;background:#fff;color:#b23b2a;border:1px solid #f3c7bd;border-radius:8px;padding:4px 8px;cursor:pointer}',
+      '.points-wrap{border:1px solid #f2d9c0;border-radius:12px;background:#fff8f2;padding:10px;margin-bottom:12px}',
+      '.points-bar{height:10px;background:#ecd8c9;border-radius:999px;overflow:hidden}',
+      '.points-fill{height:100%;background:linear-gradient(90deg,#27ae60,#d4a24e);width:0%}',
+      '.reward-chip{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #f2d9c0;border-radius:10px;padding:8px;margin-bottom:8px;background:#fff}',
+      '.reward-chip button{border:none;background:#c8704a;color:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;font-weight:700}',
+      '.checkout-box{margin-top:12px;border:1px solid #eee;border-radius:12px;padding:10px;background:#fff}',
+      '.checkout-box input,.checkout-box select,.checkout-box textarea{width:100%;margin-top:7px;border:1px solid #ddd;border-radius:9px;padding:9px 10px;font-family:Assistant,sans-serif}',
+      '.checkout-send{width:100%;margin-top:10px;border:none;background:#25d366;color:#fff;border-radius:11px;padding:12px;font-weight:800;cursor:pointer}',
+      '.sara-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;transition:all .2s;background:#2d1a0e;color:#fff;padding:10px 14px;border-radius:999px;z-index:1300;font-size:13px}',
+      '.sara-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}'
+    ].join('');
+    document.head.appendChild(style);
+
+    document.body.insertAdjacentHTML('beforeend',
+      '<button id="authFab" class="auth-fab" type="button" title="התחברות" onclick="openAuthModal()">👤</button>' +
+      '<button id="cartFab" class="cart-fab" type="button" title="סל" onclick="toggleCart(true)">🛒<span id="cartBadge" class="cart-badge">0</span></button>' +
+
+      '<div id="authModal" class="auth-modal" onclick="closeAuthModal(event)">' +
+        '<div class="auth-card">' +
+          '<h3>התחברות / הרשמה</h3>' +
+          '<div style="font-size:13px;color:#7a5040">צריך להתחבר כדי להזמין ולקבל מתנות 🎁</div>' +
+          '<input id="authEmail" type="email" placeholder="אימייל" style="width:100%;margin-top:10px;border:1px solid #ddd;border-radius:10px;padding:10px">' +
+          '<input id="authPass" type="password" placeholder="סיסמה" style="width:100%;margin-top:8px;border:1px solid #ddd;border-radius:10px;padding:10px">' +
+          '<div class="auth-row">' +
+            '<button type="button" class="auth-btn primary" onclick="loginUser()">התחברות</button>' +
+            '<button type="button" class="auth-btn secondary" onclick="registerUser()">הרשמה</button>' +
+          '</div>' +
+          '<button id="logoutBtn" type="button" class="auth-btn secondary" style="width:100%;margin-top:8px;display:none" onclick="logoutUser()">התנתקות</button>' +
+        '</div>' +
+      '</div>' +
+
+      '<div id="cartDrawer" class="cart-drawer">' +
+        '<div class="cart-head"><strong>סל קניות</strong><button type="button" class="cart-remove" onclick="toggleCart(false)">סגירה</button></div>' +
+        '<div class="cart-body">' +
+          '<div class="points-wrap" id="pointsWrap"></div>' +
+          '<div id="rewardList"></div>' +
+          '<div id="cartList"></div>' +
+          '<div class="checkout-box">' +
+            '<strong>פרטי הזמנה</strong>' +
+            '<input id="checkoutName" placeholder="שם מלא">' +
+            '<input id="checkoutPhone" placeholder="טלפון">' +
+            '<select id="checkoutPayment"><option value="">בחרו שיטת תשלום</option><option>ביט</option><option>מזומן</option><option>אחר</option></select>' +
+            '<input id="checkoutAddress" placeholder="כתובת מלאה">' +
+            '<input id="checkoutReadyBy" placeholder="מתי צריך מוכן?">' +
+            '<textarea id="checkoutNote" rows="3" placeholder="הערות נוספות"></textarea>' +
+            '<input id="checkoutTotal" type="number" min="0" step="1" placeholder="סכום הזמנה בש״ח" oninput="markManualTotal()">' +
+            '<button class="checkout-send" type="button" onclick="sendCartOrder()">שליחת כל הסל</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div id="saraToast" class="sara-toast"></div>'
+    );
+
+    if(document.getElementById('submitBtn')){
+      document.getElementById('submitBtn').textContent = '🛒 הוספה לסל';
+    }
+
+    uiReady = true;
+  }
+
+  function setAuthUI(){
+    ensureUI();
+    var fab = document.getElementById('authFab');
+    var logoutBtn = document.getElementById('logoutBtn');
+    if(currentUser){
+      fab.textContent = '✅';
+      fab.title = 'מחובר';
+      logoutBtn.style.display = 'block';
+    } else {
+      fab.textContent = '👤';
+      fab.title = 'התחברות';
+      logoutBtn.style.display = 'none';
+    }
+  }
+
+  function renderPoints(){
+    ensureUI();
+    var el = document.getElementById('pointsWrap');
+    if(!el) return;
+
+    if(!currentUser){
+      el.innerHTML = '<div style="font-size:13px;color:#7a5040">לא מחוברים עדיין. התחברו כדי לצבור נקודות ומתנות.</div>';
+      return;
+    }
+
+    var points = Number(profile.points || 0);
+    var nextLevel = (Math.floor(points / 300) + 1) * 300;
+    var prevLevel = nextLevel - 300;
+    var pct = Math.max(0, Math.min(100, ((points - prevLevel) / 300) * 100));
+
+    el.innerHTML =
+      '<div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-bottom:6px"><strong>מד מתנות 🎁</strong><span>' + points + ' נק׳</span></div>' +
+      '<div class="points-bar"><div class="points-fill" style="width:' + pct + '%"></div></div>' +
+      '<div style="font-size:12px;color:#7a5040;margin-top:6px">יעד הבא: ' + nextLevel + ' נק׳</div>';
+  }
+
+  function renderRewards(){
+    ensureUI();
+    var wrap = document.getElementById('rewardList');
+    if(!wrap) return;
+
+    if(!currentUser){
+      wrap.innerHTML = '';
+      return;
+    }
+
+    var points = Number(profile.points || 0);
+    var redeemed = Array.isArray(profile.redeemedRewards) ? profile.redeemedRewards : [];
+    var maxLevel = Math.floor(points / 300) * 300;
+    var levels = [];
+    for(var lvl=300; lvl<=maxLevel; lvl+=300){
+      if(redeemed.indexOf(lvl) === -1){
+        levels.push(lvl);
+      }
+    }
+
+    if(levels.length === 0){
+      wrap.innerHTML = '<div style="font-size:12px;color:#7a5040;margin-bottom:10px">אין כרגע מתנה פתוחה למימוש.</div>';
+      selectedRewardLevel = null;
+      return;
+    }
+
+    var html = '<div style="font-weight:800;margin:8px 0">מתנות זמינות למימוש</div>';
+    levels.forEach(function(level){
+      var gift = getGiftForLevel(level);
+      var picked = selectedRewardLevel === level;
+      html += '<div class="reward-chip">' +
+        '<div><strong>' + gift.emoji + ' ' + gift.name + '</strong><div style="font-size:12px;color:#7a5040">רמת ' + level + ' נק׳ | שווי ' + shekel(gift.value) + '</div></div>' +
+        '<button type="button" onclick="selectReward(' + level + ')" style="background:' + (picked ? '#27ae60' : '#c8704a') + '">' + (picked ? 'נבחר' : 'ממש') + '</button>' +
+      '</div>';
+    });
+
+    wrap.innerHTML = html;
+  }
+
+  function renderCart(){
+    ensureUI();
+    var list = document.getElementById('cartList');
+    var badge = document.getElementById('cartBadge');
+    if(!list || !badge) return;
+
+    badge.textContent = String(cartItems.length);
+
+    if(cartItems.length === 0){
+      list.innerHTML = '<div style="font-size:13px;color:#7a5040">הסל ריק כרגע.</div>';
+      var t0 = document.getElementById('checkoutTotal');
+      if(t0 && !manualTotalTouched) t0.value = '';
+      return;
+    }
+
+    var subtotal = 0;
+    var html = '';
+
+    cartItems.forEach(function(item){
+      subtotal += Number(item.price || 0);
+      html += '<div class="cart-item">' +
+        '<div class="cart-item-top"><strong>' + item.name + '</strong><button class="cart-remove" type="button" onclick="removeCartItem(\'' + item.id + '\')">הסר</button></div>' +
+        '<div style="font-size:12px;color:#7a5040;margin-top:4px">' + (item.details || '') + '</div>' +
+        '<div style="font-size:12px;color:#2d1a0e;margin-top:6px;font-weight:800">' + (item.price > 0 ? ('מחיר: ' + shekel(item.price)) : 'מחיר יעודכן') + '</div>' +
+      '</div>';
+    });
+
+    html += '<div style="margin-top:8px;font-size:13px;font-weight:800">סה״כ מחושב: ' + shekel(subtotal) + '</div>';
+    list.innerHTML = html;
+
+    var totalInput = document.getElementById('checkoutTotal');
+    if(totalInput && !manualTotalTouched){
+      totalInput.value = subtotal > 0 ? String(subtotal) : '';
+    }
+  }
+
+  async function loadProfile(){
+    if(!fb || !currentUser) return;
+    var ref = fb.doc(fb.db, 'users', currentUser.uid);
+    var snap = await fb.getDoc(ref);
+
+    if(!snap.exists()){
+      await fb.setDoc(ref, {
+        email: currentUser.email || '',
+        points: 0,
+        redeemedRewards: [],
+        createdAt: fb.serverTimestamp(),
+        updatedAt: fb.serverTimestamp()
+      });
+      profile = { points: 0, redeemedRewards: [] };
+    } else {
+      var d = snap.data() || {};
+      profile = {
+        points: Number(d.points || 0),
+        redeemedRewards: Array.isArray(d.redeemedRewards) ? d.redeemedRewards : []
+      };
+    }
+
+    renderPoints();
+    renderRewards();
+  }
+
+  async function authReady(){
+    if(!window.firebaseCtx) return;
+    fb = window.firebaseCtx;
+    ensureUI();
+
+    fb.onAuthStateChanged(fb.auth, async function(user){
+      currentUser = user || null;
+      selectedRewardLevel = null;
+      manualTotalTouched = false;
+
+      if(currentUser){
+        loadCart();
+        await loadProfile();
+      } else {
+        cartItems = [];
+        profile = { points: 0, redeemedRewards: [] };
+      }
+
+      setAuthUI();
+      renderCart();
+      renderPoints();
+      renderRewards();
+    });
+  }
+
+  window.openAuthModal = function(){
+    ensureUI();
+    document.getElementById('authModal').classList.add('open');
+  };
+
+  window.closeAuthModal = function(e){
+    if(!e || e.target.id === 'authModal'){
+      document.getElementById('authModal').classList.remove('open');
+    }
+  };
+
+  window.loginUser = async function(){
+    if(!fb) return;
+    var email = (document.getElementById('authEmail').value || '').trim();
+    var pass = (document.getElementById('authPass').value || '').trim();
+    if(!email || !pass){ toast('חסר אימייל או סיסמה'); return; }
+    try {
+      await fb.signInWithEmailAndPassword(fb.auth, email, pass);
+      toast('התחברת בהצלחה');
+      closeAuthModal();
+    } catch(err){
+      toast('שגיאת התחברות: ' + (err && err.code ? err.code : 'error'));
+    }
+  };
+
+  window.registerUser = async function(){
+    if(!fb) return;
+    var email = (document.getElementById('authEmail').value || '').trim();
+    var pass = (document.getElementById('authPass').value || '').trim();
+    if(!email || !pass){ toast('חסר אימייל או סיסמה'); return; }
+    try {
+      await fb.createUserWithEmailAndPassword(fb.auth, email, pass);
+      toast('נרשמת בהצלחה');
+      closeAuthModal();
+    } catch(err){
+      toast('שגיאת הרשמה: ' + (err && err.code ? err.code : 'error'));
+    }
+  };
+
+  window.logoutUser = async function(){
+    if(!fb) return;
+    await fb.signOut(fb.auth);
+    toast('התנתקת');
+  };
+
+  window.toggleCart = function(open){
+    ensureUI();
+    var el = document.getElementById('cartDrawer');
+    if(!el) return;
+    if(open){ el.classList.add('open'); }
+    else { el.classList.remove('open'); }
+  };
+
+  window.removeCartItem = function(id){
+    cartItems = cartItems.filter(function(item){ return item.id !== id; });
+    saveCart();
+    renderCart();
+  };
+
+  window.markManualTotal = function(){
+    manualTotalTouched = true;
+  };
+
+  window.selectReward = function(level){
+    selectedRewardLevel = (selectedRewardLevel === level) ? null : level;
+    renderRewards();
+  };
+
+  window.sendCartOrder = async function(){
+    if(!currentUser){
+      toast('צריך להתחבר כדי לשלוח הזמנה ולקבל מתנות');
+      openAuthModal();
+      return;
+    }
+
+    if(cartItems.length === 0 && !selectedRewardLevel){
+      toast('הסל ריק');
+      return;
+    }
+
+    var name = (document.getElementById('checkoutName').value || '').trim();
+    var phone = (document.getElementById('checkoutPhone').value || '').trim();
+    var payment = (document.getElementById('checkoutPayment').value || '').trim();
+    var address = (document.getElementById('checkoutAddress').value || '').trim();
+    var readyBy = (document.getElementById('checkoutReadyBy').value || '').trim();
+    var note = (document.getElementById('checkoutNote').value || '').trim();
+    var orderTotal = Number(document.getElementById('checkoutTotal').value || 0);
+
+    if(!name || !phone || !payment){
+      toast('חסר שם / טלפון / תשלום');
+      return;
+    }
+
+    if(cartItems.length > 0 && orderTotal <= 0){
+      toast('צריך להזין סכום הזמנה בש״ח');
+      return;
+    }
+
+    var subtotal = cartItems.reduce(function(sum, i){ return sum + Number(i.price || 0); }, 0);
+    var pointsToAdd = Math.floor(orderTotal);
+    var reward = selectedRewardLevel ? getGiftForLevel(selectedRewardLevel) : null;
+
+    try {
+      var orderPayload = {
+        userId: currentUser.uid,
+        userEmail: currentUser.email || '',
+        customer: { name: name, phone: phone },
+        checkout: { payment: payment, address: address, readyBy: readyBy, note: note },
+        items: cartItems,
+        totals: { subtotal: subtotal, orderTotal: orderTotal, pointsToAdd: pointsToAdd },
+        rewardRedeemed: reward ? { level: reward.level, name: reward.name, value: reward.value } : null,
+        status: 'new',
+        createdAt: fb.serverTimestamp()
+      };
+
+      await fb.addDoc(fb.collection(fb.db, 'orders'), orderPayload);
+
+      var updates = {
+        points: fb.increment(pointsToAdd),
+        updatedAt: fb.serverTimestamp()
+      };
+
+      if(reward){
+        updates.redeemedRewards = fb.arrayUnion(reward.level);
+      }
+
+      await fb.updateDoc(fb.doc(fb.db, 'users', currentUser.uid), updates);
+
+      try {
+        if(typeof SHEETS_URL !== 'undefined' && SHEETS_URL && SHEETS_URL !== 'YOUR_GOOGLE_SCRIPT_URL_HERE'){
+          var orderNum = 'S' + Date.now().toString().slice(-6);
+          fetch(SHEETS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderNum: orderNum,
+              date: new Date().toLocaleString('he-IL'),
+              name: name,
+              phone: phone,
+              product: 'סל הזמנה',
+              description: cartItems.map(function(i){ return i.name; }).join(' | '),
+              payment: payment,
+              address: address,
+              readyBy: readyBy,
+              notes: note,
+              status: 'ממתינה',
+              pointsAdded: pointsToAdd,
+              rewardRedeemed: reward ? (reward.name + ' (רמה ' + reward.level + ')') : ''
+            })
+          }).catch(function(){});
+        }
+      } catch(sheetErr){}
+
+      cartItems = [];
+      selectedRewardLevel = null;
+      manualTotalTouched = false;
+      saveCart();
+      renderCart();
+      await loadProfile();
+      renderRewards();
+      renderPoints();
+      toggleCart(false);
+      toast('ההזמנה נשלחה בהצלחה');
+    } catch(err){
+      toast('שגיאה בשליחת הזמנה: ' + (err && err.code ? err.code : 'error'));
+    }
+  };
+
+  var originalOpenModal = window.openModal;
+  if(typeof originalOpenModal === 'function'){
+    window.openModal = function(card){
+      if(!currentUser){
+        toast('צריך להתחבר כדי להזמין ולקבל מתנות');
+        openAuthModal();
+        return;
+      }
+      originalOpenModal(card);
+      if(window.selProd){
+        window.selProd.price = Number((card && card.getAttribute('data-price')) || 0);
+      }
+      if(document.getElementById('confirmBar')){
+        document.getElementById('confirmBar').style.display = 'none';
+      }
+      if(document.getElementById('submitBtn')){
+        document.getElementById('submitBtn').textContent = '🛒 הוספה לסל';
+      }
+    };
+  }
+
+  window.submitOrder = function(){
+    if(!currentUser){
+      toast('צריך להתחבר כדי להזמין ולקבל מתנות');
+      openAuthModal();
+      return;
+    }
+
+    if(!window.selProd || !window.selProd.name){
+      toast('לא נבחר מוצר');
+      return;
+    }
+
+    var inscription = (document.getElementById('inscriptionInput').value || '').trim();
+    var cfColors = (document.getElementById('cfColors').value || '').trim();
+    var cfFreeText = (document.getElementById('cfFreeText').value || '').trim();
+    var details = [];
+
+    var price = 0;
+    if(window.selProd.isCustom){
+      if(typeof updateCustomTotal === 'function') updateCustomTotal();
+      price = Number(window.customTotal || 0);
+      if(price <= 0){
+        toast('במארז מותאם צריך לבחור פריטים לפני הוספה לסל');
+        return;
+      }
+      if(window.customSummary) details.push(window.customSummary);
+    } else {
+      price = Number(window.selProd.price || 0);
+      if(price > 0){
+        details.push('מחיר מוצר: ' + shekel(price));
+      }
+    }
+
+    if(inscription) details.push('כיתוב: ' + inscription);
+    if(window.selOcc) details.push('מאורע: ' + window.selOcc);
+    if(cfColors) details.push('צבעים: ' + cfColors);
+    if(cfFreeText) details.push('פירוט: ' + cfFreeText);
+
+    cartItems.push({
+      id: 'i_' + Date.now() + '_' + Math.floor(Math.random() * 10000),
+      name: window.selProd.name,
+      price: price,
+      details: details.join(' | ')
+    });
+
+    saveCart();
+    renderCart();
+    if(typeof closeModal === 'function') closeModal();
+    toggleCart(true);
+    toast('נוסף לסל');
+  };
+
+  ensureUI();
+  setAuthUI();
+  renderCart();
+  renderPoints();
+
+  window.addEventListener('firebase-ready', authReady);
+})();
+</script>
+<script>
+(function(){
+  var ADMIN_ALIAS = 'שרה חברוני';
+  var ADMIN_EMAIL = 'admin@sarabakery.local';
+  var ADMIN_PASS = '123456';
+
+  var fb = null;
+  var adminUiReady = false;
+  var isAdmin = false;
+
+  function notify(msg){
+    var el = document.getElementById('saraToast');
+    if(el){
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(function(){ el.classList.remove('show'); }, 2600);
+    } else {
+      alert(msg);
+    }
+  }
+
+  function shekel(n){
+    return '₪' + Number(n || 0).toLocaleString('he-IL');
+  }
+
+  function ensureAdminUI(){
+    if(adminUiReady) return;
+
+    var style = document.createElement('style');
+    style.textContent = [
+      '.admin-fab{position:fixed;left:14px;top:210px;z-index:900;background:#2d1a0e;color:#fff;border:none;border-radius:999px;width:50px;height:50px;display:none;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.3)}',
+      '.admin-panel{position:fixed;right:0;top:0;height:100vh;width:min(560px,96vw);background:#fff;z-index:1250;box-shadow:-20px 0 40px rgba(0,0,0,.25);transform:translateX(102%);transition:transform .25s ease;display:flex;flex-direction:column}',
+      '.admin-panel.open{transform:translateX(0)}',
+      '.admin-head{padding:14px 16px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between}',
+      '.admin-body{padding:12px 14px;overflow:auto;flex:1;background:#fffaf5}',
+      '.admin-note{font-size:12px;color:#7a5040;background:#fff;border:1px solid #f2d9c0;border-radius:10px;padding:8px;margin-bottom:10px}',
+      '.admin-card{background:#fff;border:1px solid #f2d9c0;border-radius:12px;padding:10px;margin-bottom:10px}',
+      '.admin-row{display:flex;align-items:center;justify-content:space-between;gap:8px}',
+      '.admin-mini{font-size:12px;color:#7a5040}',
+      '.admin-progress{height:8px;background:#ecd8c9;border-radius:999px;overflow:hidden;margin-top:6px}',
+      '.admin-progress > div{height:100%;background:linear-gradient(90deg,#27ae60,#d4a24e)}',
+      '.admin-btn{border:none;background:#c8704a;color:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px;font-weight:700}'
+    ].join('');
+    document.head.appendChild(style);
+
+    document.body.insertAdjacentHTML('beforeend',
+      '<button id="adminFab" class="admin-fab" type="button" title="פאנל מנהלת" onclick="toggleAdminPanel(true)">📊</button>' +
+      '<div id="adminPanel" class="admin-panel">' +
+        '<div class="admin-head"><strong>פאנל מנהלת - שרה</strong><button type="button" class="admin-btn" onclick="toggleAdminPanel(false)">סגירה</button></div>' +
+        '<div class="admin-body">' +
+          '<div class="admin-note">סיסמאות משתמשים לא ניתנות לצפייה ב‑Firebase (מאובטח). במקום זה אפשר לשלוח איפוס סיסמה למייל.</div>' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong>משתמשים</strong><button type="button" class="admin-btn" onclick="refreshAdminData()">רענון</button></div>' +
+          '<div id="adminUsersList"></div>' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0 8px"><strong>הזמנות אחרונות</strong></div>' +
+          '<div id="adminOrdersList"></div>' +
+        '</div>' +
+      '</div>'
+    );
+
+    var authCard = document.querySelector('#authModal .auth-card');
+    if(authCard && !document.getElementById('adminHint')){
+      authCard.insertAdjacentHTML('beforeend', '<div id="adminHint" style="margin-top:10px;font-size:12px;color:#7a5040">מנהלת: שם משתמש <strong>שרה חברוני</strong> וסיסמה <strong>123456</strong></div>');
+    }
+
+    adminUiReady = true;
+  }
+
+  function setAdminButton(){
+    ensureAdminUI();
+    var btn = document.getElementById('adminFab');
+    if(btn){ btn.style.display = isAdmin ? 'flex' : 'none'; }
+    if(!isAdmin){
+      var panel = document.getElementById('adminPanel');
+      if(panel) panel.classList.remove('open');
+    }
+  }
+
+  function calcProgress(points){
+    var p = Number(points || 0);
+    var next = (Math.floor(p / 300) + 1) * 300;
+    var prev = next - 300;
+    var pct = Math.max(0, Math.min(100, ((p - prev) / 300) * 100));
+    return { points: p, next: next, pct: pct };
+  }
+
+  async function loadIsAdmin(user){
+    if(!fb || !user) return false;
+    if(user.email === ADMIN_EMAIL) return true;
+    try {
+      var s = await fb.getDoc(fb.doc(fb.db, 'users', user.uid));
+      if(!s.exists()) return false;
+      var d = s.data() || {};
+      return d.role === 'admin';
+    } catch(e){
+      return false;
+    }
+  }
+
+  async function refreshUsers(){
+    if(!isAdmin || !fb) return;
+    var wrap = document.getElementById('adminUsersList');
+    if(!wrap) return;
+
+    try {
+      var snap = await fb.getDocs(fb.collection(fb.db, 'users'));
+      var users = [];
+      snap.forEach(function(docSnap){
+        var d = docSnap.data() || {};
+        users.push({ id: docSnap.id, email: d.email || '', points: Number(d.points || 0), role: d.role || '', redeemedRewards: d.redeemedRewards || [] });
+      });
+
+      users.sort(function(a,b){ return b.points - a.points; });
+
+      if(users.length === 0){
+        wrap.innerHTML = '<div class="admin-mini">אין משתמשים עדיין.</div>';
+        return;
+      }
+
+      var html = '';
+      users.forEach(function(u){
+        var pr = calcProgress(u.points);
+        var rewardCount = Math.floor(u.points / 300);
+        html += '<div class="admin-card">' +
+          '<div class="admin-row"><strong>' + (u.email || 'ללא אימייל') + '</strong><span class="admin-mini">' + (u.role || 'user') + '</span></div>' +
+          '<div class="admin-mini">נקודות: ' + u.points + ' | יעד הבא: ' + pr.next + ' | מתנות פתוחות: ' + rewardCount + '</div>' +
+          '<div class="admin-progress"><div style="width:' + pr.pct + '%"></div></div>' +
+          '<div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">' +
+            (u.email ? ('<button class="admin-btn" type="button" onclick="adminResetPassword(\'' + u.email + '\')">איפוס סיסמה</button>') : '') +
+          '</div>' +
+        '</div>';
+      });
+
+      wrap.innerHTML = html;
+    } catch(err){
+      wrap.innerHTML = '<div class="admin-mini">שגיאה בטעינת משתמשים.</div>';
+    }
+  }
+
+  function formatDate(ts){
+    if(!ts) return 'לא ידוע';
+    try {
+      if(ts.seconds){ return new Date(ts.seconds * 1000).toLocaleString('he-IL'); }
+      return new Date(ts).toLocaleString('he-IL');
+    } catch(e){
+      return 'לא ידוע';
+    }
+  }
+
+  async function refreshOrders(){
+    if(!isAdmin || !fb) return;
+    var wrap = document.getElementById('adminOrdersList');
+    if(!wrap) return;
+
+    try {
+      var snap = await fb.getDocs(fb.collection(fb.db, 'orders'));
+      var orders = [];
+      snap.forEach(function(docSnap){
+        var d = docSnap.data() || {};
+        orders.push({ id: docSnap.id, data: d });
+      });
+
+      orders.sort(function(a,b){
+        var at = a.data && a.data.createdAt && a.data.createdAt.seconds ? a.data.createdAt.seconds : 0;
+        var bt = b.data && b.data.createdAt && b.data.createdAt.seconds ? b.data.createdAt.seconds : 0;
+        return bt - at;
+      });
+
+      if(orders.length === 0){
+        wrap.innerHTML = '<div class="admin-mini">אין הזמנות עדיין.</div>';
+        return;
+      }
+
+      var html = '';
+      orders.slice(0, 100).forEach(function(o){
+        var d = o.data || {};
+        var customer = d.customer || {};
+        var checkout = d.checkout || {};
+        var totals = d.totals || {};
+        var reward = d.rewardRedeemed ? (d.rewardRedeemed.name + ' (רמת ' + d.rewardRedeemed.level + ')') : 'ללא מימוש מתנה';
+        var itemsText = Array.isArray(d.items) ? d.items.map(function(i){ return i.name; }).join(' | ') : '';
+
+        html += '<div class="admin-card">' +
+          '<div class="admin-row"><strong>' + (customer.name || 'ללא שם') + '</strong><span class="admin-mini">' + formatDate(d.createdAt) + '</span></div>' +
+          '<div class="admin-mini">מייל משתמש: ' + (d.userEmail || 'לא ידוע') + '</div>' +
+          '<div class="admin-mini">טלפון: ' + (customer.phone || 'לא ידוע') + '</div>' +
+          '<div class="admin-mini">כתובת: ' + (checkout.address || 'לא הוזנה') + '</div>' +
+          '<div class="admin-mini">תשלום: ' + (checkout.payment || 'לא צוין') + ' | סכום: ' + shekel(totals.orderTotal || 0) + ' | נקודות שנוספו: ' + (totals.pointsToAdd || 0) + '</div>' +
+          '<div class="admin-mini">מתנה: ' + reward + '</div>' +
+          '<div class="admin-mini">פריטים: ' + (itemsText || 'ללא פריטים (מימוש בלבד)') + '</div>' +
+        '</div>';
+      });
+
+      wrap.innerHTML = html;
+    } catch(err){
+      wrap.innerHTML = '<div class="admin-mini">שגיאה בטעינת הזמנות.</div>';
+    }
+  }
+
+  async function refreshAdminData(){
+    await refreshUsers();
+    await refreshOrders();
+  }
+
+  window.refreshAdminData = refreshAdminData;
+
+  window.toggleAdminPanel = async function(open){
+    ensureAdminUI();
+    if(!isAdmin){
+      notify('גישה למנהלת בלבד');
+      return;
+    }
+    var panel = document.getElementById('adminPanel');
+    if(!panel) return;
+    if(open){
+      panel.classList.add('open');
+      await refreshAdminData();
+    } else {
+      panel.classList.remove('open');
+    }
+  };
+
+  window.adminResetPassword = async function(email){
+    if(!isAdmin || !fb) return;
+    try {
+      await fb.sendPasswordResetEmail(fb.auth, email);
+      notify('נשלח מייל לאיפוס סיסמה ל: ' + email);
+    } catch(err){
+      notify('שגיאה בשליחת איפוס סיסמה');
+    }
+  };
+
+  function overrideLogin(){
+    var original = window.loginUser;
+    if(typeof original !== 'function' || original.__adminWrapped) return;
+
+    var wrapped = async function(){
+      ensureAdminUI();
+      if(!fb){
+        notify('Firebase לא מוכן');
+        return;
+      }
+
+      var emailEl = document.getElementById('authEmail');
+      var passEl = document.getElementById('authPass');
+      var inputUser = (emailEl && emailEl.value ? emailEl.value : '').trim();
+      var pass = (passEl && passEl.value ? passEl.value : '').trim();
+
+      if(inputUser === ADMIN_ALIAS){
+        if(pass !== ADMIN_PASS){
+          notify('סיסמת מנהלת לא נכונה');
+          return;
+        }
+
+        try {
+          try {
+            await fb.signInWithEmailAndPassword(fb.auth, ADMIN_EMAIL, ADMIN_PASS);
+          } catch(err){
+            if(err && (err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential' || err.code === 'auth/invalid-email')){
+              var cred = await fb.createUserWithEmailAndPassword(fb.auth, ADMIN_EMAIL, ADMIN_PASS);
+              if(cred && cred.user){
+                await fb.setDoc(fb.doc(fb.db, 'users', cred.user.uid), {
+                  email: ADMIN_EMAIL,
+                  role: 'admin',
+                  points: 0,
+                  redeemedRewards: [],
+                  createdAt: fb.serverTimestamp(),
+                  updatedAt: fb.serverTimestamp()
+                }, { merge: true });
+              }
+            } else {
+              throw err;
+            }
+          }
+
+          if(typeof window.closeAuthModal === 'function') window.closeAuthModal();
+          notify('כניסה כמנהלת בוצעה');
+          return;
+        } catch(e){
+          notify('שגיאה בכניסת מנהלת');
+          return;
+        }
+      }
+
+      return original();
+    };
+
+    wrapped.__adminWrapped = true;
+    window.loginUser = wrapped;
+  }
+
+  async function initAdminAddon(){
+    ensureAdminUI();
+
+    if(!window.firebaseCtx){
+      window.addEventListener('firebase-ready', initAdminAddon, { once: true });
+      return;
+    }
+
+    fb = window.firebaseCtx;
+    overrideLogin();
+
+    fb.onAuthStateChanged(fb.auth, async function(user){
+      isAdmin = await loadIsAdmin(user);
+      setAdminButton();
+    });
+  }
+
+  initAdminAddon();
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
