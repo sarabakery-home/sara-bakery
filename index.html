@@ -289,29 +289,10 @@
     .hero-inner>.hero-btns{animation-delay:.55s}
     .hero-inner>.hero-scroll{animation-delay:.7s}
 
-    /* A11Y */
-    .a11y-fab{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:950;background:linear-gradient(135deg,#1f1f1f,#000);color:#fff;border:none;border-radius:999px;padding:12px 16px;font-size:12px;font-weight:800;letter-spacing:.4px;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+    /* A11Y icon */
+    .a11y-fab{position:fixed;right:16px;bottom:16px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;border:none;border-radius:50%;font-size:26px;cursor:pointer;z-index:2000;box-shadow:0 10px 26px rgba(0,0,0,.25)}
     .a11y-fab:focus{outline:3px solid #fff;outline-offset:3px}
-    .a11y-panel{position:fixed;right:16px;top:50%;transform:translateY(-50%) translateX(120%);opacity:0;pointer-events:none;z-index:949;background:#fff;border:1.5px solid var(--warm2);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.2);padding:14px 14px 12px;width:230px;transition:transform .25s ease,opacity .25s ease}
-    .a11y-panel.open{transform:translateY(-50%) translateX(0);opacity:1;pointer-events:auto}
-    .a11y-title{font-weight:800;font-size:14px;margin-bottom:10px;color:var(--brown)}
-    .a11y-row{display:flex;gap:8px;margin-bottom:10px}
-    .a11y-btn{flex:1;border:1.5px solid var(--warm2);background:#fff;border-radius:10px;padding:8px 6px;font-size:12px;font-weight:800;color:var(--brown);cursor:pointer}
-    .a11y-btn:hover{border-color:var(--copper);color:var(--copper)}
-    .a11y-zoom{font-size:12px;color:var(--brown-mid);font-weight:700;margin-top:6px;text-align:center}
-    .a11y-toggle{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--brown-mid);font-weight:700;margin-bottom:8px}
-    .a11y-toggle input{accent-color:var(--copper)}
-    .a11y-reset{width:100%;margin-top:6px;border:none;border-radius:12px;padding:9px;background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;font-weight:800;font-size:12px;cursor:pointer}
-    body.a11y-underline a{text-decoration:underline !important;text-underline-offset:3px}
-    body.a11y-reduce-motion *{animation:none !important;transition:none !important}
-    body.a11y-focus :focus{outline:3px solid #000 !important;outline-offset:3px}
-    html.a11y-reduce-motion{scroll-behavior:auto}
-    @media(max-width:700px){
-        .a11y-fab{top:auto;bottom:16px;transform:none}
-        .a11y-panel{top:auto;bottom:70px;transform:translateX(120%);width:min(90vw,260px)}
-        .a11y-panel.open{transform:translateX(0)}
-    }
-    </style>
+</style>
 
 </head>
 <body>
@@ -350,7 +331,7 @@
     <div class="trust-item">🏠 עבודת יד בלבד</div>
     <div class="trust-item">✨ מרכיבים איכותיים</div>
     <div class="trust-item">🎨 התאמה אישית</div>
-    <div class="trust-item">🛵 משלוח בחריש ₪10</div>
+    <div class="trust-item">🛵 משלוחים לפי אזור</div>
     <div class="trust-item">💳 ביט / מזומן</div>
 </div>
 
@@ -466,15 +447,6 @@
             <div class="prod-body">
                 <div class="prod-name">עוגת מספרים – דו ספרתי</div>
                 <div class="prod-desc">עוגת מספר דו ספרתי עם ממתקים, מרשמלו</div>
-                <button class="prod-btn">🛒 להזמנה</button>
-            </div>
-        </div>
-
-        <div class="prod-card" data-cat="mispar" data-desc-full="עוגת מספר חד ספרתי עם ממתקים, מרשמלו וקרנף בצבעים ורוד ולבן" onclick="openModal(this)">
-            <div class="prod-img"><img src="number3.jpg" alt="עוגת מספר ורוד לבן"><div class="prod-ribbon rb-num">🔢 ורוד ולבן</div></div>
-            <div class="prod-body">
-                <div class="prod-name">עוגת מספרים – ורוד ולבן</div>
-                <div class="prod-desc">עוגת מספר חד ספרתי עם ממתקים, מרשמלו וקרנף בצבעים ורוד ולבן</div>
                 <button class="prod-btn">🛒 להזמנה</button>
             </div>
         </div>
@@ -614,17 +586,17 @@
         <div class="info-card">
             <span class="info-icon">✡️</span>
             <div class="info-title">כתובת</div>
-            <div class="info-text">התמדה 4, כניסה ב, דירה 14<br><strong>חריש</strong><br>איסוף עצמי – חינם</div>
+            <div class="info-text">אתרוג 3 דירה 16<br><strong>חריש</strong><br>איסוף עצמי</div>
         </div>
         <div class="info-card">
             <span class="info-icon">✡️</span>
             <div class="info-title">משלוחים</div>
-            <div class="info-text">בחריש בלבד<br><strong>₪10 בלבד</strong><br>תיאום בוואטסאפ</div>
+            <div class="info-text">אזורי משלוח: חריש · טל מנשה · פרדס חנה<br>תיאום בוואטסאפ</div>
         </div>
         <div class="info-card">
             <span class="info-icon">✡️</span>
             <div class="info-title">תשלום</div>
-            <div class="info-text">💙 ביט<br>💵 מזומן<br>בקבלת ההזמנה</div>
+            <div class="info-text">💙 ביט<br>🅿️ פייבוקס<br>💵 מזומן<br>בקבלת ההזמנה</div>
         </div>
         <div class="info-card">
             <span class="info-icon">✡️</span>
@@ -653,11 +625,11 @@
             </details>
             <details class="faq-item">
                 <summary>איך עובד המשלוח?</summary>
-                <div class="faq-answer">יש משלוחים לפי האזורים המופיעים בסל. העלות מתעדכנת אוטומטית לפי העיר וסכום ההזמנה.</div>
+                <div class="faq-answer">יש משלוחים לחריש, טל מנשה ופרדס חנה. אפשר לבחור משלוח בסל.</div>
             </details>
             <details class="faq-item">
                 <summary>יש גם איסוף עצמי?</summary>
-                <div class="faq-answer">כן, בהחלט. אפשר לבחור איסוף עצמי בחינם במהלך התשלום, ולקבל את הכתובת המלאה לאיסוף.</div>
+                <div class="faq-answer">כן, בהחלט. אפשר לבחור איסוף עצמי במהלך התשלום, ולקבל את הכתובת המלאה לאיסוף.</div>
             </details>
             <details class="faq-item">
                 <summary>איך אפשר לשלם?</summary>
@@ -690,7 +662,7 @@
     <div class="footer-links">
         <a href="tel:+972523394838">📞 052-3394838</a>
         <a href="mailto:saraiat1113@gmail.com">📧 saraiat1113@gmail.com</a>
-        <a href="https://waze.com/ul?q=התמדה+4+חריש" target="_blank">📍 התמדה 4, חריש</a>
+        <a href="https://waze.com/ul?q=אתרוג+3+חריש" target="_blank">📍 אתרוג 3 דירה 16, חריש</a>
     </div>
     <div class="footer-bottom">© 2025 שרה חברוני · Home Made Bakery</div>
 </footer>
@@ -805,7 +777,7 @@
 
                     <div class="delivery-box legacy-field">
                         <div class="delivery-header" onclick="toggleDelivery()">
-                            <span>האם תרצי משלוח? <span class="delivery-price">+₪10 בחריש בלבד</span></span>
+                            <span>האם תרצי משלוח? <span class="delivery-price">לפי אזור</span></span>
                             <div class="delivery-toggle-wrap">
                                 <div class="delivery-toggle" id="deliveryToggle"><div class="toggle-knob"></div></div>
                             </div>
@@ -857,15 +829,28 @@
 </div>
 
 <script>
-    var selProd={name:'',img:'',descFull:'',isCustom:false}, selPay='', selOcc='', wantsDelivery=false, customTotal=0, customSummary='';
+    var selProd={name:'',img:'',descFull:'',isCustom:false}, selPay='', selOcc='', wantsDelivery=false, customTotal=0, customSummary='', customHasDedication=false;
 
     function shekel(n){
         return '₪' + Number(n||0).toLocaleString('he-IL');
     }
 
+    function updateCustomInscriptionVisibility(){
+        var area=document.getElementById('inscriptionArea');
+        if(!area) return;
+        if(!selProd || !selProd.isCustom){ return; }
+        var wants=!!customHasDedication;
+        area.style.display=wants?'block':'none';
+        if(!wants){ var ins=document.getElementById('inscriptionInput'); if(ins) ins.value=''; }
+        var title=area.querySelector('h4');
+        if(title) title.textContent = wants ? 'כיתוב על המארז (עד 2 מילים)' : 'כיתוב על המארז';
+    }
+
     function resetCustomBuilder(){
         customTotal=0;
         customSummary='';
+        customHasDedication=false;
+        updateCustomInscriptionVisibility();
         document.querySelectorAll('#customBuilderStep .builder-qty').forEach(function(inp){
             inp.value='0';
         });
@@ -920,6 +905,7 @@
 
     function updateCustomTotal(){
         var total=0;
+        var dedicationSelected=false;
         var rows=[];
         document.querySelectorAll('#customBuilderStep .builder-qty').forEach(function(inp){
             var qty=Math.max(0, parseInt(inp.value||'0',10)||0);
@@ -927,6 +913,7 @@
             if(qty>0){
                 var price=parseInt(inp.getAttribute('data-price')||'0',10)||0;
                 var item=inp.getAttribute('data-item')||'';
+                if(item.indexOf('הקדשה')>=0){ dedicationSelected = qty>0; }
                 var rowTotal=qty*price;
                 total+=rowTotal;
                 rows.push(item+' x'+qty+' = '+shekel(rowTotal));
@@ -934,6 +921,8 @@
         });
         customTotal=total;
         customSummary=rows.join(' | ');
+        customHasDedication=dedicationSelected;
+        updateCustomInscriptionVisibility();
         var totalEl=document.getElementById('customTotal');
         if(totalEl) totalEl.textContent='סה"כ משוער: ' + shekel(total);
         return total;
@@ -986,14 +975,22 @@
         var cat=card.dataset.cat||'';
         var isCustom=cat==='custom';
         var wantsNumber=cat==='mispar';
-        var wantsInscription=(cat==='maarz'||cat==='mispar'||cat==='custom');
+        var wantsInscription=(cat==='maarz');
+
+        var ribbonEl=card.querySelector('.prod-ribbon');
+        var ribbonText=ribbonEl?ribbonEl.textContent.trim():'';
+        var badge='';
+        if(ribbonText.indexOf('פופולרי')>=0){badge='פופולרי';}
+        else if(ribbonText){badge='מוגבל';}
+        else if(isCustom){badge='מוגבל';}
+
 
         var infoEl=document.getElementById('modalInfoText');
         if(infoEl){
             if(isCustom){
-                infoEl.textContent='במארז מותאם אישית בוחרים קודם רכיבים ומחיר, ואז מוסיפים לסל.';
+                infoEl.textContent='במארז מותאם אישית בוחרים קודם רכיבים ומחיר. הקדשה (עד 2 מילים) בתוספת ₪10.';
             } else if(wantsNumber){
-                infoEl.textContent='בחרו מספר/כיתוב והוסיפו לסל. את פרטי המשלוח והתשלום ממלאים בסל.';
+                infoEl.textContent='בחרו מספר והוסיפו לסל. את פרטי המשלוח והתשלום ממלאים בסל.';
             } else if(wantsInscription){
                 infoEl.textContent='בחרו כיתוב והוסיפו לסל. את פרטי המשלוח והתשלום ממלאים בסל.';
             } else {
@@ -1051,8 +1048,10 @@
         }
 
         selPay=''; selOcc=''; customTotal=0; customSummary='';
-        selProd={name,img,descFull,isCustom,cat};
+        selProd={name,img,descFull,isCustom,cat,badge:badge};
         document.getElementById('modalOverlay').classList.add('open');
+        var modalEl = document.querySelector('.modal');
+        if(modalEl){ modalEl.scrollTop = 0; }
         document.body.style.overflow='hidden';
     }
 
@@ -1121,7 +1120,7 @@
         if(selOcc) summary+='מאורע: '+selOcc+'\n';
         if(cfColors) summary+='צבעים: '+cfColors+'\n';
         if(cfFreeText) summary+='פירוט: '+cfFreeText+'\n';
-        summary+='משלוח: '+(wantsDelivery?'כן +₪10':'לא - איסוף עצמי')+'\n';
+        summary+='משלוח: '+(wantsDelivery?'כן':'לא - איסוף עצמי')+'\n';
         if(wantsDelivery&&deliveryAddress) summary+='כתובת: '+deliveryAddress+'\n';
         if(deliveryDate) summary+='מוכן עד: '+deliveryDate+'\n';
         if(selPay) summary+='תשלום: '+selPay;
@@ -1176,7 +1175,7 @@
             occasion:      selOcc,
             colors:        cfColors,
             customDetails: [builtDetails, freeDetails].filter(Boolean).join(' | '),
-            delivery:      wantsDelivery ? 'כן - ₪10' : 'לא - איסוף עצמי',
+            delivery:      wantsDelivery ? 'כן' : 'לא - איסוף עצמי',
             address:       wantsDelivery ? (deliveryAddress||'לא הוזנה') : '',
             readyBy:       deliveryDate,
             payment:       selPay||'לא צוין',
@@ -1232,7 +1231,7 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
 import {  getFirestore, doc, getDoc, setDoc, updateDoc, addDoc, collection, collectionGroup, serverTimestamp, increment, arrayUnion, getDocs, query, where, orderBy } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-storage.js";
 
@@ -1248,6 +1247,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+setPersistence(auth, browserLocalPersistence).catch(function(){});
 const db = getFirestore(app);
 const storage = getStorage(app);
 
@@ -1303,7 +1303,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     { level: 1200, name: 'מיני מגנום', value: 15, emoji: '🍦' },
     { level: 1500, name: 'קינוח כוס', value: 15, emoji: '🥤' }
   ];
-  var PICKUP_ADDRESS = 'התמדה 4, כניסה ב, דירה 14, חריש';
+  var PICKUP_ADDRESS = 'אתרוג 3 דירה 16, חריש';
+  var DREAM_PACK_TARGET = 200;
+  var cartPaymentCode = '';
   var paymentStepConfirmed = false;
   var paymentStepAmount = 0;
   var SARA_PAYMENT_PHONE = '0523394838';
@@ -1313,6 +1315,17 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   function shekel(n){
     return '₪' + Number(n || 0).toLocaleString('he-IL');
   }
+
+    function updateCustomInscriptionVisibility(){
+        var area=document.getElementById('inscriptionArea');
+        if(!area) return;
+        if(!selProd || !selProd.isCustom){ return; }
+        var wants=!!customHasDedication;
+        area.style.display=wants?'block':'none';
+        if(!wants){ var ins=document.getElementById('inscriptionInput'); if(ins) ins.value=''; }
+        var title=area.querySelector('h4');
+        if(title) title.textContent = wants ? 'כיתוב על המארז (עד 2 מילים)' : 'כיתוב על המארז';
+    }
 
   function getGiftForLevel(level){
     var known = GIFT_TIERS.find(function(t){ return t.level === level; });
@@ -1324,10 +1337,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function getProfileDisplayName(){
     var full = profile && profile.fullName ? String(profile.fullName).trim() : '';
-    if(full) return full;
     var authName = currentUser && currentUser.displayName ? String(currentUser.displayName).trim() : '';
-    if(authName) return authName;
     var byEmail = currentUser && currentUser.email ? String(currentUser.email).split('@')[0].trim() : '';
+    if(full){
+        if(byEmail && full === byEmail && authName) return authName;
+        return full;
+    }
+    if(authName) return authName;
     return byEmail || 'לקוחה יקרה';
   }
 
@@ -1578,10 +1594,17 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function setCheckoutPending(isPending){
     var btn = document.getElementById('checkoutSendBtn');
-    if(!btn) return;
-    btn.disabled = isPending;
-    btn.style.opacity = isPending ? '0.75' : '1';
-    btn.textContent = isPending ? 'שולח הזמנה...' : 'שליחת כל הסל';
+    if(btn){
+      btn.disabled = isPending;
+      btn.style.opacity = isPending ? '0.75' : '1';
+      btn.textContent = isPending ? 'שולח הזמנה...' : 'סיימתי, לתשלום';
+    }
+    var payBtn = document.getElementById('paymentSendBtn');
+    if(payBtn){
+      payBtn.disabled = isPending;
+      payBtn.style.opacity = isPending ? '0.7' : '1';
+      payBtn.textContent = isPending ? 'שולח הזמנה...' : 'שלח הזמנה לשרה';
+    }
   }
 
 
@@ -1644,7 +1667,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.cart-body{padding:16px 16px 18px;overflow:auto;flex:1;background:linear-gradient(180deg,#fffaf4,#fff7ee);position:relative}',
       '.cart-body::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 10% 0%,rgba(216,177,106,.16),transparent 45%),radial-gradient(circle at 90% 15%,rgba(200,112,74,.12),transparent 40%);pointer-events:none}',
       '.cart-body > *{position:relative}',
-      '.cart-features{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 12px}',
+      '.cart-features{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;justify-content:center;text-align:center}',
       '.cart-chip{background:#fff;border:1px solid #f0d0ae;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800;color:#6b4433;box-shadow:0 4px 10px rgba(200,112,74,.08)}',
       '.cart-tip{font-size:11px;color:#7a5040;background:#fff8f1;border:1px dashed #f0d0ae;border-radius:12px;padding:8px 10px;margin-bottom:12px;line-height:1.6}',
       '.cart-extras{margin:4px 0 12px}',
@@ -1657,10 +1680,35 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.cart-action{border:none;border-radius:12px;padding:10px 12px;font-size:12px;font-weight:800;cursor:pointer}',
       '.cart-action.primary{background:linear-gradient(135deg,#c8704a,#a85535);color:#fff;box-shadow:0 8px 18px rgba(200,112,74,.22)}',
       '.cart-action.secondary{background:#fff;color:#6b4433;border:1px solid #e5d0be}',
+      '.cart-pay-strip{display:flex;justify-content:center;gap:8px;margin:6px 0 12px;flex-wrap:wrap}',
+      '.cart-pay-pill{background:#fff;border:1px solid #f0d0ae;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:800;color:#6b4433;box-shadow:0 4px 10px rgba(200,112,74,.08)}',
+      '.cart-progress{background:#fff;border:1px solid #f0d0ae;border-radius:12px;padding:10px 12px;margin:8px 0;display:grid;gap:6px;box-shadow:0 8px 16px rgba(200,112,74,.08)}',
+      '.cart-progress-title{font-size:12px;font-weight:900;color:#5a3424}',
+      '.cart-progress-bar{height:8px;background:#f2e0cf;border-radius:999px;overflow:hidden}',
+      '.cart-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#c8704a,#f0c97a);border-radius:999px;transition:width .3s ease}',
+      '.cart-progress-text{font-size:11px;color:#7a5040;font-weight:700}',
+      '.cart-share{width:100%;margin-top:6px;border:1px solid #25d366;background:#f1fbf4;color:#128c7e;border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer}',
+      '.payment-sheet{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.45);z-index:1400;padding:16px}',
+      '.payment-sheet.open{display:flex}',
+      '.payment-card{background:#fff;border-radius:18px;max-width:420px;width:100%;padding:16px;border:1px solid #f2d9c0;box-shadow:0 20px 45px rgba(0,0,0,.25)}',
+      '.payment-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}',
+      '.payment-title{font-size:18px;font-weight:900;color:#2d1a0e}',
+      '.payment-sub{font-size:12px;color:#7a5040;font-weight:700}',
+      '.payment-close{border:none;background:#fff;border:1px solid #e5d0be;border-radius:999px;padding:6px 12px;font-weight:800;color:#6b4433;cursor:pointer}',
+      '.payment-methods{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}',
+      '.pay-method{border:1px solid #e4d2c2;background:#fff;border-radius:12px;padding:10px;font-weight:800;font-size:12px;cursor:pointer}',
+      '.pay-method.active{background:linear-gradient(135deg,#c8704a,#a85535);color:#fff;border-color:transparent}',
+      '.payment-details{font-size:12px;color:#7a5040;line-height:1.6;background:#fff8f1;border:1px dashed #f0d0ae;border-radius:12px;padding:8px 10px;margin-bottom:10px}',
+      '.payment-link{display:none;width:100%;text-align:center;text-decoration:none;background:linear-gradient(135deg,#2d1a0e,#5a2d16);color:#fff;border-radius:12px;padding:11px 12px;font-weight:800;margin-bottom:8px}',
+      '.payment-confirm{display:none;width:100%;border:1px solid #27ae60;background:#effaf3;color:#1c7d44;border-radius:12px;padding:11px 12px;font-weight:800;cursor:pointer;margin-bottom:8px}',
+      '.payment-confirm.done{background:#27ae60;color:#fff;border-color:#27ae60}',
+      '.payment-send{width:100%;border:none;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border-radius:12px;padding:12px;font-weight:800;cursor:pointer}',
       '.cart-item{position:relative;border:1.5px solid #f0d2b8;border-radius:16px;padding:12px 12px 12px 14px;margin-bottom:12px;background:linear-gradient(160deg,#fff,#fff7f1);box-shadow:0 10px 22px rgba(200,112,74,.1);overflow:hidden}',
       '.cart-item::before{content:"";position:absolute;right:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#c8704a,#f3d7be);opacity:.55}',
       '.cart-item::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.55),transparent 60%);pointer-events:none}',
       '.cart-item-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}',
+      '.cart-item-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}',
+      '.cart-badge-pill{background:#fff1e6;border:1px solid #f0cbb0;color:#a85535;font-size:10px;font-weight:900;border-radius:999px;padding:3px 8px}',
       '.cart-remove{border:none;background:#fff;color:#b23b2a;border:1px solid #f3c7bd;border-radius:999px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:800;transition:all .2s ease}',
       '.cart-remove:hover{background:#fff3ee;border-color:#e7a591}',
       '.cart-item-name{font-size:15px;font-weight:900;color:#2d1a0e;line-height:1.35;letter-spacing:.2px}',
@@ -1739,36 +1787,35 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         '<div class="cart-body">' +
           '<div class="points-wrap" id="pointsWrap"></div>' +
           '<div id="rewardList"></div>' +
-          '<div class="cart-features">' +
-            '<span class="cart-chip">🎁 נקודות ומתנות</span>' +
-            '<span class="cart-chip">🚚 משלוח חכם לפי עיר</span>' +
-            '<span class="cart-chip">💬 עדכון מהיר בוואטסאפ</span>' +
-          '</div>' +
-          '<div class="cart-tip">אפשר להשאיר סכום ריק — שרה תעדכן אותך לסיום התשלום.</div>' +
           '<div id="cartExtras" class="cart-extras">' +
             '<div class="cart-kpis">' +
               '<div class="cart-kpi"><div class="cart-kpi-title">פריטים בסל</div><div id="cartKpiItems" class="cart-kpi-value">0</div><div class="cart-kpi-sub">מוכן לשליחה</div></div>' +
               '<div class="cart-kpi"><div class="cart-kpi-title">סכום ביניים</div><div id="cartKpiTotal" class="cart-kpi-value">0</div><div id="cartKpiNote" class="cart-kpi-sub">מחיר סופי יעודכן</div></div>' +
             '</div>' +
+            '<div class="cart-progress">' +
+              '<div class="cart-progress-title">כמה נשאר למארז חלומי</div>' +
+              '<div class="cart-progress-bar"><div id="dreamProgressFill" class="cart-progress-fill"></div></div>' +
+              '<div id="dreamProgressText" class="cart-progress-text">מוסיפים פריטים ומתקרבים למארז חלומי.</div>' +
+            '</div>' +
+            '<button type="button" class="cart-share" onclick="shareCartWA()">שיתוף סל בוואטסאפ</button>' +
             '<div class="cart-actions">' +
               '<button type="button" class="cart-action secondary" onclick="toggleCart(false);document.getElementById(\'catalog\').scrollIntoView({behavior:\'smooth\'})">להמשך קניות</button>' +
               '<button type="button" class="cart-action primary" onclick="document.getElementById(\'checkoutName\').focus()">למעבר לפרטים</button>' +
             '</div>' +
           '</div>' +
+          '<div id="cartFeatures" class="cart-features">' +
+            '<span class="cart-chip">🎁 נקודות ומתנות</span>' +
+            '<span class="cart-chip">🛵 משלוח חכם לפי עיר</span>' +
+            '<span class="cart-chip">💬 עדכון מהיר בוואטסאפ</span>' +
+          '</div>' +
+          '<div id="cartTip" class="cart-tip">אפשר להשאיר סכום ריק — שרה תעדכן אותך לסיום התשלום.</div>' +
           '<div id="cartList"></div>' +
-          '<div class="checkout-box">' +
-            '<div class="checkout-title">תשלום וסיום הזמנה</div>' +
-            '<div class="checkout-sub">ממלאים פרטים פעם אחת ושולחים את כל הסל.</div>' +
+          '<div id="checkoutBox" class="checkout-box">' +
+            '<div class="checkout-title">פרטי משלוח ותשלום</div>' +
+            '<div class="checkout-sub">ממלאים פרטים ואז עוברים לתשלום.</div>' +
             '<div class="checkout-row">' +
               '<div class="checkout-field"><label class="checkout-label" for="checkoutName">שם מלא</label><input id="checkoutName" placeholder="שם מלא"></div>' +
               '<div class="checkout-field"><label class="checkout-label" for="checkoutPhone">טלפון</label><input id="checkoutPhone" placeholder="05X-XXXXXXX"></div>' +
-            '</div>' +
-            '<div class="checkout-field"><label class="checkout-label" for="checkoutPayment">שיטת תשלום</label><select id="checkoutPayment" onchange="updatePaymentAction()"><option value="">בחרו שיטת תשלום</option><option value="bit">ביט</option><option value="paybox">פייבוקס</option><option value="cash">מזומן</option></select></div>' +
-            '<div id="checkoutPayBox" class="checkout-paybox" style="display:none">' +
-              '<div id="checkoutPayTitle" class="checkout-paytitle"></div>' +
-              '<div id="checkoutPayText" class="checkout-paytext"></div>' +
-              '<a id="checkoutPayLink" class="checkout-paylink" href="#" target="_blank" rel="noopener" style="display:none" onclick="openExternalPayment(event)">לתשלום עכשיו</a>' +
-              '<button id="checkoutPaidBtn" type="button" class="checkout-paid-btn" style="display:none" onclick="confirmPaymentStep()">סימנתי ששילמתי</button>' +
             '</div>' +
             '<div class="checkout-field"><label class="checkout-label" for="checkoutDeliveryMode">סוג קבלה</label><select id="checkoutDeliveryMode" onchange="updateCheckoutTotals()"><option value="pickup">איסוף עצמי (חינם)</option><option value="delivery">משלוח</option></select></div>' +
             '<div class="checkout-field"><label class="checkout-label" for="checkoutDeliveryCity">עיר למשלוח</label><select id="checkoutDeliveryCity" onchange="updateCheckoutTotals()" style="display:none"><option value="">לאן לשלוח?</option><option value="harish">חריש</option><option value="tal_menashe">טל מנשה</option><option value="pardes_hanna">פרדס חנה</option></select></div>' +
@@ -1779,11 +1826,31 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
             '</div>' +
             '<div class="checkout-field"><label class="checkout-label" for="checkoutNote">הערות נוספות</label><textarea id="checkoutNote" rows="3" placeholder="כל בקשה מיוחדת..."></textarea></div>' +
             '<div id="checkoutTotalsInfo" class="checkout-totals-info"></div>' +
-            '<button id="checkoutSendBtn" class="checkout-send" type="button" onclick="sendCartOrder()">שליחת כל הסל</button>' +
+            '<button id="checkoutSendBtn" class="checkout-send" type="button" onclick="openPaymentSheet()">סיימתי, לתשלום</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
 
+      '<div id="paymentSheet" class="payment-sheet" onclick="closePaymentSheet(event)">' +
+        '<div class="payment-card" onclick="event.stopPropagation()">' +
+          '<div class="payment-head">' +
+            '<div>' +
+              '<div class="payment-title">תשלום הזמנה</div>' +
+              '<div id="paymentAmountText" class="payment-sub">סכום לתשלום: --</div>' +
+            '</div>' +
+            '<button type="button" class="payment-close" onclick="closePaymentSheet()">סגירה</button>' +
+          '</div>' +
+          '<div class="payment-methods">' +
+            '<button type="button" class="pay-method" data-code="bit" onclick="selectPaymentMethod(\'bit\')">💙 ביט</button>' +
+            '<button type="button" class="pay-method" data-code="paybox" onclick="selectPaymentMethod(\'paybox\')">🅿️ פייבוקס</button>' +
+            '<button type="button" class="pay-method" data-code="cash" onclick="selectPaymentMethod(\'cash\')">💵 מזומן</button>' +
+          '</div>' +
+          '<div id="paymentDetails" class="payment-details">בחרו שיטת תשלום כדי לקבל הוראות.</div>' +
+          '<a id="paymentLink" class="payment-link" href="#" target="_blank" rel="noopener" onclick="openExternalPayment(event)">מעבר לתשלום</a>' +
+          '<button id="paymentConfirmBtn" type="button" class="payment-confirm" onclick="confirmPaymentStep()">סימנתי ששילמתי</button>' +
+          '<button id="paymentSendBtn" type="button" class="payment-send" onclick="sendCartOrder()">שלח הזמנה לשרה</button>' +
+        '</div>' +
+      '</div>' +
       '<div id="saraToast" class="sara-toast"></div>' +
       '<div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>'
     );
@@ -2024,6 +2091,39 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     wrap.innerHTML = html;
   }
 
+
+  window.shareCartWA = function(){
+    if(!cartItems || cartItems.length === 0){
+      toast('הסל ריק כרגע');
+      return;
+    }
+
+    var lines = ['היי! זה הסל שלי באתר שרה חברוני:'];
+    cartItems.forEach(function(item, idx){
+      if(!item) return;
+      var label = (idx + 1) + '. ' + (item.name || 'פריט');
+      if(item.details){
+        label += ' - ' + item.details;
+      }
+      lines.push(label);
+    });
+
+    var subtotal = getCartSubtotal();
+    if(subtotal > 0){
+      lines.push('סכום ביניים: ' + shekel(subtotal));
+    } else {
+      lines.push('סכום ביניים: מתעדכן');
+    }
+
+    lines.push('לפרטים והזמנה: ' + window.location.href);
+    var url = 'https://wa.me/?text=' + encodeURIComponent(lines.join('\n'));
+
+    try {
+      window.open(url, '_blank');
+    } catch(err){
+      window.location.href = url;
+    }
+  };
   async function loadProfileOrders(){
     ensureUI();
     var wrap = document.getElementById('profileOrdersList');
@@ -2373,6 +2473,15 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       }
 
       if(!reviewSaved){
+        try {
+          var sheetOk = await sendReviewToSheets(Object.assign({ date: new Date().toLocaleString('he-IL') }, basePayload));
+          if(sheetOk){
+            reviewSaved = true;
+          }
+        } catch(sheetErr){}
+      }
+
+      if(!reviewSaved){
         throw new Error('review-not-saved');
       }
 
@@ -2424,89 +2533,153 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return null;
   }
 
-  function getCheckoutAmount(){
+    function getCheckoutAmount(){
     var totalInput = document.getElementById('checkoutTotal');
+
     var subtotal = getCartSubtotal();
-    var hasUnknown = cartItems.some(function(item){ return !item.price || Number(item.price) <= 0; });
-    if(extras) extras.style.display = '';
-    if(kpiItems) kpiItems.textContent = String(cartItems.length);
-    if(kpiTotal) kpiTotal.textContent = subtotal > 0 ? shekel(subtotal) : 'מתעדכן';
-    if(kpiNote) kpiNote.textContent = hasUnknown ? 'מחיר סופי יעודכן' : 'לא כולל משלוח';
     var delivery = calcDelivery(subtotal);
     var autoTotal = subtotal + Number(delivery.fee || 0);
     var current = Number(totalInput ? (totalInput.value || 0) : 0);
     return current > 0 ? current : autoTotal;
   }
 
-  window.updatePaymentAction = function(){
-    ensureUI();
-    var methodEl = document.getElementById('checkoutPayment');
-    var box = document.getElementById('checkoutPayBox');
-    var titleEl = document.getElementById('checkoutPayTitle');
-    var textEl = document.getElementById('checkoutPayText');
-    var linkEl = document.getElementById('checkoutPayLink');
-    var paidBtn = document.getElementById('checkoutPaidBtn');
-    if(!methodEl || !box || !titleEl || !textEl || !linkEl || !paidBtn) return;
+    function updatePaymentSheetUI(){
+    var sheet = document.getElementById('paymentSheet');
+    if(!sheet) return;
+    var amountEl = document.getElementById('paymentAmountText');
+    var detailsEl = document.getElementById('paymentDetails');
+    var linkEl = document.getElementById('paymentLink');
+    var confirmBtn = document.getElementById('paymentConfirmBtn');
+    var sendBtn = document.getElementById('paymentSendBtn');
+    var buttons = document.querySelectorAll('.pay-method');
 
-    var code = (methodEl.value || '').trim();
+    var code = (cartPaymentCode || '').trim();
     var amount = getCheckoutAmount();
 
-    if(!code){
-      box.style.display = 'none';
-      paymentStepConfirmed = false;
-      paymentStepAmount = 0;
-      return;
+    if(amountEl){
+      amountEl.textContent = 'סכום לתשלום: ' + (amount > 0 ? shekel(amount) : 'יתעדכן');
     }
 
-    box.style.display = 'block';
+    buttons.forEach(function(btn){
+      var btnCode = btn.getAttribute('data-code') || '';
+      if(btnCode === code){
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    if(!detailsEl || !linkEl || !confirmBtn) return;
+
+    if(!code){
+      detailsEl.textContent = 'בחרו שיטת תשלום כדי לקבל הוראות.';
+      linkEl.style.display = 'none';
+      confirmBtn.style.display = 'none';
+      if(sendBtn){
+        sendBtn.disabled = true;
+        sendBtn.style.opacity = '0.7';
+      }
+      return;
+    }
 
     if(code === 'cash'){
-      titleEl.textContent = 'תשלום במזומן';
-      textEl.textContent = 'תשלום יתבצע במסירה/איסוף. אין צורך בקישור תשלום.';
+      detailsEl.textContent = 'תשלום במזומן יתבצע בעת מסירה / איסוף.';
       linkEl.style.display = 'none';
-      paidBtn.style.display = 'none';
+      confirmBtn.style.display = 'none';
       paymentStepConfirmed = true;
       paymentStepAmount = amount;
-      return;
-    }
-
-    if(amount <= 0){
-      titleEl.textContent = 'סכום לתשלום יעודכן';
-      textEl.textContent = 'אפשר לשלוח את ההזמנה גם בלי סכום. שרה תעדכן אותך לסיום התשלום.';
+    } else if(amount <= 0){
+      detailsEl.textContent = 'סכום לתשלום יתעדכן מול שרה. אפשר לשלוח הזמנה גם בלי סכום.';
       linkEl.style.display = 'none';
-      paidBtn.style.display = 'none';
+      confirmBtn.style.display = 'none';
       paymentStepConfirmed = true;
       paymentStepAmount = 0;
+    } else {
+      var links = buildExternalPaymentLink(code, amount);
+      detailsEl.textContent = 'סכום לתשלום: ' + shekel(amount) + ' · אחרי התשלום לחצו "סימנתי ששילמתי" ואז שלחו הזמנה.';
+
+      linkEl.style.display = 'inline-flex';
+      linkEl.setAttribute('data-app-url', links ? links.appUrl : '');
+      linkEl.setAttribute('data-web-url', links ? links.webUrl : '');
+      linkEl.href = (links && links.appUrl) ? links.appUrl : '#';
+      linkEl.textContent = 'לתשלום ב' + paymentLabelByCode(code) + ' (' + shekel(amount) + ')';
+
+      if(paymentStepAmount !== amount){
+        paymentStepConfirmed = false;
+      }
+
+      confirmBtn.style.display = 'block';
+      if(paymentStepConfirmed){
+        confirmBtn.textContent = 'התשלום סומן ✔';
+        confirmBtn.classList.add('done');
+      } else {
+        confirmBtn.textContent = 'סימנתי ששילמתי';
+        confirmBtn.classList.remove('done');
+      }
+    }
+
+    if(sendBtn){
+      var allowSend = !!code && (!isExternalPaymentMethod(code) || amount <= 0 || paymentStepConfirmed);
+      sendBtn.disabled = !allowSend;
+      sendBtn.style.opacity = allowSend ? '1' : '0.7';
+    }
+  }
+
+  window.updatePaymentAction = function(){
+    var sheet = document.getElementById('paymentSheet');
+    if(sheet && sheet.classList.contains('open')){
+      updatePaymentSheetUI();
+    }
+  };
+
+  window.openPaymentSheet = function(){
+    ensureUI();
+    if(!currentUser){
+        toast('כדי להוסיף לסל צריך להתחבר');
+      }
+
+    if(cartItems.length === 0 && !selectedRewardLevel){
+      toast('הסל שלך ריק כרגע');
       return;
     }
 
-    var links = buildExternalPaymentLink(code, amount);
-    titleEl.textContent = 'מעבר לתשלום ב' + paymentLabelByCode(code);
-    textEl.textContent = 'סכום לתשלום: ' + shekel(amount) + ' · אחרי התשלום לחצו "סימנתי ששילמתי" ואז שלחו הזמנה.';
-
-    linkEl.style.display = 'inline-flex';
-    linkEl.setAttribute('data-app-url', links ? links.appUrl : '');
-    linkEl.setAttribute('data-web-url', links ? links.webUrl : '');
-    linkEl.href = (links && links.appUrl) ? links.appUrl : '#';
-    linkEl.textContent = 'לתשלום ב' + paymentLabelByCode(code) + ' (' + shekel(amount) + ')';
-
-    if(paymentStepAmount !== amount){
-      paymentStepConfirmed = false;
+    var name = (document.getElementById('checkoutName').value || '').trim();
+    var phone = (document.getElementById('checkoutPhone').value || '').trim();
+    if(!name){
+      toast('חסר שם מלא');
+      document.getElementById('checkoutName').focus();
+      return;
+    }
+    if(!phone){
+      toast('חסר טלפון');
+      document.getElementById('checkoutPhone').focus();
+      return;
     }
 
-    paidBtn.style.display = 'block';
-    if(paymentStepConfirmed){
-      paidBtn.textContent = 'התשלום סומן ✔';
-      paidBtn.classList.add('done');
-    } else {
-      paidBtn.textContent = 'סימנתי ששילמתי';
-      paidBtn.classList.remove('done');
+    updateCheckoutTotals();
+    var sheet = document.getElementById('paymentSheet');
+    if(sheet){
+      sheet.classList.add('open');
+      updatePaymentSheetUI();
     }
+  };
+
+  window.closePaymentSheet = function(e){
+    if(e && e.target && e.target.id !== 'paymentSheet') return;
+    var sheet = document.getElementById('paymentSheet');
+    if(sheet) sheet.classList.remove('open');
+  };
+
+  window.selectPaymentMethod = function(code){
+    cartPaymentCode = String(code || '').trim();
+    paymentStepConfirmed = false;
+    paymentStepAmount = 0;
+    updatePaymentSheetUI();
   };
 
   window.openExternalPayment = function(e){
     if(e) e.preventDefault();
-    var linkEl = document.getElementById('checkoutPayLink');
+    var linkEl = document.getElementById('paymentLink');
     if(!linkEl) return;
     var appUrl = linkEl.getAttribute('data-app-url') || '';
     var webUrl = linkEl.getAttribute('data-web-url') || '';
@@ -2528,7 +2701,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var amount = getCheckoutAmount();
     paymentStepConfirmed = true;
     paymentStepAmount = amount;
-    updatePaymentAction();
+    updatePaymentSheetUI();
     toast('מעולה. אפשר עכשיו לשלוח את ההזמנה');
   };
   function getCartSubtotal(){
@@ -2542,7 +2715,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return '';
   }
 
-  function calcDelivery(subtotal){
+      function calcDelivery(subtotal){
     var modeEl = document.getElementById('checkoutDeliveryMode');
     var cityEl = document.getElementById('checkoutDeliveryCity');
     var mode = modeEl ? (modeEl.value || 'pickup') : 'pickup';
@@ -2567,7 +2740,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return { mode: mode, city: city, cityLabel: cityLabel, fee: fee, note: note };
   }
 
-  window.updateCheckoutTotals = function(){
+    window.updateCheckoutTotals = function(){
     ensureUI();
     var modeEl = document.getElementById('checkoutDeliveryMode');
     var cityEl = document.getElementById('checkoutDeliveryCity');
@@ -2577,11 +2750,6 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(!modeEl || !cityEl || !addressEl || !infoEl) return;
 
     var subtotal = getCartSubtotal();
-    var hasUnknown = cartItems.some(function(item){ return !item.price || Number(item.price) <= 0; });
-    if(extras) extras.style.display = '';
-    if(kpiItems) kpiItems.textContent = String(cartItems.length);
-    if(kpiTotal) kpiTotal.textContent = subtotal > 0 ? shekel(subtotal) : 'מתעדכן';
-    if(kpiNote) kpiNote.textContent = hasUnknown ? 'מחיר סופי יעודכן' : 'לא כולל משלוח';
     var isDelivery = modeEl.value === 'delivery';
 
     cityEl.style.display = isDelivery ? 'block' : 'none';
@@ -2615,7 +2783,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     updatePaymentAction();
   };
 
-  function renderCart(){
+    function renderCart(){
     ensureUI();
     var list = document.getElementById('cartList');
     var badge = document.getElementById('cartBadge');
@@ -2623,23 +2791,38 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var kpiItems = document.getElementById('cartKpiItems');
     var kpiTotal = document.getElementById('cartKpiTotal');
     var kpiNote = document.getElementById('cartKpiNote');
+    var dreamFill = document.getElementById('dreamProgressFill');
+    var dreamText = document.getElementById('dreamProgressText');
+    var features = document.getElementById('cartFeatures');
+    var tip = document.getElementById('cartTip');
+    var checkoutBox = document.getElementById('checkoutBox');
     if(!list || !badge) return;
 
     badge.textContent = String(cartItems.length);
 
     if(cartItems.length === 0){
-      list.innerHTML = '<div class="cart-empty">\u05d4\u05e1\u05dc \u05e8\u05d9\u05e7 \u05db\u05e8\u05d2\u05e2.</div>';
+      list.innerHTML = '<div class="cart-empty">הסל ריק כרגע.</div>';
       if(extras) extras.style.display = 'none';
+      if(features) features.style.display = 'none';
+      if(tip) tip.style.display = 'none';
+      if(checkoutBox) checkoutBox.style.display = 'none';
       if(kpiItems) kpiItems.textContent = '0';
       if(kpiTotal) kpiTotal.textContent = '0';
       if(kpiNote) kpiNote.textContent = '';
+      if(dreamFill) dreamFill.style.width = '0%';
+      if(dreamText) dreamText.textContent = 'מוסיפים פריטים ומתקרבים למארז חלומי.';
       var t0 = document.getElementById('checkoutTotal');
       if(t0 && !manualTotalTouched) t0.value = '';
       paymentStepConfirmed = false;
       paymentStepAmount = 0;
+      cartPaymentCode = '';
       updateCheckoutTotals();
       return;
     }
+
+    if(features) features.style.display = '';
+    if(tip) tip.style.display = '';
+    if(checkoutBox) checkoutBox.style.display = '';
 
     var subtotal = getCartSubtotal();
     var hasUnknown = cartItems.some(function(item){ return !item.price || Number(item.price) <= 0; });
@@ -2647,22 +2830,75 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(kpiItems) kpiItems.textContent = String(cartItems.length);
     if(kpiTotal) kpiTotal.textContent = subtotal > 0 ? shekel(subtotal) : 'מתעדכן';
     if(kpiNote) kpiNote.textContent = hasUnknown ? 'מחיר סופי יעודכן' : 'לא כולל משלוח';
+
+    if(dreamFill && dreamText){
+      if(hasUnknown){
+        dreamFill.style.width = '0%';
+        dreamText.textContent = 'מחיר הסל יתעדכן מול שרה לפני תשלום.';
+      } else if(DREAM_PACK_TARGET > 0){
+        var pct = Math.min(100, Math.round((subtotal / DREAM_PACK_TARGET) * 100));
+        dreamFill.style.width = Math.max(0, pct) + '%';
+        if(subtotal <= 0){
+          dreamText.textContent = 'מוסיפים פריטים ומתקרבים למארז חלומי.';
+        } else if(subtotal < DREAM_PACK_TARGET){
+          dreamText.textContent = 'נשארו עוד ' + shekel(DREAM_PACK_TARGET - subtotal) + ' למארז חלומי';
+        } else {
+          dreamText.textContent = 'איזה כיף! הגעתם למארז חלומי 🎉';
+        }
+      }
+    }
+
     var html = '';
 
     cartItems.forEach(function(item){
+      var badgeHtml = item && item.badge ? ('<span class="cart-badge-pill">' + escapeHtml(item.badge) + '</span>') : '';
+      var detailsHtml = item.details ? ('<div class="cart-item-details">' + item.details + '</div>') : '';
       html += '<div class="cart-item">' +
-        '<div class="cart-item-top"><strong class="cart-item-name">' + item.name + '</strong><button class="cart-remove" type="button" onclick="removeCartItem(\'' + item.id + '\')">\u05d4\u05e1\u05e8</button></div>' +
-        '<div class="cart-item-details">' + (item.details || '') + '</div>' +
-        '<div class="cart-item-price">' + (item.price > 0 ? ('\u05de\u05d7\u05d9\u05e8: ' + shekel(item.price)) : '\u05de\u05d7\u05d9\u05e8 \u05d9\u05e2\u05d5\u05d3\u05db\u05df') + '</div>' +
+        '<div class="cart-item-top"><div class="cart-item-head"><strong class="cart-item-name">' + item.name + '</strong>' + badgeHtml + '</div><button class="cart-remove" type="button" onclick="removeCartItem(\'' + item.id + '\')">הסר</button></div>' +
+        detailsHtml +
+        '<div class="cart-item-price">' + (item.price > 0 ? ('מחיר: ' + shekel(item.price)) : 'מחיר יעודכן') + '</div>' +
       '</div>';
     });
 
-    html += '<div class="cart-summary-chip">\u05e1\u05d4"\u05db \u05de\u05d7\u05d5\u05e9\u05d1: ' + shekel(subtotal) + '</div>';
+    html += '<div class="cart-summary-chip">סה"כ מחושב: ' + shekel(subtotal) + '</div>';
     list.innerHTML = html;
     updateCheckoutTotals();
   }
 
 
+
+  window.shareCartWA = function(){
+    if(!cartItems || cartItems.length === 0){
+      toast('הסל ריק כרגע');
+      return;
+    }
+
+    var lines = ['היי! זה הסל שלי באתר שרה חברוני:'];
+    cartItems.forEach(function(item, idx){
+      if(!item) return;
+      var label = (idx + 1) + '. ' + (item.name || 'פריט');
+      if(item.details){
+        label += ' - ' + item.details;
+      }
+      lines.push(label);
+    });
+
+    var subtotal = getCartSubtotal();
+    if(subtotal > 0){
+      lines.push('סכום ביניים: ' + shekel(subtotal));
+    } else {
+      lines.push('סכום ביניים: מתעדכן');
+    }
+
+    lines.push('לפרטים והזמנה: ' + window.location.href);
+    var url = 'https://wa.me/?text=' + encodeURIComponent(lines.join('\n'));
+
+    try {
+      window.open(url, '_blank');
+    } catch(err){
+      window.location.href = url;
+    }
+  };
   async function loadProfile(){
     if(!fb || !currentUser) return;
     var ref = fb.doc(fb.db, 'users', currentUser.uid);
@@ -2691,8 +2927,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         phone: d.phone || ''
       };
     }
-    if(!profile.fullName && currentUser && currentUser.displayName){
-      profile.fullName = String(currentUser.displayName).trim();
+
+    var emailPrefix = currentUser && currentUser.email ? String(currentUser.email).split('@')[0].trim() : '';
+    var authDisplayName2 = (currentUser && currentUser.displayName) ? String(currentUser.displayName).trim() : '';
+    if(authDisplayName2 && authDisplayName2 !== profile.fullName){
+      profile.fullName = authDisplayName2;
       try {
         await fb.setDoc(ref, {
           fullName: profile.fullName,
@@ -2700,6 +2939,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           updatedAt: fb.serverTimestamp()
         }, { merge: true });
       } catch(e){}
+    } else if(!profile.fullName && emailPrefix){
+      profile.fullName = emailPrefix;
     }
 
     if(currentUser){
@@ -2728,6 +2969,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   async function authReady(){
     if(!window.firebaseCtx) return;
+    if(fb) return;
     fb = window.firebaseCtx;
     ensureUI();
 
@@ -2938,6 +3180,15 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
   }
 
+
+  async function sendReviewToSheets(payload){
+    try {
+      var enriched = Object.assign({ source: 'review' }, payload || {});
+      return await sendOrderToSheets(enriched);
+    } catch(err){
+      return false;
+    }
+  }
   window.saveLegacyOrderForAdmin = async function(orderData){
     try {
       if(!fb || !currentUser || !orderData){
@@ -2968,7 +3219,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           deliveryCity: '',
           deliveryCityLabel: '',
           deliveryFee: shippingFee,
-          deliveryText: deliveryMode === 'delivery' ? 'Delivery' : 'Self pickup (free)'
+          deliveryText: deliveryMode === 'delivery' ? 'משלוח' : 'איסוף עצמי'
         },
         items: [{
           id: 'legacy_' + Date.now(),
@@ -2996,14 +3247,14 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
   };
 
-  window.sendCartOrder = async function(){
+    window.sendCartOrder = async function(){
     if(!currentUser){
-      nudgeAuth('\u05e6\u05e8\u05d9\u05da \u05dc\u05d4\u05ea\u05d7\u05d1\u05e8 \u05db\u05d3\u05d9 \u05dc\u05e9\u05dc\u05d5\u05d7 \u05d4\u05d6\u05de\u05e0\u05d4');
+      nudgeAuth('צריך להתחבר כדי לשלוח הזמנה');
       return;
     }
 
     if(cartItems.length === 0 && !selectedRewardLevel){
-      toast('\u05d4\u05e1\u05dc \u05e9\u05dc\u05da \u05e8\u05d9\u05e7 \u05db\u05e8\u05d2\u05e2');
+      toast('הסל שלך ריק כרגע');
       return;
     }
 
@@ -3011,7 +3262,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     var name = (document.getElementById('checkoutName').value || '').trim();
     var phone = (document.getElementById('checkoutPhone').value || '').trim();
-    var payment = (document.getElementById('checkoutPayment').value || '').trim();
+    var payment = (cartPaymentCode || '').trim();
     var paymentLabel = paymentLabelByCode(payment);
     var deliveryMode = (document.getElementById('checkoutDeliveryMode').value || 'pickup').trim();
     var deliveryCity = (document.getElementById('checkoutDeliveryCity').value || '').trim();
@@ -3021,32 +3272,32 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var totalInput = document.getElementById('checkoutTotal');
     var orderTotal = Number(totalInput ? (totalInput.value || 0) : 0);
 
-    if(!name || !phone || !paymentLabel){
-      toast('\u05d7\u05e1\u05e8 \u05e9\u05dd \u05de\u05dc\u05d0 / \u05d8\u05dc\u05e4\u05d5\u05df / \u05e9\u05d9\u05d8\u05ea \u05ea\u05e9\u05dc\u05d5\u05dd');
+    if(!name || !phone){
+      toast('חסר שם מלא / טלפון');
+      return;
+    }
+
+    if(!paymentLabel){
+      toast('בחרו שיטת תשלום');
+      openPaymentSheet();
       return;
     }
 
     var subtotal = getCartSubtotal();
-    var hasUnknown = cartItems.some(function(item){ return !item.price || Number(item.price) <= 0; });
-    if(extras) extras.style.display = '';
-    if(kpiItems) kpiItems.textContent = String(cartItems.length);
-    if(kpiTotal) kpiTotal.textContent = subtotal > 0 ? shekel(subtotal) : 'מתעדכן';
-    if(kpiNote) kpiNote.textContent = hasUnknown ? 'מחיר סופי יעודכן' : 'לא כולל משלוח';
     var delivery = calcDelivery(subtotal);
 
     if(deliveryMode === 'delivery' && !deliveryCity){
-      toast('\u05d1\u05d7\u05e8\u05d5 \u05d0\u05d6\u05d5\u05e8 \u05de\u05e9\u05dc\u05d5\u05d7');
+      toast('בחרו אזור משלוח');
       return;
     }
 
     if(deliveryMode === 'delivery' && !addressInput){
-      toast('\u05d7\u05e1\u05e8\u05d4 \u05db\u05ea\u05d5\u05d1\u05ea \u05dc\u05de\u05e9\u05dc\u05d5\u05d7');
+      toast('חסרה כתובת למשלוח');
       return;
     }
 
     var shippingFee = Number(delivery.fee || 0);
     var autoOrderTotal = subtotal + shippingFee;
-
     var subtotalHasPrice = subtotal > 0;
 
     if(orderTotal <= 0){
@@ -3066,20 +3317,17 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         paymentStepConfirmed = false;
         paymentStepAmount = 0;
         updatePaymentAction();
-        toast('\u05e1\u05d9\u05d9\u05de\u05d5 \u05ea\u05e9\u05dc\u05d5\u05dd \u05d7\u05d9\u05e6\u05d5\u05e0\u05d9 \u05d5\u05dc\u05d7\u05e6\u05d5 "\u05e1\u05d9\u05de\u05e0\u05ea\u05d9 \u05e9\u05e9\u05d9\u05dc\u05de\u05ea\u05d9" \u05dc\u05e4\u05e0\u05d9 \u05d4\u05e9\u05dc\u05d9\u05d7\u05d4');
+        toast('סיימו תשלום חיצוני ולחצו "סימנתי ששילמתי" לפני השליחה');
         return;
       }
-    } else {
-      paymentStepConfirmed = false;
-      paymentStepAmount = 0;
     }
 
     var pointsToAdd = Math.floor(orderTotal);
     var reward = selectedRewardLevel ? getGiftForLevel(selectedRewardLevel) : null;
     var orderNum = 'S' + Date.now().toString().slice(-6);
     var deliveryLabel = deliveryMode === 'delivery'
-      ? ('Delivery to ' + delivery.cityLabel + (shippingFee === 0 ? ' (free)' : ''))
-      : 'Self pickup (free)';
+      ? (delivery.cityLabel ? ('משלוח ל' + delivery.cityLabel) : 'משלוח')
+      : 'איסוף עצמי';
 
     var orderPayload = {
       orderNum: orderNum,
@@ -3132,7 +3380,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       occasion: '',
       colors: '',
       customDetails: itemNames,
-      delivery: deliveryMode === 'delivery' ? ('כן - ' + shekel(shippingFee)) : 'לא - איסוף עצמי',
+      delivery: deliveryMode === 'delivery' ? ('כן' + (delivery.cityLabel ? (' - ' + delivery.cityLabel) : '')) : 'לא - איסוף עצמי',
       payment: paymentLabel,
       paymentCode: payment,
       paymentConfirmed: (isExternalPaymentMethod(payment) && orderTotal > 0) ? 'yes' : 'no',
@@ -3181,7 +3429,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           userUpdates.redeemedRewards = fb.arrayUnion(reward.level);
         }
 
-        await fb.setDoc(fb.doc(fb.db, 'users', currentUser.uid), userUpdates, { merge: true });
+        await fb.updateDoc(fb.doc(fb.db, 'users', currentUser.uid), userUpdates);
       } catch(pointsErr){
         pointsUpdated = false;
       }
@@ -3193,6 +3441,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       manualTotalTouched = false;
       paymentStepConfirmed = false;
       paymentStepAmount = 0;
+      cartPaymentCode = '';
       saveCart();
       renderCart();
       await loadProfile();
@@ -3200,6 +3449,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       renderPoints();
       renderProfileSummary();
       toggleCart(false);
+      closePaymentSheet();
 
       var profileDrawer = document.getElementById('profileDrawer');
       if(profileDrawer && profileDrawer.classList.contains('open')){
@@ -3216,7 +3466,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         toast('ההזמנה נקלטה בהצלחה בפאנל מנהלת ובגוגל שיטס.');
       }
     } catch(err){
-      toast('\u05e9\u05d2\u05d9\u05d0\u05d4 \u05d1\u05e9\u05dc\u05d9\u05d7\u05ea \u05d4\u05d6\u05de\u05e0\u05d4: ' + (err && err.code ? err.code : 'error'));
+      toast('שגיאה בשליחת ההזמנה: ' + (err && err.code ? err.code : 'error'));
     } finally {
       setCheckoutPending(false);
     }
@@ -3225,9 +3475,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var originalOpenModal = window.openModal;
   if(typeof originalOpenModal === 'function'){
     window.openModal = function(card){
+      if(!currentUser && fb && fb.auth && fb.auth.currentUser){
+        currentUser = fb.auth.currentUser;
+      }
       if(!currentUser){
-        nudgeAuth('צריך להתחבר כדי להזמין ולקבל מתנות');
-        return;
+        toast('כדי להוסיף לסל צריך להתחבר');
       }
       originalOpenModal(card);
       if(window.selProd){
@@ -3242,7 +3494,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     };
   }
 
-  window.submitOrder = function(){
+    window.submitOrder = function(){
     if(!currentUser){
       nudgeAuth('צריך להתחבר כדי להזמין ולקבל מתנות');
       return;
@@ -3260,6 +3512,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       toast('בעוגת מספרים צריך לבחור מספר');
       return;
     }
+
     var cfColors = (document.getElementById('cfColors').value || '').trim();
     var cfFreeText = (document.getElementById('cfFreeText').value || '').trim();
     var details = [];
@@ -3273,11 +3526,29 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         return;
       }
       if(window.customSummary) details.push(window.customSummary);
+
+      if(window.customHasDedication){
+        var words = inscription ? inscription.split(/\s+/).filter(Boolean) : [];
+        if(words.length === 0){
+          toast('בחרתם תוספת הקדשה — כתבו עד 2 מילים');
+          return;
+        }
+        if(words.length > 2){
+          toast('אפשר עד 2 מילים בכיתוב');
+          return;
+        }
+      } else {
+        inscription = '';
+      }
     } else {
       price = Number(window.selProd.price || 0);
       if(price > 0){
         details.push('מחיר מוצר: ' + shekel(price));
       }
+    }
+
+    if(isNumber){
+      inscription = '';
     }
 
     if(numberVal) details.push('מספר: ' + numberVal);
@@ -3286,11 +3557,14 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(cfColors) details.push('צבעים: ' + cfColors);
     if(cfFreeText) details.push('פירוט: ' + cfFreeText);
 
+    var badge = (window.selProd && window.selProd.badge) ? window.selProd.badge : '';
+
     cartItems.push({
       id: 'i_' + Date.now() + '_' + Math.floor(Math.random() * 10000),
       name: window.selProd.name,
       price: price,
-      details: details.join(' | ')
+      details: details.join(' | '),
+      badge: badge
     });
 
     saveCart();
@@ -3306,6 +3580,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   renderPoints();
 
   window.addEventListener('firebase-ready', authReady);
+  if(window.firebaseCtx){ authReady(); }
 })();
 </script>
 <script>
@@ -3313,7 +3588,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var ADMIN_ALIAS = 'שרה חברוני';
   var ADMIN_EMAIL = 'admin@sarabakery.local';
   var ADMIN_PASS = '123456';
-  var ADMIN_PICKUP_ADDRESS = 'התמדה 4, כניסה ב, דירה 14, חריש';
+  var ADMIN_PICKUP_ADDRESS = 'אתרוג 3 דירה 16, חריש';
 
   var fb = null;
   var adminUiReady = false;
@@ -3334,6 +3609,17 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   function shekel(n){
     return '₪' + Number(n || 0).toLocaleString('he-IL');
   }
+
+    function updateCustomInscriptionVisibility(){
+        var area=document.getElementById('inscriptionArea');
+        if(!area) return;
+        if(!selProd || !selProd.isCustom){ return; }
+        var wants=!!customHasDedication;
+        area.style.display=wants?'block':'none';
+        if(!wants){ var ins=document.getElementById('inscriptionInput'); if(ins) ins.value=''; }
+        var title=area.querySelector('h4');
+        if(title) title.textContent = wants ? 'כיתוב על המארז (עד 2 מילים)' : 'כיתוב על המארז';
+    }
 
   function ensureAdminUI(){
     if(adminUiReady) return;
@@ -4075,112 +4361,57 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   initAdminAddon();
 })();
 </script>
-<button id="a11yToggle" class="a11y-fab" aria-expanded="false" aria-controls="a11yPanel" title="נגישות">נגישות</button>
-<div id="a11yPanel" class="a11y-panel" aria-hidden="true">
-  <div class="a11y-title">נגישות</div>
-  <div class="a11y-row">
-    <button type="button" class="a11y-btn" data-action="font-inc">טקסט +</button>
-    <button type="button" class="a11y-btn" data-action="font-dec">טקסט -</button>
-  </div>
-  <div id="a11yZoomLabel" class="a11y-zoom">100%</div>
-  <label class="a11y-toggle"><input type="checkbox" data-toggle="contrast">ניגודיות גבוהה</label>
-  <label class="a11y-toggle"><input type="checkbox" data-toggle="underline">קו תחתון לקישורים</label>
-  <label class="a11y-toggle"><input type="checkbox" data-toggle="grayscale">שחור-לבן</label>
-  <label class="a11y-toggle"><input type="checkbox" data-toggle="reduceMotion">הפחתת תנועה</label>
-  <label class="a11y-toggle"><input type="checkbox" data-toggle="focus">הדגשת פוקוס</label>
-  <button type="button" id="a11yReset" class="a11y-reset">איפוס הכל</button>
-</div>
-<script>
-(function(){
-  var toggleBtn = document.getElementById('a11yToggle');
-  var panel = document.getElementById('a11yPanel');
-  if(!toggleBtn || !panel){ return; }
-  var zoomLabel = document.getElementById('a11yZoomLabel');
-  var resetBtn = document.getElementById('a11yReset');
-  var toggles = panel.querySelectorAll('input[data-toggle]');
-  var KEY = 'a11y_settings_v1';
-  var DEFAULTS = { zoom: 1, contrast: false, underline: false, grayscale: false, reduceMotion: false, focus: false };
-  var state = load();
-  function load(){
-    try {
-      var raw = localStorage.getItem(KEY);
-      if(!raw){ return Object.assign({}, DEFAULTS); }
-      var parsed = JSON.parse(raw);
-      return Object.assign({}, DEFAULTS, parsed || {});
-    } catch(e){
-      return Object.assign({}, DEFAULTS);
-    }
-  }
-  function save(){
-    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {}
-  }
-  function apply(){
-    document.body.style.zoom = state.zoom === 1 ? '' : state.zoom;
-    document.body.classList.toggle('a11y-underline', !!state.underline);
-    document.body.classList.toggle('a11y-reduce-motion', !!state.reduceMotion);
-    document.body.classList.toggle('a11y-focus', !!state.focus);
-    document.documentElement.classList.toggle('a11y-reduce-motion', !!state.reduceMotion);
-    var filters = [];
-    if(state.contrast){ filters.push('contrast(1.15) saturate(1.05)'); }
-    if(state.grayscale){ filters.push('grayscale(1)'); }
-    document.body.style.filter = filters.length ? filters.join(' ') : '';
-    if(zoomLabel){ zoomLabel.textContent = Math.round(state.zoom * 100) + '%'; }
-  }
-  function clampZoom(z){
-    var min = 0.9;
-    var max = 1.2;
-    var next = Math.round(z * 100) / 100;
-    if(next < min) next = min;
-    if(next > max) next = max;
-    return next;
-  }
-  function setZoom(z){
-    state.zoom = clampZoom(z);
-    apply();
-    save();
-  }
-  function syncControls(){
-    toggles.forEach(function(input){
-      var key = input.getAttribute('data-toggle');
-      input.checked = !!state[key];
-    });
-    if(zoomLabel){ zoomLabel.textContent = Math.round(state.zoom * 100) + '%'; }
-  }
-  toggleBtn.addEventListener('click', function(){
-    var open = !panel.classList.contains('open');
-    panel.classList.toggle('open', open);
-    toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
-  });
-  panel.addEventListener('click', function(e){
-    var btn = e.target.closest('[data-action]');
-    if(!btn) return;
-    var action = btn.getAttribute('data-action');
-    if(action === 'font-inc'){ setZoom(state.zoom + 0.05); }
-    if(action === 'font-dec'){ setZoom(state.zoom - 0.05); }
-  });
-  toggles.forEach(function(input){
-    input.addEventListener('change', function(){
-      var key = input.getAttribute('data-toggle');
-      state[key] = input.checked;
-      apply();
-      save();
-    });
-  });
-  if(resetBtn){
-    resetBtn.addEventListener('click', function(){
-      state = Object.assign({}, DEFAULTS);
-      apply();
-      save();
-      syncControls();
-    });
-  }
-  apply();
-  syncControls();
-})();
-</script>
+<button id="a11yIcon" class="a11y-fab" aria-label="נגישות" title="נגישות" type="button">♿</button>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
