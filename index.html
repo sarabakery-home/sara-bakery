@@ -29,6 +29,27 @@
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{font-family:'Assistant',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden}
+        body.warm-theme{background:linear-gradient(160deg,#fff3e4 0%,#ffe4cc 42%,#f6caa8 100%)}
+        body.warm-theme::before{content:'';position:fixed;inset:-15% -10%;background:
+          radial-gradient(circle at 12% 8%,rgba(216,177,106,0.22),transparent 45%),
+          radial-gradient(circle at 88% 12%,rgba(200,112,74,0.18),transparent 48%),
+          radial-gradient(circle at 40% 90%,rgba(232,149,109,0.18),transparent 52%);z-index:-2;pointer-events:none}
+        .auth-fab{position:fixed;right:14px;top:76px;z-index:9999;background:#fff;border:2px solid #f2d9c0;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:23px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.16);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;touch-action:manipulation}
+        .cart-fab{position:fixed;right:14px;top:138px;z-index:9998;background:#c8704a;color:#fff;border:none;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:21px;cursor:pointer;box-shadow:0 10px 24px rgba(200,112,74,.4);touch-action:manipulation}
+        .cart-badge{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#27ae60;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+        @media(max-width:720px){.auth-fab{top:70px;right:10px}.cart-fab{top:130px;right:10px}}
+        .warm-motion{position:fixed;inset:-10% -10%;pointer-events:none;z-index:30;opacity:0;transition:opacity .6s ease}
+        body.is-logged-in .warm-motion{opacity:.55}
+        .warm-motion .wm{position:absolute;border-radius:50%;filter:blur(0px);mix-blend-mode:screen;opacity:.65;animation:wmFloat 18s ease-in-out infinite}
+        .warm-motion .w1{width:360px;height:360px;left:-6%;top:8%;background:radial-gradient(circle,rgba(240,201,122,.65),transparent 70%);animation-duration:20s}
+        .warm-motion .w2{width:280px;height:280px;right:-4%;top:20%;background:radial-gradient(circle,rgba(200,112,74,.55),transparent 72%);animation-duration:22s;animation-delay:-4s}
+        .warm-motion .w3{width:420px;height:420px;left:20%;bottom:-6%;background:radial-gradient(circle,rgba(232,149,109,.55),transparent 72%);animation-duration:24s;animation-delay:-8s}
+        .warm-motion .w4{width:220px;height:220px;right:18%;bottom:10%;background:radial-gradient(circle,rgba(255,214,170,.6),transparent 70%);animation-duration:18s;animation-delay:-2s}
+        @keyframes wmFloat{0%,100%{transform:translateY(0) translateX(0) scale(1)}50%{transform:translateY(-18px) translateX(10px) scale(1.05)}}
+        @media (prefers-reduced-motion: reduce){
+          .warm-motion .wm{animation:none}
+          body.is-logged-in .warm-motion{opacity:.22}
+        }
 
     /* NAV */
     nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(253,246,239,0.97);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;border-bottom:1px solid var(--warm2);box-shadow:0 2px 20px rgba(200,112,74,0.1);direction:rtl}
@@ -61,6 +82,27 @@
     .btn-wa-hero:hover{transform:translateY(-3px)}
     .hero-scroll{margin-top:40px;color:var(--brown-light);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;animation:bounce 2s infinite}
     @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+    .hero-welcome{margin:18px auto 0;max-width:520px;display:grid;gap:12px;position:relative;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+    .hero-welcome.show{opacity:1;transform:translateY(0)}
+    .hero-welcome-card{position:relative;background:rgba(255,255,255,0.9);border:1.5px solid rgba(200,112,74,0.22);border-radius:18px;padding:14px 18px;box-shadow:0 16px 34px rgba(200,112,74,0.15);backdrop-filter:blur(4px);overflow:hidden}
+    .hero-welcome-card::before{content:'';position:absolute;inset:-35% 25% auto -20%;height:140px;background:radial-gradient(circle,rgba(212,162,78,0.35),transparent 70%);opacity:.9;animation:heroGlow 6s ease-in-out infinite}
+    .welcome-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--copper-dark);font-weight:800}
+    .welcome-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--brown);margin-top:4px}
+    .welcome-sub{font-size:13px;color:var(--brown-mid);margin-top:6px;line-height:1.6;font-weight:600}
+    .welcome-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+    .welcome-btn{border:none;border-radius:999px;padding:8px 16px;font-weight:800;font-size:12px;cursor:pointer;background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;box-shadow:0 8px 18px rgba(200,112,74,.25);transition:transform .2s ease}
+    .welcome-btn:hover{transform:translateY(-2px)}
+    .welcome-btn.ghost{background:#fff;color:var(--brown-mid);border:1.5px solid var(--warm2);box-shadow:none}
+    .hero-spark{position:absolute;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--gold-light),var(--copper));opacity:.75;box-shadow:0 0 0 6px rgba(212,162,78,.12);animation:sparkleFloat 4.8s ease-in-out infinite}
+    .hero-spark.s1{top:-6px;right:18%;animation-delay:.2s}
+    .hero-spark.s2{bottom:-8px;left:12%;width:14px;height:14px;animation-delay:1.4s}
+    .hero-spark.s3{top:50%;left:-6px;width:8px;height:8px;animation-delay:-1s}
+    @keyframes heroGlow{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(6px) scale(1.05)}}
+    @keyframes sparkleFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.15)}}
+    @media (prefers-reduced-motion: reduce){
+      .hero-welcome,.hero-welcome-card::before,.hero-spark{animation:none}
+      .hero-welcome{transition:none}
+    }
 
     /* TRUST BAR */
     .trust{background:linear-gradient(135deg,var(--brown) 0%,#4a2510 100%);padding:16px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
@@ -98,7 +140,7 @@
     .prod-body{padding:20px;background:linear-gradient(160deg,#fff8f2,#fdeee0)}
     .prod-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--brown);margin-bottom:7px}
     .prod-desc{color:var(--brown-mid);font-size:13px;line-height:1.6;margin-bottom:16px;font-weight:600}
-    .prod-btn{width:100%;background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;border:none;padding:12px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif;transition:opacity .2s;pointer-events:none}
+    .prod-btn{width:100%;background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;border:none;padding:12px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif;transition:opacity .2s;pointer-events:auto;touch-action:manipulation}
     .prod-card:hover .prod-btn{opacity:.9}
 
     /* REVIEWS */
@@ -188,8 +230,8 @@
     .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-size:12px;font-weight:600}
 
     /* MODAL */
-    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,5,0.65);z-index:500;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
-    .modal-overlay.open{display:flex}
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,10,5,0.65);z-index:500;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px);pointer-events:none}
+    .modal-overlay.open{display:flex;pointer-events:auto}
     .modal{background:#fff;border-radius:26px;max-width:460px;width:100%;position:relative;max-height:92vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,0.3)}
     .modal-img{width:100%;height:210px;object-fit:cover;border-radius:26px 26px 0 0;display:block}
     .modal-body{padding:26px}
@@ -203,7 +245,7 @@
     .pay-opt{border:2px solid var(--warm2);border-radius:14px;padding:11px 6px;text-align:center;cursor:pointer;transition:all .25s;font-size:13px;color:var(--brown-mid);font-weight:700;font-family:'Assistant',sans-serif}
     .pay-opt.selected{border-color:var(--copper);background:#fff8f3;color:var(--copper)}
     .pay-icon{font-size:22px;display:block;margin-bottom:5px}
-    .modal-input{width:100%;border:2px solid var(--warm2);border-radius:14px;padding:12px 16px;font-size:15px;font-family:'Assistant',sans-serif;color:var(--brown);outline:none;transition:border .25s;margin-bottom:12px;direction:rtl;font-weight:600;background:#fff}
+    .modal-input{width:100%;border:2px solid var(--warm2);border-radius:14px;padding:12px 16px;font-size:16px;font-family:'Assistant',sans-serif;color:var(--brown);outline:none;transition:border .25s;margin-bottom:12px;direction:rtl;font-weight:600;background:#fff}
     .modal-input:focus{border-color:var(--copper)}
     .modal-submit{width:100%;background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;border:none;padding:15px;border-radius:16px;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Assistant',sans-serif;transition:opacity .2s;box-shadow:0 6px 18px rgba(37,211,102,0.3)}
     .modal-submit:hover{opacity:.93}
@@ -295,7 +337,7 @@
 </style>
 
 </head>
-<body>
+<body class="warm-theme">
 
 <nav>
     <a class="logo" href="#">שרה <span>❤</span></a>
@@ -317,6 +359,20 @@
     </div>
     <div class="hero-inner">
         <div class="hero-badge">🏠 Home Made Bakery · חריש</div>
+        <div id="heroWelcome" class="hero-welcome" aria-live="polite" style="display:none">
+            <div class="hero-welcome-card">
+                <div class="welcome-eyebrow">ברוכה הבאה</div>
+                <div class="welcome-name" id="heroWelcomeName">לקוחה יקרה</div>
+                <div class="welcome-sub">יש לך נקודות, מתנות והזמנות קודמות באזור האישי.</div>
+                <div class="welcome-actions">
+                    <button class="welcome-btn" type="button" onclick="toggleProfile(true)">האזור האישי</button>
+                    <button class="welcome-btn ghost" type="button" onclick="toggleCart(true)">פתיחת סל</button>
+                </div>
+            </div>
+            <div class="hero-spark s1"></div>
+            <div class="hero-spark s2"></div>
+            <div class="hero-spark s3"></div>
+        </div>
         <h1>מתוקים<span class="accent">מהלב ❤</span></h1>
         <p class="hero-desc">מארזי מתוקים, עוגות מספרים ומגשים מרהיבים – הכל עשוי בעבודת יד עם אהבה. כל מארז מותאם אישית לפי בקשתכם.</p>
         <div class="hero-btns">
@@ -545,7 +601,7 @@
         <div class="review-add-card" id="reviewAuthHint">
             <h3>רוצים להוסיף ביקורת?</h3>
             <p>התחברו כדי לפרסם ביקורת חדשה ולהעלות תמונות מההזמנה שלכם.</p>
-            <button type="button" class="btn-primary" style="padding:10px 22px;font-size:14px" onclick="openAuthModal()">התחברות</button>
+            <button type="button" class="btn-primary" style="padding:10px 22px;font-size:14px" onclick="openProfileOrAuth()">התחברות</button>
         </div>
 
         <div class="review-add-card" id="reviewFormCard" style="display:none">
@@ -936,6 +992,22 @@
             return;
         }
         if(noteEl) noteEl.style.display='none';
+        if(customHasDedication){
+            document.getElementById('customBuilderStep').style.display='none';
+            document.getElementById('orderDetailsStep').style.display='block';
+            document.getElementById('backToBuilderBtn').style.display='block';
+            updateCustomInscriptionVisibility();
+            var ins=document.getElementById('inscriptionInput');
+            if(ins){
+                setTimeout(function(){
+                    ins.focus();
+                    if(typeof ins.scrollIntoView === 'function'){
+                        ins.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 0);
+            }
+            return;
+        }
         if(typeof window.submitOrder==='function'){
             window.submitOrder();
             return;
@@ -1139,6 +1211,7 @@
     // ====== GOOGLE SHEETS URL ======
     // שרה: אחרי שמגדירה את Apps Script, מחליפה את הכתובת כאן:
     var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyk8ZDD8CL6K40r0Nw3OCUARqQPpqK4yObQw70hLTVFMzMsl3U6gXI86I3Dng5XUnNzcw/exec';
+    var SHEETS_READ_URL = '';
 
     function doSend(){
         var name        = document.getElementById('nameInput').value.trim();
@@ -1311,6 +1384,177 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var SARA_PAYMENT_PHONE = '0523394838';
   var EMAIL_AUTOMATION_URL = '';
   var lastLoginCelebratedUid = '';
+  var lastAuthRefreshUid = '';
+
+  function getPendingPointsKey(uid){
+    return 'sara_points_pending_' + String(uid || 'guest');
+  }
+  function loadPendingPoints(uid){
+    try {
+      var raw = localStorage.getItem(getPendingPointsKey(uid));
+      if(!raw) return { points: 0, base: 0 };
+      var parsed = JSON.parse(raw) || {};
+      return {
+        points: Number(parsed.points || 0),
+        base: Number(parsed.base || 0)
+      };
+    } catch(e){
+      return { points: 0, base: 0 };
+    }
+  }
+  function savePendingPoints(uid, points, base){
+    try {
+      localStorage.setItem(getPendingPointsKey(uid), JSON.stringify({
+        points: Number(points || 0),
+        base: Number(base || 0),
+        updatedAt: Date.now()
+      }));
+    } catch(e){}
+  }
+  function clearPendingPoints(uid){
+    try { localStorage.removeItem(getPendingPointsKey(uid)); } catch(e){}
+  }
+  function addPendingPoints(uid, delta, basePoints){
+    if(!uid) return;
+    var pending = loadPendingPoints(uid);
+    if(!pending.base && Number.isFinite(basePoints)){
+      pending.base = Number(basePoints || 0);
+    }
+    pending.points = Number(pending.points || 0) + Number(delta || 0);
+    savePendingPoints(uid, pending.points, pending.base);
+  }
+  function applyPendingPoints(){
+    if(!currentUser) return;
+    var pending = loadPendingPoints(currentUser.uid);
+    profile.pendingPoints = 0;
+    if(pending.points > 0){
+      var target = Number(pending.base || 0) + Number(pending.points || 0);
+      if(target > 0 && Number(profile.points || 0) >= target){
+        clearPendingPoints(currentUser.uid);
+        profile.pendingPoints = 0;
+      } else {
+        profile.points = Number(profile.points || 0) + Number(pending.points || 0);
+        profile.pendingPoints = Number(pending.points || 0);
+      }
+    }
+  }
+
+  var SOFT_AUTH_KEY = 'sara_soft_auth';
+  function getSoftAuth(){
+    try {
+      var raw = localStorage.getItem(SOFT_AUTH_KEY);
+      if(!raw) return null;
+      var parsed = JSON.parse(raw) || {};
+      if(!parsed.uid) return null;
+      return parsed;
+    } catch(e){
+      // keep going
+    }
+    try {
+      var rawSession = sessionStorage.getItem(SOFT_AUTH_KEY);
+      if(rawSession){
+        var parsedSession = JSON.parse(rawSession) || {};
+        if(parsedSession.uid) return parsedSession;
+      }
+    } catch(e){}
+    try {
+      var nameRaw = window.name || '';
+      if(nameRaw && nameRaw.indexOf('sara_auth:') === 0){
+        var json = nameRaw.slice('sara_auth:'.length);
+        var parsedName = JSON.parse(json) || {};
+        if(parsedName.uid){
+          try { localStorage.setItem(SOFT_AUTH_KEY, JSON.stringify(parsedName)); } catch(e){}
+          try { sessionStorage.setItem(SOFT_AUTH_KEY, JSON.stringify(parsedName)); } catch(e){}
+          try { window.name = ''; } catch(e){}
+          return parsedName;
+        }
+      }
+    } catch(e){}
+    return null;
+  }
+  function applySoftAuth(){
+    var soft = getSoftAuth();
+    if(!soft || !soft.uid) return false;
+    currentUser = {
+      uid: String(soft.uid),
+      email: soft.email || '',
+      displayName: soft.name || '',
+      __soft: true
+    };
+    return true;
+  }
+  function clearSoftAuth(){
+    try { localStorage.removeItem(SOFT_AUTH_KEY); } catch(e){}
+    try { sessionStorage.removeItem(SOFT_AUTH_KEY); } catch(e){}
+    try { if(window.name && window.name.indexOf('sara_auth:') === 0){ window.name = ''; } } catch(e){}
+  }
+  function isSoftAuthUser(){
+    return !!(currentUser && currentUser.__soft);
+  }
+  function canUseFirestore(){
+    return !!(fb && currentUser && !isSoftAuthUser());
+  }
+  function getSoftProfileKey(uid){
+    return 'sara_profile_' + String(uid || 'guest');
+  }
+  function loadSoftProfile(uid, fallbackName, fallbackEmail){
+    try {
+      var raw = localStorage.getItem(getSoftProfileKey(uid));
+      if(raw){
+        var parsed = JSON.parse(raw) || {};
+        return {
+          points: Number(parsed.points || 0),
+          redeemedRewards: Array.isArray(parsed.redeemedRewards) ? parsed.redeemedRewards : [],
+          fullName: parsed.fullName || fallbackName || '',
+          phone: parsed.phone || ''
+        };
+      }
+    } catch(e){}
+    var fallback = fallbackName || (fallbackEmail ? String(fallbackEmail).split('@')[0] : '');
+    return { points: 0, redeemedRewards: [], fullName: fallback || '', phone: '' };
+  }
+  function saveSoftProfile(uid, data){
+    if(!uid) return;
+    try {
+      localStorage.setItem(getSoftProfileKey(uid), JSON.stringify({
+        points: Number(data && data.points ? data.points : 0),
+        redeemedRewards: Array.isArray(data && data.redeemedRewards) ? data.redeemedRewards : [],
+        fullName: (data && data.fullName) ? String(data.fullName) : '',
+        phone: (data && data.phone) ? String(data.phone) : '',
+        updatedAt: Date.now()
+      }));
+    } catch(e){}
+  }
+  function storeSoftAuthFromCurrentUser(){
+    if(!currentUser || currentUser.__soft) return;
+    try {
+      localStorage.setItem(SOFT_AUTH_KEY, JSON.stringify({
+        uid: currentUser.uid,
+        email: currentUser.email || '',
+        name: getProfileDisplayName(),
+        at: Date.now()
+      }));
+    } catch(e){}
+  }
+
+  function ensureTopAfterAuth(){
+    try {
+      if(sessionStorage.getItem('sara_from_auth') === '1'){
+        sessionStorage.removeItem('sara_from_auth');
+        setTimeout(function(){
+          try {
+            window.scrollTo(0, 0);
+            if(document && document.documentElement) document.documentElement.scrollTop = 0;
+            if(document && document.body) document.body.scrollTop = 0;
+            if(window.location && window.location.hash){
+              history.replaceState(null, document.title, window.location.pathname + window.location.search);
+            }
+          } catch(e){}
+        }, 0);
+      }
+    } catch(e){}
+  }
+  ensureTopAfterAuth();
 
   function shekel(n){
     return '₪' + Number(n || 0).toLocaleString('he-IL');
@@ -1611,18 +1855,25 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   function ensureUI(){
     if(uiReady) return;
 
+    try {
+      var fallbackAuth = document.getElementById('authFab');
+      if(fallbackAuth) fallbackAuth.remove();
+      var fallbackCart = document.getElementById('cartFab');
+      if(fallbackCart) fallbackCart.remove();
+    } catch(e){}
+
     var style = document.createElement('style');
     style.textContent = [
-      '.auth-fab{position:fixed;right:14px;top:76px;z-index:1160;background:#fff;border:2px solid #f2d9c0;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:23px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.16);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}',
-      '.cart-fab{position:fixed;right:14px;top:138px;z-index:1159;background:#c8704a;color:#fff;border:none;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:21px;cursor:pointer;box-shadow:0 10px 24px rgba(200,112,74,.4)}',
+      '.auth-fab{position:fixed;right:14px;top:76px;z-index:9999;background:#fff;border:2px solid #f2d9c0;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:23px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.16);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;touch-action:manipulation}',
+      '.cart-fab{position:fixed;right:14px;top:138px;z-index:9998;background:#c8704a;color:#fff;border:none;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:21px;cursor:pointer;box-shadow:0 10px 24px rgba(200,112,74,.4);touch-action:manipulation}',
       '.cart-badge{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#27ae60;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}',
       '@keyframes authAttention{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}',
       '.auth-fab.attention{animation:authAttention .45s ease 3;border-color:#27ae60;box-shadow:0 0 0 6px rgba(39,174,96,.16),0 10px 24px rgba(0,0,0,.18)}',
       'body.auth-locked{overflow:hidden !important}',
-      '.auth-modal{display:none;position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.45);align-items:center;justify-content:center;padding:14px}',
-      '.auth-modal.open{display:flex}',
-      '.auth-gate{display:none;position:fixed;inset:0;z-index:1150;background:linear-gradient(160deg,rgba(255,250,244,.96),rgba(250,235,220,.96));align-items:center;justify-content:center;padding:16px}',
-      '.auth-gate.open{display:flex}',
+      '.auth-modal{display:none;position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.45);align-items:center;justify-content:center;padding:14px;pointer-events:none}',
+      '.auth-modal.open{display:flex;pointer-events:auto}',
+      '.auth-gate{display:none;position:fixed;inset:0;z-index:1150;background:linear-gradient(160deg,rgba(255,250,244,.96),rgba(250,235,220,.96));align-items:center;justify-content:center;padding:16px;pointer-events:none}',
+      '.auth-gate.open{display:flex;pointer-events:auto}',
       '.auth-gate-card{width:min(420px,94vw);background:#fff;border:1px solid #f2d9c0;border-radius:18px;padding:22px;box-shadow:0 20px 45px rgba(0,0,0,.18);text-align:center}',
       '.auth-gate-title{font-family:Playfair Display,serif;font-size:28px;font-weight:900;color:#2d1a0e;margin-bottom:8px}',
       '.auth-gate-text{font-size:14px;color:#7a5040;line-height:1.8;margin-bottom:14px}',
@@ -1667,29 +1918,32 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.cart-body{padding:16px 16px 18px;overflow:auto;flex:1;background:linear-gradient(180deg,#fffaf4,#fff7ee);position:relative}',
       '.cart-body::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 10% 0%,rgba(216,177,106,.16),transparent 45%),radial-gradient(circle at 90% 15%,rgba(200,112,74,.12),transparent 40%);pointer-events:none}',
       '.cart-body > *{position:relative}',
-      '.cart-features{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;justify-content:center;text-align:center}',
+      '.cart-features{display:none}',
       '.cart-chip{background:#fff;border:1px solid #f0d0ae;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800;color:#6b4433;box-shadow:0 4px 10px rgba(200,112,74,.08)}',
-      '.cart-tip{font-size:11px;color:#7a5040;background:#fff8f1;border:1px dashed #f0d0ae;border-radius:12px;padding:8px 10px;margin-bottom:12px;line-height:1.6}',
-      '.cart-extras{margin:4px 0 12px}',
-      '.cart-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 10px}',
-      '.cart-kpi{background:#fff;border:1px solid #f0d0ae;border-radius:12px;padding:10px 12px;box-shadow:0 8px 16px rgba(200,112,74,.08);display:flex;flex-direction:column;gap:4px}',
-      '.cart-kpi-title{font-size:11px;color:#7a5040;font-weight:700}',
-      '.cart-kpi-value{font-size:18px;font-weight:900;color:#2d1a0e}',
-      '.cart-kpi-sub{font-size:11px;color:#9a7060;font-weight:700}',
-      '.cart-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0 12px}',
+      '.cart-tip{display:none}',
+      '.cart-extras{margin:4px 0 10px}',
+      '.cart-kpis{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 10px}',
+      '.cart-kpi{background:#fff;border:1px solid #f0d0ae;border-radius:10px;padding:8px 10px;box-shadow:none;display:flex;flex-direction:column;gap:2px}',
+      '.cart-kpi-title{font-size:10px;color:#7a5040;font-weight:700}',
+      '.cart-kpi-value{font-size:16px;font-weight:900;color:#2d1a0e}',
+      '.cart-kpi-sub{font-size:10px;color:#9a7060;font-weight:700}',
+      '.cart-actions{display:grid;grid-template-columns:1fr;gap:8px;margin:6px 0 12px}',
       '.cart-action{border:none;border-radius:12px;padding:10px 12px;font-size:12px;font-weight:800;cursor:pointer}',
       '.cart-action.primary{background:linear-gradient(135deg,#c8704a,#a85535);color:#fff;box-shadow:0 8px 18px rgba(200,112,74,.22)}',
       '.cart-action.secondary{background:#fff;color:#6b4433;border:1px solid #e5d0be}',
       '.cart-pay-strip{display:flex;justify-content:center;gap:8px;margin:6px 0 12px;flex-wrap:wrap}',
       '.cart-pay-pill{background:#fff;border:1px solid #f0d0ae;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:800;color:#6b4433;box-shadow:0 4px 10px rgba(200,112,74,.08)}',
-      '.cart-progress{background:#fff;border:1px solid #f0d0ae;border-radius:12px;padding:10px 12px;margin:8px 0;display:grid;gap:6px;box-shadow:0 8px 16px rgba(200,112,74,.08)}',
-      '.cart-progress-title{font-size:12px;font-weight:900;color:#5a3424}',
-      '.cart-progress-bar{height:8px;background:#f2e0cf;border-radius:999px;overflow:hidden}',
-      '.cart-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#c8704a,#f0c97a);border-radius:999px;transition:width .3s ease}',
-      '.cart-progress-text{font-size:11px;color:#7a5040;font-weight:700}',
+      '.cart-progress{background:linear-gradient(135deg,#121318,#1b1d24);border:1px solid rgba(200,112,74,.45);border-radius:12px;padding:10px 12px;margin:8px 0;display:grid;gap:6px;position:relative;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.18);clip-path:polygon(0 0,94% 0,100% 18%,100% 100%,6% 100%,0 82%)}',
+      '.cart-progress::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.06),transparent 55%);opacity:.8;pointer-events:none}',
+      '.cart-progress::after{content:"";position:absolute;right:-20px;top:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(240,201,122,.35),transparent 70%);opacity:.9;pointer-events:none}',
+      '.cart-progress-title{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#f0c97a;font-weight:800}',
+      '.cart-progress-bar{height:10px;background:#0b0c10;border:1px solid rgba(255,255,255,.12);border-radius:6px;overflow:hidden;position:relative}',
+      '.cart-progress-bar::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.12) 0 8px,rgba(255,255,255,0) 8px 16px);opacity:.35;pointer-events:none}',
+      '.cart-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#f0c97a,#c8704a,#f0c97a);border-radius:6px;box-shadow:0 0 12px rgba(240,201,122,.55), inset 0 0 10px rgba(255,255,255,.18);transition:width .3s ease}',
+      '.cart-progress-text{font-size:11px;color:#f7e5d6;font-weight:700}',
       '.cart-share{width:100%;margin-top:6px;border:1px solid #25d366;background:#f1fbf4;color:#128c7e;border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer}',
-      '.payment-sheet{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.45);z-index:1400;padding:16px}',
-      '.payment-sheet.open{display:flex}',
+      '.payment-sheet{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.45);z-index:1400;padding:16px;pointer-events:none}',
+      '.payment-sheet.open{display:flex;pointer-events:auto}',
       '.payment-card{background:#fff;border-radius:18px;max-width:420px;width:100%;padding:16px;border:1px solid #f2d9c0;box-shadow:0 20px 45px rgba(0,0,0,.25)}',
       '.payment-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}',
       '.payment-title{font-size:18px;font-weight:900;color:#2d1a0e}',
@@ -1715,7 +1969,10 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.cart-item-details{font-size:12px;color:#7a5040;margin-top:6px;line-height:1.6;background:#fff5ec;border:1px dashed #f0d0ae;border-radius:10px;padding:6px 8px}',
       '.cart-item-price{font-size:12px;color:#2d1a0e;margin-top:8px;font-weight:900;display:inline-flex;align-items:center;gap:6px;background:#fff2e3;border:1px solid #efc9a8;border-radius:999px;padding:5px 12px}',
       '.cart-summary-chip{margin-top:10px;font-size:13px;font-weight:900;color:#5a3424;background:linear-gradient(135deg,#fff,#ffefd9);border:1px solid #efcfab;border-radius:12px;padding:10px 12px;text-align:center;box-shadow:0 10px 18px rgba(200,112,74,.1)}',
-      '.cart-empty{font-size:13px;color:#7a5040;background:#fff;border:1px dashed #e7c8a8;border-radius:12px;padding:14px 12px;text-align:center;display:grid;gap:6px;line-height:1.5} .cart-empty::before{content:"🧁";font-size:22px}',
+      '.cart-empty{font-size:13px;color:#7a5040;background:#fff;border:1px solid #f0d0ae;border-radius:16px;padding:26px 16px;text-align:center;display:grid;gap:8px;line-height:1.6;place-items:center;box-shadow:0 12px 24px rgba(200,112,74,.08)}',
+      '.cart-empty-icon{width:64px;height:64px;border-radius:50%;border:1px solid #ead8c9;background:#fffaf6;display:flex;align-items:center;justify-content:center;font-size:30px;color:#bfa190}',
+      '.cart-empty-title{font-weight:900;color:#2d1a0e;font-size:16px}',
+      '.cart-empty-sub{font-size:12px;color:#9a7060;max-width:240px}'
       '.points-wrap{border:1px solid #efdac8;border-radius:14px;background:linear-gradient(135deg,#fff9f4,#fff3e8);padding:9px 10px;margin-bottom:12px}',
       '.points-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;font-size:12px}',
       '.points-title{font-weight:800;color:#5a3424}',
@@ -1738,7 +1995,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.reward-chip{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #f2d9c0;border-radius:10px;padding:8px;margin-bottom:8px;background:#fff}',
       '.reward-chip button{border:none;background:#c8704a;color:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;font-weight:700}',
       '.checkout-box{margin-top:12px;border:1px solid #f0d8c4;border-radius:16px;padding:12px;background:linear-gradient(160deg,#fff,#fff7ef);box-shadow:0 6px 18px rgba(200,112,74,.09)}',
-      '.checkout-title{font-family:Playfair Display,serif;font-size:21px;font-weight:900;color:#2d1a0e;margin-bottom:2px}.checkout-sub{font-size:12px;color:#7a5040;margin-bottom:10px}.checkout-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checkout-field{margin-top:7px}.checkout-label{display:block;font-size:12px;font-weight:800;color:#6b4433;margin:0 0 5px}.checkout-box input,.checkout-box select,.checkout-box textarea{width:100%;margin-top:0;border:1px solid #e4d2c2;border-radius:10px;padding:10px 11px;font-family:Assistant,sans-serif;background:#fff}.checkout-box input:focus,.checkout-box select:focus,.checkout-box textarea:focus{outline:none;border-color:#c8704a;box-shadow:0 0 0 3px rgba(200,112,74,.16)}.checkout-totals-info{margin-top:10px;padding:10px 11px;border:1px solid #f2d9c0;border-radius:11px;background:#fffaf4;font-size:12px;color:#7a5040;line-height:1.65}@media(max-width:520px){.checkout-row{grid-template-columns:1fr}}',
+      '.checkout-title{font-family:Playfair Display,serif;font-size:21px;font-weight:900;color:#2d1a0e;margin-bottom:2px}.checkout-sub{font-size:12px;color:#7a5040;margin-bottom:10px}.checkout-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checkout-field{margin-top:7px}.checkout-label{display:block;font-size:12px;font-weight:800;color:#6b4433;margin:0 0 5px}.checkout-box input,.checkout-box select,.checkout-box textarea{width:100%;margin-top:0;border:1px solid #e4d2c2;border-radius:10px;padding:10px 11px;font-family:Assistant,sans-serif;font-size:16px;background:#fff}.checkout-box input:focus,.checkout-box select:focus,.checkout-box textarea:focus{outline:none;border-color:#c8704a;box-shadow:0 0 0 3px rgba(200,112,74,.16)}.checkout-totals-info{margin-top:10px;padding:10px 11px;border:1px solid #f2d9c0;border-radius:11px;background:#fffaf4;font-size:12px;color:#7a5040;line-height:1.65}@media(max-width:520px){.checkout-row{grid-template-columns:1fr}}',
       '.checkout-send{width:100%;margin-top:11px;border:none;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border-radius:12px;padding:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(37,211,102,.28)}',
       '.checkout-paybox{margin-top:10px;padding:10px;border:1px solid #f2d9c0;border-radius:12px;background:#fff}',
       '.checkout-paytitle{font-size:12px;font-weight:800;color:#5a3424;margin-bottom:4px}',
@@ -1755,8 +2012,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     document.head.appendChild(style);
 
     document.body.insertAdjacentHTML('beforeend',
-      '<button id="authFab" class="auth-fab" type="button" title="התחברות" onclick="openAuthModal()">👤</button>' +
-      '<button id="cartFab" class="cart-fab" type="button" title="סל" onclick="toggleCart(true)">🛒<span id="cartBadge" class="cart-badge">0</span></button>' +
+      '<button id="authFab" class="auth-fab" type="button" title="התחברות" onclick="openProfileOrAuth()">👤</button>' +
+      '<button id="cartFab" class="cart-fab" type="button" title="סל" onclick="openCartOrAuth()">🛒<span id="cartBadge" class="cart-badge">0</span></button>' +
 
       '<div id="authModal" class="auth-modal" onclick="closeAuthModal(event)">' +
         '<div class="auth-card">' +
@@ -1797,18 +2054,10 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
               '<div class="cart-progress-bar"><div id="dreamProgressFill" class="cart-progress-fill"></div></div>' +
               '<div id="dreamProgressText" class="cart-progress-text">מוסיפים פריטים ומתקרבים למארז חלומי.</div>' +
             '</div>' +
-            '<button type="button" class="cart-share" onclick="shareCartWA()">שיתוף סל בוואטסאפ</button>' +
             '<div class="cart-actions">' +
               '<button type="button" class="cart-action secondary" onclick="toggleCart(false);document.getElementById(\'catalog\').scrollIntoView({behavior:\'smooth\'})">להמשך קניות</button>' +
-              '<button type="button" class="cart-action primary" onclick="document.getElementById(\'checkoutName\').focus()">למעבר לפרטים</button>' +
             '</div>' +
           '</div>' +
-          '<div id="cartFeatures" class="cart-features">' +
-            '<span class="cart-chip">🎁 נקודות ומתנות</span>' +
-            '<span class="cart-chip">🛵 משלוח חכם לפי עיר</span>' +
-            '<span class="cart-chip">💬 עדכון מהיר בוואטסאפ</span>' +
-          '</div>' +
-          '<div id="cartTip" class="cart-tip">אפשר להשאיר סכום ריק — שרה תעדכן אותך לסיום התשלום.</div>' +
           '<div id="cartList"></div>' +
           '<div id="checkoutBox" class="checkout-box">' +
             '<div class="checkout-title">פרטי משלוח ותשלום</div>' +
@@ -1877,19 +2126,104 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     uiReady = true;
   }
 
+  var primaryClicksBound = false;
+  var lastClickHandledAt = 0;
+  function safeHandleClick(fn){
+    var now = Date.now();
+    if(now - lastClickHandledAt < 250) return;
+    lastClickHandledAt = now;
+    try { fn(); } catch(e){}
+  }
+  function bindPrimaryClicks(){
+    if(primaryClicksBound) return;
+    primaryClicksBound = true;
+    var handler = function(e){
+      if(!e) return;
+      var handled = false;
+      var target = e.target;
+      if(target && typeof target.closest === 'function'){
+        var authBtn = target.closest('.auth-fab');
+        if(authBtn){
+          e.preventDefault();
+          handled = true;
+          safeHandleClick(function(){
+            if(typeof window.openProfileOrAuth === 'function') window.openProfileOrAuth();
+          });
+          return;
+        }
+        var cartBtn = target.closest('.cart-fab');
+        if(cartBtn){
+          e.preventDefault();
+          handled = true;
+          safeHandleClick(function(){
+            if(typeof window.openCartOrAuth === 'function') window.openCartOrAuth();
+          });
+          return;
+        }
+        var prodBtn = target.closest('.prod-btn');
+        if(prodBtn){
+          var card = prodBtn.closest('.prod-card');
+          if(card && typeof window.openModal === 'function'){
+            handled = true;
+            safeHandleClick(function(){ window.openModal(card); });
+            return;
+          }
+        }
+      }
+
+      if(handled) return;
+      if(typeof document.elementsFromPoint !== 'function') return;
+      var x = (typeof e.clientX === 'number') ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : null);
+      var y = (typeof e.clientY === 'number') ? e.clientY : (e.touches && e.touches[0] ? e.touches[0].clientY : null);
+      if(x === null || y === null) return;
+      var stack = document.elementsFromPoint(x, y) || [];
+      var authHit = stack.find(function(el){ return el && el.classList && el.classList.contains('auth-fab'); });
+      if(authHit){
+        safeHandleClick(function(){
+          if(typeof window.openProfileOrAuth === 'function') window.openProfileOrAuth();
+        });
+        return;
+      }
+      var cartHit = stack.find(function(el){ return el && el.classList && el.classList.contains('cart-fab'); });
+      if(cartHit){
+        safeHandleClick(function(){
+          if(typeof window.openCartOrAuth === 'function') window.openCartOrAuth();
+        });
+        return;
+      }
+      var prodBtnHit = stack.find(function(el){ return el && el.classList && el.classList.contains('prod-btn'); });
+      if(prodBtnHit){
+        var prodCard = prodBtnHit.closest('.prod-card');
+        if(!prodCard){
+          prodCard = stack.find(function(el){ return el && el.classList && el.classList.contains('prod-card'); });
+        }
+        if(prodCard && typeof window.openModal === 'function'){
+          safeHandleClick(function(){ window.openModal(prodCard); });
+        }
+        return;
+      }
+      var prodCardHit = stack.find(function(el){ return el && el.classList && el.classList.contains('prod-card'); });
+      if(prodCardHit && typeof window.openModal === 'function'){
+        safeHandleClick(function(){ window.openModal(prodCardHit); });
+      }
+    };
+    document.addEventListener('click', handler, true);
+    document.addEventListener('pointerdown', handler, true);
+    document.addEventListener('touchstart', handler, true);
+  }
+
   function setAuthUI(){
     ensureUI();
+    syncCurrentUser();
     var fab = document.getElementById('authFab');
     var logoutBtn = document.getElementById('logoutBtn');
+
+    try { document.body.classList.toggle('is-logged-in', !!currentUser); } catch(e){}
 
     if(fab){
       fab.textContent = '👤';
       fab.onclick = function(){
-        if(currentUser){
-          window.toggleProfile(true);
-        } else {
-          window.openAuthModal();
-        }
+        window.openProfileOrAuth();
       };
 
       if(currentUser){
@@ -1912,8 +2246,140 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     renderProfileSummary();
+    updateHeroWelcome();
     setAuthGate();
   }
+
+  function updateHeroWelcome(){
+    var wrap = document.getElementById('heroWelcome');
+    var nameEl = document.getElementById('heroWelcomeName');
+    if(!wrap) return;
+
+    if(currentUser){
+      if(nameEl) nameEl.textContent = getProfileDisplayName();
+      wrap.style.display = 'grid';
+      requestAnimationFrame(function(){
+        wrap.classList.add('show');
+      });
+    } else {
+      wrap.classList.remove('show');
+      wrap.style.display = 'none';
+    }
+  }
+
+  function syncCurrentUser(){
+    if(currentUser) return currentUser;
+    try {
+      if(fb && fb.auth && fb.auth.currentUser){
+        currentUser = fb.auth.currentUser;
+      } else if(window.firebaseCtx && window.firebaseCtx.auth && window.firebaseCtx.auth.currentUser){
+        currentUser = window.firebaseCtx.auth.currentUser;
+      }
+    } catch(e){}
+    if(!currentUser){
+      applySoftAuth();
+    }
+    return currentUser;
+  }
+
+  function refreshAuthState(source){
+    try {
+      if(!fb && window.firebaseCtx){
+        authReady();
+      }
+    } catch(e){}
+
+    syncCurrentUser();
+    storeSoftAuthFromCurrentUser();
+
+    var uid = currentUser && currentUser.uid ? currentUser.uid : '';
+    loadCart();
+    setAuthUI();
+    renderCart();
+    renderPoints();
+    renderRewards();
+    renderProfileSummary();
+    renderProfileOrdersList();
+    setReviewAuthState();
+
+    if(uid && uid !== lastAuthRefreshUid){
+      lastAuthRefreshUid = uid;
+      loadProfile().then(function(){
+        renderProfileSummary();
+      }).catch(function(){});
+      loadUserReviews().catch(function(){});
+    } else if(!uid){
+      lastAuthRefreshUid = '';
+    }
+  }
+
+  function scheduleAuthRefresh(){
+    var tries = 0;
+    var maxTries = 12;
+    var timer = setInterval(function(){
+      tries++;
+      refreshAuthState('interval');
+      if(currentUser || tries >= maxTries){
+        clearInterval(timer);
+      }
+    }, 700);
+  }
+
+  function waitForAuthThen(runWhenLoggedIn, runWhenGuest){
+    ensureUI();
+    syncCurrentUser();
+    if(currentUser){
+      runWhenLoggedIn();
+      return;
+    }
+
+    var done = false;
+    var timer = setTimeout(function(){
+      if(done) return;
+      done = true;
+      syncCurrentUser();
+      if(currentUser){
+        runWhenLoggedIn();
+      } else {
+        runWhenGuest();
+      }
+    }, 700);
+
+    if(fb && fb.onAuthStateChanged && fb.auth){
+      try {
+        var unsub = fb.onAuthStateChanged(fb.auth, function(user){
+          if(done) return;
+          done = true;
+          clearTimeout(timer);
+          if(typeof unsub === 'function') unsub();
+          currentUser = user || null;
+          if(currentUser){
+            runWhenLoggedIn();
+          } else {
+            runWhenGuest();
+          }
+        });
+      } catch(e){
+        // fallback to timeout path
+      }
+    }
+  }
+
+  window.openProfileOrAuth = function(){
+    waitForAuthThen(function(){
+      window.toggleProfile(true);
+    }, function(){
+      window.openAuthModal();
+    });
+  };
+
+  window.openCartOrAuth = function(){
+    waitForAuthThen(function(){
+      window.toggleCart(true);
+    }, function(){
+      window.openAuthModal();
+    });
+  };
 
   function renderPoints(){
     ensureUI();
@@ -1954,6 +2420,10 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var nextText = points >= maxShown
       ? 'פתחתם כבר את 300/600/900. ממשיכים לצבור ל-' + nextLevel + ' נק׳'
       : 'עד המתנה הבאה: ' + missing + ' נק׳';
+    var pending = Number(profile.pendingPoints || 0);
+    if(pending > 0){
+      nextText += ' · כולל ' + pending + ' נק׳ בהמתנה';
+    }
 
     el.innerHTML =
       '<div class=\"points-head\"><div class=\"points-title\">מד מתנות</div><div class=\"points-total\">' + points + ' נק׳</div></div>' +
@@ -2094,7 +2564,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   window.shareCartWA = function(){
     if(!cartItems || cartItems.length === 0){
-      toast('הסל ריק כרגע');
+      toast('סל ריק');
       return;
     }
 
@@ -2129,7 +2599,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var wrap = document.getElementById('profileOrdersList');
     if(!wrap) return;
 
-    if(!fb || !currentUser){
+    if(!canUseFirestore()){
       profileOrdersLoading = false;
       profileOrders = [];
       renderProfileOrdersList();
@@ -2273,6 +2743,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
 
   function setReviewAuthState(){
+    syncCurrentUser();
     var hint = document.getElementById('reviewAuthHint');
     var form = document.getElementById('reviewFormCard');
     if(!hint || !form) return;
@@ -2414,9 +2885,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       nudgeAuth('\u05e6\u05e8\u05d9\u05da \u05dc\u05d4\u05ea\u05d7\u05d1\u05e8 \u05db\u05d3\u05d9 \u05dc\u05d4\u05d5\u05e1\u05d9\u05e3 \u05d1\u05d9\u05e7\u05d5\u05e8\u05ea');
       return;
     }
-    if(!fb){
-      toast('Firebase \u05dc\u05d0 \u05de\u05d5\u05db\u05df \u05db\u05e8\u05d2\u05e2');
-      return;
+    var hasFirebase = !!fb;
+    if(!hasFirebase){
+      toast('\u05d4\u05d7\u05d9\u05d1\u05d5\u05e8 \u05dc\u05e9\u05e8\u05ea \u05dc\u05d0 \u05d6\u05de\u05d9\u05df \u05db\u05e8\u05d2\u05e2, \u05e0\u05e9\u05dc\u05d7 \u05d0\u05ea \u05d4\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05d1\u05d3\u05e8\u05da \u05d7\u05dc\u05d5\u05e4\u05d9\u05ea.');
     }
 
     var nameEl = document.getElementById('reviewName');
@@ -2455,20 +2926,29 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       };
 
       var reviewSaved = false;
-      try {
-        await fb.addDoc(fb.collection(fb.db, 'reviews'), Object.assign({}, basePayload, {
-          createdAt: fb.serverTimestamp()
-        }));
-        reviewSaved = true;
-      } catch(mainErr){
-        if(isFirestorePolicyError(mainErr)){
-          var reviewId = 'R' + Date.now().toString() + '_' + Math.floor(Math.random() * 10000);
-          await fb.setDoc(fb.doc(fb.db, 'users', currentUser.uid, 'reviews', reviewId), Object.assign({}, basePayload, {
+      var savedToFirestore = false;
+      var lastErr = null;
+      if(hasFirebase){
+        try {
+          await fb.addDoc(fb.collection(fb.db, 'reviews'), Object.assign({}, basePayload, {
             createdAt: fb.serverTimestamp()
-          }), { merge: true });
+          }));
           reviewSaved = true;
-        } else {
-          throw mainErr;
+          savedToFirestore = true;
+        } catch(mainErr){
+          lastErr = mainErr;
+          if(isFirestorePolicyError(mainErr)){
+            try {
+              var reviewId = 'R' + Date.now().toString() + '_' + Math.floor(Math.random() * 10000);
+              await fb.setDoc(fb.doc(fb.db, 'users', currentUser.uid, 'reviews', reviewId), Object.assign({}, basePayload, {
+                createdAt: fb.serverTimestamp()
+              }), { merge: true });
+              reviewSaved = true;
+              savedToFirestore = true;
+            } catch(subErr){
+              lastErr = subErr;
+            }
+          }
         }
       }
 
@@ -2478,18 +2958,24 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           if(sheetOk){
             reviewSaved = true;
           }
-        } catch(sheetErr){}
+        } catch(sheetErr){
+          lastErr = sheetErr;
+        }
       }
 
       if(!reviewSaved){
-        throw new Error('review-not-saved');
+        throw lastErr || new Error('review-not-saved');
       }
 
       if(textEl) textEl.value = '';
       if(imagesEl) imagesEl.value = '';
       if(preview) preview.innerHTML = '';
-      toast('\u05d4\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05e4\u05d5\u05e8\u05e1\u05de\u05d4 \u05d1\u05d4\u05e6\u05dc\u05d7\u05d4, \u05ea\u05d5\u05d3\u05d4!');
-      await loadUserReviews();
+      if(savedToFirestore){
+        toast('\u05d4\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05e4\u05d5\u05e8\u05e1\u05de\u05d4 \u05d1\u05d4\u05e6\u05dc\u05d7\u05d4, \u05ea\u05d5\u05d3\u05d4!');
+        await loadUserReviews();
+      } else {
+        toast('\u05d4\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05e0\u05e9\u05dc\u05d7\u05d4 \u05dc\u05e9\u05e8\u05d4 \u05d5\u05ea\u05e4\u05d5\u05e8\u05e1\u05dd \u05dc\u05d0\u05d7\u05e8 \u05d1\u05d3\u05d9\u05e7\u05d4, \u05ea\u05d5\u05d3\u05d4!');
+      }
     } catch(err){
       toast('\u05e9\u05d2\u05d9\u05d0\u05d4 \u05d1\u05e4\u05e8\u05e1\u05d5\u05dd \u05d1\u05d9\u05e7\u05d5\u05e8\u05ea: ' + (err && err.code ? err.code : 'error'));
     } finally {
@@ -2639,7 +3125,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       }
 
     if(cartItems.length === 0 && !selectedRewardLevel){
-      toast('הסל שלך ריק כרגע');
+      toast('סל ריק');
       return;
     }
 
@@ -2796,13 +3282,19 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var features = document.getElementById('cartFeatures');
     var tip = document.getElementById('cartTip');
     var checkoutBox = document.getElementById('checkoutBox');
+    var rewardList = document.getElementById('rewardList');
     if(!list || !badge) return;
 
     badge.textContent = String(cartItems.length);
 
     if(cartItems.length === 0){
-      list.innerHTML = '<div class="cart-empty">הסל ריק כרגע.</div>';
+      list.innerHTML = '<div class="cart-empty">' +
+        '<div class="cart-empty-icon">🛒</div>' +
+        '<div class="cart-empty-title">הסל ריק עדיין</div>' +
+        '<div class="cart-empty-sub">הוסיפו מוצרים מהקטלוג והמתנות ימשיכו להתקדם.</div>' +
+      '</div>';
       if(extras) extras.style.display = 'none';
+      if(rewardList) rewardList.style.display = 'none';
       if(features) features.style.display = 'none';
       if(tip) tip.style.display = 'none';
       if(checkoutBox) checkoutBox.style.display = 'none';
@@ -2820,6 +3312,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       return;
     }
 
+    if(rewardList) rewardList.style.display = '';
     if(features) features.style.display = '';
     if(tip) tip.style.display = '';
     if(checkoutBox) checkoutBox.style.display = '';
@@ -2869,7 +3362,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   window.shareCartWA = function(){
     if(!cartItems || cartItems.length === 0){
-      toast('הסל ריק כרגע');
+      toast('סל ריק');
       return;
     }
 
@@ -2900,7 +3393,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
   };
   async function loadProfile(){
-    if(!fb || !currentUser) return;
+    if(!currentUser) return;
+    if(isSoftAuthUser() || !fb){
+      var fallbackName = (currentUser && currentUser.displayName ? String(currentUser.displayName).trim() : '') || (((currentUser.email || '').split('@')[0] || '').trim());
+      profile = loadSoftProfile(currentUser.uid, fallbackName, currentUser.email || '');
+      applyPendingPoints();
+      return;
+    }
     var ref = fb.doc(fb.db, 'users', currentUser.uid);
     var snap = await fb.getDoc(ref);
 
@@ -2962,6 +3461,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       } catch(storageErr){}
     }
 
+    applyPendingPoints();
+    updateHeroWelcome();
     renderPoints();
     renderRewards();
     renderProfileSummary();
@@ -2975,6 +3476,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     fb.onAuthStateChanged(fb.auth, async function(user){
       currentUser = user || null;
+      if(!currentUser){
+        applySoftAuth();
+      } else {
+        storeSoftAuthFromCurrentUser();
+      }
       selectedRewardLevel = null;
       manualTotalTouched = false;
       profileOrders = [];
@@ -3039,15 +3545,31 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   };
 
   window.logoutUser = async function(){
-    if(!fb) return;
     authGateDismissed = false;
     window.toggleProfile(false);
+
+    if(isSoftAuthUser() || !fb){
+      clearSoftAuth();
+      currentUser = null;
+      profile = { points: 0, redeemedRewards: [], fullName: '', phone: '' };
+      cartItems = [];
+      setAuthUI();
+      renderCart();
+      renderPoints();
+      renderRewards();
+      renderProfileSummary();
+      renderProfileOrdersList();
+      toast('התנתקת');
+      return;
+    }
+
     await fb.signOut(fb.auth);
     toast('התנתקת');
   };
 
   window.toggleProfile = function(open){
     ensureUI();
+    syncCurrentUser();
     var drawer = document.getElementById('profileDrawer');
     if(!drawer) return;
 
@@ -3074,6 +3596,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   window.toggleCart = function(open){
     ensureUI();
+    syncCurrentUser();
     if(open && !currentUser){
       nudgeAuth('צריך להתחבר כדי לפתוח סל הזמנות');
       return;
@@ -3106,6 +3629,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   };
 
   async function saveOrderWithFallback(orderPayload){
+    if(!canUseFirestore()){
+      throw new Error('soft-auth');
+    }
     try {
       await fb.addDoc(fb.collection(fb.db, 'orders'), orderPayload);
       return { fallback: false, path: 'orders' };
@@ -3191,7 +3717,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
   window.saveLegacyOrderForAdmin = async function(orderData){
     try {
-      if(!fb || !currentUser || !orderData){
+      if(!orderData || !canUseFirestore()){
         return false;
       }
 
@@ -3254,7 +3780,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     if(cartItems.length === 0 && !selectedRewardLevel){
-      toast('הסל שלך ריק כרגע');
+      toast('סל ריק');
       return;
     }
 
@@ -3358,7 +3884,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       rewardRedeemed: reward ? { level: reward.level, name: reward.name, value: reward.value } : null,
       status: 'new',
       source: 'web-cart',
-      createdAt: fb.serverTimestamp()
+      createdAt: (fb && fb.serverTimestamp) ? fb.serverTimestamp() : new Date()
     };
 
     var itemNames = cartItems.map(function(i){
@@ -3374,7 +3900,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       date: new Date().toLocaleString('he-IL'),
       name: name,
       phone: phone,
-      product: 'Cart order',
+      product: 'הזמנה מהסל',
       description: itemNames,
       inscription: '',
       occasion: '',
@@ -3398,44 +3924,113 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     };
 
     setCheckoutPending(true);
+    var orderSaveInfo = null;
+    var pointsUpdated = true;
+    var sheetsOk = false;
+    var lastErr = null;
+    var sendError = null;
+    var useFirestore = canUseFirestore();
     try {
-      try {
-        await fb.setDoc(fb.doc(fb.db, 'users', currentUser.uid), {
-          email: currentUser.email || '',
-          fullName: name,
-          fullNameLower: name.toLowerCase(),
-          phone: phone,
-          updatedAt: fb.serverTimestamp()
-        }, { merge: true });
-      } catch(profileSaveErr){}
+      if(useFirestore){
+        try {
+          await fb.setDoc(fb.doc(fb.db, 'users', currentUser.uid), {
+            email: currentUser.email || '',
+            fullName: name,
+            fullNameLower: name.toLowerCase(),
+            phone: phone,
+            updatedAt: fb.serverTimestamp()
+          }, { merge: true });
+        } catch(profileSaveErr){}
 
-      var orderSaveInfo = await saveOrderWithFallback(orderPayload);
-
-      var pointsUpdated = true;
-      try {
-        var userUpdates = {
-          email: currentUser.email || '',
-          fullName: name,
-          fullNameLower: name.toLowerCase(),
-          phone: phone,
-          updatedAt: fb.serverTimestamp()
-        };
-
-        if(pointsToAdd > 0){
-          userUpdates.points = fb.increment(pointsToAdd);
+        try {
+          orderSaveInfo = await saveOrderWithFallback(orderPayload);
+        } catch(saveErr){
+          lastErr = saveErr;
         }
 
-        if(reward){
-          userUpdates.redeemedRewards = fb.arrayUnion(reward.level);
-        }
+        try {
+          var userUpdates = {
+            email: currentUser.email || '',
+            fullName: name,
+            fullNameLower: name.toLowerCase(),
+            phone: phone,
+            updatedAt: fb.serverTimestamp()
+          };
 
-        await fb.updateDoc(fb.doc(fb.db, 'users', currentUser.uid), userUpdates);
-      } catch(pointsErr){
-        pointsUpdated = false;
+          if(pointsToAdd > 0){
+            userUpdates.points = fb.increment(pointsToAdd);
+          }
+
+          if(reward){
+            userUpdates.redeemedRewards = fb.arrayUnion(reward.level);
+          }
+
+          await fb.updateDoc(fb.doc(fb.db, 'users', currentUser.uid), userUpdates);
+        } catch(pointsErr){
+          pointsUpdated = false;
+        }
+      } else {
+        lastErr = new Error('soft-auth');
+        pointsUpdated = true;
+        if(currentUser){
+          profile.points = Number(profile.points || 0) + Number(pointsToAdd || 0);
+          if(reward){
+            var rewards = Array.isArray(profile.redeemedRewards) ? profile.redeemedRewards.slice() : [];
+            if(rewards.indexOf(reward.level) === -1){
+              rewards.push(reward.level);
+            }
+            profile.redeemedRewards = rewards;
+          }
+          if(!profile.fullName){
+            profile.fullName = name || getProfileDisplayName();
+          }
+          if(!profile.phone && phone){
+            profile.phone = phone;
+          }
+          saveSoftProfile(currentUser.uid, profile);
+        }
       }
 
-      var sheetsOk = await sendOrderToSheets(sheetsPayload);
+      try {
+        sheetsOk = await sendOrderToSheets(sheetsPayload);
+      } catch(sheetErr){
+        sheetsOk = false;
+        if(!lastErr) lastErr = sheetErr;
+      }
 
+      var sentOk = !!orderSaveInfo || sheetsOk;
+      if(!sentOk){
+        throw lastErr || new Error('order-not-sent');
+      }
+    } catch(err){
+      sendError = err;
+    }
+    if(sendError){
+      toast('שגיאה בשליחת ההזמנה: ' + (sendError && sendError.code ? sendError.code : 'error'));
+      setCheckoutPending(false);
+      return;
+    }
+
+    if(!orderSaveInfo && sheetsOk){
+      toast('ההזמנה נשלחה לשרה. שמירה לחשבון תושלם בהמשך.');
+    } else if(!pointsUpdated){
+      toast('ההזמנה נשמרה, ועדכון הנקודות יושלם בהמשך.');
+    } else if(!sheetsOk){
+      toast('ההזמנה נשמרה בפאנל מנהלת. שליחה לגוגל שיטס נכשלה כרגע.');
+    } else if(orderSaveInfo && orderSaveInfo.fallback){
+      toast('ההזמנה נקלטה ונשמרה בהצלחה (כולל פאנל מנהלת + גוגל שיטס).');
+    } else {
+      toast('ההזמנה נקלטה בהצלחה בפאנל מנהלת ובגוגל שיטס.');
+    }
+
+    try {
+      if(currentUser && pointsToAdd > 0){
+        if(pointsUpdated){
+          clearPendingPoints(currentUser.uid);
+        } else {
+          addPendingPoints(currentUser.uid, pointsToAdd, profile.points);
+        }
+      }
       cartItems = [];
       selectedRewardLevel = null;
       manualTotalTouched = false;
@@ -3444,7 +4039,19 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       cartPaymentCode = '';
       saveCart();
       renderCart();
-      await loadProfile();
+      var profileLoaded = true;
+      if(fb && currentUser){
+        try {
+          await loadProfile();
+        } catch(e){
+          profileLoaded = false;
+        }
+      } else {
+        profileLoaded = false;
+      }
+      if(!profileLoaded){
+        applyPendingPoints();
+      }
       renderRewards();
       renderPoints();
       renderProfileSummary();
@@ -3455,21 +4062,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       if(profileDrawer && profileDrawer.classList.contains('open')){
         loadProfileOrders().catch(function(){});
       }
-
-      if(!pointsUpdated){
-        toast('ההזמנה נשמרה, ועדכון הנקודות יושלם בהמשך.');
-      } else if(!sheetsOk){
-        toast('ההזמנה נשמרה בפאנל מנהלת. שליחה לגוגל שיטס נכשלה כרגע.');
-      } else if(orderSaveInfo && orderSaveInfo.fallback){
-        toast('ההזמנה נקלטה ונשמרה בהצלחה (כולל פאנל מנהלת + גוגל שיטס).');
-      } else {
-        toast('ההזמנה נקלטה בהצלחה בפאנל מנהלת ובגוגל שיטס.');
+    } catch(uiErr){
+      if(typeof console !== 'undefined' && console && typeof console.error === 'function'){
+        console.error('Order UI cleanup error', uiErr);
       }
-    } catch(err){
-      toast('שגיאה בשליחת ההזמנה: ' + (err && err.code ? err.code : 'error'));
-    } finally {
-      setCheckoutPending(false);
     }
+    setCheckoutPending(false);
   };
 
   var originalOpenModal = window.openModal;
@@ -3494,7 +4092,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     };
   }
 
-    window.submitOrder = function(){
+  window.submitOrder = function(){
+    syncCurrentUser();
     if(!currentUser){
       nudgeAuth('צריך להתחבר כדי להזמין ולקבל מתנות');
       return;
@@ -3575,9 +4174,20 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   };
 
   ensureUI();
+  bindPrimaryClicks();
   setAuthUI();
   renderCart();
   renderPoints();
+
+  window.addEventListener('pageshow', function(){
+    setTimeout(function(){ refreshAuthState('pageshow'); }, 60);
+  });
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden){
+      setTimeout(function(){ refreshAuthState('visible'); }, 60);
+    }
+  });
+  setTimeout(scheduleAuthRefresh, 300);
 
   window.addEventListener('firebase-ready', authReady);
   if(window.firebaseCtx){ authReady(); }
@@ -3635,6 +4245,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.admin-card{background:#fff;border:1px solid #f2d9c0;border-radius:12px;padding:10px;margin-bottom:10px}',
       '.admin-row{display:flex;align-items:center;justify-content:space-between;gap:8px}',
       '.admin-mini{font-size:12px;color:#7a5040}',
+      '.admin-source{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;border-radius:999px;padding:4px 9px;background:#fff3e6;color:#a85535;border:1px solid #f2d9c0}',
+      '.admin-source.sheet{background:#eef5ff;color:#2d4f9f;border-color:#bfd0f4}',
       '.admin-progress{height:8px;background:#ecd8c9;border-radius:999px;overflow:hidden;margin-top:6px}',
       '.admin-progress > div{height:100%;background:linear-gradient(90deg,#27ae60,#d4a24e)}',
       '.admin-btn{border:none;background:#c8704a;color:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px;font-weight:700}',
@@ -3754,6 +4366,402 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     } catch(cgErr){}
 
     return Object.keys(map).map(function(key){ return map[key]; });
+  }
+
+  function toNumber(val){
+    if(val === null || typeof val === 'undefined') return 0;
+    if(typeof val === 'number') return Number.isFinite(val) ? val : 0;
+    var cleaned = String(val).replace(/[^\d.\-]/g, '');
+    var n = Number(cleaned);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  function normalizeSheetKey(key){
+    return String(key || '').toLowerCase().replace(/\s+/g, '').replace(/[^\w#]/g, '');
+  }
+
+  function hasValue(val){
+    return val !== undefined && val !== null && String(val).trim() !== '';
+  }
+
+  function pickSheetValue(row, normalized, keys, hebKeys){
+    for(var i = 0; i < keys.length; i++){
+      var key = keys[i];
+      if(hasValue(normalized[key])) return normalized[key];
+    }
+    if(hebKeys && row){
+      var rowKeys = Object.keys(row);
+      for(var j = 0; j < hebKeys.length; j++){
+        var hk = hebKeys[j];
+        for(var k = 0; k < rowKeys.length; k++){
+          var rk = rowKeys[k];
+          if(String(rk).indexOf(hk) >= 0 && hasValue(row[rk])) return row[rk];
+        }
+      }
+    }
+    return '';
+  }
+
+  function parseCsv(text){
+    var rows = [];
+    var row = [];
+    var cur = '';
+    var inQuotes = false;
+
+    for(var i = 0; i < text.length; i++){
+      var ch = text[i];
+      var next = text[i + 1];
+
+      if(ch === '"'){
+        if(inQuotes && next === '"'){
+          cur += '"';
+          i++;
+        } else {
+          inQuotes = !inQuotes;
+        }
+        continue;
+      }
+
+      if(ch === ',' && !inQuotes){
+        row.push(cur);
+        cur = '';
+        continue;
+      }
+
+      if((ch === '\n' || ch === '\r') && !inQuotes){
+        if(ch === '\r' && next === '\n'){ i++; }
+        row.push(cur);
+        if(row.length > 1 || (row.length === 1 && String(row[0]).trim() !== '')){
+          rows.push(row);
+        }
+        row = [];
+        cur = '';
+        continue;
+      }
+
+      cur += ch;
+    }
+
+    if(cur.length || row.length){
+      row.push(cur);
+      rows.push(row);
+    }
+
+    return rows;
+  }
+
+  function rowsToObjects(rows){
+    if(!Array.isArray(rows) || rows.length === 0) return [];
+    var header = rows[0];
+    if(!Array.isArray(header)) return rows;
+    var hasHeader = header.some(function(cell){
+      return typeof cell === 'string' && cell.trim() !== '' && isNaN(Number(cell));
+    });
+    if(!hasHeader) return rows;
+    return rows.slice(1).map(function(row){
+      var obj = {};
+      header.forEach(function(key, idx){
+        var k = String(key || '').trim();
+        if(!k) return;
+        obj[k] = (row && typeof row[idx] !== 'undefined') ? row[idx] : '';
+      });
+      return obj;
+    });
+  }
+
+  function normalizeSheetPayload(raw){
+    if(!raw) return [];
+    if(Array.isArray(raw)) return raw;
+    if(raw.orders && Array.isArray(raw.orders)) return raw.orders;
+    if(raw.data && Array.isArray(raw.data)) return raw.data;
+    if(raw.rows && Array.isArray(raw.rows)) return raw.rows;
+    if(raw.values && Array.isArray(raw.values)) return rowsToObjects(raw.values);
+    if(raw.result && Array.isArray(raw.result)) return raw.result;
+    return [];
+  }
+
+  function mapSheetRowToOrder(row, index){
+    if(!row) return null;
+    if(Array.isArray(row)){
+      return {
+        id: 'sheet_' + index,
+        refPath: 'sheet|' + index,
+        data: {
+          orderNum: 'sheet-' + index,
+          product: 'הזמנה',
+          description: row.join(' | '),
+          status: 'new',
+          createdAt: new Date()
+        }
+      };
+    }
+
+    var normalized = {};
+    Object.keys(row).forEach(function(k){
+      normalized[normalizeSheetKey(k)] = row[k];
+    });
+
+    var orderNum = pickSheetValue(row, normalized, ['ordernum','order','order#','orderid','order_no','orderno'], ['מספר הזמנה','הזמנה']);
+    var name = pickSheetValue(row, normalized, ['name','fullname','customername','client','customer'], ['שם','לקוח','מקבל']);
+    var phone = pickSheetValue(row, normalized, ['phone','tel','phone1','mobile'], ['טלפון','נייד']);
+    var email = pickSheetValue(row, normalized, ['email','useremail','mail'], ['אימייל','דוא\"ל']);
+    var date = pickSheetValue(row, normalized, ['date','createdat','created','sentat','timestamp'], ['תאריך','נוצר','נשלח']);
+    var payment = pickSheetValue(row, normalized, ['payment','paymentmethod','pay'], ['תשלום','אמצעי תשלום']);
+    var paymentConfirmed = pickSheetValue(row, normalized, ['paymentconfirmed','payconfirmed'], ['שולם','אושר תשלום']);
+    var deliveryMode = pickSheetValue(row, normalized, ['deliverymode','delivery_mode'], ['משלוח','איסוף']);
+    var delivery = pickSheetValue(row, normalized, ['delivery'], ['משלוח','איסוף']);
+    var deliveryCityLabel = pickSheetValue(row, normalized, ['deliverycitylabel','deliverycity','city'], ['עיר','יישוב']);
+    var deliveryFee = pickSheetValue(row, normalized, ['deliveryfee','shippingfee','fee','delivery_cost'], ['דמי משלוח','משלוח']);
+    var address = pickSheetValue(row, normalized, ['address','street','fulladdress'], ['כתובת']);
+    var readyBy = pickSheetValue(row, normalized, ['readyby','ready_by','pickupby'], ['תאריך אספקה','מועד']);
+    var note = pickSheetValue(row, normalized, ['notes','note','comments','remark'], ['הערות']);
+    var status = pickSheetValue(row, normalized, ['status','orderstatus'], ['סטטוס','מצב']);
+    var subtotal = pickSheetValue(row, normalized, ['subtotal','sub_total'], ['סכום ביניים']);
+    var orderTotal = pickSheetValue(row, normalized, ['ordertotal','total','ordertotalamount','totalprice'], ['סכום','סה\"כ']);
+    var points = pickSheetValue(row, normalized, ['pointsadded','points','rewardpoints'], ['נקודות']);
+    var reward = pickSheetValue(row, normalized, ['rewardredeemed','reward','gift'], ['מתנה','פרס']);
+    var product = pickSheetValue(row, normalized, ['product','item','productname'], ['מוצר']);
+    var description = pickSheetValue(row, normalized, ['description','details','customdetails','items'], ['פירוט','תיאור','פרטים']);
+    var inscription = pickSheetValue(row, normalized, ['inscription','message'], ['הקדשה']);
+    var occasion = pickSheetValue(row, normalized, ['occasion','event'], ['אירוע']);
+
+    if(!deliveryMode){
+      var dv = String(delivery || '').toLowerCase();
+      if(dv.indexOf('כן') === 0 || dv.indexOf('delivery') >= 0){
+        deliveryMode = 'delivery';
+      } else if(dv.indexOf('איסוף') >= 0 || dv.indexOf('pickup') >= 0){
+        deliveryMode = 'pickup';
+      }
+    }
+    if(!deliveryMode){
+      deliveryMode = address ? 'delivery' : 'pickup';
+    }
+
+    if(!deliveryCityLabel && delivery && String(delivery).indexOf('-') >= 0){
+      var parts = String(delivery).split('-');
+      if(parts.length > 1){
+        deliveryCityLabel = parts.slice(1).join('-').trim();
+      }
+    }
+
+    var items = [];
+    var itemNames = [];
+    if(typeof description === 'string' && description.indexOf('|') >= 0){
+      itemNames = description.split('|').map(function(s){ return String(s).trim(); }).filter(Boolean);
+    } else if(typeof description === 'string' && description.indexOf(',') >= 0){
+      itemNames = description.split(',').map(function(s){ return String(s).trim(); }).filter(Boolean);
+    }
+    if(itemNames.length === 0 && product){
+      itemNames = [String(product)];
+    }
+    if(itemNames.length > 0){
+      items = itemNames.map(function(n){ return { name: n }; });
+    }
+
+    var orderData = {
+      orderNum: orderNum || ('sheet-' + index),
+      userEmail: email || '',
+      customer: { name: String(name || ''), phone: String(phone || '') },
+      checkout: {
+        payment: String(payment || ''),
+        paymentConfirmed: String(paymentConfirmed || ''),
+        address: String(address || ''),
+        readyBy: String(readyBy || ''),
+        note: String(note || ''),
+        deliveryMode: deliveryMode || '',
+        deliveryCityLabel: String(deliveryCityLabel || ''),
+        deliveryFee: toNumber(deliveryFee),
+        deliveryText: String(delivery || (deliveryMode === 'delivery' ? 'משלוח' : 'איסוף עצמי'))
+      },
+      items: items,
+      totals: {
+        subtotal: toNumber(subtotal),
+        orderTotal: toNumber(orderTotal),
+        pointsToAdd: toNumber(points)
+      },
+      rewardRedeemed: reward ? { name: String(reward), level: '' } : null,
+      status: status || '',
+      product: product || '',
+      description: description || '',
+      inscription: inscription || '',
+      occasion: occasion || '',
+      createdAt: date || '',
+      source: 'sheets'
+    };
+
+    return {
+      id: orderData.orderNum || ('sheet_' + index),
+      refPath: 'sheet|' + index,
+      data: orderData
+    };
+  }
+
+  function mapSheetOrders(rows){
+    return (rows || []).map(function(row, idx){
+      return mapSheetRowToOrder(row, idx);
+    }).filter(Boolean);
+  }
+
+  function getSheetOrdersReadUrl(){
+    var readUrl = String((typeof SHEETS_READ_URL !== 'undefined' ? SHEETS_READ_URL : '') || '').trim();
+    if(readUrl) return readUrl;
+    var baseUrl = String((typeof SHEETS_URL !== 'undefined' ? SHEETS_URL : '') || '').trim();
+    if(!baseUrl || baseUrl === 'YOUR_GOOGLE_SCRIPT_URL_HERE') return '';
+    return baseUrl + (baseUrl.indexOf('?') >= 0 ? '&' : '?') + 'action=orders&format=json';
+  }
+
+  async function fetchOrdersFromSheets(){
+    try {
+      var url = getSheetOrdersReadUrl();
+      if(!url) return [];
+      var res = await fetch(url, { method: 'GET', cache: 'no-store' });
+      var text = await res.text();
+      var data = null;
+      if(text){
+        try {
+          data = JSON.parse(text);
+        } catch(parseErr){
+          data = null;
+        }
+      }
+      var rows = [];
+      if(data){
+        rows = normalizeSheetPayload(data);
+      } else if(text){
+        var csvRows = parseCsv(text);
+        rows = rowsToObjects(csvRows);
+      }
+      if(!Array.isArray(rows)) return [];
+      return mapSheetOrders(rows);
+    } catch(err){
+      return [];
+    }
+  }
+
+  function getOrderTime(orderData){
+    if(!orderData) return 0;
+    if(orderData.createdAt && orderData.createdAt.seconds){
+      return orderData.createdAt.seconds * 1000;
+    }
+    var raw = orderData.createdAt || orderData.date || orderData.sentAt || orderData.timestamp || '';
+    if(raw instanceof Date){
+      return raw.getTime();
+    }
+    var parsed = Date.parse(raw);
+    if(!isNaN(parsed)) return parsed;
+    return 0;
+  }
+
+  function renderOrdersList(orders, options){
+    var wrap = document.getElementById('adminOrdersList');
+    if(!wrap) return;
+
+    var opts = options || {};
+    var readOnly = !!opts.readOnly;
+    var sourceLabel = opts.sourceLabel || '';
+    var note = '';
+
+    if(readOnly){
+      var label = sourceLabel ? ('מקור: ' + sourceLabel + ' (קריאה בלבד).') : 'הזמנות מוצגות במצב קריאה בלבד.';
+      note = '<div class="admin-note">' + label + '</div>';
+    }
+
+    if(!orders || orders.length === 0){
+      wrap.innerHTML = note + '<div class="admin-mini">אין הזמנות עדיין.</div>';
+      return;
+    }
+
+    var html = '';
+    orders.slice(0, 100).forEach(function(o){
+      var d = o.data || {};
+      var customer = d.customer || {};
+      if(!customer.name && d.name) customer.name = d.name;
+      if(!customer.phone && d.phone) customer.phone = d.phone;
+
+      var checkout = d.checkout || {};
+      if(!checkout.payment && d.payment) checkout.payment = d.payment;
+      if(!checkout.address && d.address) checkout.address = d.address;
+      if(!checkout.readyBy && d.readyBy) checkout.readyBy = d.readyBy;
+      if(!checkout.deliveryCityLabel && d.deliveryCity) checkout.deliveryCityLabel = d.deliveryCity;
+      if(typeof checkout.deliveryFee === 'undefined' && typeof d.deliveryFee !== 'undefined'){
+        checkout.deliveryFee = Number(d.deliveryFee || 0);
+      }
+      if(!checkout.deliveryMode){
+        if(d.deliveryMode){
+          checkout.deliveryMode = d.deliveryMode;
+        } else if(d.delivery && String(d.delivery).indexOf('כן') === 0){
+          checkout.deliveryMode = 'delivery';
+        } else if(checkout.address){
+          checkout.deliveryMode = 'delivery';
+        } else {
+          checkout.deliveryMode = 'pickup';
+        }
+      }
+
+      var totals = d.totals || {};
+      if(typeof totals.orderTotal === 'undefined' && typeof d.orderTotal !== 'undefined') totals.orderTotal = Number(d.orderTotal || 0);
+      if(typeof totals.autoOrderTotal === 'undefined' && typeof d.orderTotal !== 'undefined') totals.autoOrderTotal = Number(d.orderTotal || 0);
+      if(typeof totals.shippingFee === 'undefined' && typeof d.deliveryFee !== 'undefined') totals.shippingFee = Number(d.deliveryFee || 0);
+      if(typeof totals.pointsToAdd === 'undefined' && typeof d.pointsAdded !== 'undefined') totals.pointsToAdd = Number(d.pointsAdded || 0);
+
+      var orderNum = d.orderNum || o.id;
+      var reward = d.rewardRedeemed ? (d.rewardRedeemed.name + ' (level ' + d.rewardRedeemed.level + ')') : 'No reward redeemed';
+      var itemsText = Array.isArray(d.items) ? d.items.map(function(i){ return i.name; }).join(' | ') : [d.product, d.description].filter(Boolean).join(' | ');
+      var deliveryMode = checkout.deliveryMode || (checkout.address ? 'delivery' : 'pickup');
+      var deliveryCityLabel = checkout.deliveryCityLabel || cityLabelByCode(checkout.deliveryCity || '');
+      var deliveryFee = Number(checkout.deliveryFee || totals.shippingFee || 0);
+      var deliveryText = deliveryMode === 'delivery'
+        ? ('Delivery to ' + (deliveryCityLabel || 'no city selected') + ' | Delivery fee: ' + shekel(deliveryFee))
+        : 'Self pickup (free)';
+      var addressText = deliveryMode === 'delivery' ? (checkout.address || 'not provided') : (ADMIN_PICKUP_ADDRESS + ' (self pickup)');
+
+      var status = normalizeOrderStatus(d.status);
+      var statusText = orderStatusLabel(status, deliveryMode);
+      var statusCls = orderStatusClass(status);
+      var next = nextOrderStatus(status, deliveryMode);
+      var nextBtn = nextOrderStatusBtnText(status, deliveryMode);
+
+      var waReady = status === 'ready' ? buildOrderWhatsApp(orderNum, customer, checkout, totals, 'ready') : '';
+      var waOut = status === 'out_for_delivery' ? buildOrderWhatsApp(orderNum, customer, checkout, totals, 'out_for_delivery') : '';
+      var waDone = status === 'completed' ? buildOrderWhatsApp(orderNum, customer, checkout, totals, 'completed') : '';
+
+      var safeRefPath = String(o.refPath || ('orders|' + o.id)).replace(/'/g, "\\'");
+      var actions = '<div class="admin-actions">';
+      if(!readOnly && next){
+        actions += '<button class="admin-btn" type="button" onclick="adminSetOrderStatus(\'' + safeRefPath + '\',\'' + next + '\')">' + nextBtn + '</button>';
+      }
+      if(waReady){
+        actions += '<a class="admin-btn" href="' + waReady + '" target="_blank" rel="noopener">WhatsApp: ready</a>';
+      }
+      if(waOut){
+        actions += '<a class="admin-btn" href="' + waOut + '" target="_blank" rel="noopener">WhatsApp: out for delivery</a>';
+      }
+      if(waDone){
+        actions += '<a class="admin-btn" href="' + waDone + '" target="_blank" rel="noopener">WhatsApp: completed</a>';
+      }
+      if(readOnly && !next && !waReady && !waOut && !waDone){
+        actions += '<span class="admin-mini">קריאה בלבד</span>';
+      }
+      actions += '</div>';
+
+      var dateLabel = '<span class="admin-mini">' + formatDate(d.createdAt || d.date) + (readOnly ? ' <span class="admin-source sheet">Sheets</span>' : '') + '</span>';
+
+      html += '<div class="admin-card">' +
+        '<div class="admin-row"><strong>' + (customer.name || 'No name') + '</strong>' + dateLabel + '</div>' +
+        '<div class="admin-mini">Order #: ' + orderNum + '</div>' +
+        '<div class="admin-mini">User email: ' + (d.userEmail || 'unknown') + '</div>' +
+        '<div class="admin-mini">Phone: ' + (customer.phone || 'unknown') + '</div>' +
+        '<div class="admin-mini">Address: ' + addressText + '</div>' +
+        '<div class="admin-mini">Delivery: ' + deliveryText + '</div>' +
+        '<div class="admin-mini">Payment: ' + (checkout.payment || 'not set') + ' | Total: ' + shekel(totals.orderTotal || totals.autoOrderTotal || 0) + ' | Points added: ' + (totals.pointsToAdd || 0) + '</div>' +
+        '<div class="admin-mini">Reward: ' + reward + '</div>' +
+        '<div class="admin-mini">Items: ' + (itemsText || 'No items (reward only)') + '</div>' +
+        '<div class="admin-row" style="margin-top:6px"><div class="admin-mini">Order status</div><span class="admin-status ' + statusCls + '">' + statusText + '</span></div>' +
+        actions +
+      '</div>';
+    });
+
+    wrap.innerHTML = note + html;
   }
 
 
@@ -3971,11 +4979,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
 
   async function refreshOrders(){
-    if(!isAdmin || !fb) return;
+    if(!isAdmin) return;
     var wrap = document.getElementById('adminOrdersList');
     if(!wrap) return;
 
     try {
+      var permissionDenied = false;
       var collected = [];
       var byPath = {};
 
@@ -3986,42 +4995,52 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         collected.push(entry);
       }
 
-      try {
-        var snapTop = await fb.getDocs(fb.collection(fb.db, 'orders'));
-        snapTop.forEach(function(docSnap){
-          addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: 'orders|' + docSnap.id });
-        });
-      } catch(topErr){}
-
-      try {
-        if(typeof fb.collectionGroup === 'function'){
-          var cgSnap = await fb.getDocs(fb.query(fb.collectionGroup(fb.db, 'orders')));
-          cgSnap.forEach(function(docSnap){
-            var refPath = (docSnap.ref && docSnap.ref.path) ? String(docSnap.ref.path).split('/').join('|') : ('cg|orders|' + docSnap.id);
-            addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: refPath });
+      if(fb){
+        try {
+          var snapTop = await fb.getDocs(fb.collection(fb.db, 'orders'));
+          snapTop.forEach(function(docSnap){
+            addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: 'orders|' + docSnap.id });
           });
+        } catch(topErr){
+          if(isFirestorePolicyError(topErr)) permissionDenied = true;
         }
-      } catch(cgErr){}
 
-      try {
-        var usersSnap = await fb.getDocs(fb.collection(fb.db, 'users'));
-        var users = [];
-        usersSnap.forEach(function(u){ users.push({ id: u.id, data: u.data() || {} }); });
-
-        var tasks = users.map(async function(u){
-          try {
-            var subSnap = await fb.getDocs(fb.collection(fb.db, 'users', u.id, 'orders'));
-            subSnap.forEach(function(docSnap){
-              var d = docSnap.data() || {};
-              if(!d.userId) d.userId = u.id;
-              if(!d.userEmail && u.data && u.data.email) d.userEmail = u.data.email;
-              addCollected({ id: docSnap.id, data: d, refPath: 'users|' + u.id + '|orders|' + docSnap.id });
+        try {
+          if(typeof fb.collectionGroup === 'function'){
+            var cgSnap = await fb.getDocs(fb.query(fb.collectionGroup(fb.db, 'orders')));
+            cgSnap.forEach(function(docSnap){
+              var refPath = (docSnap.ref && docSnap.ref.path) ? String(docSnap.ref.path).split('/').join('|') : ('cg|orders|' + docSnap.id);
+              addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: refPath });
             });
-          } catch(subErr){}
-        });
+          }
+        } catch(cgErr){
+          if(isFirestorePolicyError(cgErr)) permissionDenied = true;
+        }
 
-        await Promise.all(tasks);
-      } catch(usersErr){}
+        try {
+          var usersSnap = await fb.getDocs(fb.collection(fb.db, 'users'));
+          var users = [];
+          usersSnap.forEach(function(u){ users.push({ id: u.id, data: u.data() || {} }); });
+
+          var tasks = users.map(async function(u){
+            try {
+              var subSnap = await fb.getDocs(fb.collection(fb.db, 'users', u.id, 'orders'));
+              subSnap.forEach(function(docSnap){
+                var d = docSnap.data() || {};
+                if(!d.userId) d.userId = u.id;
+                if(!d.userEmail && u.data && u.data.email) d.userEmail = u.data.email;
+                addCollected({ id: docSnap.id, data: d, refPath: 'users|' + u.id + '|orders|' + docSnap.id });
+              });
+            } catch(subErr){}
+          });
+
+          await Promise.all(tasks);
+        } catch(usersErr){
+          if(isFirestorePolicyError(usersErr)) permissionDenied = true;
+        }
+      } else {
+        permissionDenied = true;
+      }
 
       var dedup = {};
       collected.forEach(function(o){
@@ -4044,104 +5063,26 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       });
 
       var orders = Object.keys(dedup).map(function(k){ return dedup[k]; });
+      orders.sort(function(a,b){ return getOrderTime(b.data) - getOrderTime(a.data); });
 
-      orders.sort(function(a,b){
-        var at = a.data && a.data.createdAt && a.data.createdAt.seconds ? a.data.createdAt.seconds : 0;
-        var bt = b.data && b.data.createdAt && b.data.createdAt.seconds ? b.data.createdAt.seconds : 0;
-        return bt - at;
-      });
-
-      if(orders.length === 0){
-        wrap.innerHTML = '<div class="admin-mini">אין הזמנות עדיין.</div>';
+      if(orders.length > 0){
+        renderOrdersList(orders, { readOnly: false });
         return;
       }
 
-      var html = '';
-      orders.slice(0, 100).forEach(function(o){
-        var d = o.data || {};
-        var customer = d.customer || {};
-        if(!customer.name && d.name) customer.name = d.name;
-        if(!customer.phone && d.phone) customer.phone = d.phone;
+      var sheetOrders = await fetchOrdersFromSheets();
+      if(sheetOrders && sheetOrders.length > 0){
+        sheetOrders.sort(function(a,b){ return getOrderTime(b.data) - getOrderTime(a.data); });
+        renderOrdersList(sheetOrders, { readOnly: true, sourceLabel: 'Google Sheets' });
+        return;
+      }
 
-        var checkout = d.checkout || {};
-        if(!checkout.payment && d.payment) checkout.payment = d.payment;
-        if(!checkout.address && d.address) checkout.address = d.address;
-        if(!checkout.readyBy && d.readyBy) checkout.readyBy = d.readyBy;
-        if(!checkout.deliveryCityLabel && d.deliveryCity) checkout.deliveryCityLabel = d.deliveryCity;
-        if(typeof checkout.deliveryFee === 'undefined' && typeof d.deliveryFee !== 'undefined'){
-          checkout.deliveryFee = Number(d.deliveryFee || 0);
-        }
-        if(!checkout.deliveryMode){
-          if(d.deliveryMode){
-            checkout.deliveryMode = d.deliveryMode;
-          } else if(d.delivery && String(d.delivery).indexOf('כן') === 0){
-            checkout.deliveryMode = 'delivery';
-          } else if(checkout.address){
-            checkout.deliveryMode = 'delivery';
-          } else {
-            checkout.deliveryMode = 'pickup';
-          }
-        }
-
-        var totals = d.totals || {};
-        if(typeof totals.orderTotal === 'undefined' && typeof d.orderTotal !== 'undefined') totals.orderTotal = Number(d.orderTotal || 0);
-        if(typeof totals.autoOrderTotal === 'undefined' && typeof d.orderTotal !== 'undefined') totals.autoOrderTotal = Number(d.orderTotal || 0);
-        if(typeof totals.shippingFee === 'undefined' && typeof d.deliveryFee !== 'undefined') totals.shippingFee = Number(d.deliveryFee || 0);
-        if(typeof totals.pointsToAdd === 'undefined' && typeof d.pointsAdded !== 'undefined') totals.pointsToAdd = Number(d.pointsAdded || 0);
-
-        var orderNum = d.orderNum || o.id;
-        var reward = d.rewardRedeemed ? (d.rewardRedeemed.name + ' (level ' + d.rewardRedeemed.level + ')') : 'No reward redeemed';
-        var itemsText = Array.isArray(d.items) ? d.items.map(function(i){ return i.name; }).join(' | ') : [d.product, d.description].filter(Boolean).join(' | ');
-        var deliveryMode = checkout.deliveryMode || (checkout.address ? 'delivery' : 'pickup');
-        var deliveryCityLabel = checkout.deliveryCityLabel || cityLabelByCode(checkout.deliveryCity || '');
-        var deliveryFee = Number(checkout.deliveryFee || totals.shippingFee || 0);
-        var deliveryText = deliveryMode === 'delivery'
-          ? ('Delivery to ' + (deliveryCityLabel || 'no city selected') + ' | Delivery fee: ' + shekel(deliveryFee))
-          : 'Self pickup (free)';
-        var addressText = deliveryMode === 'delivery' ? (checkout.address || 'not provided') : (ADMIN_PICKUP_ADDRESS + ' (self pickup)');
-
-        var status = normalizeOrderStatus(d.status);
-        var statusText = orderStatusLabel(status, deliveryMode);
-        var statusCls = orderStatusClass(status);
-        var next = nextOrderStatus(status, deliveryMode);
-        var nextBtn = nextOrderStatusBtnText(status, deliveryMode);
-
-        var waReady = status === 'ready' ? buildOrderWhatsApp(orderNum, customer, checkout, totals, 'ready') : '';
-        var waOut = status === 'out_for_delivery' ? buildOrderWhatsApp(orderNum, customer, checkout, totals, 'out_for_delivery') : '';
-        var waDone = status === 'completed' ? buildOrderWhatsApp(orderNum, customer, checkout, totals, 'completed') : '';
-
-        var safeRefPath = String(o.refPath || ('orders|' + o.id)).replace(/'/g, "\\'");
-        var actions = '<div class="admin-actions">';
-        if(next){
-          actions += '<button class="admin-btn" type="button" onclick="adminSetOrderStatus(\'' + safeRefPath + '\',\'' + next + '\')">' + nextBtn + '</button>';
-        }
-        if(waReady){
-          actions += '<a class="admin-btn" href="' + waReady + '" target="_blank" rel="noopener">WhatsApp: ready</a>';
-        }
-        if(waOut){
-          actions += '<a class="admin-btn" href="' + waOut + '" target="_blank" rel="noopener">WhatsApp: out for delivery</a>';
-        }
-        if(waDone){
-          actions += '<a class="admin-btn" href="' + waDone + '" target="_blank" rel="noopener">WhatsApp: completed</a>';
-        }
-        actions += '</div>';
-
-        html += '<div class="admin-card">' +
-          '<div class="admin-row"><strong>' + (customer.name || 'No name') + '</strong><span class="admin-mini">' + formatDate(d.createdAt || d.date) + '</span></div>' +
-          '<div class="admin-mini">Order #: ' + orderNum + '</div>' +
-          '<div class="admin-mini">User email: ' + (d.userEmail || 'unknown') + '</div>' +
-          '<div class="admin-mini">Phone: ' + (customer.phone || 'unknown') + '</div>' +
-          '<div class="admin-mini">Address: ' + addressText + '</div>' +
-          '<div class="admin-mini">Delivery: ' + deliveryText + '</div>' +
-          '<div class="admin-mini">Payment: ' + (checkout.payment || 'not set') + ' | Total: ' + shekel(totals.orderTotal || totals.autoOrderTotal || 0) + ' | Points added: ' + (totals.pointsToAdd || 0) + '</div>' +
-          '<div class="admin-mini">Reward: ' + reward + '</div>' +
-          '<div class="admin-mini">Items: ' + (itemsText || 'No items (reward only)') + '</div>' +
-          '<div class="admin-row" style="margin-top:6px"><div class="admin-mini">Order status</div><span class="admin-status ' + statusCls + '">' + statusText + '</span></div>' +
-          actions +
-        '</div>';
-      });
-
-      wrap.innerHTML = html;
+      if(permissionDenied){
+        var hint = getSheetOrdersReadUrl() ? '' : ' ודאי שהוגדר קישור קריאה לשיטס.';
+        wrap.innerHTML = '<div class="admin-mini">אין הרשאה לקריאת הזמנות מפיירבייס.' + hint + '</div>';
+      } else {
+        wrap.innerHTML = '<div class="admin-mini">אין הזמנות עדיין.</div>';
+      }
     } catch(err){
       wrap.innerHTML = '<div class="admin-mini">Failed to load orders.</div>';
     }
@@ -4361,7 +5302,98 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   initAdminAddon();
 })();
 </script>
+<div id="warmMotionLayer" class="warm-motion" aria-hidden="true">
+    <span class="wm w1"></span>
+    <span class="wm w2"></span>
+    <span class="wm w3"></span>
+    <span class="wm w4"></span>
+</div>
+<button id="authFab" class="auth-fab" type="button" title="התחברות" onclick="openProfileOrAuth()">👤</button>
+<button id="cartFab" class="cart-fab" type="button" title="סל" onclick="openCartOrAuth()">🛒<span id="cartBadge" class="cart-badge">0</span></button>
 <button id="a11yIcon" class="a11y-fab" aria-label="נגישות" title="נגישות" type="button">♿</button>
+<script>
+(function(){
+  if(window.__saraFallbackClicksBound) return;
+  window.__saraFallbackClicksBound = true;
+
+  function safeOpenAuth(){
+    try {
+      var target = 'auth.html?return=' + encodeURIComponent(window.location.href);
+      window.location.href = target;
+    } catch(e){}
+  }
+
+  if(typeof window.openAuthModal !== 'function'){
+    window.openAuthModal = safeOpenAuth;
+  }
+  if(typeof window.openProfileOrAuth !== 'function'){
+    window.openProfileOrAuth = function(){
+      safeOpenAuth();
+    };
+  }
+  if(typeof window.openCartOrAuth !== 'function'){
+    window.openCartOrAuth = function(){
+      if(typeof window.toggleCart === 'function'){
+        window.toggleCart(true);
+      } else {
+        safeOpenAuth();
+      }
+    };
+  }
+  if(typeof window.toggleCart !== 'function'){
+    window.toggleCart = function(open){
+      try {
+        var el = document.getElementById('cartDrawer');
+        if(!el) return;
+        if(open){ el.classList.add('open'); }
+        else { el.classList.remove('open'); }
+      } catch(e){}
+    };
+  }
+  if(typeof window.submitOrder !== 'function'){
+    window.submitOrder = function(){
+      safeOpenAuth();
+    };
+  }
+
+  var lastTap = 0;
+  function safeRun(fn){
+    var now = Date.now();
+    if(now - lastTap < 250) return;
+    lastTap = now;
+    try { fn(); } catch(e){}
+  }
+
+  function handle(e){
+    if(!e || typeof document.elementsFromPoint !== 'function') return;
+    var x = (typeof e.clientX === 'number') ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : null);
+    var y = (typeof e.clientY === 'number') ? e.clientY : (e.touches && e.touches[0] ? e.touches[0].clientY : null);
+    if(x === null || y === null) return;
+    var stack = document.elementsFromPoint(x, y) || [];
+    var authHit = stack.find(function(el){ return el && el.classList && el.classList.contains('auth-fab'); });
+    if(authHit){
+      safeRun(function(){ window.openProfileOrAuth(); });
+      return;
+    }
+    var cartHit = stack.find(function(el){ return el && el.classList && el.classList.contains('cart-fab'); });
+    if(cartHit){
+      safeRun(function(){ window.openCartOrAuth(); });
+      return;
+    }
+    var prodBtnHit = stack.find(function(el){ return el && el.classList && el.classList.contains('prod-btn'); });
+    if(prodBtnHit){
+      var prodCard = prodBtnHit.closest('.prod-card') || stack.find(function(el){ return el && el.classList && el.classList.contains('prod-card'); });
+      if(prodCard && typeof window.openModal === 'function'){
+        safeRun(function(){ window.openModal(prodCard); });
+      }
+    }
+  }
+
+  document.addEventListener('click', handle, true);
+  document.addEventListener('pointerdown', handle, true);
+  document.addEventListener('touchstart', handle, true);
+})();
+</script>
 </body>
 </html>
 
