@@ -1057,11 +1057,13 @@
       try { localStorage.setItem(SOFT_AUTH_KEY, raw); } catch (err) {}
       try { sessionStorage.setItem(SOFT_AUTH_KEY, raw); } catch (err) {}
       try { window.name = 'sara_auth:' + raw; } catch (err) {}
+      try { document.cookie = SOFT_AUTH_KEY + '=' + encodeURIComponent(raw) + '; path=/; max-age=' + (60 * 60 * 24 * 30) + '; SameSite=Lax'; } catch (err) {}
     }
     function clearSoftAuth() {
       try { localStorage.removeItem(SOFT_AUTH_KEY); } catch (err) {}
       try { sessionStorage.removeItem(SOFT_AUTH_KEY); } catch (err) {}
       try { if (window.name && window.name.indexOf('sara_auth:') === 0) { window.name = ''; } } catch (err) {}
+      try { document.cookie = SOFT_AUTH_KEY + '=; path=/; max-age=0; SameSite=Lax'; } catch (err) {}
     }
     function getReturnUrl() {
       const fallback = 'index.html';
@@ -1174,6 +1176,8 @@
             }
           }
           showMsg('כניסת מנהלת בוצעה', true);
+          try { localStorage.setItem('sara_admin_mode', '1'); } catch (err) {}
+          try { sessionStorage.setItem('sara_admin_mode', '1'); } catch (err) {}
           persistSoftAuth(auth.currentUser, ADMIN_ALIAS);
           setTimeout(goBackToSite, 500);
           return;
