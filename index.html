@@ -34,21 +34,25 @@
           radial-gradient(circle at 12% 8%,rgba(216,177,106,0.22),transparent 45%),
           radial-gradient(circle at 88% 12%,rgba(200,112,74,0.18),transparent 48%),
           radial-gradient(circle at 40% 90%,rgba(232,149,109,0.18),transparent 52%);z-index:-2;pointer-events:none}
-        .auth-fab{position:fixed;right:14px;top:76px;z-index:9999;background:#fff;border:2px solid #f2d9c0;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:23px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.16);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;touch-action:manipulation}
-        .cart-fab{position:fixed;right:14px;top:138px;z-index:9998;background:#c8704a;color:#fff;border:none;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:21px;cursor:pointer;box-shadow:0 10px 24px rgba(200,112,74,.4);touch-action:manipulation}
+        .auth-fab{position:fixed;right:14px;top:76px;z-index:9999;background:#fff;border:2px solid #f2d9c0;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:23px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.16);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;touch-action:manipulation;text-decoration:none;color:#2d1a0e}
+        .cart-fab{position:fixed;right:14px;top:138px;z-index:9998;background:#c8704a;color:#fff;border:none;border-radius:999px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:21px;cursor:pointer;box-shadow:0 10px 24px rgba(200,112,74,.4);touch-action:manipulation;text-decoration:none}
         .cart-badge{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#27ae60;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
         @media(max-width:720px){.auth-fab{top:70px;right:10px}.cart-fab{top:130px;right:10px}}
-        .warm-motion{position:fixed;inset:-10% -10%;pointer-events:none;z-index:30;opacity:0;transition:opacity .6s ease}
-        body.is-logged-in .warm-motion{opacity:.55}
+        .warm-motion{position:fixed;inset:-10% -10%;pointer-events:none;z-index:30;opacity:.18;transition:opacity .6s ease}
+        body.is-logged-in .warm-motion{opacity:.4}
         .warm-motion .wm{position:absolute;border-radius:50%;filter:blur(0px);mix-blend-mode:screen;opacity:.65;animation:wmFloat 18s ease-in-out infinite}
         .warm-motion .w1{width:360px;height:360px;left:-6%;top:8%;background:radial-gradient(circle,rgba(240,201,122,.65),transparent 70%);animation-duration:20s}
         .warm-motion .w2{width:280px;height:280px;right:-4%;top:20%;background:radial-gradient(circle,rgba(200,112,74,.55),transparent 72%);animation-duration:22s;animation-delay:-4s}
         .warm-motion .w3{width:420px;height:420px;left:20%;bottom:-6%;background:radial-gradient(circle,rgba(232,149,109,.55),transparent 72%);animation-duration:24s;animation-delay:-8s}
         .warm-motion .w4{width:220px;height:220px;right:18%;bottom:10%;background:radial-gradient(circle,rgba(255,214,170,.6),transparent 70%);animation-duration:18s;animation-delay:-2s}
+        .warm-motion .w5{width:120px;height:120px;left:8%;top:62%;background:radial-gradient(circle,rgba(255,214,170,.55),transparent 70%);animation-duration:16s;animation-delay:-6s}
+        .warm-motion .w6{width:90px;height:90px;right:8%;top:58%;background:radial-gradient(circle,rgba(240,201,122,.55),transparent 70%);animation-duration:17s;animation-delay:-10s}
+        .warm-motion .w7{width:70px;height:70px;left:55%;top:12%;background:radial-gradient(circle,rgba(232,149,109,.55),transparent 70%);animation-duration:14s;animation-delay:-3s}
+        .warm-motion .w8{width:110px;height:110px;right:35%;bottom:6%;background:radial-gradient(circle,rgba(200,112,74,.5),transparent 70%);animation-duration:19s;animation-delay:-7s}
         @keyframes wmFloat{0%,100%{transform:translateY(0) translateX(0) scale(1)}50%{transform:translateY(-18px) translateX(10px) scale(1.05)}}
         @media (prefers-reduced-motion: reduce){
           .warm-motion .wm{animation:none}
-          body.is-logged-in .warm-motion{opacity:.22}
+          .warm-motion{opacity:.1}
         }
 
     /* NAV */
@@ -58,7 +62,8 @@
     .nav-links{display:flex;gap:6px;align-items:center}
     .nav-link{color:var(--brown-mid);text-decoration:none;font-size:13px;font-weight:700;padding:6px 12px;border-radius:20px;transition:all .2s}
     .nav-link:hover{background:var(--warm1);color:var(--copper)}
-    .nav-wa{background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;padding:9px 18px;border-radius:22px;font-weight:800;font-size:13px;text-decoration:none;box-shadow:0 4px 12px rgba(37,211,102,0.3);transition:transform .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0}
+    .nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .nav-wa{background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;padding:9px 18px;border-radius:22px;font-weight:800;font-size:13px;text-decoration:none;box-shadow:0 4px 12px rgba(37,211,102,0.3);transition:transform .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
     .nav-wa:hover{transform:scale(1.05)}
 
     /* HERO */
@@ -172,6 +177,10 @@
     .review-add-card{background:#fff;border:1.5px solid var(--warm2);border-radius:18px;padding:20px;box-shadow:0 3px 12px rgba(0,0,0,0.04)}
     .review-add-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--brown);margin-bottom:8px}
     .review-add-card p{color:var(--brown-mid);font-size:14px;line-height:1.6;margin-bottom:12px}
+    .review-status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;border-radius:999px;padding:3px 8px;margin-right:8px}
+    .review-status.pending{background:#fff3e6;color:#a85535;border:1px solid #f2d9c0}
+    .review-status.approved{background:#e6f8ec;color:#1a7a3c;border:1px solid #b8e3c8}
+    .review-status.rejected{background:#fdecea;color:#b23b2a;border:1px solid #f2c9c3}
     .review-form-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
     .review-input{width:100%;border:2px solid var(--warm2);border-radius:12px;padding:10px 12px;font-family:'Assistant',sans-serif;font-size:14px}
     .review-input:focus{outline:none;border-color:var(--copper)}
@@ -310,6 +319,8 @@
         .info-grid{grid-template-columns:1fr 1fr}
         .reviews-layout{grid-template-columns:1fr}
         .reviews-summary{position:static}
+        .prod-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+        .prod-img{height:180px}
     }
     @media(max-width:600px){
         .info-grid{grid-template-columns:1fr 1fr}
@@ -317,6 +328,12 @@
         .trust-item{font-size:11px;padding:5px 10px}
         .review-form-grid{grid-template-columns:1fr}
         nav .nav-links{display:none}
+        .prod-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+        .prod-img{height:150px}
+        .prod-body{padding:14px}
+        .prod-name{font-size:14px}
+        .prod-desc{font-size:12px;margin-bottom:10px}
+        .prod-btn{padding:10px;font-size:12px}
     }
     @media(max-width:400px){
         .info-grid{grid-template-columns:1fr}
@@ -348,7 +365,9 @@
         <a href="#info" class="nav-link">מידע</a>
     </div>
 
-    <a href="https://wa.me/972523394838" target="_blank" class="nav-wa">💬 וואטסאפ</a>
+    <div class="nav-actions">
+        <a href="https://wa.me/972523394838" target="_blank" class="nav-wa">💬 וואטסאפ</a>
+    </div>
 </nav>
 
 <section class="hero">
@@ -361,17 +380,10 @@
         <div class="hero-badge">🏠 Home Made Bakery · חריש</div>
         <div id="heroWelcome" class="hero-welcome" aria-live="polite" style="display:none">
             <div class="hero-welcome-card">
-                <div class="welcome-eyebrow">ברוכה הבאה</div>
+                <div class="welcome-eyebrow" id="heroWelcomeEyebrow">ברוכה הבאה</div>
                 <div class="welcome-name" id="heroWelcomeName">לקוחה יקרה</div>
-                <div class="welcome-sub">יש לך נקודות, מתנות והזמנות קודמות באזור האישי.</div>
-                <div class="welcome-actions">
-                    <button class="welcome-btn" type="button" onclick="toggleProfile(true)">האזור האישי</button>
-                    <button class="welcome-btn ghost" type="button" onclick="toggleCart(true)">פתיחת סל</button>
-                </div>
+                <div class="welcome-sub" id="heroWelcomeSub">תהני מהנקודות, המתנות וההפתעות באזור האישי.</div>
             </div>
-            <div class="hero-spark s1"></div>
-            <div class="hero-spark s2"></div>
-            <div class="hero-spark s3"></div>
         </div>
         <h1>מתוקים<span class="accent">מהלב ❤</span></h1>
         <p class="hero-desc">מארזי מתוקים, עוגות מספרים ומגשים מרהיבים – הכל עשוי בעבודת יד עם אהבה. כל מארז מותאם אישית לפי בקשתכם.</p>
@@ -624,7 +636,7 @@
             </div>
             <div id="reviewImagesPreview" class="review-images-preview"></div>
             <button id="reviewSubmitBtn" type="button" class="btn-primary review-submit-btn" onclick="submitReview()">פרסום ביקורת</button>
-            <div class="review-inline-msg">הביקורת תפורסם באתר ותופיע גם בפאנל המנהלת.</div>
+            <div class="review-inline-msg">הביקורת תופיע בפאנל המנהלת ותפורסם באתר אחרי אישור.</div>
         </div>
 
         <div id="reviewsUserList" class="reviews-list" style="margin-top:16px"></div>
@@ -697,7 +709,7 @@
             </details>
             <details class="faq-item">
                 <summary>האם יש נקודות ומתנות בהזמנות?</summary>
-                <div class="faq-answer">כן. כל הזמנה צוברת נקודות, וכשמגיעים ליעדים (300/600/900) נפתחות מתנות למימוש בסל.</div>
+                <div class="faq-answer">כן. כל הזמנה צוברת נקודות, וכשמגיעים ליעדים (300/600/900/1200/1500) נפתחות מתנות למימוש בסל.</div>
             </details>
             <details class="faq-item">
                 <summary>כל המוצרים כשרים?</summary>
@@ -886,10 +898,62 @@
 
 <script>
     var selProd={name:'',img:'',descFull:'',isCustom:false}, selPay='', selOcc='', wantsDelivery=false, customTotal=0, customSummary='', customHasDedication=false;
+    var customBuilderSnapshot = null;
 
     function shekel(n){
         return '₪' + Number(n||0).toLocaleString('he-IL');
     }
+
+    var ADMIN_ALIAS_NAME = 'שרה חברוני';
+    function normalizeNameLocal(name){
+        return String(name || '').trim().toLowerCase().replace(/\s+/g, '');
+    }
+    function isAdminHint(){
+        try {
+            var flag = localStorage.getItem('sara_admin_mode');
+            if(flag === '1') return true;
+        } catch(e){}
+        try {
+            var flagSession = sessionStorage.getItem('sara_admin_mode');
+            if(flagSession === '1') return true;
+        } catch(e){}
+        try {
+            var soft = (typeof getSoftAuth === 'function') ? getSoftAuth() : null;
+            var name = soft && (soft.name || soft.email || '');
+            if(name && normalizeNameLocal(name) === normalizeNameLocal(ADMIN_ALIAS_NAME)) return true;
+            var softEmail = soft && soft.email ? String(soft.email).trim().toLowerCase() : '';
+            if(softEmail && softEmail === 'admin@sarabakery.local') return true;
+        } catch(e){}
+        return false;
+    }
+    try { window.isAdminHint = isAdminHint; } catch(e){}
+
+    function openAdminPanelSafe(){
+        try { if(typeof syncCurrentUser === 'function') syncCurrentUser(); } catch(e){}
+        try {
+            var adminName = ADMIN_ALIAS_NAME || 'שרה חברוני';
+            var nameRaw = '';
+            try {
+                if(profile && profile.fullName) nameRaw = String(profile.fullName).trim();
+            } catch(e){}
+            if(!nameRaw && currentUser && currentUser.displayName){
+                nameRaw = String(currentUser.displayName || '').trim();
+            }
+            var emailRaw = currentUser && currentUser.email ? String(currentUser.email).trim().toLowerCase() : '';
+            var norm = (typeof normalizeNameLocal === 'function') ? normalizeNameLocal : function(v){ return String(v || '').trim().toLowerCase().replace(/\s+/g, ''); };
+            if(!isAdminHint() && (norm(nameRaw) === norm(adminName) || emailRaw === 'admin@sarabakery.local')){
+                try { localStorage.setItem('sara_admin_mode', '1'); } catch(e){}
+                try { sessionStorage.setItem('sara_admin_mode', '1'); } catch(e){}
+                try { document.body.classList.add('is-admin'); } catch(e){}
+            }
+        } catch(e){}
+        if(typeof window.toggleAdminPanel === 'function'){
+            window.toggleAdminPanel(true);
+            return;
+        }
+        try { alert('פאנל מנהלת לא נטען. רענני את הדף.'); } catch(e){}
+    }
+    try { window.openAdminPanelSafe = openAdminPanelSafe; } catch(e){}
 
     function updateCustomInscriptionVisibility(){
         var area=document.getElementById('inscriptionArea');
@@ -906,6 +970,7 @@
         customTotal=0;
         customSummary='';
         customHasDedication=false;
+        customBuilderSnapshot = null;
         updateCustomInscriptionVisibility();
         document.querySelectorAll('#customBuilderStep .builder-qty').forEach(function(inp){
             inp.value='0';
@@ -932,13 +997,19 @@
             minus.className='builder-step';
             minus.textContent='-';
             minus.setAttribute('aria-label','הפחתה');
-            minus.onclick=function(){adjustBuilderQty(inp.id,-1);};
+            minus.onclick=function(e){
+                if(e){ e.preventDefault(); e.stopPropagation(); }
+                adjustBuilderQty(inp.id,-1);
+            };
             var plus=document.createElement('button');
             plus.type='button';
             plus.className='builder-step';
             plus.textContent='+';
             plus.setAttribute('aria-label','הוספה');
-            plus.onclick=function(){adjustBuilderQty(inp.id,1);};
+            plus.onclick=function(e){
+                if(e){ e.preventDefault(); e.stopPropagation(); }
+                adjustBuilderQty(inp.id,1);
+            };
             inp.parentNode.insertBefore(wrap, inp);
             wrap.appendChild(minus);
             wrap.appendChild(inp);
@@ -984,6 +1055,24 @@
         return total;
     }
 
+    function snapshotCustomBuilder(){
+        var snapshot = [];
+        document.querySelectorAll('#customBuilderStep .builder-qty').forEach(function(inp){
+            if(!inp || !inp.id) return;
+            snapshot.push({ id: inp.id, value: String(inp.value || '0') });
+        });
+        customBuilderSnapshot = snapshot;
+    }
+
+    function restoreCustomBuilderSnapshot(){
+        if(!customBuilderSnapshot || !customBuilderSnapshot.length) return;
+        customBuilderSnapshot.forEach(function(entry){
+            var inp = document.getElementById(entry.id);
+            if(inp) inp.value = entry.value;
+        });
+        updateCustomTotal();
+    }
+
     function goToOrderDetails(){
         var total=updateCustomTotal();
         var noteEl=document.getElementById('customBuilderNote');
@@ -991,6 +1080,7 @@
             if(noteEl) noteEl.style.display='block';
             return;
         }
+        snapshotCustomBuilder();
         if(noteEl) noteEl.style.display='none';
         if(customHasDedication){
             document.getElementById('customBuilderStep').style.display='none';
@@ -1020,6 +1110,7 @@
     function backToBuilder(){
         document.getElementById('orderDetailsStep').style.display='none';
         document.getElementById('customBuilderStep').style.display='block';
+        restoreCustomBuilderSnapshot();
     }
 
     function filterCat(cat,el){
@@ -1039,6 +1130,12 @@
     }
 
     function openModal(card){
+        try {
+            var overlay = document.getElementById('modalOverlay');
+            if(overlay && overlay.classList.contains('open')){
+                return;
+            }
+        } catch(e){}
         var imgEl=card.querySelector('.prod-img img');
         var img=imgEl?imgEl.src:'';
         var name=card.querySelector('.prod-name').textContent;
@@ -1124,12 +1221,25 @@
         document.getElementById('modalOverlay').classList.add('open');
         var modalEl = document.querySelector('.modal');
         if(modalEl){ modalEl.scrollTop = 0; }
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        document.body.setAttribute('data-scroll-lock', String(scrollY));
+        document.body.style.position = 'fixed';
+        document.body.style.top = '-' + scrollY + 'px';
+        document.body.style.width = '100%';
         document.body.style.overflow='hidden';
     }
 
     function closeModal(){
         document.getElementById('modalOverlay').classList.remove('open');
-        document.body.style.overflow='';
+        var stored = parseInt(document.body.getAttribute('data-scroll-lock') || '0', 10) || 0;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        document.body.removeAttribute('data-scroll-lock');
+        if(stored){
+            window.scrollTo(0, stored);
+        }
     }
 
     function closeModalOut(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
@@ -1211,7 +1321,11 @@
     // ====== GOOGLE SHEETS URL ======
     // שרה: אחרי שמגדירה את Apps Script, מחליפה את הכתובת כאן:
     var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyk8ZDD8CL6K40r0Nw3OCUARqQPpqK4yObQw70hLTVFMzMsl3U6gXI86I3Dng5XUnNzcw/exec';
-    var SHEETS_READ_URL = '';
+    // אופציונלי: כתובת נפרדת לביקורות כדי שלא ייכנסו לדף ההזמנות
+    // אם משאירים ריק, נשתמש ב-SHEETS_URL עם action=reviews (דורש תמיכה בסקריפט)
+    var SHEETS_REVIEW_URL = '';
+    var SHEETS_READ_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPH8FVDyPkPEuIRhE-NYWUIKyFx6wE-_e0c304Sn5I7-yEZpgAg5x7E7tMd4b_MWbEULCYOQK0l85A/pub?gid=0&single=true&output=csv';
+    var SHEETS_REVIEW_READ_URL = '';
 
     function doSend(){
         var name        = document.getElementById('nameInput').value.trim();
@@ -1363,6 +1477,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var cartItems = [];
   var selectedRewardLevel = null;
   var manualTotalTouched = false;
+  var cartEditId = null;
+  var couponsCache = [];
+  var couponsLoadedAt = 0;
+  var appliedCoupon = null;
+  var couponApplyInFlight = false;
   var uiReady = false;
   var userReviews = [];
   var authGateDismissed = false;
@@ -1370,14 +1489,14 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var profileOrdersLoading = false;
 
   var GIFT_TIERS = [
-    { level: 300, name: 'לב אלפחורס', value: 8, emoji: '🍪' },
+    { level: 300, name: 'מתנה קטנה חינם', value: 10, emoji: '🎁' },
     { level: 600, name: '2 כדורי לוטוס', value: 12, emoji: '🍫' },
     { level: 900, name: 'עוגיית אמסטרדם', value: 10, emoji: '🍪' },
     { level: 1200, name: 'מיני מגנום', value: 15, emoji: '🍦' },
     { level: 1500, name: 'קינוח כוס', value: 15, emoji: '🥤' }
   ];
   var PICKUP_ADDRESS = 'אתרוג 3 דירה 16, חריש';
-  var DREAM_PACK_TARGET = 200;
+  var DREAM_PACK_TARGET = 300;
   var cartPaymentCode = '';
   var paymentStepConfirmed = false;
   var paymentStepAmount = 0;
@@ -1385,6 +1504,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var EMAIL_AUTOMATION_URL = '';
   var lastLoginCelebratedUid = '';
   var lastAuthRefreshUid = '';
+  window.__saraBuild = '2026-03-17-0022';
+  window.__saraBootOk = false;
 
   function getPendingPointsKey(uid){
     return 'sara_points_pending_' + String(uid || 'guest');
@@ -1458,6 +1579,18 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       }
     } catch(e){}
     try {
+      var cookieMatch = document.cookie.match(new RegExp('(?:^|; )' + SOFT_AUTH_KEY.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') + '=([^;]*)'));
+      if(cookieMatch && cookieMatch[1]){
+        var cookieRaw = decodeURIComponent(cookieMatch[1]);
+        var parsedCookie = JSON.parse(cookieRaw) || {};
+        if(parsedCookie.uid){
+          try { localStorage.setItem(SOFT_AUTH_KEY, JSON.stringify(parsedCookie)); } catch(e){}
+          try { sessionStorage.setItem(SOFT_AUTH_KEY, JSON.stringify(parsedCookie)); } catch(e){}
+          return parsedCookie;
+        }
+      }
+    } catch(e){}
+    try {
       var nameRaw = window.name || '';
       if(nameRaw && nameRaw.indexOf('sara_auth:') === 0){
         var json = nameRaw.slice('sara_auth:'.length);
@@ -1487,6 +1620,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     try { localStorage.removeItem(SOFT_AUTH_KEY); } catch(e){}
     try { sessionStorage.removeItem(SOFT_AUTH_KEY); } catch(e){}
     try { if(window.name && window.name.indexOf('sara_auth:') === 0){ window.name = ''; } } catch(e){}
+    try { document.cookie = SOFT_AUTH_KEY + '=; path=/; max-age=0; SameSite=Lax'; } catch(e){}
   }
   function isSoftAuthUser(){
     return !!(currentUser && currentUser.__soft);
@@ -1528,12 +1662,15 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   function storeSoftAuthFromCurrentUser(){
     if(!currentUser || currentUser.__soft) return;
     try {
-      localStorage.setItem(SOFT_AUTH_KEY, JSON.stringify({
+      var raw = JSON.stringify({
         uid: currentUser.uid,
         email: currentUser.email || '',
         name: getProfileDisplayName(),
         at: Date.now()
-      }));
+      });
+      localStorage.setItem(SOFT_AUTH_KEY, raw);
+      try { sessionStorage.setItem(SOFT_AUTH_KEY, raw); } catch(e){}
+      try { document.cookie = SOFT_AUTH_KEY + '=' + encodeURIComponent(raw) + '; path=/; max-age=' + (60 * 60 * 24 * 30) + '; SameSite=Lax'; } catch(e){}
     } catch(e){}
   }
 
@@ -1579,6 +1716,70 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return { level: level, name: 'מתנה מיוחדת', value: value, emoji: '🎁' };
   }
 
+  function getGiftLevels(){
+    return GIFT_TIERS
+      .map(function(t){ return Number(t.level || 0); })
+      .filter(function(n){ return Number.isFinite(n) && n > 0; })
+      .sort(function(a,b){ return a - b; });
+  }
+
+  function getEligibleRewardLevel(){
+    if(!currentUser) return null;
+    var points = Number(profile.points || 0);
+    var redeemed = Array.isArray(profile.redeemedRewards) ? profile.redeemedRewards : [];
+    var levels = getGiftLevels().filter(function(l){ return points >= l && redeemed.indexOf(l) === -1; });
+    if(levels.length === 0) return null;
+    return levels[0];
+  }
+
+  function syncRewardInCart(){
+    if(!currentUser) return;
+    var level = getEligibleRewardLevel();
+    var idx = cartItems.findIndex(function(it){ return it && it.isReward; });
+    var changed = false;
+
+    if(!level){
+      if(idx >= 0){
+        cartItems.splice(idx, 1);
+        changed = true;
+      }
+      selectedRewardLevel = null;
+      if(changed) saveCart();
+      return;
+    }
+
+    var gift = getGiftForLevel(level);
+    if(idx >= 0){
+      var it = cartItems[idx];
+      if(!it || it.rewardLevel !== level || it.name !== gift.name || Number(it.price || 0) !== 0){
+        cartItems[idx] = {
+          id: it && it.id ? it.id : ('reward_' + level + '_' + Date.now()),
+          name: gift.name,
+          price: 0,
+          details: 'מתנה חינם · ' + level + ' נק׳',
+          badge: 'מתנה',
+          isReward: true,
+          rewardLevel: level
+        };
+        changed = true;
+      }
+    } else {
+      cartItems.unshift({
+        id: 'reward_' + level + '_' + Date.now(),
+        name: gift.name,
+        price: 0,
+        details: 'מתנה חינם · ' + level + ' נק׳',
+        badge: 'מתנה',
+        isReward: true,
+        rewardLevel: level
+      });
+      changed = true;
+    }
+
+    selectedRewardLevel = level;
+    if(changed) saveCart();
+  }
+
   function getProfileDisplayName(){
     var full = profile && profile.fullName ? String(profile.fullName).trim() : '';
     var authName = currentUser && currentUser.displayName ? String(currentUser.displayName).trim() : '';
@@ -1593,7 +1794,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function getNextGiftInfo(points){
     var p = Number(points || 0);
-    var nextLevel = (Math.floor(p / 300) + 1) * 300;
+    var levels = getGiftLevels();
+    var nextLevel = levels.find(function(l){ return l > p; });
+    if(!nextLevel){
+      var last = levels.length ? levels[levels.length - 1] : 0;
+      nextLevel = last > 0 ? (last + 300) : 300;
+    }
     var gift = getGiftForLevel(nextLevel);
     return {
       points: p,
@@ -1636,7 +1842,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function getHighestUnlockedRewardLevel(points){
     var p = Math.max(0, Number(points || 0));
-    return Math.floor(p / 300) * 300;
+    var levels = getGiftLevels();
+    var unlocked = 0;
+    levels.forEach(function(l){
+      if(p >= l && l > unlocked) unlocked = l;
+    });
+    return unlocked;
   }
 
   function getRewardStorageKey(uid){
@@ -1808,6 +2019,61 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return currentUser ? ('sara_cart_' + currentUser.uid) : 'sara_cart_guest';
   }
 
+  function getLocalOrdersKey(uid){
+    return 'sara_orders_' + String(uid || 'guest');
+  }
+  function loadLocalOrders(uid){
+    try {
+      var raw = localStorage.getItem(getLocalOrdersKey(uid));
+      var parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch(e){
+      return [];
+    }
+  }
+  function saveLocalOrders(uid, list){
+    try {
+      localStorage.setItem(getLocalOrdersKey(uid), JSON.stringify(list || []));
+    } catch(e){}
+  }
+  function addLocalOrderSnapshot(orderPayload){
+    if(!orderPayload) return;
+    var uid = currentUser && currentUser.uid ? currentUser.uid : 'guest';
+    var list = loadLocalOrders(uid);
+    var snapshot = {};
+    try {
+      snapshot = JSON.parse(JSON.stringify(orderPayload));
+    } catch(e){
+      snapshot = Object.assign({}, orderPayload);
+    }
+    snapshot.createdAt = new Date().toISOString();
+    list.unshift(snapshot);
+    if(list.length > 40) list = list.slice(0, 40);
+    saveLocalOrders(uid, list);
+  }
+
+  function addProfileOrderSnapshot(orderPayload){
+    if(!orderPayload) return;
+    var list = Array.isArray(profileOrders) ? profileOrders.slice() : [];
+    var entry = { id: orderPayload.orderNum || ('local_' + Date.now()), data: orderPayload, priority: 99, local: true };
+    list.unshift(entry);
+
+    var dedup = {};
+    var cleaned = [];
+    list.forEach(function(o){
+      if(!o) return;
+      var d = o.data || {};
+      var key = String(d.orderNum || o.id || '') + '|' + String(d.userId || (currentUser ? currentUser.uid : '') || '');
+      if(!key || key === '|') key = String(o.id || '');
+      if(!key) return;
+      if(dedup[key]) return;
+      dedup[key] = true;
+      cleaned.push(o);
+    });
+    profileOrders = cleaned;
+    renderProfileOrdersList();
+  }
+
   function loadCart(){
     try {
       var raw = localStorage.getItem(getCartKey());
@@ -1856,10 +2122,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(uiReady) return;
 
     try {
-      var fallbackAuth = document.getElementById('authFab');
-      if(fallbackAuth) fallbackAuth.remove();
-      var fallbackCart = document.getElementById('cartFab');
-      if(fallbackCart) fallbackCart.remove();
+      document.querySelectorAll('.auth-fab, .cart-fab').forEach(function(el){
+        if(el && el.parentNode) el.parentNode.removeChild(el);
+      });
     } catch(e){}
 
     var style = document.createElement('style');
@@ -1961,6 +2226,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.cart-item::before{content:"";position:absolute;right:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#c8704a,#f3d7be);opacity:.55}',
       '.cart-item::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.55),transparent 60%);pointer-events:none}',
       '.cart-item-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}',
+      '.cart-item-actions{display:flex;gap:6px;align-items:center}',
       '.cart-item-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}',
       '.cart-badge-pill{background:#fff1e6;border:1px solid #f0cbb0;color:#a85535;font-size:10px;font-weight:900;border-radius:999px;padding:3px 8px}',
       '.cart-remove{border:none;background:#fff;color:#b23b2a;border:1px solid #f3c7bd;border-radius:999px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:800;transition:all .2s ease}',
@@ -1968,34 +2234,48 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.cart-item-name{font-size:15px;font-weight:900;color:#2d1a0e;line-height:1.35;letter-spacing:.2px}',
       '.cart-item-details{font-size:12px;color:#7a5040;margin-top:6px;line-height:1.6;background:#fff5ec;border:1px dashed #f0d0ae;border-radius:10px;padding:6px 8px}',
       '.cart-item-price{font-size:12px;color:#2d1a0e;margin-top:8px;font-weight:900;display:inline-flex;align-items:center;gap:6px;background:#fff2e3;border:1px solid #efc9a8;border-radius:999px;padding:5px 12px}',
+      '.cart-edit{margin-top:8px;background:#fffaf4;border:1px dashed #f0d0ae;border-radius:12px;padding:8px 10px;display:grid;gap:8px}',
+      '.cart-edit textarea,.cart-edit input{width:100%;border:1px solid #e4d2c2;border-radius:10px;padding:8px 10px;font-family:Assistant,sans-serif;font-size:13px;background:#fff}',
+      '.cart-edit-actions{display:flex;gap:8px;justify-content:flex-end}',
       '.cart-summary-chip{margin-top:10px;font-size:13px;font-weight:900;color:#5a3424;background:linear-gradient(135deg,#fff,#ffefd9);border:1px solid #efcfab;border-radius:12px;padding:10px 12px;text-align:center;box-shadow:0 10px 18px rgba(200,112,74,.1)}',
       '.cart-empty{font-size:13px;color:#7a5040;background:#fff;border:1px solid #f0d0ae;border-radius:16px;padding:26px 16px;text-align:center;display:grid;gap:8px;line-height:1.6;place-items:center;box-shadow:0 12px 24px rgba(200,112,74,.08)}',
       '.cart-empty-icon{width:64px;height:64px;border-radius:50%;border:1px solid #ead8c9;background:#fffaf6;display:flex;align-items:center;justify-content:center;font-size:30px;color:#bfa190}',
       '.cart-empty-title{font-weight:900;color:#2d1a0e;font-size:16px}',
-      '.cart-empty-sub{font-size:12px;color:#9a7060;max-width:240px}'
-      '.points-wrap{border:1px solid #efdac8;border-radius:14px;background:linear-gradient(135deg,#fff9f4,#fff3e8);padding:9px 10px;margin-bottom:12px}',
-      '.points-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;font-size:12px}',
-      '.points-title{font-weight:800;color:#5a3424}',
-      '.points-total{background:#fff;border:1px solid #f2d9c0;border-radius:999px;padding:2px 8px;font-weight:800;color:#7a5040;font-size:11px;white-space:nowrap}',
-      '.points-meter{position:relative;direction:ltr;padding-top:14px;margin-bottom:8px}',
-      '.points-line{height:8px;background:#ecd8c9;border-radius:999px;overflow:hidden}',
-      '.points-line-fill{height:100%;background:linear-gradient(90deg,#27ae60,#d4a24e);width:0;border-radius:999px;transition:width .3s ease}',
-      '.points-marks{position:absolute;top:0;left:0;right:0;height:30px;pointer-events:none}',
-      '.points-mark{position:absolute;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:1px;color:#7a5040}',
-      '.points-dot{width:9px;height:9px;border-radius:999px;background:#fff;border:2px solid #d9b89f;box-shadow:0 0 0 2px #fff9f4}',
-      '.points-mark.hit .points-dot{background:#27ae60;border-color:#27ae60}',
-      '.points-emoji{font-size:12px;line-height:1}',
-      '.points-labels{display:flex;justify-content:space-between;gap:6px;font-size:10px;color:#7a5040;line-height:1.3;direction:ltr}',
-      '.points-chip{flex:1;direction:rtl;background:#fff;border:1px solid #f2d9c0;border-radius:10px;padding:4px 5px;text-align:center}',
-      '.points-chip.hit{background:#f0faf4;border-color:#27ae60}',
+      '.cart-empty-sub{font-size:12px;color:#9a7060;max-width:240px}',
+      '.points-wrap{position:relative;border:1.5px solid rgba(200,112,74,.3);border-radius:18px;background:linear-gradient(140deg,#fffaf6,#fff1e3);padding:12px 12px;margin-bottom:12px;box-shadow:0 14px 28px rgba(200,112,74,.12);overflow:hidden}',
+      '.points-wrap::before{content:"";position:absolute;inset:-20% 40% auto -30%;height:140px;background:radial-gradient(circle,rgba(212,162,78,.35),transparent 70%);opacity:.9;pointer-events:none}',
+      '.points-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;font-size:12px;position:relative;z-index:1}',
+      '.points-title{font-weight:900;color:#3b2012;letter-spacing:.3px}',
+      '.points-total{background:#fff;border:1px solid #f2d9c0;border-radius:999px;padding:3px 10px;font-weight:900;color:#7a5040;font-size:11px;white-space:nowrap;box-shadow:0 6px 12px rgba(200,112,74,.12)}',
+      '.points-meter{position:relative;direction:ltr;padding-top:16px;margin-bottom:10px;z-index:1}',
+      '.points-line{height:10px;background:#f0ddcf;border-radius:999px;overflow:hidden;box-shadow:inset 0 2px 6px rgba(0,0,0,.08)}',
+      '.points-line-fill{height:100%;background:linear-gradient(90deg,#2ecc71,#f1c165);width:0;border-radius:999px;transition:width .35s ease}',
+      '.points-marks{position:absolute;top:0;left:0;right:0;height:34px;pointer-events:none}',
+      '.points-mark{position:absolute;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;color:#7a5040}',
+      '.points-dot{width:10px;height:10px;border-radius:999px;background:#fff;border:2px solid #d9b89f;box-shadow:0 0 0 2px #fff9f4}',
+      '.points-mark.hit .points-dot{background:#2ecc71;border-color:#2ecc71}',
+      '.points-emoji{font-size:13px;line-height:1}',
+      '.points-labels{display:flex;justify-content:space-between;gap:6px;font-size:10px;color:#7a5040;line-height:1.3;direction:ltr;position:relative;z-index:1}',
+      '.points-chip{flex:1;direction:rtl;background:#fff;border:1px solid #f2d9c0;border-radius:12px;padding:5px 6px;text-align:center;box-shadow:0 6px 12px rgba(200,112,74,.08)}',
+      '.points-chip.hit{background:#f0faf4;border-color:#2ecc71}',
       '.points-chip strong{display:block;font-size:10px;color:#5a3424}',
       '.points-chip .pc-sub{font-size:10px;color:#8a6858;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
       '.points-chip.hit .pc-sub{color:#1c7d44}',
-      '.points-next{margin-top:7px;font-size:11px;color:#7a5040;text-align:center;font-weight:700}',
+      '.points-next{margin-top:8px;font-size:11px;color:#7a5040;text-align:center;font-weight:800;position:relative;z-index:1}',
       '.reward-chip{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid #f2d9c0;border-radius:10px;padding:8px;margin-bottom:8px;background:#fff}',
       '.reward-chip button{border:none;background:#c8704a;color:#fff;border-radius:8px;padding:6px 10px;cursor:pointer;font-weight:700}',
       '.checkout-box{margin-top:12px;border:1px solid #f0d8c4;border-radius:16px;padding:12px;background:linear-gradient(160deg,#fff,#fff7ef);box-shadow:0 6px 18px rgba(200,112,74,.09)}',
       '.checkout-title{font-family:Playfair Display,serif;font-size:21px;font-weight:900;color:#2d1a0e;margin-bottom:2px}.checkout-sub{font-size:12px;color:#7a5040;margin-bottom:10px}.checkout-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checkout-field{margin-top:7px}.checkout-label{display:block;font-size:12px;font-weight:800;color:#6b4433;margin:0 0 5px}.checkout-box input,.checkout-box select,.checkout-box textarea{width:100%;margin-top:0;border:1px solid #e4d2c2;border-radius:10px;padding:10px 11px;font-family:Assistant,sans-serif;font-size:16px;background:#fff}.checkout-box input:focus,.checkout-box select:focus,.checkout-box textarea:focus{outline:none;border-color:#c8704a;box-shadow:0 0 0 3px rgba(200,112,74,.16)}.checkout-totals-info{margin-top:10px;padding:10px 11px;border:1px solid #f2d9c0;border-radius:11px;background:#fffaf4;font-size:12px;color:#7a5040;line-height:1.65}@media(max-width:520px){.checkout-row{grid-template-columns:1fr}}',
+      '.coupon-toggle{display:flex;align-items:center;gap:8px;font-size:12px;color:#7a5040;font-weight:700;margin-top:4px}',
+      '.coupon-toggle input{width:auto;transform:translateY(1px)}',
+      '.coupon-input-wrap{display:grid;grid-template-columns:1fr auto auto;gap:6px;margin-top:8px}',
+      '.coupon-input-wrap input{font-size:16px}',
+      '.coupon-btn{border:none;border-radius:10px;padding:9px 12px;font-weight:800;cursor:pointer;font-size:12px}',
+      '.coupon-btn.apply{background:linear-gradient(135deg,#c8704a,#a85535);color:#fff}',
+      '.coupon-btn.clear{background:#fff;border:1px solid #e4d2c2;color:#6b4433}',
+      '.coupon-status{margin-top:6px;font-size:12px;color:#7a5040;font-weight:700;display:none}',
+      '.coupon-status.ok{color:#1c7d44}',
+      '.coupon-status.warn{color:#b23b2a}',
       '.checkout-send{width:100%;margin-top:11px;border:none;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border-radius:12px;padding:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px rgba(37,211,102,.28)}',
       '.checkout-paybox{margin-top:10px;padding:10px;border:1px solid #f2d9c0;border-radius:12px;background:#fff}',
       '.checkout-paytitle{font-size:12px;font-weight:800;color:#5a3424;margin-bottom:4px}',
@@ -2012,8 +2292,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     document.head.appendChild(style);
 
     document.body.insertAdjacentHTML('beforeend',
-      '<button id="authFab" class="auth-fab" type="button" title="התחברות" onclick="openProfileOrAuth()">👤</button>' +
-      '<button id="cartFab" class="cart-fab" type="button" title="סל" onclick="openCartOrAuth()">🛒<span id="cartBadge" class="cart-badge">0</span></button>' +
+      '<a id="authFab" class="auth-fab" href="#profileDrawer" role="button" title="התחברות" onclick="openProfileOrAuth()">👤</a>' +
+      '<a id="cartFab" class="cart-fab" href="#cartDrawer" role="button" title="סל" onclick="openCartOrAuth()">🛒<span id="cartBadge" class="cart-badge">0</span></a>' +
 
       '<div id="authModal" class="auth-modal" onclick="closeAuthModal(event)">' +
         '<div class="auth-card">' +
@@ -2040,7 +2320,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         '</div>' +
       '</div>' +
       '<div id="cartDrawer" class="cart-drawer">' +
-        '<div class="cart-head"><div><div class="cart-title">סל קניות</div><div class="cart-sub">הוספה, עריכה ושליחה בכמה שניות</div></div><button type="button" class="cart-remove cart-close" onclick="toggleCart(false)">סגירה</button></div>' +
+          '<div class="cart-head"><div><div class="cart-title">סל קניות</div><div class="cart-sub">הוספה, עריכה ושליחה בכמה שניות</div></div><a href="#" role="button" class="cart-remove cart-close" onclick="return safeCloseCart(event)">סגירה</a></div>' +
         '<div class="cart-body">' +
           '<div class="points-wrap" id="pointsWrap"></div>' +
           '<div id="rewardList"></div>' +
@@ -2048,11 +2328,6 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
             '<div class="cart-kpis">' +
               '<div class="cart-kpi"><div class="cart-kpi-title">פריטים בסל</div><div id="cartKpiItems" class="cart-kpi-value">0</div><div class="cart-kpi-sub">מוכן לשליחה</div></div>' +
               '<div class="cart-kpi"><div class="cart-kpi-title">סכום ביניים</div><div id="cartKpiTotal" class="cart-kpi-value">0</div><div id="cartKpiNote" class="cart-kpi-sub">מחיר סופי יעודכן</div></div>' +
-            '</div>' +
-            '<div class="cart-progress">' +
-              '<div class="cart-progress-title">כמה נשאר למארז חלומי</div>' +
-              '<div class="cart-progress-bar"><div id="dreamProgressFill" class="cart-progress-fill"></div></div>' +
-              '<div id="dreamProgressText" class="cart-progress-text">מוסיפים פריטים ומתקרבים למארז חלומי.</div>' +
             '</div>' +
             '<div class="cart-actions">' +
               '<button type="button" class="cart-action secondary" onclick="toggleCart(false);document.getElementById(\'catalog\').scrollIntoView({behavior:\'smooth\'})">להמשך קניות</button>' +
@@ -2072,6 +2347,16 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
             '<div class="checkout-row">' +
               '<div class="checkout-field"><label class="checkout-label" for="checkoutReadyBy">מועד רצוי</label><input id="checkoutReadyBy" placeholder="מתי צריך מוכן?"></div>' +
               '<div class="checkout-field"><label class="checkout-label" for="checkoutTotal">סכום סופי (ש"ח) - אופציונלי</label><input id="checkoutTotal" type="number" min="0" step="1" placeholder="אפשר להשאיר ריק או לערוך ידנית" oninput="markManualTotal()"></div>' +
+            '</div>' +
+            '<div class="checkout-field">' +
+              '<label class="checkout-label" for="couponToggle">יש קוד קופון?</label>' +
+              '<div class="coupon-toggle"><input id="couponToggle" type="checkbox" onchange="toggleCouponInput(this.checked)"><span>כן, יש לי קוד</span></div>' +
+              '<div id="couponInputWrap" class="coupon-input-wrap" style="display:none">' +
+                '<input id="couponCode" placeholder="לדוגמה: SWEET10" oninput="onCouponInputChange()">' +
+                '<button type="button" class="coupon-btn apply" onclick="applyCouponCode()">הפעל קוד</button>' +
+                '<button type="button" class="coupon-btn clear" onclick="clearCoupon()">נקה</button>' +
+              '</div>' +
+              '<div id="couponStatus" class="coupon-status"></div>' +
             '</div>' +
             '<div class="checkout-field"><label class="checkout-label" for="checkoutNote">הערות נוספות</label><textarea id="checkoutNote" rows="3" placeholder="כל בקשה מיוחדת..."></textarea></div>' +
             '<div id="checkoutTotalsInfo" class="checkout-totals-info"></div>' +
@@ -2106,13 +2391,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     document.body.insertAdjacentHTML('beforeend',
       '<div id="profileDrawer" class="profile-drawer">' +
-        '<div class="profile-head"><strong>האזור האישי</strong><button type="button" class="cart-remove" onclick="toggleProfile(false)">סגירה</button></div>' +
+      '<div class="profile-head"><strong>האזור האישי</strong><a href="#" role="button" class="cart-remove" onclick="return safeCloseProfile(event)">סגירה</a></div>' +
         '<div class="profile-body">' +
           '<div id="profileSummary" class="profile-card"></div>' +
-          '<div class="profile-actions">' +
-            '<button type="button" class="profile-btn main" onclick="toggleCart(true)">פתיחת סל קניות</button>' +
-            '<button type="button" class="profile-btn secondary" onclick="logoutUser()">התנתקות</button>' +
-          '</div>' +
+            '<div class="profile-actions">' +
+              '<button type="button" class="profile-btn main" onclick="toggleCart(true)">פתיחת סל קניות</button>' +
+              '<button type="button" class="profile-btn secondary" onclick="logoutUser()">התנתקות</button>' +
+            '</div>' +
           '<div class="profile-orders-title">הזמנות קודמות</div>' +
           '<div id="profileOrdersList"></div>' +
         '</div>' +
@@ -2139,8 +2424,22 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     primaryClicksBound = true;
     var handler = function(e){
       if(!e) return;
+      try {
+        var modalOverlay = document.getElementById('modalOverlay');
+        if(modalOverlay && modalOverlay.classList.contains('open')){
+          if(e.target && typeof e.target.closest === 'function' && e.target.closest('#modalOverlay')){
+            return;
+          }
+          return;
+        }
+      } catch(err){}
       var handled = false;
       var target = e.target;
+      if(target && typeof target.closest === 'function'){
+        if(target.closest('.modal') || target.closest('#modalOverlay') || target.closest('.payment-sheet') || target.closest('.payment-card') || target.closest('.cart-drawer') || target.closest('.profile-drawer') || target.closest('.admin-panel') || target.closest('.admin-overlay') || target.closest('.admin-order-modal') || target.closest('.admin-order-card') || target.closest('.admin-order-row')){
+          return;
+        }
+      }
       if(target && typeof target.closest === 'function'){
         var authBtn = target.closest('.auth-fab');
         if(authBtn){
@@ -2248,15 +2547,98 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     renderProfileSummary();
     updateHeroWelcome();
     setAuthGate();
+
+      try {
+        var adminFlag = false;
+        var adminName = 'שרה חברוני';
+        if(currentUser){
+          var profileName = (profile && profile.fullName) ? String(profile.fullName).trim() : '';
+          var nameRaw = String(profileName || currentUser.displayName || '').trim();
+          var emailRaw = String(currentUser.email || '').trim().toLowerCase();
+          var norm = function(v){ return String(v || '').replace(/\s+/g, '').toLowerCase(); };
+          if(norm(nameRaw) === norm(adminName) || emailRaw === 'admin@sarabakery.local'){
+            adminFlag = true;
+          }
+        }
+        if(!adminFlag && typeof isAdminHint === 'function'){
+          if(isAdminHint()) adminFlag = true;
+        }
+        if(adminFlag){
+          try { localStorage.setItem('sara_admin_mode', '1'); } catch(e){}
+          try { sessionStorage.setItem('sara_admin_mode', '1'); } catch(e){}
+        } else if(currentUser){
+          try { localStorage.removeItem('sara_admin_mode'); } catch(e){}
+          try { sessionStorage.removeItem('sara_admin_mode'); } catch(e){}
+        }
+        try { document.body.classList.toggle('is-admin', adminFlag); } catch(e){}
+        if(typeof window.setAdminButton === 'function'){
+          window.setAdminButton();
+        }
+      } catch(e){}
+
+    try { fillCheckoutDefaults(); } catch(e){}
+  }
+
+  function fillCheckoutDefaults(){
+    if(!currentUser) return;
+    var nameEl = document.getElementById('checkoutName');
+    var phoneEl = document.getElementById('checkoutPhone');
+    if(nameEl && !String(nameEl.value || '').trim()){
+      var fallbackName = (profile && profile.fullName) ? String(profile.fullName).trim() : '';
+      if(!fallbackName && currentUser.displayName){
+        fallbackName = String(currentUser.displayName).trim();
+      }
+      if(!fallbackName && currentUser.email){
+        fallbackName = String(currentUser.email).split('@')[0].trim();
+      }
+      if(fallbackName) nameEl.value = fallbackName;
+    }
+    if(phoneEl && !String(phoneEl.value || '').trim()){
+      if(profile && profile.phone){
+        phoneEl.value = String(profile.phone).trim();
+      }
+    }
+  }
+
+  function getWelcomeCopy(name){
+    var raw = String(name || '').trim();
+    if(!raw) raw = '';
+    raw = raw.replace(/^מר\s+|^מר\.|^גברת\s+|^גב'\s+|^גב\.?\s+/i, '').trim();
+    var first = raw.split(/\s+/)[0] || '';
+    var lower = first.toLowerCase();
+    var female = false;
+
+    if(!first){
+      female = true;
+    } else if(/[הת]$/.test(first)){
+      female = true;
+    } else if(/(יה|ית|נה|לה)$/.test(first)){
+      female = true;
+    } else if(/[ae]$/.test(lower)){
+      female = true;
+    } else {
+      female = false;
+    }
+
+    return {
+      eyebrow: female ? 'ברוכה הבאה' : 'ברוך הבא',
+      sub: female ? 'תהני מהנקודות, המתנות וההפתעות באזור האישי.' : 'תהנה מהנקודות, המתנות וההפתעות באזור האישי.'
+    };
   }
 
   function updateHeroWelcome(){
     var wrap = document.getElementById('heroWelcome');
     var nameEl = document.getElementById('heroWelcomeName');
+    var eyebrowEl = document.getElementById('heroWelcomeEyebrow');
+    var subEl = document.getElementById('heroWelcomeSub');
     if(!wrap) return;
 
     if(currentUser){
-      if(nameEl) nameEl.textContent = getProfileDisplayName();
+      var displayName = getProfileDisplayName();
+      var copy = getWelcomeCopy(displayName);
+      if(nameEl) nameEl.textContent = displayName || (copy.eyebrow === 'ברוכה הבאה' ? 'לקוחה יקרה' : 'לקוח יקר');
+      if(eyebrowEl) eyebrowEl.textContent = copy.eyebrow;
+      if(subEl) subEl.textContent = copy.sub;
       wrap.style.display = 'grid';
       requestAnimationFrame(function(){
         wrap.classList.add('show');
@@ -2291,6 +2673,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     syncCurrentUser();
     storeSoftAuthFromCurrentUser();
+    if(isAdminHint()){
+      isAdmin = true;
+    }
 
     var uid = currentUser && currentUser.uid ? currentUser.uid : '';
     loadCart();
@@ -2366,19 +2751,23 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
 
   window.openProfileOrAuth = function(){
-    waitForAuthThen(function(){
+    ensureUI();
+    try { if(typeof window.dismissAuthGate === 'function') window.dismissAuthGate(); } catch(e){}
+    if(typeof window.toggleProfile === 'function'){
       window.toggleProfile(true);
-    }, function(){
+    } else if(typeof window.openAuthModal === 'function'){
       window.openAuthModal();
-    });
+    }
   };
 
   window.openCartOrAuth = function(){
-    waitForAuthThen(function(){
+    ensureUI();
+    try { if(typeof window.dismissAuthGate === 'function') window.dismissAuthGate(); } catch(e){}
+    if(typeof window.toggleCart === 'function'){
       window.toggleCart(true);
-    }, function(){
+    } else if(typeof window.openAuthModal === 'function'){
       window.openAuthModal();
-    });
+    }
   };
 
   function renderPoints(){
@@ -2386,17 +2775,23 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var el = document.getElementById('pointsWrap');
     if(!el) return;
 
-    if(!currentUser){
-      el.innerHTML = '<div style=\"font-size:12px;color:#7a5040;line-height:1.6\">לא מחוברים עדיין. התחברו כדי לצבור נקודות ולפתוח מתנות.</div>';
-      return;
+    var showLoginHint = false;
+    var points = 0;
+    if(currentUser){
+      points = Number(profile.points || 0);
+    } else {
+      showLoginHint = true;
+      points = 0;
     }
-
-    var points = Number(profile.points || 0);
-    var milestones = [300, 600, 900];
+    var milestones = getGiftLevels();
+    if(milestones.length === 0){
+      milestones = [300, 600, 900];
+    }
     var maxShown = milestones[milestones.length - 1];
-    var meterPct = Math.max(0, Math.min(100, (points / maxShown) * 100));
-    var nextLevel = (Math.floor(points / 300) + 1) * 300;
-    var missing = Math.max(0, nextLevel - points);
+    var meterPct = maxShown > 0 ? Math.max(0, Math.min(100, (points / maxShown) * 100)) : 0;
+    var nextInfo = getNextGiftInfo(points);
+    var nextLevel = nextInfo.nextLevel;
+    var missing = nextInfo.missing;
 
     var marksHtml = milestones.map(function(level){
       var gift = getGiftForLevel(level);
@@ -2417,12 +2812,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '</div>';
     }).join('');
 
+    var levelsText = milestones.join('/');
     var nextText = points >= maxShown
-      ? 'פתחתם כבר את 300/600/900. ממשיכים לצבור ל-' + nextLevel + ' נק׳'
+      ? 'פתחתם כבר את ' + levelsText + '. ממשיכים לצבור ל-' + nextLevel + ' נק׳'
       : 'עד המתנה הבאה: ' + missing + ' נק׳';
-    var pending = Number(profile.pendingPoints || 0);
-    if(pending > 0){
-      nextText += ' · כולל ' + pending + ' נק׳ בהמתנה';
+    if(showLoginHint){
+      nextText = 'התחברו כדי לצבור נקודות. ' + nextText;
     }
 
     el.innerHTML =
@@ -2442,33 +2837,21 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       return;
     }
 
-    var points = Number(profile.points || 0);
-    var redeemed = Array.isArray(profile.redeemedRewards) ? profile.redeemedRewards : [];
-    var maxLevel = Math.floor(points / 300) * 300;
-    var levels = [];
-    for(var lvl=300; lvl<=maxLevel; lvl+=300){
-      if(redeemed.indexOf(lvl) === -1){
-        levels.push(lvl);
-      }
-    }
-
-    if(levels.length === 0){
+    syncRewardInCart();
+    var level = getEligibleRewardLevel();
+    if(!level){
       wrap.innerHTML = '<div style="font-size:12px;color:#7a5040;margin-bottom:10px">אין כרגע מתנה פתוחה למימוש.</div>';
       selectedRewardLevel = null;
       return;
     }
 
-    var html = '<div style="font-weight:800;margin:8px 0">מתנות זמינות למימוש</div>';
-    levels.forEach(function(level){
-      var gift = getGiftForLevel(level);
-      var picked = selectedRewardLevel === level;
-      html += '<div class="reward-chip">' +
+    var gift = getGiftForLevel(level);
+    wrap.innerHTML =
+      '<div style="font-weight:800;margin:8px 0">המתנה נוספה לסל בחינם 🎁</div>' +
+      '<div class="reward-chip">' +
         '<div><strong>' + gift.emoji + ' ' + gift.name + '</strong><div style="font-size:12px;color:#7a5040">רמת ' + level + ' נק׳ | שווי ' + shekel(gift.value) + '</div></div>' +
-        '<button type="button" onclick="selectReward(' + level + ')" style="background:' + (picked ? '#27ae60' : '#c8704a') + '">' + (picked ? 'נבחר' : 'ממש') + '</button>' +
+        '<div style="font-size:12px;color:#1c7d44;font-weight:800">ממתינה להזמנה</div>' +
       '</div>';
-    });
-
-    wrap.innerHTML = html;
   }
 
   function renderProfileSummary(){
@@ -2477,7 +2860,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(!wrap) return;
 
     if(!currentUser){
-      wrap.innerHTML = '<div style="font-size:13px;color:#7a5040;line-height:1.7">לא מחוברים כרגע. התחברו כדי לראות נקודות, מתנה הבאה והזמנות קודמות.</div>';
+      wrap.innerHTML = '<div style="font-size:13px;color:#7a5040;line-height:1.7">לא מחוברים כרגע. התחברו כדי לראות נקודות, מתנה הבאה והזמנות קודמות.</div>' +
+        '<button type="button" class="profile-btn main" style="margin-top:10px" onclick="openAuthModal()">התחברות / הרשמה</button>';
       return;
     }
 
@@ -2601,7 +2985,10 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     if(!canUseFirestore()){
       profileOrdersLoading = false;
-      profileOrders = [];
+      var localFallback = loadLocalOrders(currentUser ? currentUser.uid : 'guest');
+      profileOrders = (localFallback || []).map(function(d, idx){
+        return { id: d.orderNum || ('local_' + idx), data: d, priority: 0, local: true };
+      });
       renderProfileOrdersList();
       return;
     }
@@ -2668,6 +3055,16 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       } catch(subErr){}
 
       profileOrders = Object.keys(byKey).map(function(k){ return byKey[k]; });
+
+      try {
+        var local = loadLocalOrders(currentUser ? currentUser.uid : 'guest');
+        (local || []).forEach(function(d, idx){
+          var key = String(d.orderNum || ('local_' + idx)) + '|' + String(d.userId || currentUser.uid || '');
+          if(!byKey[key]){
+            profileOrders.push({ id: d.orderNum || ('local_' + idx), data: d, priority: 0, local: true });
+          }
+        });
+      } catch(e){}
       profileOrders.sort(function(a, b){
         var ad = a && a.data ? (a.data.createdAt || a.data.date || null) : null;
         var bd = b && b.data ? (b.data.createdAt || b.data.date || null) : null;
@@ -2692,11 +3089,65 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return '★★★★★'.slice(0, r) + '☆☆☆☆☆'.slice(0, 5 - r);
   }
 
+  function parseDateLike(input){
+    if(!input) return null;
+    if(input instanceof Date) return input;
+    if(typeof input === 'number' && Number.isFinite(input)) return new Date(input);
+    if(input.seconds){ return new Date(input.seconds * 1000); }
+    var raw = String(input || '').trim();
+    if(!raw) return null;
+
+    var direct = Date.parse(raw);
+    if(!isNaN(direct)) return new Date(direct);
+
+    var clean = raw.replace(/,+/g, ' ').replace(/\s+/g, ' ').trim();
+
+    // time first: "16:20:35 17.3.2026"
+    var m = clean.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?\s+(\d{1,2})[./-](\d{1,2})[./-](\d{2,4})$/);
+    if(m){
+      var hh = Number(m[1] || 0);
+      var mm = Number(m[2] || 0);
+      var ss = Number(m[3] || 0);
+      var dd = Number(m[4] || 0);
+      var mo = Number(m[5] || 0);
+      var yy = Number(m[6] || 0);
+      if(yy < 100) yy = 2000 + yy;
+      return new Date(yy, Math.max(0, mo - 1), dd, hh, mm, ss);
+    }
+
+    // date first: "17.3.2026 16:20:35" or "17.3.2026"
+    m = clean.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{2,4})(?:\s+(\d{1,2})(?::(\d{2}))?(?::(\d{2}))?)?$/);
+    if(m){
+      var d2 = Number(m[1] || 0);
+      var m2 = Number(m[2] || 0);
+      var y2 = Number(m[3] || 0);
+      var h2 = Number(m[4] || 0);
+      var min2 = Number(m[5] || 0);
+      var s2 = Number(m[6] || 0);
+      if(y2 < 100) y2 = 2000 + y2;
+      return new Date(y2, Math.max(0, m2 - 1), d2, h2, min2, s2);
+    }
+
+    // ISO-like: "2026-03-17 16:20:35"
+    m = clean.match(/^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2})(?::(\d{2}))?(?::(\d{2}))?)?$/);
+    if(m){
+      var y3 = Number(m[1] || 0);
+      var m3 = Number(m[2] || 0);
+      var d3 = Number(m[3] || 0);
+      var h3 = Number(m[4] || 0);
+      var min3 = Number(m[5] || 0);
+      var s3 = Number(m[6] || 0);
+      return new Date(y3, Math.max(0, m3 - 1), d3, h3, min3, s3);
+    }
+
+    return null;
+  }
+
   function formatReviewDate(ts){
-    if(!ts) return '';
+    var parsed = parseDateLike(ts);
+    if(!parsed) return '';
     try {
-      if(ts.seconds){ return new Date(ts.seconds * 1000).toLocaleDateString('he-IL'); }
-      return new Date(ts).toLocaleDateString('he-IL');
+      return parsed.toLocaleDateString('he-IL');
     } catch(e){
       return '';
     }
@@ -2710,6 +3161,15 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var initial = name ? name.charAt(0) : 'ל';
     var dateTxt = formatReviewDate(r.createdAt);
     var media = '';
+    var statusBadge = '';
+
+    if(!isReviewApproved(r) && !r.rejected){
+      statusBadge = '<span class="review-status pending">ממתינה לאישור</span>';
+    } else if(r.rejected){
+      statusBadge = '<span class="review-status rejected">נדחתה</span>';
+    } else if(r.approved){
+      statusBadge = '<span class="review-status approved">מאושרת</span>';
+    }
 
     if(Array.isArray(r.images) && r.images.length){
       media = '<div class="review-media">';
@@ -2721,9 +3181,18 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     return '<div class="review-card">' +
       '<div class="rc-top"><div class="rc-author"><div class="rc-av">' + escapeHtml(initial) + '</div><div><div class="rc-name">' + name + '</div><div class="rc-loc">' + city + (dateTxt ? ' · ' + escapeHtml(dateTxt) : '') + '</div></div></div><div class="rc-stars">' + stars + '</div></div>' +
+      (statusBadge ? ('<div style="margin:6px 0 0">' + statusBadge + '</div>') : '') +
       '<div class="rc-text">"' + text + '"</div>' +
       media +
     '</div>';
+  }
+
+  function isReviewApproved(r){
+    if(!r) return false;
+    if(r.rejected) return false;
+    if(r.approved === true) return true;
+    if(typeof r.approved === 'undefined') return true; // legacy reviews are treated as approved
+    return false;
   }
 
   function renderUserReviews(){
@@ -2735,7 +3204,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       return;
     }
 
-    var html = '<div style="font-weight:800;margin:0 0 10px">ביקורות חדשות מהאתר</div>';
+    var html = '<div style="font-weight:800;margin:0 0 10px">ביקורות מהאתר</div>';
     userReviews.forEach(function(r){
       html += renderUserReviewCard(r);
     });
@@ -2747,8 +3216,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var hint = document.getElementById('reviewAuthHint');
     var form = document.getElementById('reviewFormCard');
     if(!hint || !form) return;
+    var soft = getSoftAuth ? getSoftAuth() : null;
+    if(!currentUser && soft && soft.uid){
+      currentUser = { uid: soft.uid, email: soft.email || '', displayName: soft.name || '', __soft: true };
+    }
 
-    if(currentUser){
+    if(currentUser || (soft && soft.uid) || (document.body && document.body.classList && document.body.classList.contains('is-logged-in'))){
       hint.style.display = 'none';
       form.style.display = 'block';
       var nameEl = document.getElementById('reviewName');
@@ -2812,6 +3285,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   async function loadUserReviews(){
     var wrap = document.getElementById('reviewsUserList');
     if(!wrap || !fb) return;
+    setReviewAuthState();
 
     try {
       var merged = [];
@@ -2827,11 +3301,16 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
         merged.push({
           id: docId || key,
+          userId: d.userId || '',
+          userEmail: d.userEmail || '',
           name: d.name || '',
           city: d.city || '',
           rating: Number(d.rating || 5),
           text: d.text || '',
           images: Array.isArray(d.images) ? d.images : [],
+          approved: typeof d.approved === 'undefined' ? undefined : !!d.approved,
+          rejected: !!d.rejected,
+          reviewStatus: d.reviewStatus || '',
           createdAt: created,
           source: source || ''
         });
@@ -2862,7 +3341,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         } catch(ownErr){}
       }
 
-      userReviews = merged;
+      var filtered = merged.filter(function(r){
+        if(isAdmin) return true;
+        if(currentUser && r.userId && currentUser.uid && r.userId === currentUser.uid) return true;
+        return isReviewApproved(r);
+      });
+
+      userReviews = filtered;
       userReviews.sort(function(a, b){
         var at = (a && a.createdAt && a.createdAt.seconds) ? a.createdAt.seconds : 0;
         var bt = (b && b.createdAt && b.createdAt.seconds) ? b.createdAt.seconds : 0;
@@ -2922,7 +3407,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         city: city,
         rating: rating,
         text: textValue,
-        images: imageUrls
+        images: imageUrls,
+        approved: false,
+        reviewStatus: 'pending'
       };
 
       var reviewSaved = false;
@@ -2970,12 +3457,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       if(textEl) textEl.value = '';
       if(imagesEl) imagesEl.value = '';
       if(preview) preview.innerHTML = '';
-      if(savedToFirestore){
-        toast('\u05d4\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05e4\u05d5\u05e8\u05e1\u05de\u05d4 \u05d1\u05d4\u05e6\u05dc\u05d7\u05d4, \u05ea\u05d5\u05d3\u05d4!');
-        await loadUserReviews();
-      } else {
-        toast('\u05d4\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05e0\u05e9\u05dc\u05d7\u05d4 \u05dc\u05e9\u05e8\u05d4 \u05d5\u05ea\u05e4\u05d5\u05e8\u05e1\u05dd \u05dc\u05d0\u05d7\u05e8 \u05d1\u05d3\u05d9\u05e7\u05d4, \u05ea\u05d5\u05d3\u05d4!');
-      }
+      toast('\u05d4\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05e0\u05e9\u05dc\u05d7\u05d4 \u05dc\u05e9\u05e8\u05d4 \u05dc\u05d0\u05d9\u05e9\u05d5\u05e8. \u05ea\u05e4\u05d5\u05e8\u05e1\u05dd \u05dc\u05d0\u05d7\u05e8 \u05d0\u05d9\u05e9\u05d5\u05e8, \u05ea\u05d5\u05d3\u05d4!');
+      await loadUserReviews();
     } catch(err){
       toast('\u05e9\u05d2\u05d9\u05d0\u05d4 \u05d1\u05e4\u05e8\u05e1\u05d5\u05dd \u05d1\u05d9\u05e7\u05d5\u05e8\u05ea: ' + (err && err.code ? err.code : 'error'));
     } finally {
@@ -3022,9 +3505,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     function getCheckoutAmount(){
     var totalInput = document.getElementById('checkoutTotal');
 
-    var subtotal = getCartSubtotal();
-    var delivery = calcDelivery(subtotal);
-    var autoTotal = subtotal + Number(delivery.fee || 0);
+    var totals = calcCheckoutTotals();
+    var autoTotal = totals.autoTotal;
     var current = Number(totalInput ? (totalInput.value || 0) : 0);
     return current > 0 ? current : autoTotal;
   }
@@ -3062,8 +3544,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       linkEl.style.display = 'none';
       confirmBtn.style.display = 'none';
       if(sendBtn){
-        sendBtn.disabled = true;
+        sendBtn.disabled = false;
         sendBtn.style.opacity = '0.7';
+        sendBtn.setAttribute('data-locked', '1');
       }
       return;
     }
@@ -3106,8 +3589,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     if(sendBtn){
       var allowSend = !!code && (!isExternalPaymentMethod(code) || amount <= 0 || paymentStepConfirmed);
-      sendBtn.disabled = !allowSend;
+      sendBtn.disabled = false;
       sendBtn.style.opacity = allowSend ? '1' : '0.7';
+      sendBtn.setAttribute('data-locked', allowSend ? '0' : '1');
     }
   }
 
@@ -3194,6 +3678,163 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return cartItems.reduce(function(sum, item){ return sum + Number(item.price || 0); }, 0);
   }
 
+  function normalizeCouponCode(code){
+    return String(code || '').trim().toUpperCase().replace(/\s+/g, '');
+  }
+
+  function couponTypeLabel(coupon){
+    if(!coupon) return '';
+    var type = String(coupon.type || coupon.couponType || '').toLowerCase();
+    var value = Number(coupon.value || coupon.percent || 0);
+    if(type === 'percent'){
+      return (value > 0 ? value : '') + '% הנחה';
+    }
+    if(type === 'bundle' || type === '3plus1' || type === 'buy3get1'){
+      return '3+1 מתנה';
+    }
+    return coupon.label || '';
+  }
+
+  function setCouponStatus(message, kind){
+    var el = document.getElementById('couponStatus');
+    if(!el) return;
+    var msg = String(message || '').trim();
+    el.textContent = msg;
+    el.className = 'coupon-status' + (kind ? (' ' + kind) : '');
+    el.style.display = msg ? 'block' : 'none';
+  }
+
+  window.toggleCouponInput = function(checked){
+    var wrap = document.getElementById('couponInputWrap');
+    if(wrap){
+      wrap.style.display = checked ? 'grid' : 'none';
+    }
+    if(!checked){
+      window.clearCoupon();
+    }
+  };
+
+  window.onCouponInputChange = function(){
+    var input = document.getElementById('couponCode');
+    if(!input) return;
+    var cleaned = normalizeCouponCode(input.value);
+    if(cleaned !== input.value){
+      input.value = cleaned;
+    }
+  };
+
+  window.clearCoupon = function(){
+    appliedCoupon = null;
+    var input = document.getElementById('couponCode');
+    if(input) input.value = '';
+    setCouponStatus('', '');
+    updateCheckoutTotals();
+  };
+
+  async function loadCoupons(force){
+    if(!force && couponsCache.length > 0 && (Date.now() - couponsLoadedAt) < 120000){
+      return couponsCache;
+    }
+    if(!fb && window.firebaseCtx){
+      fb = window.firebaseCtx;
+    }
+    if(!fb) return [];
+
+    var list = [];
+    try {
+      var snap = await fb.getDocs(fb.collection(fb.db, 'coupons'));
+      snap.forEach(function(docSnap){
+        var d = docSnap.data() || {};
+        d.id = docSnap.id;
+        list.push(d);
+      });
+    } catch(err){
+      list = [];
+    }
+    couponsCache = list;
+    couponsLoadedAt = Date.now();
+    return list;
+  }
+
+  function resolveCouponByCode(list, code){
+    var target = normalizeCouponCode(code);
+    if(!target) return null;
+    return (list || []).find(function(c){
+      var raw = normalizeCouponCode(c.code || c.codeLower || c.id || '');
+      return raw === target;
+    }) || null;
+  }
+
+  function calcCouponDiscount(coupon, items, subtotal){
+    if(!coupon){
+      return { discount: 0, message: '' };
+    }
+    if(coupon.active === false){
+      return { discount: 0, message: 'קוד קופון לא פעיל' };
+    }
+
+    var type = String(coupon.type || coupon.couponType || '').toLowerCase();
+    if(type === 'percent'){
+      var pct = Number(coupon.value || coupon.percent || 0);
+      if(!Number.isFinite(pct) || pct <= 0){
+        return { discount: 0, message: 'הקופון לא תקין' };
+      }
+      var discount = Math.round(Number(subtotal || 0) * (pct / 100));
+      return { discount: Math.max(0, discount), message: 'קופון ' + pct + '% הנחה' };
+    }
+
+    if(type === 'bundle' || type === '3plus1' || type === 'buy3get1'){
+      var pricedItems = (items || []).filter(function(i){ return Number(i && i.price || 0) > 0; });
+      if(pricedItems.length < 4){
+        if((items || []).length >= 4){
+          return { discount: 0, message: 'ההנחה תאושר מול שרה (מחירים במארז)' };
+        }
+        return { discount: 0, message: 'צריך 4 פריטים כדי להפעיל 3+1' };
+      }
+      var cheapest = Math.min.apply(null, pricedItems.map(function(i){ return Number(i.price || 0); }));
+      if(!Number.isFinite(cheapest) || cheapest <= 0){
+        return { discount: 0, message: 'ההנחה תאושר מול שרה' };
+      }
+      return { discount: cheapest, message: '3+1 מתנה (הזול במתנה)' };
+    }
+
+    return { discount: 0, message: 'סוג קופון לא נתמך' };
+  }
+
+  window.applyCouponCode = async function(){
+    if(couponApplyInFlight) return;
+    ensureUI();
+    var input = document.getElementById('couponCode');
+    var raw = input ? input.value : '';
+    var code = normalizeCouponCode(raw);
+    if(!code){
+      window.clearCoupon();
+      return;
+    }
+    couponApplyInFlight = true;
+    setCouponStatus('בודקת קופון...', '');
+    try {
+      var list = await loadCoupons(false);
+      var match = resolveCouponByCode(list, code);
+      if(!match || match.active === false){
+        appliedCoupon = { code: code, invalid: true, active: false };
+        setCouponStatus('קוד קופון לא נמצא או לא פעיל', 'warn');
+      } else {
+        appliedCoupon = {
+          code: code,
+          type: match.type || match.couponType || 'percent',
+          value: Number(match.value || match.percent || 0),
+          label: match.label || couponTypeLabel(match),
+          active: match.active !== false
+        };
+        setCouponStatus('קופון הופעל: ' + (appliedCoupon.label || code), 'ok');
+      }
+    } finally {
+      couponApplyInFlight = false;
+      updateCheckoutTotals();
+    }
+  };
+
   function getDeliveryCityLabel(code){
     if(code === 'harish') return 'חריש';
     if(code === 'tal_menashe') return 'טל מנשה';
@@ -3201,7 +3842,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return '';
   }
 
-      function calcDelivery(subtotal){
+  function calcDelivery(subtotal){
     var modeEl = document.getElementById('checkoutDeliveryMode');
     var cityEl = document.getElementById('checkoutDeliveryCity');
     var mode = modeEl ? (modeEl.value || 'pickup') : 'pickup';
@@ -3226,7 +3867,23 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return { mode: mode, city: city, cityLabel: cityLabel, fee: fee, note: note };
   }
 
-    window.updateCheckoutTotals = function(){
+  function calcCheckoutTotals(){
+    var subtotal = getCartSubtotal();
+    var delivery = calcDelivery(subtotal);
+    var couponCalc = calcCouponDiscount(appliedCoupon, cartItems, subtotal);
+    var discount = Number(couponCalc.discount || 0);
+    var autoTotal = Math.max(0, subtotal - discount) + Number(delivery.fee || 0);
+    return {
+      subtotal: subtotal,
+      delivery: delivery,
+      discount: discount,
+      autoTotal: autoTotal,
+      couponMessage: couponCalc.message || '',
+      couponLabel: appliedCoupon ? (appliedCoupon.label || couponTypeLabel(appliedCoupon)) : ''
+    };
+  }
+
+  window.updateCheckoutTotals = function(){
     ensureUI();
     var modeEl = document.getElementById('checkoutDeliveryMode');
     var cityEl = document.getElementById('checkoutDeliveryCity');
@@ -3235,7 +3892,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var totalInput = document.getElementById('checkoutTotal');
     if(!modeEl || !cityEl || !addressEl || !infoEl) return;
 
-    var subtotal = getCartSubtotal();
+    var totals = calcCheckoutTotals();
+    var subtotal = totals.subtotal;
     var isDelivery = modeEl.value === 'delivery';
 
     cityEl.style.display = isDelivery ? 'block' : 'none';
@@ -3255,13 +3913,24 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       addressEl.value = '';
     }
 
-    var delivery = calcDelivery(subtotal);
-    var autoTotal = subtotal + Number(delivery.fee || 0);
+    var delivery = totals.delivery;
+    var discount = totals.discount;
+    var autoTotal = totals.autoTotal;
     var deliveryLabel = isDelivery ? delivery.note : 'איסוף עצמי (חינם)';
     var pickupText = !isDelivery ? ('<br>כתובת איסוף: ' + PICKUP_ADDRESS) : '';
 
+    var couponLine = '';
+    if(appliedCoupon){
+      var label = totals.couponLabel || appliedCoupon.code;
+      if(discount > 0){
+        couponLine = '<br>קופון: ' + escapeHtml(label) + ' (-' + shekel(discount) + ')';
+      } else if(totals.couponMessage){
+        couponLine = '<br>קופון: ' + escapeHtml(label) + ' · ' + escapeHtml(totals.couponMessage);
+      }
+    }
+
     infoEl.innerHTML = 'סכום מוצרים: ' + shekel(subtotal) + '<br>' +
-      'משלוח/איסוף: ' + deliveryLabel + pickupText + '<br><strong>סה"כ לתשלום: ' + shekel(autoTotal) + '</strong>';
+      'משלוח/איסוף: ' + deliveryLabel + pickupText + couponLine + '<br><strong>סה"כ לתשלום: ' + shekel(autoTotal) + '</strong>';
 
     if(totalInput && !manualTotalTouched){
       totalInput.value = autoTotal > 0 ? String(autoTotal) : '';
@@ -3269,8 +3938,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     updatePaymentAction();
   };
 
-    function renderCart(){
+  function renderCart(){
     ensureUI();
+    syncRewardInCart();
     var list = document.getElementById('cartList');
     var badge = document.getElementById('cartBadge');
     var extras = document.getElementById('cartExtras');
@@ -3283,11 +3953,19 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var tip = document.getElementById('cartTip');
     var checkoutBox = document.getElementById('checkoutBox');
     var rewardList = document.getElementById('rewardList');
-    if(!list || !badge) return;
+    if(!list) return;
 
-    badge.textContent = String(cartItems.length);
+    if(badge){
+      badge.textContent = String(cartItems.length);
+    }
+    try {
+      document.querySelectorAll('.cart-badge').forEach(function(b){
+        b.textContent = String(cartItems.length);
+      });
+    } catch(e){}
 
     if(cartItems.length === 0){
+      cartEditId = null;
       list.innerHTML = '<div class="cart-empty">' +
         '<div class="cart-empty-icon">🛒</div>' +
         '<div class="cart-empty-title">הסל ריק עדיין</div>' +
@@ -3302,7 +3980,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       if(kpiTotal) kpiTotal.textContent = '0';
       if(kpiNote) kpiNote.textContent = '';
       if(dreamFill) dreamFill.style.width = '0%';
-      if(dreamText) dreamText.textContent = 'מוסיפים פריטים ומתקרבים למארז חלומי.';
+      if(dreamText) dreamText.textContent = 'מוסיפים פריטים ומתקרבים למתנה חלומית.';
       var t0 = document.getElementById('checkoutTotal');
       if(t0 && !manualTotalTouched) t0.value = '';
       paymentStepConfirmed = false;
@@ -3332,11 +4010,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         var pct = Math.min(100, Math.round((subtotal / DREAM_PACK_TARGET) * 100));
         dreamFill.style.width = Math.max(0, pct) + '%';
         if(subtotal <= 0){
-          dreamText.textContent = 'מוסיפים פריטים ומתקרבים למארז חלומי.';
+          dreamText.textContent = 'מוסיפים פריטים ומתקרבים למתנה חלומית.';
         } else if(subtotal < DREAM_PACK_TARGET){
-          dreamText.textContent = 'נשארו עוד ' + shekel(DREAM_PACK_TARGET - subtotal) + ' למארז חלומי';
+          dreamText.textContent = 'נשארו עוד ' + shekel(DREAM_PACK_TARGET - subtotal) + ' למתנה חלומית';
         } else {
-          dreamText.textContent = 'איזה כיף! הגעתם למארז חלומי 🎉';
+          dreamText.textContent = 'איזה כיף! הגעתם למתנה חלומית 🎉';
         }
       }
     }
@@ -3345,10 +4023,25 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     cartItems.forEach(function(item){
       var badgeHtml = item && item.badge ? ('<span class="cart-badge-pill">' + escapeHtml(item.badge) + '</span>') : '';
-      var detailsHtml = item.details ? ('<div class="cart-item-details">' + item.details + '</div>') : '';
+      var isEditing = cartEditId && item.id === cartEditId;
+      var detailsHtml = (!isEditing && item.details) ? ('<div class="cart-item-details">' + item.details + '</div>') : '';
+      var editHtml = '';
+      if(isEditing){
+        var safeId = String(item.id || '').replace(/"/g, '&quot;');
+        var priceVal = Number(item.price || 0);
+        editHtml = '<div class="cart-edit">' +
+          '<textarea id="cartEditDetails_' + safeId + '" rows="2" placeholder="עדכנו פרטים / כיתוב...">' + escapeHtml(item.details || '') + '</textarea>' +
+          '<input id="cartEditPrice_' + safeId + '" type="number" min="0" step="1" placeholder="מחיר (אופציונלי)" value="' + (priceVal > 0 ? priceVal : '') + '">' +
+          '<div class="cart-edit-actions">' +
+            '<button class="cart-remove" type="button" onclick="saveEditCartItem(\'' + safeId + '\')">שמירה</button>' +
+            '<button class="cart-remove" type="button" onclick="cancelEditCartItem()">ביטול</button>' +
+          '</div>' +
+        '</div>';
+      }
       html += '<div class="cart-item">' +
-        '<div class="cart-item-top"><div class="cart-item-head"><strong class="cart-item-name">' + item.name + '</strong>' + badgeHtml + '</div><button class="cart-remove" type="button" onclick="removeCartItem(\'' + item.id + '\')">הסר</button></div>' +
+        '<div class="cart-item-top"><div class="cart-item-head"><strong class="cart-item-name">' + item.name + '</strong>' + badgeHtml + '</div><div class="cart-item-actions"><button class="cart-remove" type="button" onclick="startEditCartItem(\'' + item.id + '\')">עריכה</button><button class="cart-remove" type="button" onclick="removeCartItem(\'' + item.id + '\')">הסר</button></div></div>' +
         detailsHtml +
+        editHtml +
         '<div class="cart-item-price">' + (item.price > 0 ? ('מחיר: ' + shekel(item.price)) : 'מחיר יעודכן') + '</div>' +
       '</div>';
     });
@@ -3548,24 +4241,41 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     authGateDismissed = false;
     window.toggleProfile(false);
 
-    if(isSoftAuthUser() || !fb){
-      clearSoftAuth();
-      currentUser = null;
-      profile = { points: 0, redeemedRewards: [], fullName: '', phone: '' };
-      cartItems = [];
-      setAuthUI();
-      renderCart();
-      renderPoints();
-      renderRewards();
-      renderProfileSummary();
-      renderProfileOrdersList();
-      toast('התנתקת');
-      return;
-    }
+    try { localStorage.removeItem('sara_admin_mode'); } catch(e){}
+    try { sessionStorage.removeItem('sara_admin_mode'); } catch(e){}
 
-    await fb.signOut(fb.auth);
+    // Always clear soft auth immediately to avoid "login again" after Firebase signOut.
+    clearSoftAuth();
+    currentUser = null;
+
+    try {
+      if(fb && fb.auth && typeof fb.signOut === 'function'){
+        await fb.signOut(fb.auth);
+      }
+    } catch(e){}
+
+    profile = { points: 0, redeemedRewards: [], fullName: '', phone: '' };
+    cartItems = [];
+    setAuthUI();
+    renderCart();
+    renderPoints();
+    renderRewards();
+    renderProfileSummary();
+    renderProfileOrdersList();
     toast('התנתקת');
   };
+
+  function clearHashIfMatches(targetId){
+    try {
+      if(window.location && window.location.hash === ('#' + targetId)){
+        if(history && history.replaceState){
+          history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        } else {
+          window.location.hash = '';
+        }
+      }
+    } catch(e){}
+  }
 
   window.toggleProfile = function(open){
     ensureUI();
@@ -3575,11 +4285,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     if(!open){
       drawer.classList.remove('open');
-      return;
-    }
-
-    if(!currentUser){
-      window.openAuthModal();
+      clearHashIfMatches('profileDrawer');
       return;
     }
 
@@ -3597,10 +4303,6 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   window.toggleCart = function(open){
     ensureUI();
     syncCurrentUser();
-    if(open && !currentUser){
-      nudgeAuth('צריך להתחבר כדי לפתוח סל הזמנות');
-      return;
-    }
     var el = document.getElementById('cartDrawer');
     if(!el) return;
     if(open){
@@ -3608,11 +4310,62 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       if(profileDrawer) profileDrawer.classList.remove('open');
       el.classList.add('open');
     }
-    else { el.classList.remove('open'); }
+    else { 
+      el.classList.remove('open');
+      clearHashIfMatches('cartDrawer');
+    }
   };
 
   window.removeCartItem = function(id){
     cartItems = cartItems.filter(function(item){ return item.id !== id; });
+    saveCart();
+    renderCart();
+  };
+
+  window.safeCloseCart = function(ev){
+    try { if(ev && ev.preventDefault) ev.preventDefault(); } catch(e){}
+    try { if(ev && ev.stopPropagation) ev.stopPropagation(); } catch(e){}
+    try { window.toggleCart(false); } catch(e){}
+    clearHashIfMatches('cartDrawer');
+    return false;
+  };
+
+  window.safeCloseProfile = function(ev){
+    try { if(ev && ev.preventDefault) ev.preventDefault(); } catch(e){}
+    try { if(ev && ev.stopPropagation) ev.stopPropagation(); } catch(e){}
+    try { window.toggleProfile(false); } catch(e){}
+    clearHashIfMatches('profileDrawer');
+    return false;
+  };
+
+  window.startEditCartItem = function(id){
+    cartEditId = id;
+    renderCart();
+  };
+
+  window.cancelEditCartItem = function(){
+    cartEditId = null;
+    renderCart();
+  };
+
+  window.saveEditCartItem = function(id){
+    var item = cartItems.find(function(it){ return it.id === id; });
+    if(!item) return;
+    var detailsEl = document.getElementById('cartEditDetails_' + id);
+    var priceEl = document.getElementById('cartEditPrice_' + id);
+    if(detailsEl){
+      item.details = (detailsEl.value || '').trim();
+    }
+    if(priceEl){
+      var raw = String(priceEl.value || '').trim();
+      if(raw !== ''){
+        var val = Number(raw);
+        if(!isNaN(val) && val >= 0){
+          item.price = val;
+        }
+      }
+    }
+    cartEditId = null;
     saveCart();
     renderCart();
   };
@@ -3644,15 +4397,15 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
   }
 
-  async function sendOrderToSheets(payload){
+  async function sendPayloadToSheets(url, payload, defaultSource){
     try {
-      if(typeof SHEETS_URL === 'undefined' || !SHEETS_URL || SHEETS_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE'){
+      var target = String(url || '').trim();
+      if(!target || target === 'YOUR_GOOGLE_SCRIPT_URL_HERE'){
         return false;
       }
 
-      var url = String(SHEETS_URL).trim();
       var enriched = Object.assign({}, payload || {}, {
-        source: (payload && payload.source) ? payload.source : 'web-cart',
+        source: (payload && payload.source) ? payload.source : (defaultSource || 'web-cart'),
         sentAt: new Date().toISOString()
       });
       var body = JSON.stringify(enriched);
@@ -3660,14 +4413,14 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       try {
         if(navigator && typeof navigator.sendBeacon === 'function'){
           var blob = new Blob([body], { type: 'text/plain;charset=UTF-8' });
-          if(navigator.sendBeacon(url, blob)){
+          if(navigator.sendBeacon(target, blob)){
             return true;
           }
         }
       } catch(beaconErr){}
 
       try {
-        await fetch(url, {
+        await fetch(target, {
           method: 'POST',
           mode: 'no-cors',
           cache: 'no-store',
@@ -3691,7 +4444,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         });
         params.set('transport', 'get-fallback');
 
-        await fetch(url + (url.indexOf('?') >= 0 ? '&' : '?') + params.toString(), {
+        await fetch(target + (target.indexOf('?') >= 0 ? '&' : '?') + params.toString(), {
           method: 'GET',
           mode: 'no-cors',
           cache: 'no-store',
@@ -3706,11 +4459,27 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
   }
 
+  async function sendOrderToSheets(payload){
+    var url = String((typeof SHEETS_URL !== 'undefined' ? SHEETS_URL : '') || '').trim();
+    return await sendPayloadToSheets(url, payload, 'web-cart');
+  }
+
+  function getReviewWriteUrl(){
+    var reviewUrl = String((typeof SHEETS_REVIEW_URL !== 'undefined' ? SHEETS_REVIEW_URL : '') || '').trim();
+    if(reviewUrl && reviewUrl !== 'YOUR_GOOGLE_SCRIPT_URL_HERE'){
+      return reviewUrl;
+    }
+    var baseUrl = String((typeof SHEETS_URL !== 'undefined' ? SHEETS_URL : '') || '').trim();
+    if(!baseUrl || baseUrl === 'YOUR_GOOGLE_SCRIPT_URL_HERE') return '';
+    return baseUrl + (baseUrl.indexOf('?') >= 0 ? '&' : '?') + 'action=reviews';
+  }
 
   async function sendReviewToSheets(payload){
     try {
-      var enriched = Object.assign({ source: 'review' }, payload || {});
-      return await sendOrderToSheets(enriched);
+      var reviewUrl = getReviewWriteUrl();
+      if(!reviewUrl) return false;
+      var enriched = Object.assign({ source: 'review', reviewStatus: 'pending', approved: false }, payload || {});
+      return await sendPayloadToSheets(reviewUrl, enriched, 'review');
     } catch(err){
       return false;
     }
@@ -3785,6 +4554,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     updateCheckoutTotals();
+    var totalsSnapshot = calcCheckoutTotals();
 
     var name = (document.getElementById('checkoutName').value || '').trim();
     var phone = (document.getElementById('checkoutPhone').value || '').trim();
@@ -3811,6 +4581,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     var subtotal = getCartSubtotal();
     var delivery = calcDelivery(subtotal);
+    var discount = Number(totalsSnapshot.discount || 0);
 
     if(deliveryMode === 'delivery' && !deliveryCity){
       toast('בחרו אזור משלוח');
@@ -3823,7 +4594,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     var shippingFee = Number(delivery.fee || 0);
-    var autoOrderTotal = subtotal + shippingFee;
+    var autoOrderTotal = Number(totalsSnapshot.autoTotal || 0);
     var subtotalHasPrice = subtotal > 0;
 
     if(orderTotal <= 0){
@@ -3849,17 +4620,31 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     var pointsToAdd = Math.floor(orderTotal);
-    var reward = selectedRewardLevel ? getGiftForLevel(selectedRewardLevel) : null;
+    var rewardFromCart = null;
+    var rewardItem = cartItems.find(function(it){ return it && it.isReward && it.rewardLevel; });
+    if(rewardItem && rewardItem.rewardLevel){
+      rewardFromCart = getGiftForLevel(rewardItem.rewardLevel);
+    }
+    var reward = rewardFromCart || (selectedRewardLevel ? getGiftForLevel(selectedRewardLevel) : null);
     var orderNum = 'S' + Date.now().toString().slice(-6);
     var deliveryLabel = deliveryMode === 'delivery'
       ? (delivery.cityLabel ? ('משלוח ל' + delivery.cityLabel) : 'משלוח')
       : 'איסוף עצמי';
+
+    var couponPayload = appliedCoupon ? {
+      code: appliedCoupon.code,
+      type: appliedCoupon.type,
+      value: Number(appliedCoupon.value || 0),
+      label: appliedCoupon.label || couponTypeLabel(appliedCoupon),
+      discount: discount
+    } : null;
 
     var orderPayload = {
       orderNum: orderNum,
       userId: currentUser.uid,
       userEmail: currentUser.email || '',
       customer: { name: name, phone: phone },
+      product: 'הזמנה מהאתר',
       checkout: {
         payment: paymentLabel,
         paymentCode: payment,
@@ -3876,14 +4661,16 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       items: cartItems,
       totals: {
         subtotal: subtotal,
+        discount: discount,
         shippingFee: shippingFee,
         autoOrderTotal: autoOrderTotal,
         orderTotal: orderTotal,
         pointsToAdd: pointsToAdd
       },
+      coupon: couponPayload,
       rewardRedeemed: reward ? { level: reward.level, name: reward.name, value: reward.value } : null,
       status: 'new',
-      source: 'web-cart',
+      source: 'web',
       createdAt: (fb && fb.serverTimestamp) ? fb.serverTimestamp() : new Date()
     };
 
@@ -3895,12 +4682,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }).filter(Boolean).join(' | ');
 
     var sheetsPayload = {
-      source: 'web-cart',
+      source: 'אתר',
       orderNum: orderNum,
       date: new Date().toLocaleString('he-IL'),
       name: name,
       phone: phone,
-      product: 'הזמנה מהסל',
+      product: 'הזמנה מהאתר',
       description: itemNames,
       inscription: '',
       occasion: '',
@@ -3918,9 +4705,14 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       notes: note,
       status: 'ממתינה',
       subtotal: subtotal,
+      discount: discount,
       orderTotal: orderTotal,
       pointsAdded: pointsToAdd,
-      rewardRedeemed: reward ? (reward.name + ' (level ' + reward.level + ')') : ''
+      rewardRedeemed: reward ? (reward.name + ' (level ' + reward.level + ')') : '',
+      couponCode: couponPayload ? couponPayload.code : '',
+      couponType: couponPayload ? couponPayload.type : '',
+      couponValue: couponPayload ? couponPayload.value : '',
+      couponDiscount: couponPayload ? couponPayload.discount : ''
     };
 
     setCheckoutPending(true);
@@ -4024,6 +4816,15 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     try {
+      addLocalOrderSnapshot(orderPayload);
+      addProfileOrderSnapshot(orderPayload);
+      if(reward){
+        var localRewards = Array.isArray(profile.redeemedRewards) ? profile.redeemedRewards.slice() : [];
+        if(localRewards.indexOf(reward.level) === -1){
+          localRewards.push(reward.level);
+        }
+        profile.redeemedRewards = localRewards;
+      }
       if(currentUser && pointsToAdd > 0){
         if(pointsUpdated){
           clearPendingPoints(currentUser.uid);
@@ -4032,6 +4833,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         }
       }
       cartItems = [];
+      cartEditId = null;
       selectedRewardLevel = null;
       manualTotalTouched = false;
       paymentStepConfirmed = false;
@@ -4061,6 +4863,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       var profileDrawer = document.getElementById('profileDrawer');
       if(profileDrawer && profileDrawer.classList.contains('open')){
         loadProfileOrders().catch(function(){});
+      }
+
+      if(isAdmin){
+        var adminPanel = document.getElementById('adminPanel');
+        if(adminPanel && adminPanel.classList.contains('open')){
+          refreshOrders();
+        }
       }
     } catch(uiErr){
       if(typeof console !== 'undefined' && console && typeof console.error === 'function'){
@@ -4191,6 +5000,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   window.addEventListener('firebase-ready', authReady);
   if(window.firebaseCtx){ authReady(); }
+  window.__saraBootOk = true;
 })();
 </script>
 <script>
@@ -4203,7 +5013,14 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var fb = null;
   var adminUiReady = false;
   var isAdmin = false;
+  var adminRefreshTimer = null;
   var adminUsersCache = [];
+  var adminOrdersCache = [];
+  var adminOrdersSourceLabel = '';
+  var adminOrderFilter = null;
+  var adminOrderStatusFilter = '';
+  var adminNewOrdersCount = 0;
+  var adminActiveOrder = null;
 
   function notify(msg){
     var el = document.getElementById('saraToast');
@@ -4218,6 +5035,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function shekel(n){
     return '₪' + Number(n || 0).toLocaleString('he-IL');
+  }
+
+  function escapeHtml(v){
+    return String(v || '').replace(/[&<>"]|'/g, function(ch){
+      var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', '\'': '&#39;' };
+      return map[ch] || ch;
+    });
   }
 
     function updateCustomInscriptionVisibility(){
@@ -4236,12 +5060,30 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     var style = document.createElement('style');
     style.textContent = [
-      '.admin-fab{position:fixed;left:14px;top:210px;z-index:900;background:#2d1a0e;color:#fff;border:none;border-radius:999px;width:50px;height:50px;display:none;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.3)}',
-      '.admin-panel{position:fixed;right:0;top:0;height:100vh;width:min(560px,96vw);background:#fff;z-index:1250;box-shadow:-20px 0 40px rgba(0,0,0,.25);transform:translateX(102%);transition:transform .25s ease;display:flex;flex-direction:column}',
+      '.admin-fab{position:fixed;right:14px;top:200px;z-index:900;background:#2d1a0e;color:#fff;border:none;border-radius:999px;width:50px;height:50px;display:none;align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.3)}',
+      'body.is-admin .admin-fab{display:flex !important}',
+      '.admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.15);backdrop-filter:blur(1px);z-index:1240;display:none}',
+      '.admin-overlay.open{display:block}',
+      '.admin-panel{position:fixed;right:0;top:0;height:100vh;width:min(560px,96vw);background:linear-gradient(180deg,#fffaf5,#fff3e8);z-index:1250;box-shadow:-20px 0 40px rgba(0,0,0,.25);transform:translateX(102%);transition:transform .25s ease;display:flex;flex-direction:column}',
       '.admin-panel.open{transform:translateX(0)}',
+      'body.admin-open .auth-fab,body.admin-open .cart-fab{opacity:0;pointer-events:none;transform:scale(.95)}',
       '.admin-head{padding:14px 16px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between}',
-      '.admin-body{padding:12px 14px;overflow:auto;flex:1;background:#fffaf5}',
+      '.admin-body{padding:12px 14px;overflow:auto;flex:1;background:linear-gradient(180deg,#fffaf5,#fff3e8)}',
       '.admin-note{font-size:12px;color:#7a5040;background:#fff;border:1px solid #f2d9c0;border-radius:10px;padding:8px;margin-bottom:10px}',
+      '.admin-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 12px}',
+      '.admin-kpi{background:#fff;border:1px solid #f2d9c0;border-radius:12px;padding:10px;box-shadow:0 6px 16px rgba(200,112,74,.08)}',
+      '.admin-kpi-title{font-size:11px;color:#7a5040;font-weight:800}',
+      '.admin-kpi-value{font-size:18px;font-weight:900;color:#2d1a0e;margin-top:4px}',
+      '.admin-kpi-sub{font-size:10px;color:#9a7060;font-weight:700;margin-top:2px}',
+      '.admin-empty{background:#fff;border:1px dashed #f2d9c0;border-radius:14px;padding:18px;text-align:center;color:#7a5040;font-size:13px;line-height:1.6}',
+      '.admin-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}',
+      '.admin-tab{border:none;background:#fff;border:1px solid #e5d0be;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px;color:#6b4433;cursor:pointer}',
+      '.admin-tab.active{background:linear-gradient(135deg,#c8704a,#a85535);color:#fff;border-color:transparent}',
+      '.admin-section{display:none}',
+      '.admin-section.active{display:block}',
+      '.admin-order-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}',
+      '.admin-order-tab{border:none;background:#fff;border:1px solid #e5d0be;border-radius:999px;padding:5px 10px;font-weight:800;font-size:11px;color:#6b4433;cursor:pointer}',
+      '.admin-order-tab.active{background:#2d1a0e;color:#fff;border-color:#2d1a0e}',
       '.admin-card{background:#fff;border:1px solid #f2d9c0;border-radius:12px;padding:10px;margin-bottom:10px}',
       '.admin-row{display:flex;align-items:center;justify-content:space-between;gap:8px}',
       '.admin-mini{font-size:12px;color:#7a5040}',
@@ -4262,48 +5104,145 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.admin-help{margin-top:7px;font-size:12px;color:#7a5040;line-height:1.5}',
       '.admin-mailer .admin-row{margin-bottom:6px}',
       '.admin-actions{margin-top:8px;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}',
-      '.admin-actions a.admin-btn{text-decoration:none}'
+      '.admin-actions a.admin-btn{text-decoration:none}',
+      '.admin-grid{display:grid;grid-template-columns:1fr 140px;gap:8px}',
+      '.admin-coupon{border:1px dashed #f2d9c0;border-radius:10px;padding:8px;margin-top:8px;background:#fff}',
+      '.admin-coupon .admin-row{margin-bottom:6px}',
+      '.admin-coupon-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}',
+      '.admin-review{border:1px dashed #f2d9c0;border-radius:10px;padding:10px;margin-top:8px;background:#fff}',
+      '.admin-review-title{font-weight:800;color:#2d1a0e;margin-bottom:6px}',
+      '.admin-review-meta{font-size:12px;color:#7a5040;margin-bottom:6px}',
+      '.admin-review-text{font-size:13px;color:#2d1a0e;line-height:1.6;margin-bottom:8px}',
+      '.admin-review-media{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:6px;margin-top:6px}',
+      '.admin-review-media img{width:100%;height:72px;object-fit:cover;border-radius:8px;border:1px solid #f2d9c0}',
+      '.admin-order-row{cursor:pointer;transition:box-shadow .2s ease,transform .2s ease}',
+      '.admin-order-row:hover{box-shadow:0 10px 24px rgba(200,112,74,.15);transform:translateY(-1px)}',
+      '.admin-order-modal{position:fixed;inset:0;z-index:1305;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.4);padding:16px}',
+      '.admin-order-modal.open{display:flex}',
+      '.admin-order-card{background:#fff;max-width:520px;width:100%;border-radius:16px;padding:14px 16px;border:1px solid #f2d9c0;box-shadow:0 20px 45px rgba(0,0,0,.25);max-height:90vh;overflow:auto}',
+      '.admin-order-title{font-weight:900;color:#2d1a0e;font-size:16px;margin-bottom:6px}',
+      '.admin-order-kv{font-size:12px;color:#7a5040;line-height:1.7;margin-bottom:6px}',
+      '.admin-order-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}',
+      '.admin-order-label{font-size:11px;font-weight:800;color:#6b4433;margin:6px 0 4px;display:block}',
+      '.admin-order-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;flex-wrap:wrap}',
+      '@media(max-width:520px){.admin-order-grid{grid-template-columns:1fr};.admin-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}'
     ].join('');
     document.head.appendChild(style);
 
     document.body.insertAdjacentHTML('beforeend',
-      '<button id="adminFab" class="admin-fab" type="button" title="פאנל מנהלת" onclick="toggleAdminPanel(true)">📊</button>' +
+      '<button id="adminFab" class="admin-fab" type="button" title="פאנל מנהלת" onclick="openAdminPanelSafe()">📊</button>' +
+      '<div id="adminOverlay" class="admin-overlay" onclick="toggleAdminPanel(false)"></div>' +
       '<div id="adminPanel" class="admin-panel">' +
         '<div class="admin-head"><strong>פאנל מנהלת - שרה</strong><button type="button" class="admin-btn" onclick="toggleAdminPanel(false)">סגירה</button></div>' +
         '<div class="admin-body">' +
-          '<div class="admin-note">סיסמאות משתמשים לא ניתנות לצפייה ב?Firebase (מאובטח). במקום זה אפשר לשלוח איפוס סיסמה למייל.</div>' +
-          '<div class="admin-card admin-mailer">' +
-            '<div class="admin-row"><strong>שליחת מייל מבצע</strong><button type="button" class="admin-btn" onclick="adminSendPromoToAll()">שליחה לכולם</button></div>' +
-            '<input id="adminPromoSubject" class="admin-input" type="text" placeholder="נושא המייל (לדוגמה: מבצע סוף שבוע)">' +
-            '<textarea id="adminPromoMessage" class="admin-textarea" placeholder="כתבי כאן הודעת מבצע או קופון..."></textarea>' +
-            '<div class="admin-help">אפשר לשלוח גם ללקוחה בודדת דרך הכפתור ברשימת המשתמשים.</div>' +
+          '<div class="admin-tabs">' +
+            '<button class="admin-tab active" data-tab="orders" type="button" onclick="adminSwitchTab(\'orders\')">הזמנות</button>' +
+            '<button class="admin-tab" data-tab="users" type="button" onclick="adminSwitchTab(\'users\')">משתמשים</button>' +
+            '<button class="admin-tab" data-tab="coupons" type="button" onclick="adminSwitchTab(\'coupons\')">קופונים</button>' +
+            '<button class="admin-tab" data-tab="mailer" type="button" onclick="adminSwitchTab(\'mailer\')">מיילים</button>' +
+            '<button class="admin-tab" data-tab="reviews" type="button" onclick="adminSwitchTab(\'reviews\')">ביקורות</button>' +
           '</div>' +
-          '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong>משתמשים</strong><button type="button" class="admin-btn" onclick="refreshAdminData()">רענון</button></div>' +
-          '<div id="adminUsersList"></div>' +
-          '<div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0 8px"><strong>הזמנות אחרונות</strong></div>' +
-          '<div id="adminOrdersList"></div>' +
+          '<div id="adminKpis" class="admin-kpis"></div>' +
+          '<div id="adminSectionOrders" class="admin-section active" data-section="orders">' +
+            '<div class="admin-order-tabs">' +
+              '<button class="admin-order-tab active" data-status="" type="button" onclick="adminFilterOrdersByStatus(\'\')">הכל</button>' +
+              '<button class="admin-order-tab" data-status="new" type="button" onclick="adminFilterOrdersByStatus(\'new\')">ממתינה</button>' +
+              '<button class="admin-order-tab" data-status="preparing" type="button" onclick="adminFilterOrdersByStatus(\'preparing\')">בהכנה</button>' +
+              '<button class="admin-order-tab" data-status="ready" type="button" onclick="adminFilterOrdersByStatus(\'ready\')">מוכן</button>' +
+              '<button class="admin-order-tab" data-status="out_for_delivery" type="button" onclick="adminFilterOrdersByStatus(\'out_for_delivery\')">משלוח יצא</button>' +
+            '</div>' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;margin:6px 0 8px"><strong>כל ההזמנות</strong><div style="display:flex;gap:6px"><button type="button" class="admin-btn" onclick="refreshOrders()">רענון</button><button id="adminNewOrdersBtn" type="button" class="admin-btn" onclick="adminShowNewOrders()">הזמנות חדשות</button></div></div>' +
+            '<div id="adminOrdersList"></div>' +
+          '</div>' +
+          '<div id="adminSectionUsers" class="admin-section" data-section="users">' +
+            '<div class="admin-note">סיסמאות משתמשים לא ניתנות לצפייה ב-Firebase (מאובטח). במקום זה אפשר לשלוח איפוס סיסמה למייל.</div>' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px;flex-wrap:wrap">' +
+              '<strong>משתמשים</strong>' +
+              '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
+                '<button type="button" class="admin-btn" onclick="refreshAdminData()">רענון</button>' +
+                '<button id="adminSyncUsersBtn" type="button" class="admin-btn" onclick="adminSyncUsersFromOrders()">סנכרון מהזמנות</button>' +
+              '</div>' +
+            '</div>' +
+            '<div id="adminUsersList"></div>' +
+          '</div>' +
+          '<div id="adminSectionCoupons" class="admin-section" data-section="coupons">' +
+            '<div class="admin-card admin-coupons">' +
+              '<div class="admin-row"><strong>קופונים</strong><button type="button" class="admin-btn" onclick="refreshCoupons()">רענון</button></div>' +
+              '<div class="admin-help">צרי קוד קופון חדש (אחוז הנחה או 3+1 מתנה) ואז אפשר לשלוח אותו ללקוחות.</div>' +
+              '<input id="adminCouponCode" class="admin-input" type="text" placeholder="קוד קופון (לדוגמה: SWEET10)">' +
+              '<div class="admin-grid">' +
+                '<select id="adminCouponType" class="admin-input" onchange="adminCouponTypeChanged()">' +
+                  '<option value="percent">הנחה באחוזים</option>' +
+                  '<option value="bundle">3+1 מתנה</option>' +
+                '</select>' +
+                '<input id="adminCouponValue" class="admin-input" type="number" min="1" max="90" placeholder="אחוז (10)">' +
+              '</div>' +
+              '<div class="admin-actions"><button type="button" class="admin-btn" onclick="adminSaveCoupon()">שמור קופון</button></div>' +
+              '<div id="adminCouponsList"></div>' +
+            '</div>' +
+          '</div>' +
+          '<div id="adminSectionMailer" class="admin-section" data-section="mailer">' +
+            '<div class="admin-card admin-mailer">' +
+              '<div class="admin-row"><strong>שליחת מייל מבצע</strong><button type="button" class="admin-btn" onclick="adminSendPromoToAll()">שליחה לכולם</button></div>' +
+              '<input id="adminPromoSubject" class="admin-input" type="text" placeholder="נושא המייל (לדוגמה: מבצע סוף שבוע)">' +
+              '<textarea id="adminPromoMessage" class="admin-textarea" placeholder="כתבי כאן הודעת מבצע או קופון..."></textarea>' +
+              '<div class="admin-help">אפשר לשלוח גם ללקוחה בודדת דרך הכפתור ברשימת המשתמשים.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div id="adminSectionReviews" class="admin-section" data-section="reviews">' +
+            '<div class="admin-card admin-reviews">' +
+              '<div class="admin-row"><strong>ביקורות לאישור</strong><button type="button" class="admin-btn" onclick="refreshAdminReviews()">רענון</button></div>' +
+              '<div class="admin-help">כאן רואים ביקורות חדשות ומאשרים לפני פרסום באתר.</div>' +
+              '<div id="adminReviewsList"></div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div id="adminOrderModal" class="admin-order-modal" onclick="closeAdminOrderModal(event)">' +
+        '<div class="admin-order-card" onclick="event.stopPropagation()">' +
+          '<div class="admin-row"><div class="admin-order-title">פרטי הזמנה</div><button type="button" class="admin-btn" onclick="closeAdminOrderModal()">סגירה</button></div>' +
+          '<div id="adminOrderContent"></div>' +
+          '<div class="admin-order-actions">' +
+            '<button id="adminOrderSaveBtn" type="button" class="admin-btn" onclick="adminSaveOrderDetails()">שמירה ועדכון</button>' +
+          '</div>' +
         '</div>' +
       '</div>'
     );
 
     adminUiReady = true;
+    if(typeof window.adminCouponTypeChanged === 'function'){
+      window.adminCouponTypeChanged();
+    }
   }
 
   function setAdminButton(){
     ensureAdminUI();
     var btn = document.getElementById('adminFab');
-    if(btn){ btn.style.display = isAdmin ? 'flex' : 'none'; }
-    if(!isAdmin){
+    var canShow = isAdmin || isAdminHint();
+    if(btn){ btn.style.display = canShow ? 'flex' : 'none'; }
+    try { document.body.classList.toggle('is-admin', !!canShow); } catch(e){}
+    if(!canShow){
       var panel = document.getElementById('adminPanel');
       if(panel) panel.classList.remove('open');
+      stopAdminAutoRefresh();
     }
   }
+  window.setAdminButton = setAdminButton;
 
   function calcProgress(points){
     var p = Number(points || 0);
-    var next = (Math.floor(p / 300) + 1) * 300;
-    var prev = next - 300;
-    var pct = Math.max(0, Math.min(100, ((p - prev) / 300) * 100));
+    var levels = getGiftLevels();
+    var next = levels.find(function(l){ return l > p; });
+    var prev = 0;
+    levels.forEach(function(l){
+      if(l <= p) prev = Math.max(prev, l);
+    });
+    if(!next){
+      var last = levels.length ? levels[levels.length - 1] : 0;
+      next = last > 0 ? (last + 300) : 300;
+    }
+    var span = Math.max(1, next - prev);
+    var pct = Math.max(0, Math.min(100, ((p - prev) / span) * 100));
     return { points: p, next: next, pct: pct };
   }
 
@@ -4315,6 +5254,50 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       if(!s.exists()) return false;
       var d = s.data() || {};
       return d.role === 'admin';
+    } catch(e){
+      return false;
+    }
+  }
+  async function ensureAdminAuth(){
+    if(!fb || !fb.auth) return false;
+    if(fb.auth.currentUser) return true;
+    if(!isAdminHint()) return false;
+    try {
+      try {
+        await fb.signInWithEmailAndPassword(fb.auth, ADMIN_EMAIL, ADMIN_PASS);
+      } catch(err){
+        if(err && (err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential' || err.code === 'auth/invalid-email')){
+          var cred = await fb.createUserWithEmailAndPassword(fb.auth, ADMIN_EMAIL, ADMIN_PASS);
+          if(cred && cred.user){
+            try {
+              await fb.setDoc(fb.doc(fb.db, 'users', cred.user.uid), {
+                email: ADMIN_EMAIL,
+                fullName: ADMIN_ALIAS,
+                fullNameLower: ADMIN_ALIAS.toLowerCase(),
+                role: 'admin',
+                points: 0,
+                redeemedRewards: [],
+                updatedAt: fb.serverTimestamp(),
+                createdAt: fb.serverTimestamp()
+              }, { merge: true });
+            } catch(e){}
+          }
+        } else {
+          throw err;
+        }
+      }
+      if(fb.auth.currentUser){
+        try {
+          await fb.setDoc(fb.doc(fb.db, 'users', fb.auth.currentUser.uid), {
+            email: ADMIN_EMAIL,
+            fullName: ADMIN_ALIAS,
+            fullNameLower: ADMIN_ALIAS.toLowerCase(),
+            role: 'admin',
+            updatedAt: fb.serverTimestamp()
+          }, { merge: true });
+        } catch(e){}
+      }
+      return !!fb.auth.currentUser;
     } catch(e){
       return false;
     }
@@ -4524,6 +5507,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var description = pickSheetValue(row, normalized, ['description','details','customdetails','items'], ['פירוט','תיאור','פרטים']);
     var inscription = pickSheetValue(row, normalized, ['inscription','message'], ['הקדשה']);
     var occasion = pickSheetValue(row, normalized, ['occasion','event'], ['אירוע']);
+    var couponCode = pickSheetValue(row, normalized, ['couponcode','coupon','promo','promocode'], ['קופון','קוד קופון']);
+    var couponType = pickSheetValue(row, normalized, ['coupontype'], ['סוג קופון']);
+    var couponValue = pickSheetValue(row, normalized, ['couponvalue','couponpercent'], ['שווי קופון','אחוז קופון']);
+    var couponDiscount = pickSheetValue(row, normalized, ['coupondiscount','discount'], ['הנחה']);
+    var couponLabel = pickSheetValue(row, normalized, ['couponlabel'], ['תיאור קופון']);
 
     if(!deliveryMode){
       var dv = String(delivery || '').toLowerCase();
@@ -4576,9 +5564,17 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       items: items,
       totals: {
         subtotal: toNumber(subtotal),
+        discount: toNumber(couponDiscount),
         orderTotal: toNumber(orderTotal),
         pointsToAdd: toNumber(points)
       },
+      coupon: couponCode ? {
+        code: String(couponCode),
+        type: String(couponType || ''),
+        value: toNumber(couponValue),
+        label: String(couponLabel || ''),
+        discount: toNumber(couponDiscount)
+      } : null,
       rewardRedeemed: reward ? { name: String(reward), level: '' } : null,
       status: status || '',
       product: product || '',
@@ -4602,6 +5598,72 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }).filter(Boolean);
   }
 
+  function mapSheetRowToReview(row, index){
+    if(!row) return null;
+    if(Array.isArray(row)){
+      return {
+        id: 'sheet_review_' + index,
+        refPath: 'sheetreview|' + index,
+        data: {
+          name: 'לקוחה',
+          city: '',
+          rating: 5,
+          text: row.join(' | '),
+          images: [],
+          createdAt: new Date(),
+          approved: false,
+          reviewStatus: 'pending',
+          source: 'sheets'
+        }
+      };
+    }
+
+    var normalized = {};
+    Object.keys(row).forEach(function(k){
+      normalized[normalizeSheetKey(k)] = row[k];
+    });
+
+    var name = pickSheetValue(row, normalized, ['name','fullname','customername','client'], ['שם','לקוח','מקבל']);
+    var city = pickSheetValue(row, normalized, ['city','location'], ['עיר','יישוב']);
+    var rating = pickSheetValue(row, normalized, ['rating','stars'], ['דירוג','כוכבים']);
+    var text = pickSheetValue(row, normalized, ['text','review','comment','message','description'], ['ביקורת','תגובה','תוכן']);
+    var images = pickSheetValue(row, normalized, ['images','photos','media'], ['תמונות']);
+    var date = pickSheetValue(row, normalized, ['date','createdat','created','sentat','timestamp'], ['תאריך','נוצר','נשלח']);
+    var email = pickSheetValue(row, normalized, ['email','useremail','mail'], ['אימייל','דוא\"ל']);
+    var approvedRaw = pickSheetValue(row, normalized, ['approved','isapproved'], ['מאושר']);
+    var statusRaw = pickSheetValue(row, normalized, ['reviewstatus','status'], ['סטטוס','מצב']);
+
+    var approval = parseReviewApproval(statusRaw, approvedRaw);
+
+    var reviewData = {
+      name: String(name || ''),
+      city: String(city || ''),
+      rating: Number(rating || 5),
+      text: String(text || ''),
+      images: normalizeReviewImages(images),
+      createdAt: date || '',
+      userEmail: String(email || ''),
+      approved: approval.approved === null ? false : approval.approved,
+      rejected: approval.rejected === null ? false : approval.rejected,
+      reviewStatus: statusRaw || 'pending',
+      source: 'sheets'
+    };
+
+    return {
+      id: 'sheet_review_' + index,
+      refPath: 'sheetreview|' + index,
+      data: reviewData,
+      readOnly: true,
+      sourceLabel: 'Google Sheets'
+    };
+  }
+
+  function mapSheetReviews(rows){
+    return (rows || []).map(function(row, idx){
+      return mapSheetRowToReview(row, idx);
+    }).filter(Boolean);
+  }
+
   function getSheetOrdersReadUrl(){
     var readUrl = String((typeof SHEETS_READ_URL !== 'undefined' ? SHEETS_READ_URL : '') || '').trim();
     if(readUrl) return readUrl;
@@ -4610,11 +5672,74 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return baseUrl + (baseUrl.indexOf('?') >= 0 ? '&' : '?') + 'action=orders&format=json';
   }
 
+  function getSheetReviewsReadUrl(){
+    var reviewRead = String((typeof SHEETS_REVIEW_READ_URL !== 'undefined' ? SHEETS_REVIEW_READ_URL : '') || '').trim();
+    if(reviewRead) return reviewRead;
+
+    var reviewBase = String((typeof SHEETS_REVIEW_URL !== 'undefined' ? SHEETS_REVIEW_URL : '') || '').trim();
+    if(reviewBase && reviewBase !== 'YOUR_GOOGLE_SCRIPT_URL_HERE'){
+      return reviewBase + (reviewBase.indexOf('?') >= 0 ? '&' : '?') + 'action=reviews&format=json';
+    }
+
+    var readUrl = String((typeof SHEETS_READ_URL !== 'undefined' ? SHEETS_READ_URL : '') || '').trim();
+    if(readUrl){
+      return readUrl + (readUrl.indexOf('?') >= 0 ? '&' : '?') + 'action=reviews&format=json';
+    }
+
+    var baseUrl = String((typeof SHEETS_URL !== 'undefined' ? SHEETS_URL : '') || '').trim();
+    if(!baseUrl || baseUrl === 'YOUR_GOOGLE_SCRIPT_URL_HERE') return '';
+    return baseUrl + (baseUrl.indexOf('?') >= 0 ? '&' : '?') + 'action=reviews&format=json';
+  }
+
+  function normalizeReviewImages(raw){
+    if(Array.isArray(raw)) return raw.filter(Boolean);
+    var text = String(raw || '').trim();
+    if(!text) return [];
+    try {
+      if(text.charAt(0) === '['){
+        var arr = JSON.parse(text);
+        if(Array.isArray(arr)) return arr.filter(Boolean);
+      }
+    } catch(e){}
+    if(text.indexOf('|') >= 0){
+      return text.split('|').map(function(s){ return String(s).trim(); }).filter(Boolean);
+    }
+    if(text.indexOf(',') >= 0){
+      return text.split(',').map(function(s){ return String(s).trim(); }).filter(Boolean);
+    }
+    return [text];
+  }
+
+  function parseReviewApproval(statusRaw, approvedRaw){
+    var status = String(statusRaw || '').toLowerCase();
+    if(status.indexOf('approve') >= 0 || status.indexOf('approved') >= 0 || status.indexOf('מאושר') >= 0){
+      return { approved: true, rejected: false };
+    }
+    if(status.indexOf('reject') >= 0 || status.indexOf('rejected') >= 0 || status.indexOf('דחה') >= 0 || status.indexOf('נדחה') >= 0){
+      return { approved: false, rejected: true };
+    }
+    var raw = String(approvedRaw || '').toLowerCase();
+    if(raw === 'true' || raw === 'yes' || raw === '1' || raw === 'כן'){
+      return { approved: true, rejected: false };
+    }
+    if(raw === 'false' || raw === 'no' || raw === '0' || raw === 'לא'){
+      return { approved: false, rejected: false };
+    }
+    return { approved: null, rejected: null };
+  }
+
   async function fetchOrdersFromSheets(){
     try {
       var url = getSheetOrdersReadUrl();
       if(!url) return [];
-      var res = await fetch(url, { method: 'GET', cache: 'no-store' });
+      var bust = url;
+      try {
+        var needsBust = String(url).indexOf('docs.google.com/spreadsheets') >= 0 || String(url).indexOf('googleusercontent.com') >= 0;
+        if(needsBust){
+          bust = url + (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+        }
+      } catch(e){}
+      var res = await fetch(bust, { method: 'GET', cache: 'no-store' });
       var text = await res.text();
       var data = null;
       if(text){
@@ -4638,12 +5763,65 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
   }
 
+  async function fetchReviewsFromSheets(){
+    try {
+      var url = getSheetReviewsReadUrl();
+      if(!url) return [];
+      var bust = url;
+      try {
+        var needsBust = String(url).indexOf('docs.google.com/spreadsheets') >= 0 || String(url).indexOf('googleusercontent.com') >= 0;
+        if(needsBust){
+          bust = url + (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+        }
+      } catch(e){}
+      var res = await fetch(bust, { method: 'GET', cache: 'no-store' });
+      var text = await res.text();
+      var data = null;
+      if(text){
+        try {
+          data = JSON.parse(text);
+        } catch(parseErr){
+          data = null;
+        }
+      }
+      var rows = [];
+      if(data){
+        rows = normalizeSheetPayload(data);
+      } else if(text){
+        var csvRows = parseCsv(text);
+        rows = rowsToObjects(csvRows);
+      }
+      if(!Array.isArray(rows)) return [];
+
+      rows = rows.filter(function(r){
+        if(!r) return false;
+        if(Array.isArray(r)) return true;
+        var normalized = {};
+        Object.keys(r).forEach(function(k){ normalized[normalizeSheetKey(k)] = r[k]; });
+        var source = pickSheetValue(r, normalized, ['source'], ['מקור']);
+        return String(source || '').toLowerCase() === 'review';
+      });
+
+      return mapSheetReviews(rows);
+    } catch(err){
+      return [];
+    }
+  }
+
   function getOrderTime(orderData){
     if(!orderData) return 0;
-    if(orderData.createdAt && orderData.createdAt.seconds){
-      return orderData.createdAt.seconds * 1000;
-    }
     var raw = orderData.createdAt || orderData.date || orderData.sentAt || orderData.timestamp || '';
+    var parsed = parseDateLike(raw);
+    if(parsed) return parsed.getTime();
+    return 0;
+  }
+
+  function getReviewTime(reviewData){
+    if(!reviewData) return 0;
+    if(reviewData.createdAt && reviewData.createdAt.seconds){
+      return reviewData.createdAt.seconds * 1000;
+    }
+    var raw = reviewData.createdAt || reviewData.date || reviewData.sentAt || reviewData.timestamp || '';
     if(raw instanceof Date){
       return raw.getTime();
     }
@@ -4651,6 +5829,240 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(!isNaN(parsed)) return parsed;
     return 0;
   }
+
+  function normalizeAdminValue(val){
+    return String(val || '').trim().toLowerCase();
+  }
+
+  function orderMatchesAdminFilter(order, filter){
+    if(!filter) return true;
+    var d = (order && order.data) ? order.data : {};
+    var uid = String(d.userId || d.uid || '').trim();
+    var email = normalizeAdminValue(d.userEmail || d.email || (d.customer && d.customer.email) || '');
+    var name = '';
+    try {
+      var rawName = (d.customer && d.customer.name) ? d.customer.name : (d.name || '');
+      if(typeof normalizeNameLocal === 'function'){
+        name = normalizeNameLocal(rawName);
+      } else {
+        name = normalizeAdminValue(rawName).replace(/\s+/g, '');
+      }
+    } catch(e){
+      name = '';
+    }
+
+    if(filter.userId && uid && filter.userId === uid) return true;
+    if(filter.email && email && filter.email === normalizeAdminValue(filter.email)) return true;
+    if(filter.name && name && name === (typeof normalizeNameLocal === 'function' ? normalizeNameLocal(filter.name) : normalizeAdminValue(filter.name).replace(/\s+/g, ''))) return true;
+    return false;
+  }
+
+  function getAdminFilterLabel(filter){
+    if(!filter) return '';
+    if(filter.name) return 'משתמש: ' + escapeHtml(filter.name);
+    if(filter.email) return 'אימייל: ' + escapeHtml(filter.email);
+    if(filter.userId) return 'מזהה: ' + escapeHtml(filter.userId);
+    return '';
+  }
+
+  function buildUsersFromSheetOrders(sheetOrders){
+    var map = {};
+    (sheetOrders || []).forEach(function(entry){
+      var d = entry && entry.data ? entry.data : {};
+      var email = String(d.userEmail || d.email || (d.customer && d.customer.email) || '').trim().toLowerCase();
+      var name = String((d.customer && d.customer.name) || d.name || '').trim();
+      var phone = String((d.customer && d.customer.phone) || d.phone || '').trim();
+      var key = email || phone || (name ? normalizeAdminValue(name) : '');
+      if(!key) return;
+      if(!map[key]){
+        map[key] = {
+          id: email || phone || key,
+          email: email || '',
+          fullName: name || '',
+          points: 0,
+          role: 'user',
+          redeemedRewards: []
+        };
+      }
+      var pts = Number((d.totals && d.totals.pointsToAdd) || d.pointsAdded || 0);
+      if(Number.isFinite(pts) && pts > 0){
+        map[key].points += pts;
+      }
+      if(!map[key].fullName && name) map[key].fullName = name;
+      if(!map[key].email && email) map[key].email = email;
+    });
+    return Object.keys(map).map(function(k){ return map[k]; });
+  }
+
+  function adminSwitchTab(tabName){
+    var target = String(tabName || '').trim() || 'orders';
+    try {
+      var tabs = document.querySelectorAll('.admin-tab');
+      tabs.forEach(function(btn){
+        var key = btn.getAttribute('data-tab') || '';
+        btn.classList.toggle('active', key === target);
+      });
+      var sections = document.querySelectorAll('.admin-section');
+      sections.forEach(function(sec){
+        var key = sec.getAttribute('data-section') || '';
+        sec.classList.toggle('active', key === target);
+      });
+    } catch(e){}
+    if(target === 'orders'){
+      try {
+        if(!adminOrdersCache || adminOrdersCache.length === 0){
+          refreshOrders();
+        }
+        if(typeof adminFilterOrdersByStatus === 'function'){
+          adminFilterOrdersByStatus(adminOrderStatusFilter || '');
+        }
+      } catch(e){}
+    }
+    try { renderAdminKpis(); } catch(e){}
+  }
+  window.adminSwitchTab = adminSwitchTab;
+
+  function countOrdersByStatus(status){
+    var norm = normalizeStatusFilter(status);
+    return (adminOrdersCache || []).filter(function(o){
+      var d = (o && o.data) ? o.data : {};
+      var st = normalizeOrderStatus(d.status);
+      if(norm === 'preparing'){
+        return st === 'preparing' || st === 'seen';
+      }
+      return normalizeStatusFilter(st) === norm;
+    }).length;
+  }
+
+  function getOrderTotalValue(order){
+    var d = (order && order.data) ? order.data : (order || {});
+    var totals = d.totals || {};
+    var total = Number(totals.orderTotal);
+    if(!Number.isFinite(total) || total <= 0){
+      total = Number(totals.autoOrderTotal);
+    }
+    if(!Number.isFinite(total) || total <= 0){
+      var subtotal = Number(totals.subtotal || d.subtotal || 0);
+      var discount = Number(totals.discount || d.discount || 0);
+      var shipping = Number(totals.shippingFee || d.shippingFee || d.deliveryFee || 0);
+      var calc = subtotal - discount + shipping;
+      if(Number.isFinite(calc) && calc > 0){
+        total = calc;
+      }
+    }
+    if(!Number.isFinite(total) || total < 0) total = 0;
+    return total;
+  }
+
+  function renderAdminKpis(){
+    var wrap = document.getElementById('adminKpis');
+    if(!wrap) return;
+    var total = (adminOrdersCache || []).length;
+    var newCount = countOrdersByStatus('new');
+    var prepCount = countOrdersByStatus('preparing');
+    var readyCount = countOrdersByStatus('ready');
+    var outCount = countOrdersByStatus('out_for_delivery');
+    var revenueTotal = 0;
+    (adminOrdersCache || []).forEach(function(o){
+      revenueTotal += getOrderTotalValue(o);
+    });
+    var usersCount = (adminUsersCache || []).length;
+    if(usersCount === 0 && total > 0){
+      try {
+        var byKey = {};
+        (adminOrdersCache || []).forEach(function(o){
+          var d = o && o.data ? o.data : {};
+          var email = String(d.userEmail || d.email || (d.customer && d.customer.email) || '').trim().toLowerCase();
+          var name = String((d.customer && d.customer.name) || d.name || '').trim();
+          var phone = String((d.customer && d.customer.phone) || d.phone || '').trim();
+          var key = email || phone || (name ? normalizeAdminValue(name) : '');
+          if(key) byKey[key] = true;
+        });
+        usersCount = Object.keys(byKey).length;
+      } catch(e){}
+    }
+    wrap.innerHTML =
+      '<div class="admin-kpi"><div class="admin-kpi-title">סה״כ הזמנות</div><div class="admin-kpi-value">' + total + '</div><div class="admin-kpi-sub">כולל גוגל שיטס</div></div>' +
+      '<div class="admin-kpi"><div class="admin-kpi-title">הכנסות</div><div class="admin-kpi-value">' + shekel(revenueTotal) + '</div><div class="admin-kpi-sub">מצטבר עד היום</div></div>' +
+      '<div class="admin-kpi"><div class="admin-kpi-title">ממתינה</div><div class="admin-kpi-value">' + newCount + '</div><div class="admin-kpi-sub">חדשות</div></div>' +
+      '<div class="admin-kpi"><div class="admin-kpi-title">בהכנה</div><div class="admin-kpi-value">' + prepCount + '</div><div class="admin-kpi-sub">בטיפול</div></div>' +
+      '<div class="admin-kpi"><div class="admin-kpi-title">מוכן</div><div class="admin-kpi-value">' + readyCount + '</div><div class="admin-kpi-sub">לאיסוף/משלוח</div></div>' +
+      '<div class="admin-kpi"><div class="admin-kpi-title">משלוח יצא</div><div class="admin-kpi-value">' + outCount + '</div><div class="admin-kpi-sub">בדרך</div></div>' +
+      '<div class="admin-kpi"><div class="admin-kpi-title">משתמשים</div><div class="admin-kpi-value">' + usersCount + '</div><div class="admin-kpi-sub">סה״כ רשומים</div></div>';
+  }
+  window.renderAdminKpis = renderAdminKpis;
+
+  function updateOrderStatusTabs(){
+    try {
+      var tabs = document.querySelectorAll('.admin-order-tab');
+      tabs.forEach(function(btn){
+        var key = btn.getAttribute('data-status') || '';
+        btn.classList.toggle('active', String(adminOrderStatusFilter || '') === key);
+      });
+    } catch(e){}
+  }
+
+  function normalizeStatusFilter(status){
+    return String(status || '').trim().toLowerCase();
+  }
+
+  window.adminFilterOrdersByStatus = async function(status){
+    if(!isAdmin) return;
+    adminOrderStatusFilter = String(status || '').trim();
+    updateOrderStatusTabs();
+    if(!adminOrdersCache || adminOrdersCache.length === 0){
+      try { await refreshOrders(); } catch(e){}
+    }
+    renderOrdersList((adminOrdersCache || []).slice(), { readOnly: false, sourceLabel: adminOrdersSourceLabel });
+  };
+
+  window.adminFilterOrdersByUser = async function(userId, email, name){
+    if(!isAdmin) return;
+    var filter = {
+      userId: String(userId || '').trim(),
+      email: String(email || '').trim().toLowerCase(),
+      name: String(name || '').trim()
+    };
+    if(!filter.userId && !filter.email && !filter.name){
+      return;
+    }
+    adminOrderFilter = filter;
+    if(!adminOrdersCache || adminOrdersCache.length === 0){
+      try { await refreshOrders(); } catch(e){}
+    }
+    renderOrdersList((adminOrdersCache || []).slice(), { readOnly: false, sourceLabel: adminOrdersSourceLabel });
+  };
+
+  window.adminClearOrderFilter = async function(){
+    adminOrderFilter = null;
+    if(!adminOrdersCache || adminOrdersCache.length === 0){
+      try { await refreshOrders(); } catch(e){}
+    }
+    renderOrdersList((adminOrdersCache || []).slice(), { readOnly: false, sourceLabel: adminOrdersSourceLabel });
+  };
+
+  window.adminShowNewOrders = async function(){
+    if(!isAdmin) return;
+    if(typeof adminFilterOrdersByStatus === 'function'){
+      await adminFilterOrdersByStatus('new');
+      return;
+    }
+    adminOrderStatusFilter = 'new';
+    updateOrderStatusTabs();
+    if(!adminOrdersCache || adminOrdersCache.length === 0){
+      try { await refreshOrders(); } catch(e){}
+    }
+    renderOrdersList((adminOrdersCache || []).slice(), { readOnly: false, sourceLabel: adminOrdersSourceLabel });
+  };
+
+  window.adminClearStatusFilter = async function(){
+    adminOrderStatusFilter = '';
+    updateOrderStatusTabs();
+    if(!adminOrdersCache || adminOrdersCache.length === 0){
+      try { await refreshOrders(); } catch(e){}
+    }
+    renderOrdersList((adminOrdersCache || []).slice(), { readOnly: false, sourceLabel: adminOrdersSourceLabel });
+  };
 
   function renderOrdersList(orders, options){
     var wrap = document.getElementById('adminOrdersList');
@@ -4661,18 +6073,49 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var sourceLabel = opts.sourceLabel || '';
     var note = '';
 
-    if(readOnly){
-      var label = sourceLabel ? ('מקור: ' + sourceLabel + ' (קריאה בלבד).') : 'הזמנות מוצגות במצב קריאה בלבד.';
-      note = '<div class="admin-note">' + label + '</div>';
+    var filteredOrders = orders || [];
+    if(adminOrderFilter){
+      filteredOrders = filteredOrders.filter(function(o){ return orderMatchesAdminFilter(o, adminOrderFilter); });
+      var filterLabel = getAdminFilterLabel(adminOrderFilter);
+      if(filterLabel){
+        note += '<div class="admin-note"><div class="admin-row"><strong>' + filterLabel + '</strong><button type="button" class="admin-btn" onclick="adminClearOrderFilter()">נקה סינון</button></div></div>';
+      }
+    }
+    if(adminOrderStatusFilter){
+      var statusLabel = normalizeStatusFilter(adminOrderStatusFilter);
+      filteredOrders = filteredOrders.filter(function(o){
+        var d = (o && o.data) ? o.data : {};
+        var status = normalizeOrderStatus(d.status);
+        var norm = normalizeStatusFilter(status);
+        if(statusLabel === 'preparing'){
+          return norm === 'preparing' || norm === 'seen';
+        }
+        return norm === statusLabel;
+      });
+      var statusNames = {
+        new: 'ממתינה',
+        preparing: 'בהכנה',
+        ready: 'מוכן',
+        out_for_delivery: 'משלוח יצא'
+      };
+      var label = statusNames[statusLabel] || 'סינון';
+      note += '<div class="admin-note"><div class="admin-row"><strong>מציג: ' + label + '</strong><button type="button" class="admin-btn" onclick="adminClearStatusFilter()">נקה סינון</button></div></div>';
     }
 
-    if(!orders || orders.length === 0){
-      wrap.innerHTML = note + '<div class="admin-mini">אין הזמנות עדיין.</div>';
+    var hasReadOnly = (filteredOrders || []).some(function(o){ return !!(o && o.readOnly); }) || readOnly;
+    if(hasReadOnly){
+      var label = sourceLabel ? ('מקור: ' + sourceLabel + ' (קריאה בלבד).') : 'חלק מההזמנות מוצגות מקריאה בלבד (Google Sheets).';
+      note = (note || '') + '<div class="admin-note">' + label + '</div>';
+    }
+
+    if(!filteredOrders || filteredOrders.length === 0){
+      var emptyText = adminOrderFilter ? 'אין הזמנות עבור הסינון הזה.' : 'אין הזמנות עדיין.';
+      wrap.innerHTML = note + '<div class="admin-empty">' + emptyText + '</div>';
       return;
     }
 
     var html = '';
-    orders.slice(0, 100).forEach(function(o){
+    filteredOrders.slice(0, 100).forEach(function(o){
       var d = o.data || {};
       var customer = d.customer || {};
       if(!customer.name && d.name) customer.name = d.name;
@@ -4726,27 +6169,69 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       var waDone = status === 'completed' ? buildOrderWhatsApp(orderNum, customer, checkout, totals, 'completed') : '';
 
       var safeRefPath = String(o.refPath || ('orders|' + o.id)).replace(/'/g, "\\'");
+      var orderReadOnly = !!(o.readOnly || readOnly);
       var actions = '<div class="admin-actions">';
-      if(!readOnly && next){
-        actions += '<button class="admin-btn" type="button" onclick="adminSetOrderStatus(\'' + safeRefPath + '\',\'' + next + '\')">' + nextBtn + '</button>';
+      actions += '<button class="admin-btn" type="button" onclick="event.stopPropagation();adminOpenOrder(\'' + safeRefPath + '\')">פרטי הזמנה</button>';
+      if(!orderReadOnly && next){
+        actions += '<button class="admin-btn" type="button" onclick="event.stopPropagation();adminSetOrderStatus(\'' + safeRefPath + '\',\'' + next + '\')">' + nextBtn + '</button>';
       }
       if(waReady){
-        actions += '<a class="admin-btn" href="' + waReady + '" target="_blank" rel="noopener">WhatsApp: ready</a>';
+        actions += '<a class="admin-btn" href="' + waReady + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp: ready</a>';
       }
       if(waOut){
-        actions += '<a class="admin-btn" href="' + waOut + '" target="_blank" rel="noopener">WhatsApp: out for delivery</a>';
+        actions += '<a class="admin-btn" href="' + waOut + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp: out for delivery</a>';
       }
       if(waDone){
-        actions += '<a class="admin-btn" href="' + waDone + '" target="_blank" rel="noopener">WhatsApp: completed</a>';
+        actions += '<a class="admin-btn" href="' + waDone + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp: completed</a>';
       }
-      if(readOnly && !next && !waReady && !waOut && !waDone){
+      if(orderReadOnly && !next && !waReady && !waOut && !waDone){
         actions += '<span class="admin-mini">קריאה בלבד</span>';
       }
       actions += '</div>';
 
-      var dateLabel = '<span class="admin-mini">' + formatDate(d.createdAt || d.date) + (readOnly ? ' <span class="admin-source sheet">Sheets</span>' : '') + '</span>';
+      var sourceRaw = String(d.source || '').toLowerCase();
+      var sourceText = '';
+      var sourceIsSheet = false;
+      if(sourceRaw){
+        if(sourceRaw === 'web' || sourceRaw === 'website' || sourceRaw === 'site'){
+          sourceText = 'אתר';
+        } else if(sourceRaw === 'web-modal'){
+          sourceText = 'טופס אתר';
+        } else if(sourceRaw === 'sheets'){
+          sourceText = 'Google Sheets';
+          sourceIsSheet = true;
+        } else {
+          sourceText = d.source;
+        }
+      } else if(o.sourceLabel){
+        sourceText = o.sourceLabel;
+        if(String(o.sourceLabel).toLowerCase().indexOf('sheet') >= 0){
+          sourceIsSheet = true;
+        }
+      } else if(orderReadOnly){
+        sourceText = 'Google Sheets';
+        sourceIsSheet = true;
+      }
 
-      html += '<div class="admin-card">' +
+      var sourceBadge = sourceText ? (' <span class="admin-source' + (sourceIsSheet ? ' sheet' : '') + '">' + escapeHtml(sourceText) + '</span>') : '';
+      var dateLabel = '<span class="admin-mini">' + formatDate(d.createdAt || d.date) + sourceBadge + '</span>';
+
+      var couponCode = (d.coupon && d.coupon.code) ? d.coupon.code : (d.couponCode || '');
+      var couponLabel = (d.coupon && d.coupon.label) ? d.coupon.label : (d.couponLabel || couponTypeLabel(d.coupon || {}));
+      var couponDiscount = Number((totals && totals.discount) || d.couponDiscount || 0);
+      var couponInfo = '';
+      if(couponCode){
+        var couponText = 'קופון: ' + escapeHtml(couponCode);
+        if(couponLabel){
+          couponText += ' (' + escapeHtml(couponLabel) + ')';
+        }
+        if(couponDiscount > 0){
+          couponText += ' · הנחה ' + shekel(couponDiscount);
+        }
+        couponInfo = '<div class="admin-mini">' + couponText + '</div>';
+      }
+
+      html += '<div class="admin-card admin-order-row" role="button" onclick="adminOpenOrder(\'' + safeRefPath + '\')">' +
         '<div class="admin-row"><strong>' + (customer.name || 'No name') + '</strong>' + dateLabel + '</div>' +
         '<div class="admin-mini">Order #: ' + orderNum + '</div>' +
         '<div class="admin-mini">User email: ' + (d.userEmail || 'unknown') + '</div>' +
@@ -4754,6 +6239,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         '<div class="admin-mini">Address: ' + addressText + '</div>' +
         '<div class="admin-mini">Delivery: ' + deliveryText + '</div>' +
         '<div class="admin-mini">Payment: ' + (checkout.payment || 'not set') + ' | Total: ' + shekel(totals.orderTotal || totals.autoOrderTotal || 0) + ' | Points added: ' + (totals.pointsToAdd || 0) + '</div>' +
+        couponInfo +
         '<div class="admin-mini">Reward: ' + reward + '</div>' +
         '<div class="admin-mini">Items: ' + (itemsText || 'No items (reward only)') + '</div>' +
         '<div class="admin-row" style="margin-top:6px"><div class="admin-mini">Order status</div><span class="admin-status ' + statusCls + '">' + statusText + '</span></div>' +
@@ -4764,10 +6250,185 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     wrap.innerHTML = note + html;
   }
 
+  window.closeAdminOrderModal = function(ev){
+    var modal = document.getElementById('adminOrderModal');
+    if(!modal) return;
+    if(ev && ev.target && ev.target.id && ev.target.id !== 'adminOrderModal'){
+      return;
+    }
+    modal.classList.remove('open');
+    adminActiveOrder = null;
+  };
+
+  window.adminOpenOrder = function(refPath){
+    if(!isAdmin) return;
+    var modal = document.getElementById('adminOrderModal');
+    var content = document.getElementById('adminOrderContent');
+    if(!modal || !content) return;
+
+    var order = (adminOrdersCache || []).find(function(o){ return o && o.refPath === refPath; });
+    if(!order){
+      notify('לא נמצאה הזמנה');
+      return;
+    }
+    adminActiveOrder = order;
+
+    var d = order.data || {};
+    var customer = d.customer || {};
+    if(!customer.name && d.name) customer.name = d.name;
+    if(!customer.phone && d.phone) customer.phone = d.phone;
+
+    var checkout = d.checkout || {};
+    if(!checkout.payment && d.payment) checkout.payment = d.payment;
+    if(!checkout.address && d.address) checkout.address = d.address;
+    if(!checkout.readyBy && d.readyBy) checkout.readyBy = d.readyBy;
+    if(!checkout.note && d.notes) checkout.note = d.notes;
+    if(!checkout.deliveryCityLabel && d.deliveryCity) checkout.deliveryCityLabel = d.deliveryCity;
+    if(typeof checkout.deliveryFee === 'undefined' && typeof d.deliveryFee !== 'undefined'){
+      checkout.deliveryFee = Number(d.deliveryFee || 0);
+    }
+    if(!checkout.deliveryMode){
+      if(d.deliveryMode){
+        checkout.deliveryMode = d.deliveryMode;
+      } else if(d.delivery && String(d.delivery).indexOf('כן') === 0){
+        checkout.deliveryMode = 'delivery';
+      } else if(checkout.address){
+        checkout.deliveryMode = 'delivery';
+      } else {
+        checkout.deliveryMode = 'pickup';
+      }
+    }
+
+    var totals = d.totals || {};
+    if(typeof totals.orderTotal === 'undefined' && typeof d.orderTotal !== 'undefined') totals.orderTotal = Number(d.orderTotal || 0);
+    if(typeof totals.autoOrderTotal === 'undefined' && typeof d.orderTotal !== 'undefined') totals.autoOrderTotal = Number(d.orderTotal || 0);
+    if(typeof totals.discount === 'undefined' && typeof d.couponDiscount !== 'undefined') totals.discount = Number(d.couponDiscount || 0);
+    if(typeof totals.shippingFee === 'undefined' && typeof d.deliveryFee !== 'undefined') totals.shippingFee = Number(d.deliveryFee || 0);
+    if(typeof totals.pointsToAdd === 'undefined' && typeof d.pointsAdded !== 'undefined') totals.pointsToAdd = Number(d.pointsAdded || 0);
+
+    var orderNum = d.orderNum || order.id || '';
+    var itemsText = Array.isArray(d.items) ? d.items.map(function(i){ return i.name; }).join(' | ') : [d.product, d.description].filter(Boolean).join(' | ');
+    var deliveryMode = checkout.deliveryMode || (checkout.address ? 'delivery' : 'pickup');
+    var deliveryCityLabel = checkout.deliveryCityLabel || cityLabelByCode(checkout.deliveryCity || '');
+    var deliveryFee = Number(checkout.deliveryFee || totals.shippingFee || 0);
+    var deliveryText = deliveryMode === 'delivery'
+      ? ('משלוח ל' + (deliveryCityLabel || 'לא נבחרה עיר') + ' · דמי משלוח: ' + shekel(deliveryFee))
+      : 'איסוף עצמי (חינם)';
+    var addressText = deliveryMode === 'delivery' ? (checkout.address || 'לא סופקה כתובת') : (ADMIN_PICKUP_ADDRESS + ' (איסוף עצמי)');
+    var status = normalizeOrderStatus(d.status);
+
+    var statusOptions = ['new','seen','preparing','ready','out_for_delivery','completed'];
+    var statusHtml = statusOptions.map(function(s){
+      var label = orderStatusLabelGeneric(s);
+      var selected = (s === status) ? ' selected' : '';
+      return '<option value="' + s + '"' + selected + '>' + label + '</option>';
+    }).join('');
+
+    var readOnly = !!order.readOnly;
+    var disabledAttr = readOnly ? ' disabled' : '';
+    var readyByVal = escapeHtml(checkout.readyBy || '');
+    var noteVal = escapeHtml(checkout.note || '');
+    var couponCode = (d.coupon && d.coupon.code) ? d.coupon.code : (d.couponCode || '');
+    var couponLabel = (d.coupon && d.coupon.label) ? d.coupon.label : (d.couponLabel || '');
+    var couponDiscount = Number((totals && totals.discount) || d.couponDiscount || 0);
+    var couponLine = '';
+    if(couponCode){
+      couponLine = 'קופון: ' + escapeHtml(couponCode);
+      if(couponLabel) couponLine += ' (' + escapeHtml(couponLabel) + ')';
+      if(couponDiscount > 0) couponLine += ' · הנחה ' + shekel(couponDiscount);
+    }
+
+    content.innerHTML =
+      '<div class="admin-order-kv"><strong>הזמנה #' + escapeHtml(orderNum) + '</strong> · ' + escapeHtml(formatDate(d.createdAt || d.date)) + '</div>' +
+      '<div class="admin-order-kv">שם: ' + escapeHtml(customer.name || 'לא צוין') + '</div>' +
+      '<div class="admin-order-kv">טלפון: ' + escapeHtml(customer.phone || 'לא צוין') + '</div>' +
+      '<div class="admin-order-kv">אימייל: ' + escapeHtml(d.userEmail || d.email || 'לא צוין') + '</div>' +
+      '<div class="admin-order-kv">משלוח: ' + escapeHtml(deliveryText) + '</div>' +
+      '<div class="admin-order-kv">כתובת: ' + escapeHtml(addressText) + '</div>' +
+      '<div class="admin-order-kv">פריטים: ' + escapeHtml(itemsText || 'ללא פריטים') + '</div>' +
+      '<div class="admin-order-kv">סכום: ' + shekel(totals.orderTotal || totals.autoOrderTotal || 0) + ' · נקודות: ' + Number(totals.pointsToAdd || 0) + '</div>' +
+      (couponLine ? ('<div class="admin-order-kv">' + couponLine + '</div>') : '') +
+      (readOnly ? '<div class="admin-order-kv" style="color:#b23b2a;font-weight:800">קריאה בלבד (Google Sheets)</div>' : '') +
+      '<label class="admin-order-label">סטטוס הזמנה</label>' +
+      '<select id="adminOrderStatus" class="admin-input"' + disabledAttr + '>' + statusHtml + '</select>' +
+      '<label class="admin-order-label">מועד/שעה מוכנה</label>' +
+      '<input id="adminOrderReadyBy" class="admin-input" placeholder="לדוגמה: היום 18:30" value="' + readyByVal + '"' + disabledAttr + '>' +
+      '<label class="admin-order-label">הערה פנימית</label>' +
+      '<textarea id="adminOrderNote" class="admin-textarea"' + disabledAttr + '>' + noteVal + '</textarea>';
+
+    modal.dataset.refPath = refPath || '';
+    modal.dataset.readOnly = readOnly ? '1' : '0';
+    var saveBtn = document.getElementById('adminOrderSaveBtn');
+    if(saveBtn){
+      saveBtn.style.display = readOnly ? 'none' : 'inline-flex';
+    }
+    modal.classList.add('open');
+  };
+
+  window.adminSaveOrderDetails = async function(){
+    if(!isAdmin || !fb || !adminActiveOrder) return;
+    if(adminActiveOrder.readOnly){
+      notify('קריאה בלבד');
+      return;
+    }
+    var modal = document.getElementById('adminOrderModal');
+    if(!modal) return;
+    var refPath = modal.dataset.refPath || (adminActiveOrder && adminActiveOrder.refPath) || '';
+    if(!refPath){
+      notify('נתיב הזמנה חסר');
+      return;
+    }
+    var statusEl = document.getElementById('adminOrderStatus');
+    var readyEl = document.getElementById('adminOrderReadyBy');
+    var noteEl = document.getElementById('adminOrderNote');
+    var newStatus = normalizeOrderStatus(statusEl ? statusEl.value : '');
+    var newReadyBy = (readyEl && readyEl.value ? readyEl.value : '').trim();
+    var newNote = (noteEl && noteEl.value ? noteEl.value : '').trim();
+
+    var current = adminActiveOrder.data || {};
+    var checkout = current.checkout || {};
+    var oldStatus = normalizeOrderStatus(current.status);
+    var oldReadyBy = String(checkout.readyBy || current.readyBy || '').trim();
+    var oldNote = String(checkout.note || current.notes || '').trim();
+
+    var segs = String(refPath).split('|').filter(Boolean);
+    if(segs.length < 2){
+      notify('נתיב הזמנה לא תקין');
+      return;
+    }
+    var docRef = fb.doc(fb.db, ...segs);
+
+    var updates = {};
+    var needsUpdate = false;
+    if(newReadyBy !== oldReadyBy){
+      updates['checkout.readyBy'] = newReadyBy;
+      needsUpdate = true;
+    }
+    if(newNote !== oldNote){
+      updates['checkout.note'] = newNote;
+      needsUpdate = true;
+    }
+    if(needsUpdate){
+      updates.updatedAt = fb.serverTimestamp();
+      try {
+        await fb.updateDoc(docRef, updates);
+      } catch(e){}
+    }
+
+    if(newStatus && newStatus !== oldStatus){
+      await adminSetOrderStatus(refPath, newStatus);
+    } else if(needsUpdate){
+      notify('הפרטים עודכנו');
+      await refreshOrders();
+    }
+
+    closeAdminOrderModal();
+  };
+
 
 
   async function refreshUsers(){
-    if(!isAdmin || !fb) return;
+    if(!isAdmin) return;
     var wrap = document.getElementById('adminUsersList');
     if(!wrap) return;
 
@@ -4785,6 +6446,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     var fallbackUsers = await buildUsersFromOrdersFallback();
+    var sheetUsers = [];
+    try {
+      var sheetOrders = await fetchOrdersFromSheets();
+      if(sheetOrders && sheetOrders.length > 0){
+        sheetUsers = buildUsersFromSheetOrders(sheetOrders);
+      }
+    } catch(sheetErr){}
     if(fallbackUsers.length > 0){
       var byKey = {};
       users.forEach(function(u){
@@ -4810,14 +6478,61 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       users = fallbackUsers;
     }
 
+    if(users.length === 0 && sheetUsers.length > 0){
+      users = sheetUsers.slice();
+    } else if(sheetUsers.length > 0){
+      var byKeySheet = {};
+      users.forEach(function(u){
+        var key = String(u.id || u.email || '').trim();
+        if(!key && u.fullName) key = String(u.fullName).trim();
+        if(key) byKeySheet[key] = u;
+      });
+      sheetUsers.forEach(function(u){
+        var key = String(u.id || u.email || '').trim();
+        if(!key && u.fullName) key = String(u.fullName).trim();
+        if(!key) return;
+        if(!byKeySheet[key]){
+          users.push(u);
+          byKeySheet[key] = u;
+          return;
+        }
+        if(!byKeySheet[key].email && u.email) byKeySheet[key].email = u.email;
+        if(!byKeySheet[key].fullName && u.fullName) byKeySheet[key].fullName = u.fullName;
+        if(Number(u.points || 0) > Number(byKeySheet[key].points || 0)) byKeySheet[key].points = Number(u.points || 0);
+      });
+    }
+
+    if(users.length === 0 && adminOrdersCache && adminOrdersCache.length > 0){
+      try {
+        users = buildUsersFromSheetOrders(adminOrdersCache);
+      } catch(e){}
+    }
+
     users.sort(function(a,b){ return Number(b.points || 0) - Number(a.points || 0); });
     adminUsersCache = users.slice();
+    try { renderAdminKpis(); } catch(e){}
+
+    var spentByKey = {};
+    try {
+      (adminOrdersCache || []).forEach(function(o){
+        var d = (o && o.data) ? o.data : {};
+        var key = String(d.userId || '').trim();
+        if(!key){
+          var emailKey = String(d.userEmail || d.email || (d.customer && d.customer.email) || '').trim().toLowerCase();
+          var nameKey = String((d.customer && d.customer.name) || d.name || '').trim();
+          key = emailKey || (nameKey ? normalizeAdminValue(nameKey) : '');
+        }
+        if(!key) return;
+        spentByKey[key] = (spentByKey[key] || 0) + getOrderTotalValue(o);
+      });
+    } catch(e){}
 
     if(users.length === 0){
       if(usersQueryFailed){
-        wrap.innerHTML = '<div class="admin-mini">\u05d0\u05d9\u05df \u05d2\u05d9\u05e9\u05d4 \u05dc\u05e8\u05e9\u05d9\u05de\u05ea \u05d4\u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05db\u05e8\u05d2\u05e2. \u05d4\u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d9\u05d5\u05e6\u05d2\u05d5 \u05d0\u05d7\u05e8\u05d9 \u05d4\u05d6\u05de\u05e0\u05d5\u05ea \u05d7\u05d3\u05e9\u05d5\u05ea.</div>';
+        var hint = getSheetOrdersReadUrl() ? '' : ' הגדירי SHEETS_READ_URL כדי למשוך משתמשים מהשיטס.';
+        wrap.innerHTML = '<div class="admin-empty">\u05d0\u05d9\u05df \u05d2\u05d9\u05e9\u05d4 \u05dc\u05e8\u05e9\u05d9\u05de\u05ea \u05d4\u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05db\u05e8\u05d2\u05e2.' + hint + '</div>';
       } else {
-        wrap.innerHTML = '<div class="admin-mini">\u05d0\u05d9\u05df \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05e2\u05d3\u05d9\u05d9\u05df.</div>';
+        wrap.innerHTML = '<div class="admin-empty">\u05d0\u05d9\u05df \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05e2\u05d3\u05d9\u05d9\u05df.</div>';
       }
       return;
     }
@@ -4825,16 +6540,39 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var html = '';
     users.forEach(function(u){
       var pr = calcProgress(u.points);
-      var rewardCount = Math.floor(Number(u.points || 0) / 300);
+      var rewardCount = getGiftLevels().filter(function(l){ return Number(u.points || 0) >= l; }).length;
       var safeEmail = String(u.email || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
       var displayName = u.fullName || u.email || 'ללא שם';
+      var rawId = String(u.id || '').trim();
+      var safeId = rawId ? rawId.replace(/[^a-zA-Z0-9_-]/g, '_') : '';
+      var safeUserId = rawId.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+      var safeNameAttr = String(displayName || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+      var spentKey = rawId || String(u.email || '').trim().toLowerCase() || (displayName ? normalizeAdminValue(displayName) : '');
+      var spentValue = Number(u.totalSpent || 0);
+      if(!spentValue && spentKey && spentByKey[spentKey]){
+        spentValue = Number(spentByKey[spentKey] || 0);
+      }
+      var pointsControl = '';
+      if(rawId){
+        var inputId = 'adminPointsDec_' + safeId;
+        pointsControl =
+          '<div class="admin-grid" style="margin-top:8px">' +
+            '<input id="' + inputId + '" class="admin-input" type="number" min="1" placeholder="כמה נק׳ להוריד">' +
+            '<button class="admin-btn" type="button" onclick="adminDeductPoints(\'' + safeUserId + '\',\'' + inputId + '\')">הפחת נק׳</button>' +
+          '</div>';
+      } else {
+        pointsControl = '<div class="admin-mini" style="margin-top:8px">לא ניתן לעדכן נקודות (אין מזהה משתמש)</div>';
+      }
       var emailLine = u.email ? ('<div class="admin-mini">אימייל: ' + u.email + '</div>') : '';
       html += '<div class="admin-card">' +
         '<div class="admin-row"><strong>' + displayName + '</strong><span class="admin-mini">' + (u.role || 'user') + '</span></div>' +
         emailLine +
         '<div class="admin-mini">\u05e0\u05e7\u05d5\u05d3\u05d5\u05ea: ' + Number(u.points || 0) + ' | \u05d9\u05e2\u05d3 \u05d4\u05d1\u05d0: ' + pr.next + ' | \u05de\u05ea\u05e0\u05d5\u05ea \u05e4\u05ea\u05d5\u05d7\u05d5\u05ea: ' + rewardCount + '</div>' +
+        '<div class="admin-mini">\u05e1\u05d4"\u05db \u05e8\u05db\u05d9\u05e9\u05d5\u05ea: ' + shekel(spentValue) + '</div>' +
         '<div class="admin-progress"><div style="width:' + pr.pct + '%"></div></div>' +
-        '<div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">' +
+        pointsControl +
+        '<div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">' +
+          '<button class="admin-btn" type="button" onclick="adminFilterOrdersByUser(\'' + safeUserId + '\',\'' + safeEmail + '\',\'' + safeNameAttr + '\')">הזמנות משתמש</button>' +
           (u.email ? ('<button class="admin-btn" type="button" onclick="adminSendQuickPromo(\'' + safeEmail + '\')">\u05de\u05d9\u05d9\u05dc \u05de\u05d1\u05e6\u05e2</button><button class="admin-btn" type="button" onclick="adminResetPassword(\'' + safeEmail + '\')">\u05d0\u05d9\u05e4\u05d5\u05e1 \u05e1\u05d9\u05e1\u05de\u05d4</button>') : '') +
         '</div>' +
       '</div>';
@@ -4847,9 +6585,10 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function formatDate(ts){
     if(!ts) return 'לא ידוע';
+    var parsed = parseDateLike(ts);
+    if(!parsed) return 'לא ידוע';
     try {
-      if(ts.seconds){ return new Date(ts.seconds * 1000).toLocaleString('he-IL'); }
-      return new Date(ts).toLocaleString('he-IL');
+      return parsed.toLocaleString('he-IL');
     } catch(e){
       return 'לא ידוע';
     }
@@ -4881,7 +6620,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return s;
   }
   function orderStatusClass(status){
-    if(status === 'seen') return 'st-seen';
+    if(status === 'seen') return 'st-preparing';
     if(status === 'preparing') return 'st-preparing';
     if(status === 'ready') return 'st-ready';
     if(status === 'out_for_delivery') return 'st-out';
@@ -4890,7 +6629,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
 
   function orderStatusLabel(status, deliveryMode){
-    if(status === 'seen') return 'ראיתי';
+    if(status === 'seen') return 'בהכנה';
     if(status === 'preparing') return 'בהכנה';
     if(status === 'ready') return deliveryMode === 'delivery' ? 'מוכנה למשלוח' : 'מוכנה לאיסוף';
     if(status === 'out_for_delivery') return 'משלוח יצא';
@@ -4899,7 +6638,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
 
   function nextOrderStatus(status, deliveryMode){
-    if(status === 'new' || !status) return 'seen';
+    if(status === 'new' || !status) return 'preparing';
     if(status === 'seen') return 'preparing';
     if(status === 'preparing') return 'ready';
     if(status === 'ready') return deliveryMode === 'delivery' ? 'out_for_delivery' : 'completed';
@@ -4909,7 +6648,6 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function nextOrderStatusBtnText(status, deliveryMode){
     var next = nextOrderStatus(status, deliveryMode);
-    if(next === 'seen') return 'סמן: ראיתי';
     if(next === 'preparing') return 'סמן: בהכנה';
     if(next === 'ready') return 'סמן: מוכנה';
     if(next === 'out_for_delivery') return 'סמן: משלוח יצא';
@@ -4918,7 +6656,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
 
   function orderStatusLabelGeneric(status){
-    if(status === 'seen') return 'ראיתי';
+    if(status === 'seen') return 'בהכנה';
     if(status === 'preparing') return 'בהכנה';
     if(status === 'ready') return 'מוכנה';
     if(status === 'out_for_delivery') return 'משלוח יצא';
@@ -4941,7 +6679,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var lines = [];
 
     if(type === 'out_for_delivery'){
-      lines.push('היי ' + customerName + ', המשלוח של הזמנה #' + orderNum + ' יצא אליך 🚚');
+      lines.push('היי ' + customerName + ', המשלוח של הזמנה #' + orderNum + ' בדרך אליך 🚚');
       if(checkout && checkout.address){
         lines.push('לכתובת: ' + checkout.address);
       }
@@ -4957,7 +6695,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     } else {
       if(deliveryMode === 'delivery'){
         lines.push('היי ' + customerName + ', ההזמנה #' + orderNum + ' מוכנה 🎉');
-        lines.push('ההזמנה עוד מעט יוצאת אליך למשלוח.');
+        lines.push('נשלח לך הודעה כשהמשלוח יוצא לדרך.');
         if(cityLabel){
           lines.push('יעד משלוח: ' + cityLabel + (deliveryFee > 0 ? (' | דמי משלוח ' + shekel(deliveryFee)) : ''));
         }
@@ -4967,6 +6705,10 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       } else {
         lines.push('היי ' + customerName + ', ההזמנה #' + orderNum + ' מוכנה ואפשר להגיע לאסוף 🎁');
         lines.push('כתובת איסוף: ' + ADMIN_PICKUP_ADDRESS);
+        try {
+          var wazeLink = 'https://waze.com/ul?q=' + encodeURIComponent(ADMIN_PICKUP_ADDRESS);
+          lines.push('לניווט ב-Waze: ' + wazeLink);
+        } catch(e){}
       }
     }
 
@@ -4978,6 +6720,74 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return 'https://wa.me/' + wa + '?text=' + encodeURIComponent(lines.join('\n'));
   }
 
+  function buildOrderStatusEmail(orderNum, customer, checkout, totals, status){
+    var deliveryMode = (checkout && checkout.deliveryMode) ? checkout.deliveryMode : (checkout && checkout.address ? 'delivery' : 'pickup');
+    var deliveryCity = checkout && checkout.deliveryCityLabel ? checkout.deliveryCityLabel : '';
+    var deliveryFee = Number((checkout && checkout.deliveryFee) || (totals && totals.shippingFee) || 0);
+    var orderTotal = Number((totals && totals.orderTotal) || (totals && totals.autoOrderTotal) || 0);
+    var customerName = customer && customer.name ? customer.name : '';
+    var statusLabel = orderStatusLabel(status, deliveryMode);
+
+    var lines = [];
+    lines.push('היי ' + (customerName || 'לקוחה') + ',');
+    lines.push('סטטוס ההזמנה #' + orderNum + ' עודכן ל: ' + statusLabel + '.');
+
+    if(status === 'out_for_delivery'){
+      lines.push('המשלוח יצא אלייך 🚚');
+    } else if(status === 'completed'){
+      lines.push(deliveryMode === 'delivery' ? 'ההזמנה נמסרה בהצלחה.' : 'ההזמנה סומנה כנאספה.');
+    } else if(status === 'ready'){
+      lines.push(deliveryMode === 'delivery' ? 'ההזמנה מוכנה ותצא אלייך למשלוח.' : 'ההזמנה מוכנה לאיסוף 🎁');
+    }
+
+    if(deliveryMode === 'delivery'){
+      if(deliveryCity) lines.push('יעד משלוח: ' + deliveryCity);
+      if(checkout && checkout.address) lines.push('כתובת: ' + checkout.address);
+      if(deliveryFee > 0) lines.push('דמי משלוח: ' + shekel(deliveryFee));
+    } else {
+      lines.push('כתובת איסוף: ' + ADMIN_PICKUP_ADDRESS);
+    }
+
+    if(orderTotal > 0){
+      lines.push('סכום לתשלום: ' + shekel(orderTotal));
+    }
+
+    lines.push('נתראה בקרוב,');
+    lines.push('שרה חברוני');
+
+    return {
+      subject: 'עדכון סטטוס הזמנה #' + orderNum + ' - ' + statusLabel,
+      message: lines.join('\n')
+    };
+  }
+
+  async function sendOrderStatusEmail(orderData, status){
+    if(!orderData || typeof sendEmailAutomation !== 'function') return false;
+    var email = (orderData.userEmail || orderData.email || (orderData.customer && orderData.customer.email) || '').trim();
+    if(!email) return false;
+    var orderNum = orderData.orderNum || '';
+    var customer = orderData.customer || {};
+    var checkout = orderData.checkout || {};
+    var totals = orderData.totals || {};
+
+    var draft = buildOrderStatusEmail(orderNum, customer, checkout, totals, status);
+    if(!draft || !draft.subject || !draft.message) return false;
+
+    return await sendEmailAutomation({
+      action: 'order_status',
+      emailType: 'order_status',
+      recipients: [email],
+      subject: draft.subject,
+      message: draft.message,
+      orderNum: orderNum,
+      status: status,
+      deliveryMode: checkout.deliveryMode || '',
+      deliveryCity: checkout.deliveryCityLabel || '',
+      orderTotal: Number(totals.orderTotal || totals.autoOrderTotal || 0),
+      customerName: customer.name || ''
+    });
+  }
+
   async function refreshOrders(){
     if(!isAdmin) return;
     var wrap = document.getElementById('adminOrdersList');
@@ -4987,6 +6797,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       var permissionDenied = false;
       var collected = [];
       var byPath = {};
+      var debugInfo = { top: 0, cg: 0, sub: 0, sheet: 0, topErr: '', cgErr: '', subErr: '', sheetErr: '' };
 
       function addCollected(entry){
         if(!entry || !entry.refPath) return;
@@ -4998,22 +6809,26 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       if(fb){
         try {
           var snapTop = await fb.getDocs(fb.collection(fb.db, 'orders'));
+          debugInfo.top = snapTop.size || 0;
           snapTop.forEach(function(docSnap){
             addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: 'orders|' + docSnap.id });
           });
         } catch(topErr){
+          debugInfo.topErr = String(topErr && topErr.code ? topErr.code : (topErr && topErr.message ? topErr.message : 'error'));
           if(isFirestorePolicyError(topErr)) permissionDenied = true;
         }
 
         try {
           if(typeof fb.collectionGroup === 'function'){
             var cgSnap = await fb.getDocs(fb.query(fb.collectionGroup(fb.db, 'orders')));
+            debugInfo.cg = cgSnap.size || 0;
             cgSnap.forEach(function(docSnap){
               var refPath = (docSnap.ref && docSnap.ref.path) ? String(docSnap.ref.path).split('/').join('|') : ('cg|orders|' + docSnap.id);
               addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: refPath });
             });
           }
         } catch(cgErr){
+          debugInfo.cgErr = String(cgErr && cgErr.code ? cgErr.code : (cgErr && cgErr.message ? cgErr.message : 'error'));
           if(isFirestorePolicyError(cgErr)) permissionDenied = true;
         }
 
@@ -5025,6 +6840,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           var tasks = users.map(async function(u){
             try {
               var subSnap = await fb.getDocs(fb.collection(fb.db, 'users', u.id, 'orders'));
+              debugInfo.sub += subSnap.size || 0;
               subSnap.forEach(function(docSnap){
                 var d = docSnap.data() || {};
                 if(!d.userId) d.userId = u.id;
@@ -5036,6 +6852,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
           await Promise.all(tasks);
         } catch(usersErr){
+          debugInfo.subErr = String(usersErr && usersErr.code ? usersErr.code : (usersErr && usersErr.message ? usersErr.message : 'error'));
           if(isFirestorePolicyError(usersErr)) permissionDenied = true;
         }
       } else {
@@ -5065,15 +6882,46 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       var orders = Object.keys(dedup).map(function(k){ return dedup[k]; });
       orders.sort(function(a,b){ return getOrderTime(b.data) - getOrderTime(a.data); });
 
-      if(orders.length > 0){
-        renderOrdersList(orders, { readOnly: false });
-        return;
+      var sheetOrders = await fetchOrdersFromSheets();
+      debugInfo.sheet = sheetOrders.length || 0;
+      if(sheetOrders && sheetOrders.length > 0){
+        sheetOrders.forEach(function(o){
+          o.readOnly = true;
+          o.sourceLabel = 'Google Sheets';
+        });
       }
 
-      var sheetOrders = await fetchOrdersFromSheets();
-      if(sheetOrders && sheetOrders.length > 0){
-        sheetOrders.sort(function(a,b){ return getOrderTime(b.data) - getOrderTime(a.data); });
-        renderOrdersList(sheetOrders, { readOnly: true, sourceLabel: 'Google Sheets' });
+      var byOrderNum = {};
+      orders.forEach(function(o){
+        var key = (o && o.data && o.data.orderNum) ? String(o.data.orderNum) : String(o.id || '');
+        if(key) byOrderNum[key] = true;
+      });
+
+      var merged = orders.slice();
+      (sheetOrders || []).forEach(function(o){
+        var key = (o && o.data && o.data.orderNum) ? String(o.data.orderNum) : String(o.id || '');
+        if(key && byOrderNum[key]) return;
+        merged.push(o);
+      });
+
+      merged.sort(function(a,b){ return getOrderTime(b.data) - getOrderTime(a.data); });
+      adminOrdersCache = merged.slice();
+      adminOrdersSourceLabel = (sheetOrders && sheetOrders.length) ? 'Google Sheets' : '';
+      adminNewOrdersCount = merged.filter(function(o){
+        var d = (o && o.data) ? o.data : {};
+        return normalizeOrderStatus(d.status) === 'new';
+      }).length;
+      try {
+        var newBtn = document.getElementById('adminNewOrdersBtn');
+        if(newBtn){
+          newBtn.textContent = adminNewOrdersCount > 0 ? ('הזמנות חדשות (' + adminNewOrdersCount + ')') : 'הזמנות חדשות';
+        }
+      } catch(e){}
+      updateOrderStatusTabs();
+
+      if(merged.length > 0){
+        renderOrdersList(merged, { readOnly: false, sourceLabel: adminOrdersSourceLabel });
+        renderAdminKpis();
         return;
       }
 
@@ -5081,16 +6929,45 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         var hint = getSheetOrdersReadUrl() ? '' : ' ודאי שהוגדר קישור קריאה לשיטס.';
         wrap.innerHTML = '<div class="admin-mini">אין הרשאה לקריאת הזמנות מפיירבייס.' + hint + '</div>';
       } else {
-        wrap.innerHTML = '<div class="admin-mini">אין הזמנות עדיין.</div>';
+        var readHint = getSheetOrdersReadUrl() ? '' : ' ודאי שהוגדר קישור קריאה לשיטס כדי למשוך הזמנות מגוגל שייטס.';
+        var debugLine = 'בדיקה: Firestore orders=' + debugInfo.top + ', collectionGroup=' + debugInfo.cg + ', suborders=' + debugInfo.sub + ', Sheets=' + debugInfo.sheet;
+        var errParts = [];
+        if(debugInfo.topErr) errParts.push('orders: ' + debugInfo.topErr);
+        if(debugInfo.cgErr) errParts.push('group: ' + debugInfo.cgErr);
+        if(debugInfo.subErr) errParts.push('users: ' + debugInfo.subErr);
+        if(debugInfo.sheetErr) errParts.push('sheets: ' + debugInfo.sheetErr);
+        var errLine = errParts.length ? ('<div class="admin-mini">שגיאות: ' + escapeHtml(errParts.join(' | ')) + '</div>') : '';
+        wrap.innerHTML = '<div class="admin-empty">אין הזמנות עדיין.' + readHint + '<div class="admin-mini" style="margin-top:6px">' + escapeHtml(debugLine) + '</div>' + errLine + '</div>';
       }
     } catch(err){
-      wrap.innerHTML = '<div class="admin-mini">Failed to load orders.</div>';
+      wrap.innerHTML = '<div class="admin-empty">לא ניתן לטעון הזמנות כרגע.</div>';
     }
   }
 
   async function refreshAdminData(){
     await refreshUsers();
     await refreshOrders();
+    await refreshCoupons();
+    await refreshAdminReviews();
+  }
+
+  function startAdminAutoRefresh(){
+    if(adminRefreshTimer) return;
+    adminRefreshTimer = setInterval(function(){
+      try {
+        var panel = document.getElementById('adminPanel');
+        if(panel && panel.classList.contains('open') && isAdmin){
+          refreshOrders();
+          refreshAdminReviews();
+        }
+      } catch(e){}
+    }, 20000);
+  }
+
+  function stopAdminAutoRefresh(){
+    if(!adminRefreshTimer) return;
+    clearInterval(adminRefreshTimer);
+    adminRefreshTimer = null;
   }
 
   window.refreshAdminData = refreshAdminData;
@@ -5102,11 +6979,39 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         notify('Invalid order path');
         return;
       }
-      await fb.updateDoc(fb.doc(fb.db, ...segs), {
+      var docRef = fb.doc(fb.db, ...segs);
+      await fb.updateDoc(docRef, {
         status: nextStatus,
         statusUpdatedAt: fb.serverTimestamp()
       });
-      notify('Order status updated: ' + orderStatusLabelGeneric(nextStatus));
+
+      var emailSent = false;
+      try {
+        var snap = await fb.getDoc(docRef);
+        if(snap && snap.exists()){
+          var orderData = snap.data() || {};
+          orderData.status = nextStatus;
+          emailSent = await sendOrderStatusEmail(orderData, nextStatus);
+
+          var deliveryMode = orderData.checkout && orderData.checkout.deliveryMode ? orderData.checkout.deliveryMode : (orderData.checkout && orderData.checkout.address ? 'delivery' : 'pickup');
+          if(nextStatus === 'ready' || nextStatus === 'out_for_delivery' || nextStatus === 'completed'){
+            var waLink = buildOrderWhatsApp(orderData.orderNum || '', orderData.customer || {}, orderData.checkout || {}, orderData.totals || {}, nextStatus);
+            if(waLink){
+              try {
+                if(confirm('לפתוח הודעת WhatsApp מוכנה ללקוחה?')){
+                  window.open(waLink, '_blank');
+                }
+              } catch(e){}
+            }
+          }
+        }
+      } catch(e){}
+
+      if(emailSent){
+        notify('סטטוס עודכן ונשלח מייל ללקוחה');
+      } else {
+        notify('Order status updated: ' + orderStatusLabelGeneric(nextStatus));
+      }
       await refreshOrders();
     } catch(err){
       notify('Failed to update order status');
@@ -5115,17 +7020,36 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   window.toggleAdminPanel = async function(open){
     ensureAdminUI();
-    if(!isAdmin){
+    if(!(isAdmin || isAdminHint())){
       notify('גישה למנהלת בלבד');
       return;
     }
+    if(isAdminHint()){ isAdmin = true; }
     var panel = document.getElementById('adminPanel');
+    var overlay = document.getElementById('adminOverlay');
     if(!panel) return;
     if(open){
+      if(isAdminHint()){
+        var authed = await ensureAdminAuth();
+        if(!authed){
+          notify('אין חיבור לפיירבייס. התחברי מחדש כדי לראות הזמנות ומשתמשים.');
+        }
+      }
+      adminOrderStatusFilter = '';
+      adminOrderFilter = null;
       panel.classList.add('open');
+      if(overlay) overlay.classList.add('open');
+      try { document.body.classList.add('admin-open'); } catch(e){}
       await refreshAdminData();
+      await refreshCoupons();
+      try { adminSwitchTab('orders'); } catch(e){}
+      startAdminAutoRefresh();
     } else {
       panel.classList.remove('open');
+      if(overlay) overlay.classList.remove('open');
+      try { document.body.classList.remove('admin-open'); } catch(e){}
+      if(typeof closeAdminOrderModal === 'function') closeAdminOrderModal();
+      stopAdminAutoRefresh();
     }
   };
 
@@ -5157,7 +7081,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return { subject: subject, message: message };
   }
 
-  async function adminSendPromoEmails(emails, promoType){
+  async function adminSendPromoEmails(emails, promoType, draftOverride){
     if(!isAdmin) return;
 
     var unique = [];
@@ -5179,7 +7103,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       return;
     }
 
-    var draft = getAdminPromoDraft();
+    var draft = draftOverride || getAdminPromoDraft();
     var senderEmail = (fb && fb.auth && fb.auth.currentUser && fb.auth.currentUser.email) ? fb.auth.currentUser.email : '';
     var ok = false;
 
@@ -5221,6 +7145,495 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
     var emails = (adminUsersCache || []).map(function(u){ return (u && u.email) ? u.email : ''; });
     await adminSendPromoEmails(emails, 'all-users');
+  };
+
+  function reviewStatusBadge(review){
+    if(!review) return '';
+    if(review.rejected){
+      return '<span class="review-status rejected">נדחתה</span>';
+    }
+    if(review.approved){
+      return '<span class="review-status approved">מאושרת</span>';
+    }
+    return '<span class="review-status pending">ממתינה לאישור</span>';
+  }
+
+  function renderAdminReviews(reviews){
+    var wrap = document.getElementById('adminReviewsList');
+    if(!wrap) return;
+
+    if(!reviews || reviews.length === 0){
+      wrap.innerHTML = '<div class="admin-mini">אין ביקורות חדשות לאישור.</div>';
+      return;
+    }
+
+    var html = '';
+    reviews.forEach(function(item){
+      var d = item.data || {};
+      var name = escapeHtml(d.name || 'לקוחה');
+      var city = escapeHtml(d.city || '');
+      var stars = starsByRate(d.rating || 5);
+      var text = escapeHtml(d.text || '');
+      var dateTxt = formatReviewDate(d.createdAt || d.date);
+      var status = reviewStatusBadge(d);
+      var media = '';
+      var images = Array.isArray(d.images) ? d.images : [];
+      if(images.length){
+        media = '<div class="admin-review-media">';
+        images.forEach(function(url){
+          media += '<img src="' + escapeHtml(url) + '" alt="תמונת ביקורת" loading="lazy">';
+        });
+        media += '</div>';
+      }
+
+      var readOnly = !!item.readOnly;
+      var safeRefPath = String(item.refPath || '').replace(/'/g, "\\'");
+
+      var actions = '<div class="admin-coupon-actions">';
+      if(!readOnly){
+        if(!d.approved){
+          actions += '<button type="button" class="admin-btn" onclick="adminApproveReview(\'' + safeRefPath + '\')">אישור ביקורת</button>';
+        }
+        if(!d.rejected){
+          actions += '<button type="button" class="admin-btn" onclick="adminRejectReview(\'' + safeRefPath + '\')">דחייה</button>';
+        }
+      } else {
+        actions += '<span class="admin-mini">קריאה בלבד</span>';
+      }
+      actions += '</div>';
+
+      html += '<div class="admin-review">' +
+        '<div class="admin-review-title">' + name + (city ? (' · ' + city) : '') + '</div>' +
+        '<div class="admin-review-meta">' + stars + (dateTxt ? (' · ' + escapeHtml(dateTxt)) : '') + ' ' + status + '</div>' +
+        '<div class="admin-review-text">"' + text + '"</div>' +
+        media +
+        actions +
+      '</div>';
+    });
+
+    wrap.innerHTML = html;
+  }
+
+  function sanitizeUserDocId(base){
+    var raw = String(base || '').trim().toLowerCase();
+    if(!raw) return '';
+    raw = raw.replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+    if(!raw) raw = 'guest';
+    if(raw.length > 42) raw = raw.slice(0, 42);
+    return raw;
+  }
+
+  window.adminSyncUsersFromOrders = async function(){
+    if(!isAdmin || !fb){
+      notify('יש להתחבר כמנהלת כדי לסנכרן משתמשים');
+      return;
+    }
+
+    var btn = document.getElementById('adminSyncUsersBtn');
+    if(btn){
+      btn.disabled = true;
+      btn.textContent = 'מסנכרנת...';
+    }
+
+    try {
+      if(!adminOrdersCache || adminOrdersCache.length === 0){
+        await refreshOrders();
+      }
+
+      var sourceOrders = (adminOrdersCache || []).slice();
+      if(sourceOrders.length === 0){
+        notify('אין הזמנות לסנכרון משתמשים');
+        return;
+      }
+
+      var map = {};
+      sourceOrders.forEach(function(o){
+        var d = o && o.data ? o.data : (o || {});
+        if(!d) return;
+        var uid = String(d.userId || '').trim();
+        var email = String(d.userEmail || d.email || (d.customer && d.customer.email) || '').trim().toLowerCase();
+        var name = String((d.customer && d.customer.name) || d.name || '').trim();
+        if(!name && email) name = email.split('@')[0];
+        var key = uid || email || name;
+        if(!key) return;
+        if(!map[key]){
+          map[key] = { uid: uid, email: email, name: name, points: 0, spent: 0 };
+        } else {
+          if(!map[key].uid && uid) map[key].uid = uid;
+          if(!map[key].email && email) map[key].email = email;
+          if(!map[key].name && name) map[key].name = name;
+        }
+        var pts = Number((d.totals && d.totals.pointsToAdd) || d.pointsAdded || 0);
+        if(Number.isFinite(pts) && pts > 0){
+          map[key].points += pts;
+        }
+        var spent = getOrderTotalValue(o);
+        if(Number.isFinite(spent) && spent > 0){
+          map[key].spent += spent;
+        }
+      });
+
+      var entries = Object.keys(map).map(function(k){ return map[k]; });
+      if(entries.length === 0){
+        notify('לא נמצאו משתמשים לסנכרון');
+        return;
+      }
+
+      var created = 0;
+      var updated = 0;
+
+      for(var i = 0; i < entries.length; i++){
+        var u = entries[i];
+        var docId = u.uid ? String(u.uid).trim() : '';
+        if(!docId){
+          var base = u.email || u.name || 'guest';
+          docId = 'guest_' + sanitizeUserDocId(base);
+        }
+        if(!docId) continue;
+
+        var docRef = fb.doc(fb.db, 'users', docId);
+        var snap = null;
+        try {
+          snap = await fb.getDoc(docRef);
+        } catch(e){}
+
+        if(snap && snap.exists()){
+          var existing = snap.data() || {};
+          var patch = {};
+          if(u.email && !existing.email) patch.email = u.email;
+          if(u.name && !existing.fullName) patch.fullName = u.name;
+          if(u.name && !existing.fullNameLower) patch.fullNameLower = u.name.toLowerCase();
+          var existingSpent = Number(existing.totalSpent || 0);
+          if(u.spent > 0 && u.spent >= existingSpent){
+            patch.totalSpent = Number(u.spent || 0);
+          }
+          if(Object.keys(patch).length > 0){
+            patch.updatedAt = fb.serverTimestamp();
+            try {
+              await fb.setDoc(docRef, patch, { merge: true });
+              updated += 1;
+            } catch(e){}
+          }
+        } else {
+          var fullName = u.name || (u.email ? u.email.split('@')[0] : '');
+          var payload = {
+            email: u.email || '',
+            fullName: fullName,
+            fullNameLower: fullName ? fullName.toLowerCase() : '',
+            role: 'user',
+            points: Number(u.points || 0),
+            totalSpent: Number(u.spent || 0),
+            redeemedRewards: [],
+            createdAt: fb.serverTimestamp(),
+            updatedAt: fb.serverTimestamp()
+          };
+          try {
+            await fb.setDoc(docRef, payload, { merge: true });
+            created += 1;
+          } catch(e){}
+        }
+      }
+
+      notify('סנכרון הסתיים. נוספו: ' + created + ', עודכנו: ' + updated);
+      await refreshUsers();
+    } catch(err){
+      notify('שגיאה בסנכרון משתמשים');
+    } finally {
+      if(btn){
+        btn.disabled = false;
+        btn.textContent = 'סנכרון מהזמנות';
+      }
+    }
+  };
+
+  async function refreshAdminReviews(){
+    if(!isAdmin) return;
+    var wrap = document.getElementById('adminReviewsList');
+    if(!wrap) return;
+
+    var collected = [];
+    var byKey = {};
+
+    function addCollected(entry){
+      if(!entry || !entry.data) return;
+      var d = entry.data;
+      var key = String(d.userEmail || d.userId || '') + '|' + String(d.text || '') + '|' + String(d.createdAt || d.date || '');
+      if(!key || key === '||') key = entry.refPath || entry.id;
+      if(byKey[key]) return;
+      byKey[key] = true;
+      collected.push(entry);
+    }
+
+    if(fb){
+      try {
+        var snap = await fb.getDocs(fb.collection(fb.db, 'reviews'));
+        snap.forEach(function(docSnap){
+          addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: 'reviews|' + docSnap.id });
+        });
+      } catch(e){}
+
+      try {
+        if(typeof fb.collectionGroup === 'function'){
+          var cgSnap = await fb.getDocs(fb.query(fb.collectionGroup(fb.db, 'reviews')));
+          cgSnap.forEach(function(docSnap){
+            var refPath = (docSnap.ref && docSnap.ref.path) ? String(docSnap.ref.path).split('/').join('|') : ('cg|reviews|' + docSnap.id);
+            addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: refPath });
+          });
+        }
+      } catch(e){}
+    }
+
+    var sheetReviews = await fetchReviewsFromSheets();
+    if(sheetReviews && sheetReviews.length){
+      sheetReviews.forEach(function(r){ addCollected(r); });
+    }
+
+    var pending = collected.filter(function(item){
+      var d = item.data || {};
+      if(d.rejected) return false;
+      if(d.approved === true) return false;
+      return true;
+    });
+
+    pending.sort(function(a,b){ return getReviewTime(b.data) - getReviewTime(a.data); });
+    renderAdminReviews(pending);
+  }
+
+  window.refreshAdminReviews = refreshAdminReviews;
+
+  window.adminApproveReview = async function(refPath){
+    if(!isAdmin || !fb || !refPath) return;
+    try {
+      var segs = String(refPath).split('|').filter(Boolean);
+      if(segs.length < 2) return;
+      await fb.updateDoc(fb.doc(fb.db, ...segs), {
+        approved: true,
+        rejected: false,
+        reviewStatus: 'approved',
+        approvedAt: fb.serverTimestamp()
+      });
+      notify('ביקורת אושרה');
+      await refreshAdminReviews();
+      await loadUserReviews();
+    } catch(err){
+      notify('אישור ביקורת נכשל');
+    }
+  };
+
+  window.adminDeductPoints = async function(userId, inputId){
+    if(!isAdmin || !fb) return;
+    var uid = String(userId || '').trim();
+    if(!uid){
+      notify('מזהה משתמש חסר');
+      return;
+    }
+    var input = inputId ? document.getElementById(inputId) : null;
+    var rawVal = input ? input.value : '';
+    var amount = Number(rawVal);
+    if(!Number.isFinite(amount) || amount <= 0){
+      notify('הכניסי כמות נקודות חוקית');
+      return;
+    }
+
+    var current = null;
+    var cached = (adminUsersCache || []).find(function(u){ return String(u.id || '') === uid; });
+    if(cached && Number.isFinite(Number(cached.points))){
+      current = Number(cached.points);
+    } else {
+      try {
+        var snap = await fb.getDoc(fb.doc(fb.db, 'users', uid));
+        if(snap && snap.exists()){
+          var d = snap.data() || {};
+          current = Number(d.points || 0);
+        }
+      } catch(e){}
+    }
+
+    if(current === null || !Number.isFinite(current)){
+      notify('לא ניתן לקרוא נקודות משתמש');
+      return;
+    }
+
+    var newVal = Math.max(0, current - amount);
+    var delta = newVal - current;
+    if(delta === 0){
+      notify('אין שינוי בנקודות');
+      if(input) input.value = '';
+      return;
+    }
+
+    try {
+      await fb.updateDoc(fb.doc(fb.db, 'users', uid), {
+        points: fb.increment(delta),
+        updatedAt: fb.serverTimestamp()
+      });
+      notify('הנקודות עודכנו');
+      if(input) input.value = '';
+      await refreshUsers();
+    } catch(err){
+      notify('שגיאה בעדכון נקודות');
+    }
+  };
+
+  window.adminRejectReview = async function(refPath){
+    if(!isAdmin || !fb || !refPath) return;
+    try {
+      var segs = String(refPath).split('|').filter(Boolean);
+      if(segs.length < 2) return;
+      await fb.updateDoc(fb.doc(fb.db, ...segs), {
+        approved: false,
+        rejected: true,
+        reviewStatus: 'rejected',
+        rejectedAt: fb.serverTimestamp()
+      });
+      notify('ביקורת נדחתה');
+      await refreshAdminReviews();
+      await loadUserReviews();
+    } catch(err){
+      notify('דחיית ביקורת נכשלה');
+    }
+  };
+
+  window.adminCouponTypeChanged = function(){
+    var typeEl = document.getElementById('adminCouponType');
+    var valueEl = document.getElementById('adminCouponValue');
+    if(!typeEl || !valueEl) return;
+    var type = String(typeEl.value || '');
+    if(type === 'percent'){
+      valueEl.style.display = 'block';
+      valueEl.placeholder = 'אחוז (10)';
+    } else {
+      valueEl.style.display = 'none';
+      valueEl.value = '';
+    }
+  };
+
+  function renderAdminCoupons(list){
+    var wrap = document.getElementById('adminCouponsList');
+    if(!wrap) return;
+    if(!list || list.length === 0){
+      wrap.innerHTML = '<div class="admin-mini">אין קופונים עדיין.</div>';
+      return;
+    }
+
+    var sorted = list.slice().sort(function(a,b){
+      var aActive = a && a.active !== false ? 1 : 0;
+      var bActive = b && b.active !== false ? 1 : 0;
+      if(aActive !== bActive) return bActive - aActive;
+      var aCode = String(a.code || a.id || '');
+      var bCode = String(b.code || b.id || '');
+      return aCode.localeCompare(bCode);
+    });
+
+    var html = '';
+    sorted.forEach(function(c){
+      if(!c) return;
+      var code = String(c.code || c.id || '').trim();
+      if(!code) return;
+      var label = c.label || couponTypeLabel(c) || '';
+      var active = c.active !== false;
+      var safeId = String(c.id || c.codeLower || code.toLowerCase()).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+      var safeCode = String(code).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+      html += '<div class="admin-coupon">' +
+        '<div class="admin-row"><strong>' + escapeHtml(code) + '</strong><span class="admin-mini">' + (active ? 'פעיל' : 'לא פעיל') + '</span></div>' +
+        (label ? ('<div class="admin-mini">' + escapeHtml(label) + '</div>') : '') +
+        '<div class="admin-coupon-actions">' +
+          '<button type="button" class="admin-btn" onclick="adminToggleCoupon(\'' + safeId + '\',' + (active ? 'false' : 'true') + ')">' + (active ? 'כיבוי קופון' : 'הפעלת קופון') + '</button>' +
+          '<button type="button" class="admin-btn" onclick="adminSendCouponToAll(\'' + safeCode + '\')">שליחה לכולם</button>' +
+        '</div>' +
+      '</div>';
+    });
+
+    wrap.innerHTML = html;
+  }
+
+  async function refreshCoupons(){
+    if(!isAdmin || !fb) return;
+    var list = await loadCoupons(true);
+    renderAdminCoupons(list);
+  }
+
+  window.refreshCoupons = refreshCoupons;
+
+  window.adminSaveCoupon = async function(){
+    if(!isAdmin || !fb) return;
+    var codeEl = document.getElementById('adminCouponCode');
+    var typeEl = document.getElementById('adminCouponType');
+    var valueEl = document.getElementById('adminCouponValue');
+    if(!codeEl || !typeEl) return;
+    var code = normalizeCouponCode(codeEl.value || '');
+    var type = String(typeEl.value || 'percent');
+    var value = Number(valueEl && valueEl.value ? valueEl.value : 0);
+
+    if(!code){
+      notify('חסר קוד קופון');
+      return;
+    }
+
+    if(type === 'percent' && (!Number.isFinite(value) || value <= 0)){
+      notify('אחוז ההנחה לא תקין');
+      return;
+    }
+
+    var label = type === 'percent' ? (value + '% הנחה') : '3+1 מתנה';
+    var docId = code.toLowerCase();
+    var payload = {
+      code: code,
+      codeLower: docId,
+      type: type,
+      value: type === 'percent' ? value : 1,
+      label: label,
+      active: true,
+      updatedAt: fb.serverTimestamp(),
+      createdAt: fb.serverTimestamp(),
+      createdBy: (fb && fb.auth && fb.auth.currentUser && fb.auth.currentUser.email) ? fb.auth.currentUser.email : ''
+    };
+
+    try {
+      await fb.setDoc(fb.doc(fb.db, 'coupons', docId), payload, { merge: true });
+      notify('קופון נשמר בהצלחה');
+      if(codeEl) codeEl.value = '';
+      if(valueEl) valueEl.value = '';
+      await refreshCoupons();
+    } catch(err){
+      notify('שמירת קופון נכשלה');
+    }
+  };
+
+  window.adminToggleCoupon = async function(id, active){
+    if(!isAdmin || !fb || !id) return;
+    try {
+      await fb.updateDoc(fb.doc(fb.db, 'coupons', String(id)), {
+        active: !!active,
+        updatedAt: fb.serverTimestamp()
+      });
+      await refreshCoupons();
+    } catch(err){
+      notify('עדכון קופון נכשל');
+    }
+  };
+
+  window.adminSendCouponToAll = async function(code){
+    if(!isAdmin) return;
+    var couponCode = normalizeCouponCode(code || '');
+    if(!couponCode){
+      notify('אין קוד קופון לשליחה');
+      return;
+    }
+
+    if(!adminUsersCache || adminUsersCache.length === 0){
+      await refreshUsers();
+    }
+
+    var list = await loadCoupons(true);
+    var match = resolveCouponByCode(list, couponCode);
+    var label = match ? (match.label || couponTypeLabel(match)) : '';
+
+    var subject = 'קופון חדש משרה';
+    var message = 'היי אהובה!\nקוד הקופון שלך: ' + couponCode + (label ? (' (' + label + ')') : '') + '\nמחכה שתתפנקי 💛';
+
+    var emails = (adminUsersCache || []).map(function(u){ return (u && u.email) ? u.email : ''; });
+    await adminSendPromoEmails(emails, 'coupon', { subject: subject, message: message });
   };
 
   function overrideLogin(){
@@ -5266,7 +7679,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
             }
           }
 
-          if(typeof window.closeAuthModal === 'function') window.closeAuthModal();
+            try { localStorage.setItem('sara_admin_mode', '1'); } catch(e){}
+            try { sessionStorage.setItem('sara_admin_mode', '1'); } catch(e){}
+            try { document.body.classList.add('is-admin'); } catch(e){}
+            if(typeof window.setAdminButton === 'function'){
+              window.setAdminButton();
+            }
+            if(typeof window.closeAuthModal === 'function') window.closeAuthModal();
           notify('כניסה כמנהלת בוצעה');
           return;
         } catch(e){
@@ -5284,6 +7703,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   async function initAdminAddon(){
     ensureAdminUI();
+    try { setAdminButton(); } catch(e){}
 
     if(!window.firebaseCtx){
       window.addEventListener('firebase-ready', initAdminAddon, { once: true });
@@ -5295,6 +7715,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     fb.onAuthStateChanged(fb.auth, async function(user){
       isAdmin = await loadIsAdmin(user);
+      if(!isAdmin && isAdminHint()){
+        isAdmin = true;
+      }
       setAdminButton();
     });
   }
@@ -5307,14 +7730,59 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     <span class="wm w2"></span>
     <span class="wm w3"></span>
     <span class="wm w4"></span>
+    <span class="wm w5"></span>
+    <span class="wm w6"></span>
+    <span class="wm w7"></span>
+    <span class="wm w8"></span>
 </div>
-<button id="authFab" class="auth-fab" type="button" title="התחברות" onclick="openProfileOrAuth()">👤</button>
-<button id="cartFab" class="cart-fab" type="button" title="סל" onclick="openCartOrAuth()">🛒<span id="cartBadge" class="cart-badge">0</span></button>
+<a id="authFab" class="auth-fab" href="#profileDrawer" role="button" title="התחברות" onclick="openProfileOrAuth()">👤</a>
+<a id="cartFab" class="cart-fab" href="#cartDrawer" role="button" title="סל" onclick="openCartOrAuth()">🛒<span id="cartBadge" class="cart-badge">0</span></a>
 <button id="a11yIcon" class="a11y-fab" aria-label="נגישות" title="נגישות" type="button">♿</button>
 <script>
 (function(){
   if(window.__saraFallbackClicksBound) return;
   window.__saraFallbackClicksBound = true;
+  var urlParams = new URLSearchParams(window.location.search || '');
+  var debugOn = urlParams.get('debug') === '1';
+  function showDebugPanel(){
+    if(!debugOn) return;
+    try {
+      var existing = document.getElementById('debugPanel');
+      if(existing) existing.remove();
+      var panel = document.createElement('div');
+      panel.id = 'debugPanel';
+      panel.style.position = 'fixed';
+      panel.style.bottom = '12px';
+      panel.style.left = '12px';
+      panel.style.zIndex = '99999';
+      panel.style.background = '#fff';
+      panel.style.border = '1px solid #c8704a';
+      panel.style.padding = '10px 12px';
+      panel.style.borderRadius = '12px';
+      panel.style.boxShadow = '0 10px 24px rgba(0,0,0,.2)';
+      panel.style.fontSize = '12px';
+      panel.style.direction = 'rtl';
+      panel.style.maxWidth = '85vw';
+      var cartExists = !!document.getElementById('cartDrawer');
+      var profExists = !!document.getElementById('profileDrawer');
+        var adminFlag = '';
+        try { adminFlag = localStorage.getItem('sara_admin_mode') || sessionStorage.getItem('sara_admin_mode') || ''; } catch(e){}
+        var adminBtnExists = !!document.getElementById('adminFab');
+        var adminHint = (typeof window.isAdminHint === 'function') ? (window.isAdminHint() ? 'yes' : 'no') : 'no-fn';
+        panel.innerHTML =
+          '<div style="font-weight:800;margin-bottom:6px">Debug</div>' +
+          '<div>build: ' + (window.__saraBuild || 'no') + '</div>' +
+          '<div>boot: ' + (window.__saraBootOk ? 'ok' : 'no') + '</div>' +
+          '<div>toggleCart: ' + (typeof window.toggleCart) + '</div>' +
+          '<div>toggleProfile: ' + (typeof window.toggleProfile) + '</div>' +
+          '<div>cartDrawer: ' + (cartExists ? 'yes' : 'no') + '</div>' +
+          '<div>profileDrawer: ' + (profExists ? 'yes' : 'no') + '</div>' +
+          '<div>adminFab: ' + (adminBtnExists ? 'yes' : 'no') + '</div>' +
+          '<div>adminFlag: ' + (adminFlag || 'none') + '</div>' +
+          '<div>adminHint: ' + adminHint + '</div>';
+      document.body.appendChild(panel);
+    } catch(e){}
+  }
 
   function safeOpenAuth(){
     try {
@@ -5366,6 +7834,22 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function handle(e){
     if(!e || typeof document.elementsFromPoint !== 'function') return;
+    try {
+      var modalOverlay = document.getElementById('modalOverlay');
+      if(modalOverlay && modalOverlay.classList.contains('open')){
+        if(e.target && typeof e.target.closest === 'function' && e.target.closest('#modalOverlay')){
+          return;
+        }
+        return;
+      }
+    } catch(err){}
+    try {
+      if(e.target && typeof e.target.closest === 'function'){
+        if(e.target.closest('.modal') || e.target.closest('#modalOverlay') || e.target.closest('.payment-sheet') || e.target.closest('.payment-card') || e.target.closest('.cart-drawer') || e.target.closest('.profile-drawer') || e.target.closest('.admin-panel') || e.target.closest('.admin-overlay') || e.target.closest('.admin-order-modal') || e.target.closest('.admin-order-card') || e.target.closest('.admin-order-row')){
+          return;
+        }
+      }
+    } catch(err){}
     var x = (typeof e.clientX === 'number') ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : null);
     var y = (typeof e.clientY === 'number') ? e.clientY : (e.touches && e.touches[0] ? e.touches[0].clientY : null);
     if(x === null || y === null) return;
@@ -5392,112 +7876,18 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   document.addEventListener('click', handle, true);
   document.addEventListener('pointerdown', handle, true);
   document.addEventListener('touchstart', handle, true);
+  setTimeout(showDebugPanel, 800);
+  setTimeout(function(){
+    try {
+      if(typeof window.setAdminButton === 'function'){
+        window.setAdminButton();
+      }
+    } catch(e){}
+  }, 900);
 })();
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
