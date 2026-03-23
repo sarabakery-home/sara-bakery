@@ -28,27 +28,38 @@
 
     body {
       font-family: 'Assistant', sans-serif;
-      min-height: 100vh;
-      padding: clamp(14px, 3vw, 32px);
+      height: 100dvh;
+      max-height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(8px, 2vw, 20px);
       color: var(--brown);
       background:
-        radial-gradient(circle at 10% 10%, rgba(216, 177, 106, 0.32), transparent 42%),
-        radial-gradient(circle at 92% 92%, rgba(200, 112, 74, 0.24), transparent 44%),
-        linear-gradient(150deg, #fffdf9 0%, #fff1e0 46%, #f5d5b7 100%);
+        radial-gradient(circle at 10% 10%, rgba(216, 177, 106, 0.12), transparent 42%),
+        radial-gradient(circle at 92% 92%, rgba(200, 112, 74, 0.12), transparent 44%),
+        linear-gradient(150deg, #120a06 0%, #1b0f0a 46%, #2d1810 100%);
+    }
+    body::after{
+      content:'';
+      position:fixed;
+      inset:-15%;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(216, 177, 106, 0.2), transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(200, 112, 74, 0.18), transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255, 230, 200, 0.12), transparent 55%);
+      opacity:.5;
+      pointer-events:none;
+      z-index:0;
+      animation:bgShift 18s ease-in-out infinite;
     }
 
     .auth-layout {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(340px, 430px);
-      gap: 20px;
-      align-items: stretch;
-    }
-    /* Show only the login/register panel */
-    .auth-layout {
-      grid-template-columns: 1fr !important;
-      max-width: 520px;
+      width: 100%;
+      max-width: 440px;
+      position: relative;
+      z-index: 2;
     }
     .visual-panel {
       display: none !important;
@@ -337,13 +348,26 @@
 
     .auth-shell {
       width: 100%;
+      max-height: calc(100dvh - 24px);
+      overflow-y: auto;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 251, 246, 0.95));
       border: 1.5px solid var(--warm);
       border-radius: 24px;
-      box-shadow: 0 24px 55px rgba(74, 39, 22, 0.24);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.45);
       overflow: hidden;
       align-self: center;
       backdrop-filter: blur(1.5px);
+    }
+    .auth-shell::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,0.45), transparent 35%),
+        radial-gradient(circle at 88% 28%, rgba(216, 177, 106, 0.22), transparent 38%),
+        radial-gradient(circle at 50% 92%, rgba(200,112,74,0.22), transparent 42%);
+      opacity:.6;
+      pointer-events:none;
     }
 
     .auth-shell {
@@ -415,15 +439,89 @@
       50% { transform: translate3d(0, 14px, 0) scale(1.04); }
       100% { transform: translate3d(0, 0, 0) scale(1); }
     }
+    @keyframes bgShift{
+      0%,100%{transform:translate3d(0,0,0) scale(1)}
+      50%{transform:translate3d(0,-12px,0) scale(1.03)}
+    }
+
+    .ambient-sides{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+    }
+    .ambient-sides span{
+      position:absolute;
+      border-radius:999px;
+      opacity:.55;
+      filter:blur(.5px);
+      animation:sideFloat 14s ease-in-out infinite;
+    }
+    .ambient-sides .orb1{width:120px;height:120px;left:-40px;top:20%;background:radial-gradient(circle,rgba(216,177,106,0.4),transparent 70%);animation-duration:16s}
+    .ambient-sides .orb2{width:160px;height:160px;right:-60px;top:8%;background:radial-gradient(circle,rgba(200,112,74,0.35),transparent 70%);animation-duration:18s}
+    .ambient-sides .orb3{width:90px;height:90px;left:-20px;bottom:18%;background:radial-gradient(circle,rgba(255,230,200,0.35),transparent 70%);animation-duration:13s}
+    .ambient-sides .orb4{width:110px;height:110px;right:-30px;bottom:24%;background:radial-gradient(circle,rgba(216,177,106,0.28),transparent 70%);animation-duration:15s}
+    @keyframes sideFloat{
+      0%,100%{transform:translate3d(0,0,0)}
+      50%{transform:translate3d(0,-16px,0)}
+    }
+
+    .emoji-floats{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+    }
+    .emoji-floats span{
+      position:absolute;
+      font-size:clamp(18px,2.2vw,28px);
+      opacity:.35;
+      filter:drop-shadow(0 6px 12px rgba(0,0,0,.25));
+      animation:emojiFloat 14s ease-in-out infinite;
+    }
+    .emoji-floats .e1{left:6%;top:12%;animation-duration:16s}
+    .emoji-floats .e2{right:8%;top:18%;animation-duration:18s;animation-delay:-3s}
+    .emoji-floats .e3{left:10%;bottom:18%;animation-duration:15s;animation-delay:-6s}
+    .emoji-floats .e4{right:12%;bottom:22%;animation-duration:17s;animation-delay:-4s}
+    .emoji-floats .e5{left:50%;top:6%;animation-duration:20s;animation-delay:-8s}
+    .emoji-floats .e6{right:45%;bottom:8%;animation-duration:19s;animation-delay:-7s}
+    @keyframes emojiFloat{
+      0%,100%{transform:translate3d(0,0,0) rotate(0deg)}
+      50%{transform:translate3d(0,-16px,0) rotate(6deg)}
+    }
+    @media(max-width:640px){
+      .emoji-floats{opacity:.25}
+      .auth-shell::before{font-size:16px;letter-spacing:8px}
+    }
+    @media(max-width:640px){
+      .auth-emoji-layer span{opacity:.6;font-size:18px}
+    }
 
     .auth-head {
-      padding: 22px 18px 14px;
+      padding: 12px 16px 8px;
       text-align: center;
-      border-bottom: 1px solid #f4e1cf;
+      border-bottom: 1px solid rgba(200,112,74,0.25);
       background:
-        radial-gradient(circle at 10% 100%, rgba(216, 177, 106, 0.2), transparent 36%),
-        linear-gradient(180deg, #fff, #fff9f2);
+        radial-gradient(circle at 10% 100%, rgba(216, 177, 106, 0.22), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,244,232,0.92));
+      position: relative;
     }
+    .auth-emoji-layer{
+      display:none;
+    }
+    .auth-emoji-layer span{
+      position:absolute;
+      font-size:20px;
+      opacity:.55;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+      animation:emojiFloat 10s ease-in-out infinite;
+    }
+    .auth-emoji-layer .ae1{left:10%;top:18%;}
+    .auth-emoji-layer .ae2{right:12%;top:24%;animation-delay:-2s;}
+    .auth-emoji-layer .ae3{left:14%;bottom:22%;animation-delay:-4s;}
+    .auth-emoji-layer .ae4{right:16%;bottom:26%;animation-delay:-6s;}
+    .auth-emoji-layer .ae5{left:44%;top:12%;animation-delay:-3s;}
+    .auth-emoji-layer .ae6{right:38%;bottom:12%;animation-delay:-5s;}
 
     .brand {
       font-family: 'Playfair Display', serif;
@@ -439,23 +537,28 @@
     }
 
     .sub {
-      font-size: 14px;
+      font-size: 12px;
       color: var(--brown-mid);
       font-weight: 700;
     }
 
     .tabs {
       display: flex;
-      gap: 8px;
-      padding: 12px 14px 0;
+      gap: 6px;
+      padding: 7px;
+      margin: 0 12px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #f0d4bb;
+      border-radius: 16px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
     }
 
     .tab {
       flex: 1;
-      border: 2px solid var(--warm);
-      background: #fff;
+      border: 1.5px solid transparent;
+      background: transparent;
       border-radius: 12px;
-      padding: 10px;
+      padding: 8px;
       font-weight: 800;
       color: var(--brown-mid);
       cursor: pointer;
@@ -470,11 +573,17 @@
       border-color: transparent;
       color: #fff;
       background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+      box-shadow: 0 10px 20px rgba(200,112,74,0.35);
     }
 
     .panel {
       display: none;
-      padding: 14px;
+      padding: 12px;
+      margin: 8px 12px 12px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #f0d4bb;
+      border-radius: 16px;
+      box-shadow: 0 10px 26px rgba(200,112,74,0.12);
     }
 
     .panel.active {
@@ -486,22 +595,28 @@
     }
 
     .field label {
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-size: 13px;
       font-weight: 800;
       color: var(--brown);
       margin-bottom: 5px;
+      background: #fff3e6;
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .field input {
       width: 100%;
-      border: 2px solid var(--warm);
+      border: 1.8px solid #efcfaf;
       border-radius: 12px;
-      padding: 12px 13px;
+      padding: 9px 12px;
       font-family: 'Assistant', sans-serif;
       font-size: 16px;
-      background: #fff;
+      background: rgba(255,255,255,0.96);
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
     }
 
     .field input:focus {
@@ -514,12 +629,13 @@
       width: 100%;
       border: none;
       border-radius: 12px;
-      padding: 12px;
+      padding: 10px;
       font-weight: 800;
       font-size: 15px;
       cursor: pointer;
       font-family: 'Assistant', sans-serif;
       transition: transform 0.18s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      box-shadow: 0 12px 24px rgba(200,112,74,0.25);
     }
 
     .btn:hover {
@@ -549,6 +665,7 @@
       color: #fff;
       margin-top: 8px;
     }    .hint {
+      font-size: 11px;
       font-size: 12px;
       color: var(--brown-mid);
       line-height: 1.65;
@@ -590,11 +707,12 @@
       color: #1e8042;
     }
 
-    .foot {
+    .foot { padding-top: 6px !important;
       padding: 0 14px 14px;
     }
 
     .note {
+      font-size: 11px;
       margin-top: 10px;
       font-size: 12px;
       color: #825a49;
@@ -699,7 +817,7 @@
 
       .tabs,
       .panel,
-      .foot {
+      .foot { padding-top: 6px !important;
         padding-left: 10px;
         padding-right: 10px;
       }
@@ -834,11 +952,12 @@
         font-size: 12px;
       }
 
-      .foot {
+      .foot { padding-top: 6px !important;
         padding: 0 8px 9px;
       }
 
       .note {
+      font-size: 11px;
         margin-top: 7px;
         font-size: 10px;
       }
@@ -879,7 +998,21 @@
 </style>
 </head>
 <body>
-  <main class="auth-layout">
+<div class="ambient-sides" aria-hidden="true">
+  <span class="orb1"></span>
+  <span class="orb2"></span>
+  <span class="orb3"></span>
+  <span class="orb4"></span>
+</div>
+<div class="emoji-floats" aria-hidden="true">
+  <span class="e1">🍪</span>
+  <span class="e2">🧁</span>
+  <span class="e3">🍰</span>
+  <span class="e4">🍫</span>
+  <span class="e5">🧇</span>
+  <span class="e6">🍩</span>
+</div>
+<main class="auth-layout">
     <section class="visual-panel" aria-label="מארזים נבחרים">
       <div class="visual-head">
         <p class="eyebrow">SARA HEBRONI BOUTIQUE</p>
@@ -914,7 +1047,15 @@
 
     </section>
 
-    <section class="auth-shell" aria-label="טופס התחברות והרשמה">
+<section class="auth-shell" aria-label="טופס התחברות והרשמה">
+      <div class="auth-emoji-layer" aria-hidden="true">
+        <span class="ae1">🍪</span>
+        <span class="ae2">🧁</span>
+        <span class="ae3">🍰</span>
+        <span class="ae4">🍫</span>
+        <span class="ae5">🧇</span>
+        <span class="ae6">🍩</span>
+      </div>
       <div class="auth-floats">
         <span class="auth-float f1"></span>
         <span class="auth-float f2"></span>
@@ -923,8 +1064,8 @@
       </div>
       <div class="auth-content">
       <div class="auth-head">
-        <div class="brand">התחברות</div>
-        <div class="sub">התחברות והרשמה לפני הזמנה</div>
+        <div class="brand">שרה ♥ חברוני</div>
+        <div class="sub">התחברות / הרשמה כדי להזמין ולצבור נקודות</div>
       </div>
 
       <div class="tabs">
@@ -970,7 +1111,7 @@
       <div id="authMsg" class="msg"></div>
 
       <div class="foot">
-        <button type="button" class="btn secondary" onclick="goBackToSite()">חזרה לאתר</button>
+        <button type="button" class="btn secondary" onclick="goBackToSite()">← חזרה לאתר</button>
         <button id="logoutBtn" type="button" class="btn wa" style="display:none" onclick="logoutCurrent()">התנתקות והחלפת חשבון</button>
         <div class="note">שומרים על חוויית הזמנה מסודרת: כניסה קצרה ואז ממשיכים לבחור מארז.</div>
       </div>
@@ -1486,42 +1627,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
