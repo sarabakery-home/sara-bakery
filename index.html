@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+?<!DOCTYPE html>
 
 <html lang="he" dir="rtl">
 <head>
@@ -48,11 +48,24 @@
         .warm-motion .w5{width:120px;height:120px;left:8%;top:62%;background:radial-gradient(circle,rgba(255,214,170,.55),transparent 70%);animation-duration:16s;animation-delay:-6s}
         .warm-motion .w6{width:90px;height:90px;right:8%;top:58%;background:radial-gradient(circle,rgba(240,201,122,.55),transparent 70%);animation-duration:17s;animation-delay:-10s}
         .warm-motion .w7{width:70px;height:70px;left:55%;top:12%;background:radial-gradient(circle,rgba(232,149,109,.55),transparent 70%);animation-duration:14s;animation-delay:-3s}
-        .warm-motion .w8{width:110px;height:110px;right:35%;bottom:6%;background:radial-gradient(circle,rgba(200,112,74,.5),transparent 70%);animation-duration:19s;animation-delay:-7s}
-        @keyframes wmFloat{0%,100%{transform:translateY(0) translateX(0) scale(1)}50%{transform:translateY(-18px) translateX(10px) scale(1.05)}}
-        @media (prefers-reduced-motion: reduce){
-          .warm-motion .wm{animation:none}
-          .warm-motion{opacity:.1}
+    .warm-motion .w8{width:110px;height:110px;right:35%;bottom:6%;background:radial-gradient(circle,rgba(200,112,74,.5),transparent 70%);animation-duration:19s;animation-delay:-7s}
+    @keyframes wmFloat{0%,100%{transform:translateY(0) translateX(0) scale(1)}50%{transform:translateY(-18px) translateX(10px) scale(1.05)}}
+    @media (prefers-reduced-motion: reduce){
+      .warm-motion .wm{animation:none}
+      .warm-motion{opacity:.1}
+    }
+
+        .section-emoji-layer{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+        .section-emoji-layer span{position:absolute;font-size:clamp(18px,2vw,26px);opacity:.35;filter:drop-shadow(0 6px 12px rgba(0,0,0,.28));animation:sectionEmojiFloat 14s ease-in-out infinite}
+        .section-emoji-layer .se1{}
+        .section-emoji-layer .se2{}
+        .section-emoji-layer .se3{}
+        .section-emoji-layer .se4{}
+        .section-emoji-layer .se5{}
+        .section-emoji-layer .se6{}
+        @keyframes sectionEmojiFloat{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-16px,0) rotate(6deg)}}
+        @media(max-width:640px){
+          .section-emoji-layer span{opacity:.25}
         }
 
     /* NAV */
@@ -65,6 +78,28 @@
     .nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
     .nav-wa{background:linear-gradient(135deg,var(--wa),var(--wa-dark));color:#fff;padding:9px 18px;border-radius:22px;font-weight:800;font-size:13px;text-decoration:none;box-shadow:0 4px 12px rgba(37,211,102,0.3);transition:transform .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
     .nav-wa:hover{transform:scale(1.05)}
+    body.warm-theme{background:linear-gradient(160deg,#120a06 0%,#1b0f0a 46%,#2d1810 100%)}
+    body.warm-theme::before{background:
+      radial-gradient(circle at 12% 8%,rgba(216,177,106,0.14),transparent 45%),
+      radial-gradient(circle at 88% 12%,rgba(200,112,74,0.12),transparent 48%),
+      radial-gradient(circle at 40% 90%,rgba(232,149,109,0.12),transparent 52%)}
+    body.warm-theme nav{background:rgba(32,18,12,0.92);border-bottom:1px solid rgba(255,255,255,0.08)}
+    body.warm-theme .logo{color:#f7e7d9}
+    body.warm-theme .logo span{color:#f0c97a}
+    body.warm-theme .nav-link{color:#e7cbb4}
+    body.warm-theme .nav-link:hover{background:rgba(255,255,255,0.08);color:#fff}
+    body.warm-theme .catalog{background:linear-gradient(160deg,#1a0f0b 0%,#24150f 55%,#2d1b12 100%)}
+    body.warm-theme .reviews{background:linear-gradient(160deg,#1c100c 0%,#251610 60%,#2f1b12 100%)}
+    body.warm-theme .faq-section{background:linear-gradient(160deg,#1b0f0b 0%,#24150f 60%,#2d1a11 100%)}
+    body.warm-theme .catalog .section-header h2,
+    body.warm-theme .reviews .section-header h2,
+    body.warm-theme .faq-section .section-header h2{color:#f7e7d9}
+    body.warm-theme .catalog .section-header p,
+    body.warm-theme .reviews .section-header p,
+    body.warm-theme .faq-section .section-header p{color:#d8c3b4}
+    body.warm-theme .catalog .sec-tag,
+    body.warm-theme .reviews .sec-tag,
+    body.warm-theme .faq-section .sec-tag{color:#f0c97a}
 
     /* HERO */
     .hero{min-height:100vh;background:linear-gradient(160deg,#fff8f2 0%,#fde8d0 40%,#f5d4b5 70%,#edd4b0 100%);display:flex;align-items:center;justify-content:center;padding:90px 5% 60px;text-align:center;position:relative;overflow:hidden}
@@ -121,19 +156,49 @@
     .section-header h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:var(--brown)}
     .section-header p{color:var(--brown-light);font-size:14px;margin-top:10px;font-weight:600}
 
+    /* PAGE TRANSITIONS */
+    .page-section{position:relative;overflow:hidden;isolation:isolate}
+    .page-section:not(.hero)::before{content:'';position:absolute;top:0;left:50%;transform:translate(-50%,-50%) scaleX(.92);width:min(280px,70%);height:2px;background:linear-gradient(90deg,transparent,var(--copper),var(--gold),var(--copper),transparent);opacity:0;transition:opacity .7s ease,transform .7s ease;z-index:0;pointer-events:none}
+    .page-section.is-visible:not(.hero)::before{opacity:1;transform:translate(-50%,-50%) scaleX(1)}
+    .page-section::after{content:'';position:absolute;inset:-8% -6%;background:
+      radial-gradient(circle at 12% 12%,rgba(200,112,74,0.12),transparent 50%),
+      radial-gradient(circle at 85% 18%,rgba(240,201,122,0.16),transparent 55%),
+      radial-gradient(circle at 30% 86%,rgba(232,149,109,0.12),transparent 55%);
+      opacity:0;transform:translateY(22px) scale(1.02);transition:opacity .7s ease,transform .7s ease;z-index:0;pointer-events:none}
+    .page-section.is-visible::after{opacity:1;transform:translateY(0) scale(1)}
+        .page-section > *{position:relative;z-index:1}
+        .page-section .section-emoji-layer{z-index:0}
+    .section-anim{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+    body.io-ready .section-anim{opacity:0;transform:translateY(28px)}
+    body.io-ready .page-section.is-visible .section-anim{opacity:1;transform:translateY(0)}
+    .section-anim.delay-1{transition-delay:.1s}
+    .section-anim.delay-2{transition-delay:.2s}
+    .section-anim.delay-3{transition-delay:.35s}
+    .stagger-item{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+    body.io-ready .stagger-item{opacity:0;transform:translateY(18px)}
+    body.io-ready .page-section.is-visible .stagger-item{opacity:1;transform:translateY(0)}
+    body.io-ready .stagger-item{transition-delay:calc(var(--stagger,0) * .06s)}
+    @media (prefers-reduced-motion: reduce){
+      .section-anim,.page-section::after{transition:none;transform:none;opacity:1}
+    }
+
     /* CATALOG */
     .catalog{padding:90px 5%;background:var(--cream);position:relative}
     .catalog::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--copper),var(--gold),var(--copper-light),var(--copper))}
 
-    .cat-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:44px}
-    .cat-tab{background:#fff;border:2px solid var(--warm2);color:var(--brown-mid);padding:10px 22px;border-radius:24px;font-size:13px;font-weight:800;cursor:pointer;transition:all .3s;font-family:'Assistant',sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .cat-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:44px;position:relative;padding-bottom:14px}
+    .cat-tab{background:#fff;border:2px solid var(--warm2);color:var(--brown-mid);padding:10px 22px;border-radius:24px;font-size:13px;font-weight:800;cursor:pointer;transition:all .3s;font-family:'Assistant',sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative;z-index:1}
     .cat-tab.active,.cat-tab:hover{background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(200,112,74,0.3)}
+    .cat-indicator{position:absolute;top:0;left:0;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--copper),var(--gold),var(--copper-light));box-shadow:0 6px 18px rgba(200,112,74,.35);transition:transform .35s cubic-bezier(.4,0,.2,1),width .35s cubic-bezier(.4,0,.2,1),opacity .2s ease;opacity:0;pointer-events:none}
 
-    .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px;max-width:1160px;margin:0 auto}
-    .prod-card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,0.07);transition:all .35s;border:2px solid transparent;cursor:pointer}
+    .catalog-rail{position:relative;max-width:1160px;margin:0 auto}
+    .rail-track{overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:none}
+    .rail-track::-webkit-scrollbar{display:none}
+    .prod-grid{display:flex;gap:20px;padding:10px 8px 22px;align-items:stretch}
+    .prod-card{flex:0 0 260px;max-width:70vw;background:linear-gradient(180deg,#1a120d,#25160f);border-radius:22px;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,0.35);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;transform:translateZ(0);border:1px solid rgba(255,255,255,0.06);cursor:default;opacity:1;pointer-events:auto;will-change:transform;backface-visibility:hidden;scroll-snap-align:center}
     .prod-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(200,112,74,0.14);border-color:var(--blush)}
-    .prod-img{height:210px;overflow:hidden;position:relative;background:var(--warm1)}
-    .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+    .prod-img{height:210px;overflow:hidden;position:relative;background:linear-gradient(160deg,#20140f,#331d14)}
+    .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block;will-change:transform}
     .prod-card:hover .prod-img img{transform:scale(1.07)}
     .prod-ribbon{position:absolute;top:12px;right:12px;padding:5px 13px;border-radius:14px;font-size:11px;font-weight:800;z-index:2;letter-spacing:.5px}
     .rb-best{background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff}
@@ -142,11 +207,22 @@
     .rb-num{background:linear-gradient(135deg,#9b59b6,#7d3c98);color:#fff}
     .rb-tray{background:linear-gradient(135deg,var(--green),#1e8449);color:#fff}
     .rb-custom{background:linear-gradient(135deg,var(--gold),#b8860b);color:#fff}
-    .prod-body{padding:20px;background:linear-gradient(160deg,#fff8f2,#fdeee0)}
-    .prod-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--brown);margin-bottom:7px}
-    .prod-desc{color:var(--brown-mid);font-size:13px;line-height:1.6;margin-bottom:16px;font-weight:600}
+    .prod-body{padding:20px;background:linear-gradient(160deg,rgba(20,12,9,.85),rgba(36,22,16,.9));display:flex;flex-direction:column;min-height:190px}
+    .prod-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#f7e7d9;margin-bottom:7px;line-height:1.3;min-height:2.6em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .prod-desc{color:#d8c3b4;font-size:13px;line-height:1.6;margin-bottom:14px;font-weight:600;flex:1;min-height:3.6em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
     .prod-btn{width:100%;background:linear-gradient(135deg,var(--copper),var(--copper-dark));color:#fff;border:none;padding:12px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif;transition:opacity .2s;pointer-events:auto;touch-action:manipulation}
     .prod-card:hover .prod-btn{opacity:.9}
+    .rail-btn{position:absolute;top:50%;transform:translateY(-50%);border:none;width:58px;height:58px;border-radius:50%;background:
+      radial-gradient(circle at 30% 30%,rgba(255,255,255,.35),transparent 40%),
+      linear-gradient(135deg,#f6d38a,#c8704a);color:#2d1a0e;font-size:26px;font-weight:900;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 16px 30px rgba(0,0,0,.45), inset 0 0 0 2px rgba(255,255,255,.18);transition:transform .2s ease,opacity .2s ease;z-index:5}
+    .rail-btn:hover{transform:translateY(-50%) scale(1.08)}
+    .rail-btn:active{transform:translateY(-50%) scale(.96)}
+    .rail-btn.prev{right:-8px}
+    .rail-btn.next{left:-8px}
+    .catalog-rail.centered .rail-btn,
+    .catalog-rail.centered .rail-fade{display:none}
+    .catalog-rail.centered .prod-grid{justify-content:center}
+    .rail-fade{position:absolute;top:0;bottom:0;width:14%;pointer-events:none;z-index:2;display:none}
 
     /* REVIEWS */
     .reviews{background:linear-gradient(160deg,#fff9f4,var(--warm1));padding:90px 5%;position:relative}
@@ -222,7 +298,7 @@
 
     /* CTA */
     .cta{background:linear-gradient(135deg,#3d1f10,#5a2d16);color:#fff;padding:80px 5%;text-align:center;position:relative;overflow:hidden}
-    .cta::before{content:'✦';position:absolute;font-size:300px;opacity:.03;top:-60px;left:-40px;pointer-events:none}
+    .cta::before{content:'?';position:absolute;font-size:300px;opacity:.03;top:-60px;left:-40px;pointer-events:none}
     .cta h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,42px);font-weight:900;margin-bottom:14px;position:relative}
     .cta h2 span{color:var(--gold-light)}
     .cta p{font-size:15px;opacity:.8;margin-bottom:32px;max-width:440px;margin-inline:auto;line-height:1.8;font-weight:600;position:relative}
@@ -319,7 +395,7 @@
         .info-grid{grid-template-columns:1fr 1fr}
         .reviews-layout{grid-template-columns:1fr}
         .reviews-summary{position:static}
-        .prod-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+        .prod-card{flex-basis:230px}
         .prod-img{height:180px}
     }
     @media(max-width:600px){
@@ -328,7 +404,7 @@
         .trust-item{font-size:11px;padding:5px 10px}
         .review-form-grid{grid-template-columns:1fr}
         nav .nav-links{display:none}
-        .prod-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+        .prod-card{flex-basis:200px}
         .prod-img{height:150px}
         .prod-body{padding:14px}
         .prod-name{font-size:14px}
@@ -357,7 +433,7 @@
 <body class="warm-theme">
 
 <nav>
-    <a class="logo" href="#">שרה <span>❤</span></a>
+    <a class="logo" href="#">שרה &#9829; <span>חברוני</span></a>
     <div class="nav-links">
         <a href="#catalog" class="nav-link">קטלוג</a>
         <a href="#reviews" class="nav-link">ביקורות</a>
@@ -366,18 +442,17 @@
     </div>
 
     <div class="nav-actions">
-        <a href="https://wa.me/972523394838" target="_blank" class="nav-wa">💬 וואטסאפ</a>
+        <a href="https://wa.me/972523394838" target="_blank" class="nav-wa">וואטסאפ</a>
     </div>
 </nav>
-
-<section class="hero">
+<section class="hero page-section">
     <div class="hero-floats">
         <div class="hf hf1"></div>
         <div class="hf hf2"></div>
         <div class="hf hf3"></div>
     </div>
-    <div class="hero-inner">
-        <div class="hero-badge">🏠 Home Made Bakery · חריש</div>
+    <div class="hero-inner section-anim delay-1">
+        <div class="hero-badge">&#9829; Home Made Bakery · חריש</div>
         <div id="heroWelcome" class="hero-welcome" aria-live="polite" style="display:none">
             <div class="hero-welcome-card">
                 <div class="welcome-eyebrow" id="heroWelcomeEyebrow">ברוכה הבאה</div>
@@ -385,231 +460,240 @@
                 <div class="welcome-sub" id="heroWelcomeSub">תהני מהנקודות, המתנות וההפתעות באזור האישי.</div>
             </div>
         </div>
-        <h1>מתוקים<span class="accent">מהלב ❤</span></h1>
+        <h1>מתוקים<span class="accent">מהלב &#9829;</span></h1>
         <p class="hero-desc">מארזי מתוקים, עוגות מספרים ומגשים מרהיבים – הכל עשוי בעבודת יד עם אהבה. כל מארז מותאם אישית לפי בקשתכם.</p>
         <div class="hero-btns">
-            <button class="btn-primary" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">🛒 לקטלוג המלא</button>
-            <a href="https://wa.me/972523394838" target="_blank" class="btn-wa-hero">💬 שלחו הודעה</a>
+            <button class="btn-primary" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">לקטלוג המלא</button>
+            <a href="https://wa.me/972523394838" target="_blank" class="btn-wa-hero">שלחו הודעה</a>
         </div>
-        <div class="hero-scroll">↓ גלגלו למטה ↓</div>
+        <div class="hero-scroll">&#9660; גלגלו למטה</div>
     </div>
 </section>
 
 <div class="trust">
-    <div class="trust-item">🏠 עבודת יד בלבד</div>
-    <div class="trust-item">✨ מרכיבים איכותיים</div>
-    <div class="trust-item">🎨 התאמה אישית</div>
-    <div class="trust-item">🛵 משלוחים לפי אזור</div>
-    <div class="trust-item">💳 ביט / מזומן</div>
+    <div class="trust-item">&#10004; עבודת יד בלבד</div>
+    <div class="trust-item">&#10004; מרכיבים איכותיים</div>
+    <div class="trust-item">&#10004; התאמה אישית</div>
+    <div class="trust-item">&#10004; משלוחים לפי אזור</div>
+    <div class="trust-item">&#10004; ביט / מזומן</div>
 </div>
 
-<section class="catalog" id="catalog">
-    <div class="section-header">
-        <span class="sec-tag">🛒 הקטלוג</span>
+<section class="catalog page-section" id="catalog">
+    <div class="section-header section-anim delay-1">
+        <span class="sec-tag"> הקטלוג</span>
         <h2>בחרו את המארז שלכם</h2>
-        <p>לחצו על מוצר, בחרו כיתוב/מספר והוסיפו לסל 🛒</p>
+        <p>לחצו על מוצר, בחרו כיתוב/מספר והוסיפו לסל</p>
     </div>
-    <div class="cat-tabs">
-        <div class="cat-tab active" onclick="filterCat('all',this)">🍫 הכל</div>
-        <div class="cat-tab" onclick="filterCat('maarz',this)">🎁 מארזים</div>
-        <div class="cat-tab" onclick="filterCat('mispar',this)">🔢 עוגות מספרים</div>
-        <div class="cat-tab" onclick="filterCat('mgash',this)">🍪 מגשים</div>
-        <div class="cat-tab" onclick="filterCat('custom',this)">✨ מותאם אישית</div>
+    <div class="cat-tabs section-anim delay-2">
+        <div class="cat-tab active" onclick="filterCat('all',this)"> הכל</div>
+        <div class="cat-tab" onclick="filterCat('maarz',this)"> מארזים</div>
+        <div class="cat-tab" onclick="filterCat('mispar',this)"> עוגות מספרים</div>
+        <div class="cat-tab" onclick="filterCat('mgash',this)"> מגשים</div>
+        <div class="cat-tab" onclick="filterCat('custom',this)">מותאם אישית</div>
+        <span id="catIndicator" class="cat-indicator" aria-hidden="true"></span>
     </div>
-    <div class="prod-grid" id="prodGrid">
+    <div class="catalog-rail">
+    <button type="button" class="rail-btn prev" onclick="scrollCatalog(-1)">‹</button>
+    <div class="rail-track" id="catalogRail">
+    <div class="prod-grid section-anim delay-3" id="prodGrid" data-stagger>
 
         <!-- MAARATZIM -->
-        <div class="prod-card" data-cat="maarz" data-desc-full="לב מוס גדול עם כיתוב אישי + פחזניות קרמבל מסביב" onclick="openModal(this)">
-            <div class="prod-img"><img src="mousse_box.jpg" alt="מארז מוס לב"><div class="prod-ribbon rb-best">⭐ פופולרי</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="לב מוס גדול עם כיתוב אישי + פחזניות קרמבל מסביב">
+            <div class="prod-img"><img src="mousse_box_-_Copy.jpg" alt="מארז מוס לב"><div class="prod-ribbon rb-best">פופולרי</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז לב מוס + פחזניות</div>
                 <div class="prod-desc">לב מוס גדול עם כיתוב אישי + פחזניות קרמבל מסביב</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="maarz" data-desc-full="מוס עגול גדול עם כיתוב + מגולגלות קינדר + אלפחורס" onclick="openModal(this)">
-            <div class="prod-img"><img src="mousse_big.jpg" alt="מארז מוס גדול מפנק"><div class="prod-ribbon rb-bday">🎂 מיוחד</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="מוס עגול גדול עם כיתוב + מגולגלות קינדר + אלפחורס">
+            <div class="prod-img"><img src="mousse_big_-_Copy.jpg" alt="מארז מוס גדול מפנק"><div class="prod-ribbon rb-bday">מיוחד</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז מוס גדול מפנק</div>
                 <div class="prod-desc">מוס עגול גדול עם כיתוב + מגולגלות קינדר + אלפחורס</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="maarz" data-desc-full="מוס עגול עם כיתוב + מגולגלות קינדר" onclick="openModal(this)">
-            <div class="prod-img"><img src="box1.jpg" alt="מארז יום הולדת"><div class="prod-ribbon rb-bday">🎂 יום הולדת</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="מוס עגול עם כיתוב + מגולגלות קינדר">
+            <div class="prod-img"><img src="box1.jpg" alt="מארז יום הולדת"><div class="prod-ribbon rb-bday">יום הולדת</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז יום הולדת</div>
                 <div class="prod-desc">מוס עגול עם כיתוב + מגולגלות קינדר</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="maarz" data-desc-full="לב מוס עם כיתוב + הפתעות" onclick="openModal(this)">
-            <div class="prod-img"><img src="box2.jpg" alt="מארז לב"><div class="prod-ribbon rb-best">⭐ פופולרי</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="לב מוס עם כיתוב + הפתעות">
+            <div class="prod-img"><img src="box2.jpg" alt="מארז לב"><div class="prod-ribbon rb-best">פופולרי</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז לב מוס + הפתעות</div>
                 <div class="prod-desc">לב מוס עם כיתוב + הפתעות</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="maarz" data-desc-full="מוס לבן עם כיתוב + הפתעות" onclick="openModal(this)">
-            <div class="prod-img"><img src="box3.jpg" alt="מארז מינימליסטי"><div class="prod-ribbon rb-love">💝 מתנה</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="מוס לבן עם כיתוב + הפתעות">
+            <div class="prod-img"><img src="box3.jpg" alt="מארז מינימליסטי"><div class="prod-ribbon rb-love">מתנה</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז מינימליסטי</div>
                 <div class="prod-desc">מוס לבן עם כיתוב + הפתעות</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="maarz" data-desc-full="לב לבן עם כיתוב + הכל מהכל" onclick="openModal(this)">
-            <div class="prod-img"><img src="box4.jpg" alt="מארז תודה רבה"><div class="prod-ribbon rb-love">🤍 תודה</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="לב לבן עם כיתוב + הכל מהכל">
+            <div class="prod-img"><img src="box4.jpg" alt="מארז תודה רבה"><div class="prod-ribbon rb-love">תודה</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז הכל מהכל – תודה רבה</div>
                 <div class="prod-desc">לב לבן עם כיתוב + הכל מהכל</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="maarz" data-desc-full="לב עם כיתוב + הכל מהכל" onclick="openModal(this)">
-            <div class="prod-img"><img src="box5.jpg" alt="מארז מיוחד יום הולדת"><div class="prod-ribbon rb-bday">🎂 יום הולדת</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="לב עם כיתוב + הכל מהכל">
+            <div class="prod-img"><img src="box5.jpg" alt="מארז מיוחד יום הולדת"><div class="prod-ribbon rb-bday">יום הולדת</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז מיוחד יום הולדת</div>
                 <div class="prod-desc">לב עם כיתוב + הכל מהכל</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="maarz" data-desc-full="לב לבן עם כיתוב + אלפחורס + מגולגלות קינדר" onclick="openModal(this)">
-            <div class="prod-img"><img src="box6.jpg" alt="מארז אדם יקר"><div class="prod-ribbon rb-love">💝 לאדם יקר</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="לב לבן עם כיתוב + אלפחורס + מגולגלות קינדר">
+            <div class="prod-img"><img src="box6_-_Copy_-_Copy.jpg" alt="מארז אדם יקר"><div class="prod-ribbon rb-love">לאדם יקר</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז אדם יקר</div>
                 <div class="prod-desc">לב לבן עם כיתוב + אלפחורס + מגולגלות קינדר</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="maarz" data-desc-full="לב לבן עם כיתוב + הפתעות" onclick="openModal(this)">
-            <div class="prod-img"><img src="box7.jpg" alt="מארז הערכה מיוחד"><div class="prod-ribbon rb-love">הערכה</div></div>
+        <div class="prod-card" data-cat="maarz" data-desc-full="לב לבן עם כיתוב + הפתעות">
+            <div class="prod-img"><img src="box7_-_Copy.jpg" alt="מארז הערכה מיוחד"><div class="prod-ribbon rb-love">הערכה</div></div>
             <div class="prod-body">
                 <div class="prod-name">מארז הערכה מיוחד</div>
                 <div class="prod-desc">לב לבן עם כיתוב + הפתעות</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
         <!-- NUMBERS -->
-        <div class="prod-card" data-cat="mispar" data-desc-full="עוגת מספרים חד ספרתי עם ממתקים, מרשמלו ושוקולדים" onclick="openModal(this)">
-            <div class="prod-img"><img src="number1.jpg" alt="עוגת מספרים חד ספרתי"><div class="prod-ribbon rb-num">🔢 חד ספרתי</div></div>
+        <div class="prod-card" data-cat="mispar" data-desc-full="עוגת מספרים חד ספרתי עם ממתקים, מרשמלו ושוקולדים">
+            <div class="prod-img"><img src="number1.jpg" alt="עוגת מספרים חד ספרתי"><div class="prod-ribbon rb-num">חד ספרתי</div></div>
             <div class="prod-body">
                 <div class="prod-name">עוגת מספרים – חד ספרתי</div>
                 <div class="prod-desc">עוגת מספרים עם ממתקים, מרשמלו ושוקולדים</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="mispar" data-desc-full="עוגת מספר דו ספרתי עם ממתקים, מרשמלו" onclick="openModal(this)">
-            <div class="prod-img"><img src="number2.jpg" alt="עוגת מספרים דו ספרתי"><div class="prod-ribbon rb-num">🔢 דו ספרתי</div></div>
+        <div class="prod-card" data-cat="mispar" data-desc-full="עוגת מספר דו ספרתי עם ממתקים, מרשמלו">
+            <div class="prod-img"><img src="number2.jpg" alt="עוגת מספרים דו ספרתי"><div class="prod-ribbon rb-num">דו ספרתי</div></div>
             <div class="prod-body">
                 <div class="prod-name">עוגת מספרים – דו ספרתי</div>
                 <div class="prod-desc">עוגת מספר דו ספרתי עם ממתקים, מרשמלו</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
         <!-- TRAYS -->
-        <div class="prod-card" data-cat="mgash" data-desc-full="מגש מתוקים גדול: פחזניות + מגולגלות + עוגיות + אלפחורס" onclick="openModal(this)">
-            <div class="prod-img"><img src="sweet_tray1.jpg" alt="מגש מתוקים גדול"><div class="prod-ribbon rb-tray">🍪 מגש</div></div>
+        <div class="prod-card" data-cat="mgash" data-desc-full="מגש מתוקים גדול: פחזניות + מגולגלות + עוגיות + אלפחורס">
+            <div class="prod-img"><img src="sweet_tray1.jpg" alt="מגש מתוקים גדול"><div class="prod-ribbon rb-tray">מגש</div></div>
             <div class="prod-body">
                 <div class="prod-name">מגש מתוקים גדול</div>
                 <div class="prod-desc">פחזניות | מגולגלות | עוגיות | אלפחורס</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="mgash" data-desc-full="מגש מתוקים ללא פחזניות: מגולגלות + עוגיות + אלפחורס" onclick="openModal(this)">
-            <div class="prod-img"><img src="sweet_tray2.jpg" alt="מגש ללא פחזניות"><div class="prod-ribbon rb-tray">🍪 מגש</div></div>
+        <div class="prod-card" data-cat="mgash" data-desc-full="מגש מתוקים ללא פחזניות: מגולגלות + עוגיות + אלפחורס">
+            <div class="prod-img"><img src="sweet_tray2.jpg" alt="מגש ללא פחזניות"><div class="prod-ribbon rb-tray">מגש</div></div>
             <div class="prod-body">
                 <div class="prod-name">מגש מתוקים – ללא פחזניות</div>
                 <div class="prod-desc">מגולגלות | עוגיות | אלפחורס</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="mgash" data-desc-full="מגש לבבות: קרם בורלה + מגולגלות קינדר + עוגיות" onclick="openModal(this)">
-            <div class="prod-img"><img src="sweet_tray3.jpg" alt="מגש לבבות"><div class="prod-ribbon rb-tray">🍪 מגש</div></div>
+        <div class="prod-card" data-cat="mgash" data-desc-full="מגש לבבות: קרם בורלה + מגולגלות קינדר + עוגיות">
+            <div class="prod-img"><img src="sweet_tray3.jpg" alt="מגש לבבות"><div class="prod-ribbon rb-tray">מגש</div></div>
             <div class="prod-body">
                 <div class="prod-name">מגש לבבות</div>
                 <div class="prod-desc">קרם בורלה | מגולגלות קינדר | עוגיות</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="mgash" data-desc-full="מגש: פחזניות + מגולגלות + כדורים" onclick="openModal(this)">
-            <div class="prod-img"><img src="sweet_tray4.jpg" alt="מגש פחזניות כדורים"><div class="prod-ribbon rb-tray">🍪 מגש</div></div>
+        <div class="prod-card" data-cat="mgash" data-desc-full="מגש: פחזניות + מגולגלות + כדורים">
+            <div class="prod-img"><img src="sweet_tray4.jpg" alt="מגש פחזניות כדורים"><div class="prod-ribbon rb-tray">מגש</div></div>
             <div class="prod-body">
                 <div class="prod-name">מגש פחזניות וכדורים</div>
                 <div class="prod-desc">פחזניות | מגולגלות | כדורים</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
-        <div class="prod-card" data-cat="mgash" data-desc-full="מגש: פחזניות + עוגיות + עוגיות אמסטרדם" onclick="openModal(this)">
-            <div class="prod-img"><img src="sweet_tray5.jpg" alt="מגש אמסטרדם"><div class="prod-ribbon rb-best">⭐ פופולרי</div></div>
+        <div class="prod-card" data-cat="mgash" data-desc-full="מגש: פחזניות + עוגיות + עוגיות אמסטרדם">
+            <div class="prod-img"><img src="sweet_tray5.jpg" alt="מגש אמסטרדם"><div class="prod-ribbon rb-best">פופולרי</div></div>
             <div class="prod-body">
                 <div class="prod-name">מגש אמסטרדם</div>
                 <div class="prod-desc">פחזניות | עוגיות | עוגיות אמסטרדם</div>
-                <button class="prod-btn">🛒 להזמנה</button>
+                <button class="prod-btn">להזמנה</button>
             </div>
         </div>
 
         <!-- CUSTOM -->
-        <div class="prod-card" data-cat="custom" data-desc-full="מארז מותאם אישית לפי הבקשה שלך – ספרו לשרה מה אתם רוצים!" onclick="openModal(this)">
+        <div class="prod-card" data-cat="custom" data-desc-full="מארז מותאם אישית לפי הבקשה שלך – ספרו לשרה מה אתם רוצים!">
             <div class="prod-img" style="background:linear-gradient(135deg,#fde8c8,#f5c87a);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px">
-                <span style="font-size:64px">✨</span>
+                <span style="font-size:64px"></span>
                 <span style="font-family:'Playfair Display',serif;font-size:18px;color:#7a5010;font-weight:700">מארז חלומות</span>
             </div>
             <div class="prod-body">
-                <div class="prod-ribbon rb-custom" style="position:static;display:inline-block;margin-bottom:10px">✨ מותאם אישית</div>
+                <div class="prod-ribbon rb-custom" style="position:static;display:inline-block;margin-bottom:10px">מותאם אישית</div>
                 <div class="prod-name">מארז מותאם אישית</div>
                 <div class="prod-desc">ספרו לשרה בדיוק מה אתם רוצים – כיתוב, צבעים, תכולה – והיא תבנה בשבילכם מארז חלומות!</div>
-                <button class="prod-btn">✨ בנו את המארז שלכם</button>
+                <button class="prod-btn">בנו את המארז שלכם</button>
             </div>
         </div>
 
+    </div>
+    </div>
+    <button type="button" class="rail-btn next" onclick="scrollCatalog(1)">›</button>
+    <div class="rail-fade left" aria-hidden="true"></div>
+    <div class="rail-fade right" aria-hidden="true"></div>
     </div>
 
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews" id="reviews">
-    <div class="section-header">
-        <span class="sec-tag">⭐ ביקורות</span>
+<section class="reviews page-section" id="reviews">
+    <div class="section-header section-anim delay-1">
+        <span class="sec-tag">ביקורות</span>
         <h2>מה אומרות הלקוחות</h2>
     </div>
-    <div class="reviews-layout">
+    <div class="reviews-layout section-anim delay-2">
         <div class="reviews-summary">
             <div class="rs-score">4.9</div>
-            <div class="rs-stars">★★★★★</div>
+            <div class="rs-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <div class="rs-count">מבוסס על 47 ביקורות</div>
             <div class="rs-bars">
-                <div class="rs-bar-row"><div class="rs-bar-label">5 ★</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:92%"></div></div><div class="rs-bar-num">43</div></div>
-                <div class="rs-bar-row"><div class="rs-bar-label">4 ★</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:8%"></div></div><div class="rs-bar-num">4</div></div>
-                <div class="rs-bar-row"><div class="rs-bar-label">3 ★</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:0%"></div></div><div class="rs-bar-num">0</div></div>
+                <div class="rs-bar-row"><div class="rs-bar-label">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:92%"></div></div><div class="rs-bar-num">43</div></div>
+                <div class="rs-bar-row"><div class="rs-bar-label">&#9733;&#9733;&#9733;&#9733;&#9734;</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:8%"></div></div><div class="rs-bar-num">4</div></div>
+                <div class="rs-bar-row"><div class="rs-bar-label">&#9733;&#9733;&#9733;&#9734;&#9734;</div><div class="rs-bar-track"><div class="rs-bar-fill" style="width:0%"></div></div><div class="rs-bar-num">0</div></div>
             </div>
         </div>
-        <div class="reviews-list" id="reviewsStaticList">
-            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">מ</div><div><div class="rc-name">מיכל כ.</div><div class="rc-loc">חריש</div></div></div><div class="rc-stars">★★★★★</div></div><div class="rc-text">"הזמנתי מארז ליום הולדת של הבת שלי ויצא פשוט מדהים! כולם שאלו מאיפה. הכיתוב היה מושלם, הטעם מעולה. שרה אלופה!"</div></div>
-            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">ר</div><div><div class="rc-name">רחל ל.</div><div class="rc-loc">חריש</div></div></div><div class="rc-stars">★★★★★</div></div><div class="rc-text">"הזמנתי מארז לאמא שלי ל-60. היא לא רצתה לאכול כי זה היה יפה מדי! שרה עושה עבודה ברמה הכי גבוהה, ממליצה בחום!"</div></div>
-            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">ד</div><div><div class="rc-name">דנה א.</div><div class="rc-loc">פרדס חנה</div></div></div><div class="rc-stars">★★★★★</div></div><div class="rc-text">"עוגת המספרים לבן שלי ליום הולדת שנתיים יצאה כל כך יפה! בדיוק כמו שביקשתי. שרה קשובה ומקצועית!"</div></div>
-            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">נ</div><div><div class="rc-name">נטע ב.</div><div class="rc-loc">חריש</div></div></div><div class="rc-stars">★★★★★</div></div><div class="rc-text">"קניתי מארז לחברה שלי ליום הולדת והיא בכתה מרוב שמחה! המארז היה מיוחד ואישי. תודה שרה!"</div></div>
-            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">ש</div><div><div class="rc-name">שירה מ.</div><div class="rc-loc">זכרון יעקב</div></div></div><div class="rc-stars">★★★★☆</div></div><div class="rc-text">"הזמנתי מגש לאירוע משפחתי. כולם שאלו מאיפה. שרה עונה מהר בוואטסאפ ומאוד נחמדה. בהחלט אזמין שוב!"</div></div>
+        <div class="reviews-list" id="reviewsStaticList" data-stagger>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">מ</div><div><div class="rc-name">מיכל כ.</div><div class="rc-loc">חריש</div></div></div><div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="rc-text">"הזמנתי מארז ליום הולדת של הבת שלי ויצא פשוט מדהים! כולם שאלו מאיפה. הכיתוב היה מושלם, הטעם מעולה. שרה אלופה!"</div></div>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">ר</div><div><div class="rc-name">רחל ל.</div><div class="rc-loc">חריש</div></div></div><div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="rc-text">"הזמנתי מארז לאמא שלי ל-60. היא לא רצתה לאכול כי זה היה יפה מדי! שרה עושה עבודה ברמה הכי גבוהה, ממליצה בחום!"</div></div>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">ד</div><div><div class="rc-name">דנה א.</div><div class="rc-loc">פרדס חנה</div></div></div><div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="rc-text">"עוגת המספרים לבן שלי ליום הולדת שנתיים יצאה כל כך יפה! בדיוק כמו שביקשתי. שרה קשובה ומקצועית!"</div></div>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">נ</div><div><div class="rc-name">נטע ב.</div><div class="rc-loc">חריש</div></div></div><div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="rc-text">"קניתי מארז לחברה שלי ליום הולדת והיא בכתה מרוב שמחה! המארז היה מיוחד ואישי. תודה שרה!"</div></div>
+            <div class="review-card"><div class="rc-top"><div class="rc-author"><div class="rc-av">ש</div><div><div class="rc-name">שירה מ.</div><div class="rc-loc">זכרון יעקב</div></div></div><div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div class="rc-text">"הזמנתי מגש לאירוע משפחתי. כולם שאלו מאיפה. שרה עונה מהר בוואטסאפ ומאוד נחמדה. בהחלט אזמין שוב!"</div></div>
         </div>
     </div>
 
-    <div class="review-add-wrap">
+    <div class="review-add-wrap section-anim delay-3">
         <div class="review-add-card" id="reviewAuthHint">
             <h3>רוצים להוסיף ביקורת?</h3>
             <p>התחברו כדי לפרסם ביקורת חדשה ולהעלות תמונות מההזמנה שלכם.</p>
@@ -639,50 +723,50 @@
             <div class="review-inline-msg">הביקורת תופיע בפאנל המנהלת ותפורסם באתר אחרי אישור.</div>
         </div>
 
-        <div id="reviewsUserList" class="reviews-list" style="margin-top:16px"></div>
+        <div id="reviewsUserList" class="reviews-list" style="margin-top:16px" data-stagger></div>
     </div>
 </section>
 
 <!-- INFO -->
 
-<section class="info-section" id="info">
-    <div class="section-header">
-        <span class="sec-tag">ℹ️ פרטים</span>
+<section class="info-section page-section" id="info">
+    <div class="section-header section-anim delay-1">
+        <span class="sec-tag"> פרטים</span>
         <h2 style="color:#fff">כל מה שצריך לדעת</h2>
     </div>
-    <div class="info-grid">
+    <div class="info-grid section-anim delay-2" data-stagger>
         <div class="info-card">
-            <span class="info-icon">✡️</span>
+            <span class="info-icon">&#128205;</span>
             <div class="info-title">כתובת</div>
             <div class="info-text">אתרוג 3 דירה 16<br><strong>חריש</strong><br>איסוף עצמי</div>
         </div>
         <div class="info-card">
-            <span class="info-icon">✡️</span>
+            <span class="info-icon">&#128663;</span>
             <div class="info-title">משלוחים</div>
             <div class="info-text">אזורי משלוח: חריש · טל מנשה · פרדס חנה<br>תיאום בוואטסאפ</div>
         </div>
         <div class="info-card">
-            <span class="info-icon">✡️</span>
+            <span class="info-icon">&#128179;</span>
             <div class="info-title">תשלום</div>
-            <div class="info-text">💙 ביט<br>🅿️ פייבוקס<br>💵 מזומן<br>בקבלת ההזמנה</div>
+            <div class="info-text"> ביט<br>פייבוקס<br> מזומן<br>בקבלת ההזמנה</div>
         </div>
         <div class="info-card">
-            <span class="info-icon">✡️</span>
+            <span class="info-icon">&#10017;</span>
             <div class="info-title">כשרות</div>
             <div class="info-text">כל המוצרים <strong>כשרים</strong><br>ברמה הגבוהה ביותר<br>עם מרכיבים איכותיים בלבד</div>
-            <div><span class="kosher-badge">✡️ כשר למהדרין</span></div>
+            <div><span class="kosher-badge">&#10017; כשר למהדרין</span></div>
         </div>
     </div>
 </section>
 
-<section class="faq-section" id="faq">
-    <div class="section-header">
-        <span class="sec-tag">❓ שאלות נפוצות</span>
+<section class="faq-section page-section" id="faq">
+    <div class="section-header section-anim delay-1">
+        <span class="sec-tag">שאלות נפוצות</span>
         <h2>מה שחשוב לדעת לפני הזמנה</h2>
         <p>ריכזתי בשבילכם תשובות קצרות לשאלות שהלקוחות שואלים הכי הרבה.</p>
     </div>
-    <div class="faq-wrap">
-        <div class="faq-list">
+    <div class="faq-wrap section-anim delay-2">
+        <div class="faq-list" data-stagger>
             <details class="faq-item">
                 <summary>כמה זמן מראש כדאי להזמין?</summary>
                 <div class="faq-answer">מומלץ להזמין לפחות 2-4 ימים מראש. בתקופות עמוסות (חגים/סופ"ש) עדיף כמה שיותר מוקדם כדי לשמור מקום ביומן.</div>
@@ -719,18 +803,18 @@
         <div class="faq-note">לא מצאתם תשובה? שלחו הודעה בוואטסאפ ותקבלו מענה מהיר.</div>
     </div>
 </section>
-<section class="cta">
-    <h2>רוצים <span>מארז מיוחד</span>? 🎁</h2>
-    <p>שלחו הודעה בוואטסאפ ושרה תחזור אליכם עם כל הפרטים 💕</p>
-    <a href="https://wa.me/972523394838" target="_blank" class="btn-wa-big">💬 שלחו הודעה לשרה</a>
+<section class="cta page-section">
+    <h2 class="section-anim delay-1">רוצים <span>מארז מיוחד</span></h2>
+    <p class="section-anim delay-2">שלחו הודעה בוואטסאפ ושרה תחזור אליכם עם כל הפרטים</p>
+    <a href="https://wa.me/972523394838" target="_blank" class="btn-wa-big section-anim delay-3">שלחו הודעה לשרה</a>
 </section>
 
 <footer>
-    <div class="footer-brand">🎂 שרה <span>חברוני</span></div>
+    <div class="footer-brand">שרה &#9829; <span>חברוני</span></div>
     <div class="footer-links">
-        <a href="tel:+972523394838">📞 052-3394838</a>
-        <a href="mailto:saraiat1113@gmail.com">📧 saraiat1113@gmail.com</a>
-        <a href="https://waze.com/ul?q=אתרוג+3+חריש" target="_blank">📍 אתרוג 3 דירה 16, חריש</a>
+        <a href="tel:+972523394838">052-3394838</a>
+        <a href="mailto:saraiat1113@gmail.com">saraiat1113@gmail.com</a>
+        <a href="https://waze.com/ul?q=אתרוג+3+חריש" target="_blank">אתרוג 3 דירה 16, חריש</a>
     </div>
     <div class="footer-bottom">© 2025 שרה חברוני · Home Made Bakery</div>
 </footer>
@@ -739,9 +823,9 @@
 
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOut(event)">
     <div class="modal">
-        <button class="modal-close" onclick="closeModal()">✕</button>
+        <button class="modal-close" onclick="closeModal()">&#10005;</button>
         <img id="mImg" src="" alt="" class="modal-img" onerror="this.style.display='none'">
-        <div id="mImgPlaceholder" style="display:none;width:100%;height:210px;background:linear-gradient(135deg,#fde8c8,#f5c87a);border-radius:26px 26px 0 0;display:flex;align-items:center;justify-content:center;font-size:64px">✨</div>
+        <div id="mImgPlaceholder" style="display:none;width:100%;height:210px;background:linear-gradient(135deg,#fde8c8,#f5c87a);border-radius:26px 26px 0 0;display:flex;align-items:center;justify-content:center;font-size:64px"></div>
         <div class="modal-body">
             <div class="modal-prod-name" id="mTitle"></div>
             <div class="modal-prod-desc" id="mDesc"></div>
@@ -758,7 +842,7 @@
                         <div class="builder-row"><div class="builder-name">לב גדול קוטר 16</div><div class="builder-price">₪80</div><input class="builder-qty" type="number" min="0" value="0" data-item="לב גדול 16" data-price="80" oninput="updateCustomTotal()"></div>
                         <div class="builder-row"><div class="builder-name">קריסטל עגול קוטר 16</div><div class="builder-price">₪90</div><input class="builder-qty" type="number" min="0" value="0" data-item="קריסטל עגול 16" data-price="90" oninput="updateCustomTotal()"></div>
                         <div class="builder-row"><div class="builder-name">קינוח כוס</div><div class="builder-price">₪15</div><input class="builder-qty" type="number" min="0" value="0" data-item="קינוח כוס" data-price="15" oninput="updateCustomTotal()"></div>
-                        <div class="builder-row"><div class="builder-name">תוספת הקדשה (עד 2 מילים)</div><div class="builder-price">₪10</div><input class="builder-qty" type="number" min="0" max="1" value="0" data-item="תוספת הקדשה" data-price="10" oninput="updateCustomTotal()"></div>
+                        <div class="builder-row"><div class="builder-name">תוספת הקדשה</div><div class="builder-price">₪10</div><input class="builder-qty" type="number" min="0" max="1" value="0" data-item="תוספת הקדשה" data-price="10" oninput="updateCustomTotal()"></div>
                     </div>
 
                     <div class="builder-group">
@@ -808,9 +892,9 @@
                     </div>
 <h4 class="legacy-field">שיטת תשלום</h4>
                     <div class="modal-pay legacy-field">
-                        <div class="pay-opt" onclick="selectPay(this,'ביט 💙')"><span class="pay-icon">💙</span>ביט</div>
-                        <div class="pay-opt" onclick="selectPay(this,'מזומן 💵')"><span class="pay-icon">💵</span>מזומן</div>
-                        <div class="pay-opt" onclick="selectPay(this,'עוד לא החלטתי')"><span class="pay-icon">🤔</span>לא יודע</div>
+                        <div class="pay-opt" onclick="selectPay(this,'ביט')"><span class="pay-icon"></span>ביט</div>
+                        <div class="pay-opt" onclick="selectPay(this,'מזומן')"><span class="pay-icon"></span>מזומן</div>
+                        <div class="pay-opt" onclick="selectPay(this,'עוד לא החלטתי')"><span class="pay-icon"></span>לא יודע</div>
                     </div>
 
                     <h4 class="legacy-field">שם הלקוח</h4>
@@ -831,11 +915,11 @@
                             <input type="text" class="modal-input" id="cfColors" placeholder="למשל: ורוד ולבן, זהב, כחול...">
                             <h4>מה המאורע?</h4>
                             <div class="occasion-chips" id="occasionChips">
-                                <div class="occ-chip" onclick="selectOcc(this,'יום הולדת 🎂')">יום הולדת 🎂</div>
-                                <div class="occ-chip" onclick="selectOcc(this,'תודה 🤍')">תודה 🤍</div>
-                                <div class="occ-chip" onclick="selectOcc(this,'מתנה 🎁')">מתנה 🎁</div>
-                                <div class="occ-chip" onclick="selectOcc(this,'אירוסין 💍')">אירוסין 💍</div>
-                                <div class="occ-chip" onclick="selectOcc(this,'לידה 👶')">לידה 👶</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'יום הולדת')">יום הולדת </div>
+                                <div class="occ-chip" onclick="selectOcc(this,'תודה')">תודה</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'מתנה')">מתנה</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'אירוסין')">אירוסין</div>
+                                <div class="occ-chip" onclick="selectOcc(this,'לידה')">לידה</div>
                                 <div class="occ-chip" onclick="selectOcc(this,'אחר')">אחר</div>
                             </div>
                             <h4>תיאור חופשי</h4>
@@ -870,25 +954,25 @@
                         </div>
                     </div>
 
-                    <button class="modal-submit" id="submitBtn" onclick="submitOrder()">שלחו הזמנה לשרה</button>
+                    <button class="modal-submit" id="submitBtn" onclick="submitOrder()">הוספה לסל</button>
                 </div>
             </div>
             <div class="modal-success" id="modalSuccess">
-                <div class="success-icon">🎉</div>
+                <div class="success-icon">&#127881;</div>
                 <div class="success-title">ההזמנה נקלטה!</div>
                 <div id="successOrderNum" style="font-family:'Playfair Display',serif;font-size:22px;color:var(--copper);font-weight:900;margin:8px 0 4px;letter-spacing:1px"></div>
                 <div style="background:var(--warm1);border-radius:14px;padding:14px;margin:12px 0 16px;border:1.5px solid var(--warm2);text-align:right">
                     <div style="font-size:13px;color:var(--brown-mid);line-height:1.85;font-weight:700">
-                        📋 <strong>שמרו את מספר ההזמנה</strong><br>
-                        שרה תיצור איתכם קשר כשיהיה מוכן 💕<br>
-                        יש שאלות? דברו איתה ישירות בוואטסאפ 👇
+                         <strong>שמרו את מספר ההזמנה</strong><br>
+                        שרה תיצור איתכם קשר כשיהיה מוכן <br>
+                        יש שאלות? דברו איתה ישירות בוואטסאפ
                     </div>
                 </div>
                 <a id="successWaLink" href="#" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:13px;border-radius:14px;font-size:15px;font-weight:800;text-decoration:none;margin-bottom:10px;box-sizing:border-box">
-                    💬 שאלות? כתבו לשרה בוואטסאפ
+                     שאלות? כתבו לשרה בוואטסאפ
                 </a>
                 <button onclick="closeModal()" style="width:100%;background:#fff;color:var(--brown-mid);border:2px solid var(--warm2);padding:11px;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Assistant',sans-serif">
-                    סגירה ✕
+                    סגירה &#10005;
                 </button>
             </div>
         </div>
@@ -963,7 +1047,7 @@
         area.style.display=wants?'block':'none';
         if(!wants){ var ins=document.getElementById('inscriptionInput'); if(ins) ins.value=''; }
         var title=area.querySelector('h4');
-        if(title) title.textContent = wants ? 'כיתוב על המארז (עד 2 מילים)' : 'כיתוב על המארז';
+        if(title) title.textContent = wants ? 'כיתוב על המארז ' : 'כיתוב על המארז';
     }
 
     function resetCustomBuilder(){
@@ -1113,12 +1197,78 @@
         restoreCustomBuilderSnapshot();
     }
 
+    function getCatalogRail(){
+        return document.getElementById('catalogRail');
+    }
+
+    function scrollCatalog(dir){
+        var rail = getCatalogRail();
+        if(!rail) return;
+        var isRTL = (document.documentElement && document.documentElement.dir === 'rtl');
+        var delta = dir * 320;
+        if(isRTL) delta = -delta;
+        rail.scrollBy({ left: delta, behavior: 'smooth' });
+    }
+
+    function resetCatalogRail(){
+        var rail = getCatalogRail();
+        if(!rail) return;
+        var isRTL = (document.documentElement && document.documentElement.dir === 'rtl');
+        rail.scrollLeft = isRTL ? rail.scrollWidth : 0;
+    }
+
+    function updateCatalogCentered(){
+        var rail = document.querySelector('.catalog-rail');
+        if(!rail) return;
+        var items = Array.prototype.slice.call(document.querySelectorAll('.prod-card')).filter(function(card){
+            return card && card.style.display !== 'none';
+        });
+        rail.classList.toggle('centered', items.length <= 2);
+    }
+
+    function shuffleVisibleProducts(){
+        var grid = document.getElementById('prodGrid');
+        if(!grid) return;
+        var cards = Array.prototype.slice.call(grid.querySelectorAll('.prod-card'));
+        var visible = cards.filter(function(card){ return card && card.style.display !== 'none'; });
+        for(var i = visible.length - 1; i > 0; i--){
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = visible[i];
+            visible[i] = visible[j];
+            visible[j] = tmp;
+        }
+        visible.forEach(function(card){ grid.appendChild(card); });
+    }
+
     function filterCat(cat,el){
         document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
         el.classList.add('active');
         document.querySelectorAll('.prod-card').forEach(p=>{
             p.style.display=(cat==='all'||p.dataset.cat===cat)?'block':'none';
         });
+        if(cat === 'all'){
+            shuffleVisibleProducts();
+        }
+        updateCatalogCentered();
+        resetCatalogRail();
+        if(typeof updateCatIndicator === 'function'){
+            updateCatIndicator();
+        }
+    }
+
+    function updateCatIndicator(){
+        var wrap = document.querySelector('.cat-tabs');
+        var indicator = document.getElementById('catIndicator');
+        if(!wrap || !indicator) return;
+        var active = wrap.querySelector('.cat-tab.active');
+        if(!active) return;
+        var wrapRect = wrap.getBoundingClientRect();
+        var tabRect = active.getBoundingClientRect();
+        var left = tabRect.left - wrapRect.left;
+        var top = tabRect.bottom - wrapRect.top - 4;
+        indicator.style.width = tabRect.width + 'px';
+        indicator.style.transform = 'translateX(' + left + 'px) translateY(' + top + 'px)';
+        indicator.style.opacity = '1';
     }
 
     function toggleDelivery(){
@@ -1157,7 +1307,7 @@
         var infoEl=document.getElementById('modalInfoText');
         if(infoEl){
             if(isCustom){
-                infoEl.textContent='במארז מותאם אישית בוחרים קודם רכיבים ומחיר. הקדשה (עד 2 מילים) בתוספת ₪10.';
+                infoEl.textContent='במארז מותאם אישית בוחרים קודם רכיבים ומחיר. הקדשה  בתוספת ₪10.';
             } else if(wantsNumber){
                 infoEl.textContent='בחרו מספר והוסיפו לסל. את פרטי המשלוח והתשלום ממלאים בסל.';
             } else if(wantsInscription){
@@ -1324,8 +1474,10 @@
     // אופציונלי: כתובת נפרדת לביקורות כדי שלא ייכנסו לדף ההזמנות
     // אם משאירים ריק, נשתמש ב-SHEETS_URL עם action=reviews (דורש תמיכה בסקריפט)
     var SHEETS_REVIEW_URL = '';
-    var SHEETS_READ_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPH8FVDyPkPEuIRhE-NYWUIKyFx6wE-_e0c304Sn5I7-yEZpgAg5x7E7tMd4b_MWbEULCYOQK0l85A/pub?gid=0&single=true&output=csv';
-    var SHEETS_REVIEW_READ_URL = '';
+      var SHEETS_READ_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPH8FVDyPkPEuIRhE-NYWUIKyFx6wE-_e0c304Sn5I7-yEZpgAg5x7E7tMd4b_MWbEULCYOQK0l85A/pub?gid=0&single=true&output=csv';
+      var SHEETS_REVIEW_READ_URL = '';
+      var SHEETS_ORDERS_LAST_ERROR = '';
+      var SHEETS_REVIEWS_LAST_ERROR = '';
 
     function doSend(){
         var name        = document.getElementById('nameInput').value.trim();
@@ -1409,7 +1561,7 @@
         document.getElementById('successOrderNum').textContent = 'הזמנה #' + orderNum;
 
         // כפתור וואטסאפ עם מספר הזמנה מוכן
-        var waMsg = 'שלום שרה! יש לי שאלה לגבי הזמנה #' + orderNum + ' 😊';
+        var waMsg = 'שלום שרה! יש לי שאלה לגבי הזמנה #' + orderNum + ' ';
         document.getElementById('successWaLink').href = 'https://wa.me/972523394838?text=' + encodeURIComponent(waMsg);
 
         document.getElementById('modalSuccess').style.display = 'block';
@@ -1478,10 +1630,14 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var selectedRewardLevel = null;
   var manualTotalTouched = false;
   var cartEditId = null;
-  var couponsCache = [];
-  var couponsLoadedAt = 0;
-  var appliedCoupon = null;
-  var couponApplyInFlight = false;
+    var couponsCache = [];
+    var couponsLoadedAt = 0;
+    var appliedCoupon = null;
+    var couponApplyInFlight = false;
+    var DEFAULT_COUPONS = [
+      { id: 'sara10', code: 'SARA10', codeLower: 'sara10', type: 'percent', value: 10, label: '10% הנחה', active: true },
+      { id: 'sara3plus1', code: 'SARA3PLUS1', codeLower: 'sara3plus1', type: 'bundle', value: 1, label: '3+1 מתנה', active: true }
+    ];
   var uiReady = false;
   var userReviews = [];
   var authGateDismissed = false;
@@ -1489,11 +1645,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var profileOrdersLoading = false;
 
   var GIFT_TIERS = [
-    { level: 300, name: 'מתנה קטנה חינם', value: 10, emoji: '🎁' },
-    { level: 600, name: '2 כדורי לוטוס', value: 12, emoji: '🍫' },
-    { level: 900, name: 'עוגיית אמסטרדם', value: 10, emoji: '🍪' },
-    { level: 1200, name: 'מיני מגנום', value: 15, emoji: '🍦' },
-    { level: 1500, name: 'קינוח כוס', value: 15, emoji: '🥤' }
+    { level: 300, name: 'מתנה קטנה חינם', value: 10, emoji: '&#127873;' },
+    { level: 600, name: '2 כדורי לוטוס', value: 12, emoji: '&#127873;' },
+    { level: 900, name: 'עוגיית אמסטרדם', value: 10, emoji: '&#127873;' },
+    { level: 1200, name: 'מיני מגנום', value: 15, emoji: '&#127873;' },
+    { level: 1500, name: 'קינוח כוס', value: 15, emoji: '&#127873;' }
   ];
   var PICKUP_ADDRESS = 'אתרוג 3 דירה 16, חריש';
   var DREAM_PACK_TARGET = 300;
@@ -1504,7 +1660,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var EMAIL_AUTOMATION_URL = '';
   var lastLoginCelebratedUid = '';
   var lastAuthRefreshUid = '';
-  window.__saraBuild = '2026-03-17-0022';
+  window.__saraBuild = '2026-03-22-0021';
   window.__saraBootOk = false;
 
   function getPendingPointsKey(uid){
@@ -1705,7 +1861,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         area.style.display=wants?'block':'none';
         if(!wants){ var ins=document.getElementById('inscriptionInput'); if(ins) ins.value=''; }
         var title=area.querySelector('h4');
-        if(title) title.textContent = wants ? 'כיתוב על המארז (עד 2 מילים)' : 'כיתוב על המארז';
+        if(title) title.textContent = wants ? 'כיתוב על המארז ' : 'כיתוב על המארז';
     }
 
   function getGiftForLevel(level){
@@ -1713,7 +1869,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(known) return known;
     var step = Math.round(level / 300);
     var value = Math.min(8 + (step * 2), 40);
-    return { level: level, name: 'מתנה מיוחדת', value: value, emoji: '🎁' };
+    return { level: level, name: 'מתנה מיוחדת', value: value, emoji: '&#127873;' };
   }
 
   function getGiftLevels(){
@@ -2292,13 +2448,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     document.head.appendChild(style);
 
     document.body.insertAdjacentHTML('beforeend',
-      '<a id="authFab" class="auth-fab" href="#profileDrawer" role="button" title="התחברות" onclick="openProfileOrAuth()">👤</a>' +
-      '<a id="cartFab" class="cart-fab" href="#cartDrawer" role="button" title="סל" onclick="openCartOrAuth()">🛒<span id="cartBadge" class="cart-badge">0</span></a>' +
+      '<button id="authFab" class="auth-fab" type="button" title="האזור האישי" onclick="openProfileOrAuth()">&#128100;</button>' +
+      '<a id="cartFab" class="cart-fab" href="#cartDrawer" role="button" title="סל" onclick="openCartOrAuth()">&#128722;<span id="cartBadge" class="cart-badge">0</span></a>' +
 
       '<div id="authModal" class="auth-modal" onclick="closeAuthModal(event)">' +
         '<div class="auth-card">' +
           '<h3>התחברות / הרשמה</h3>' +
-          '<div style="font-size:13px;color:#7a5040">צריך להתחבר כדי להזמין ולקבל מתנות 🎁</div>' +
+          '<div style="font-size:13px;color:#7a5040">צריך להתחבר כדי להזמין ולקבל מתנות </div>' +
           '<input id="authEmail" type="email" placeholder="אימייל" style="width:100%;margin-top:10px;border:1px solid #ddd;border-radius:10px;padding:10px">' +
           '<input id="authPass" type="password" placeholder="סיסמה" style="width:100%;margin-top:8px;border:1px solid #ddd;border-radius:10px;padding:10px">' +
           '<div class="auth-row">' +
@@ -2375,9 +2531,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
             '<button type="button" class="payment-close" onclick="closePaymentSheet()">סגירה</button>' +
           '</div>' +
           '<div class="payment-methods">' +
-            '<button type="button" class="pay-method" data-code="bit" onclick="selectPaymentMethod(\'bit\')">💙 ביט</button>' +
-            '<button type="button" class="pay-method" data-code="paybox" onclick="selectPaymentMethod(\'paybox\')">🅿️ פייבוקס</button>' +
-            '<button type="button" class="pay-method" data-code="cash" onclick="selectPaymentMethod(\'cash\')">💵 מזומן</button>' +
+            '<button type="button" class="pay-method" data-code="bit" onclick="selectPaymentMethod(\'bit\')"> ביט</button>' +
+            '<button type="button" class="pay-method" data-code="paybox" onclick="selectPaymentMethod(\'paybox\')">פייבוקס</button>' +
+            '<button type="button" class="pay-method" data-code="cash" onclick="selectPaymentMethod(\'cash\')"> מזומן</button>' +
           '</div>' +
           '<div id="paymentDetails" class="payment-details">בחרו שיטת תשלום כדי לקבל הוראות.</div>' +
           '<a id="paymentLink" class="payment-link" href="#" target="_blank" rel="noopener" onclick="openExternalPayment(event)">מעבר לתשלום</a>' +
@@ -2393,19 +2549,15 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '<div id="profileDrawer" class="profile-drawer">' +
       '<div class="profile-head"><strong>האזור האישי</strong><a href="#" role="button" class="cart-remove" onclick="return safeCloseProfile(event)">סגירה</a></div>' +
         '<div class="profile-body">' +
-          '<div id="profileSummary" class="profile-card"></div>' +
-            '<div class="profile-actions">' +
-              '<button type="button" class="profile-btn main" onclick="toggleCart(true)">פתיחת סל קניות</button>' +
-              '<button type="button" class="profile-btn secondary" onclick="logoutUser()">התנתקות</button>' +
-            '</div>' +
-          '<div class="profile-orders-title">הזמנות קודמות</div>' +
-          '<div id="profileOrdersList"></div>' +
+          '<div id="profileSummary" class="profile-card"></div>\' +
+          \'<div id="profileActions"></div>\' +
+          \'id="profileOrdersList"></div>' +
         '</div>' +
       '</div>'
     );
 
     if(document.getElementById('submitBtn')){
-      document.getElementById('submitBtn').textContent = '🛒 הוספה לסל';
+      document.getElementById('submitBtn').textContent = ' הוספה לסל';
     }
 
     uiReady = true;
@@ -2501,11 +2653,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         }
         return;
       }
-      var prodCardHit = stack.find(function(el){ return el && el.classList && el.classList.contains('prod-card'); });
-      if(prodCardHit && typeof window.openModal === 'function'){
-        safeHandleClick(function(){ window.openModal(prodCardHit); });
-      }
-    };
+      };
     document.addEventListener('click', handler, true);
     document.addEventListener('pointerdown', handler, true);
     document.addEventListener('touchstart', handler, true);
@@ -2520,7 +2668,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     try { document.body.classList.toggle('is-logged-in', !!currentUser); } catch(e){}
 
     if(fab){
-      fab.textContent = '👤';
+      fab.textContent = '&#128100;';
       fab.onclick = function(){
         window.openProfileOrAuth();
       };
@@ -2577,6 +2725,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       } catch(e){}
 
     try { fillCheckoutDefaults(); } catch(e){}
+    try { if(typeof setReviewAuthState === 'function') setReviewAuthState(); } catch(e){}
   }
 
   function fillCheckoutDefaults(){
@@ -2622,7 +2771,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     return {
       eyebrow: female ? 'ברוכה הבאה' : 'ברוך הבא',
-      sub: female ? 'תהני מהנקודות, המתנות וההפתעות באזור האישי.' : 'תהנה מהנקודות, המתנות וההפתעות באזור האישי.'
+      sub: female ? 'שמחים שחזרת! תהני מהנקודות, ממד המתנות ומהמתנות שמחכות.' : 'שמחים שחזרת! תהנה מהנקודות, ממד המתנות ומהמתנות שמחכות.'
     };
   }
 
@@ -2752,11 +2901,10 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   window.openProfileOrAuth = function(){
     ensureUI();
+    syncCurrentUser();
     try { if(typeof window.dismissAuthGate === 'function') window.dismissAuthGate(); } catch(e){}
     if(typeof window.toggleProfile === 'function'){
       window.toggleProfile(true);
-    } else if(typeof window.openAuthModal === 'function'){
-      window.openAuthModal();
     }
   };
 
@@ -2847,7 +2995,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     var gift = getGiftForLevel(level);
     wrap.innerHTML =
-      '<div style="font-weight:800;margin:8px 0">המתנה נוספה לסל בחינם 🎁</div>' +
+      '<div style="font-weight:800;margin:8px 0">המתנה נוספה לסל בחינם &#127873;</div>' +
       '<div class="reward-chip">' +
         '<div><strong>' + gift.emoji + ' ' + gift.name + '</strong><div style="font-size:12px;color:#7a5040">רמת ' + level + ' נק׳ | שווי ' + shekel(gift.value) + '</div></div>' +
         '<div style="font-size:12px;color:#1c7d44;font-weight:800">ממתינה להזמנה</div>' +
@@ -2858,23 +3006,64 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     ensureUI();
     var wrap = document.getElementById('profileSummary');
     if(!wrap) return;
-
     if(!currentUser){
-      wrap.innerHTML = '<div style="font-size:13px;color:#7a5040;line-height:1.7">לא מחוברים כרגע. התחברו כדי לראות נקודות, מתנה הבאה והזמנות קודמות.</div>' +
-        '<button type="button" class="profile-btn main" style="margin-top:10px" onclick="openAuthModal()">התחברות / הרשמה</button>';
+      wrap.innerHTML = '<div style="text-align:center;padding:12px 0">' +
+        '<div style="font-size:36px;margin-bottom:10px">&#128100;</div>' +
+        '<div style="font-size:14px;color:#7a5040;line-height:1.8;margin-bottom:14px">התחברו כדי לראות נקודות, מתנות והזמנות קודמות</div>' +
+        '<button type="button" class="profile-btn main" style="width:100%" onclick="openAuthModal()">התחברות / הרשמה</button>' +
+        '</div>';
+      var actEl = document.getElementById('profileActions');
+      if(actEl) actEl.innerHTML = '';
       return;
     }
-
     var points = Number(profile.points || 0);
     var next = getNextGiftInfo(points);
     var email = currentUser.email || '';
-
+    var milestones = getGiftLevels();
+    if(!milestones.length) milestones = [300,600,900,1200,1500];
+    var maxShown = milestones[milestones.length-1];
+    var pct = maxShown > 0 ? Math.max(0, Math.min(100, (points/maxShown)*100)) : 0;
+    var redeemed = Array.isArray(profile.redeemedRewards) ? profile.redeemedRewards : [];
+    var dotsHtml = milestones.map(function(level){
+      var hit = points >= level; var used = redeemed.indexOf(level) !== -1;
+      var gift = getGiftForLevel(level);
+      var col = used ? '#aaa' : (hit ? '#27ae60' : '#d9b89f');
+      var bg = used ? '#eee' : (hit ? '#27ae60' : '#fff');
+      return '<div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">' +
+        '<div style="font-size:15px;opacity:' + (used?'0.4':'1') + '">' + escapeHtml(gift.emoji||'') + '</div>' +
+        '<div style="width:12px;height:12px;border-radius:50%;background:' + bg + ';border:2px solid ' + col + ';box-shadow:0 0 0 2px #fff9f4"></div>' +
+        '<div style="font-size:9px;color:' + (hit&&!used?'#1a7a3c':'#9a7060') + ';font-weight:700">' + level + '</div>' +
+        '</div>';
+    }).join('');
+    var initial = (getProfileDisplayName()||'?').charAt(0).toUpperCase();
     wrap.innerHTML =
-      '<div class="profile-name">' + escapeHtml(getProfileDisplayName()) + '</div>' +
-      '<div class="profile-email">' + (email ? ('אימייל: ' + escapeHtml(email)) : 'אימייל לא זמין') + '</div>' +
-      '<div class="profile-points">סה״כ נקודות: ' + points + '</div>' +
-      '<div class="profile-next">המתנה הבאה: ' + escapeHtml(next.gift.emoji + ' ' + next.gift.name) + '<br>נפתחת ב-' + next.nextLevel + ' נק׳ (עוד ' + next.missing + ' נק׳)</div>';
+      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">' +
+        '<div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#c8704a,#a85535);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:900;flex-shrink:0">' + escapeHtml(initial) + '</div>' +
+        '<div style="overflow:hidden"><div class="profile-name">' + escapeHtml(getProfileDisplayName()) + '</div>' +
+        (email ? '<div class="profile-email" style="font-size:11px;color:#9a7060;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + escapeHtml(email) + '</div>' : '') +
+        '</div></div>' +
+      '<div style="background:linear-gradient(140deg,#fffaf6,#fff1e3);border:1.5px solid rgba(200,112,74,.22);border-radius:14px;padding:12px 14px">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">' +
+          '<div style="font-size:12px;font-weight:900;color:#3b2012">מד מתנות</div>' +
+          '<div style="background:#fff;border:1px solid #f2d9c0;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:900;color:#7a5040">' + points + ' נק״</div>' +
+        '</div>' +
+        '<div style="height:8px;background:#f0ddcf;border-radius:999px;overflow:hidden;margin-bottom:10px">' +
+          '<div style="height:100%;width:' + pct + '%;background:linear-gradient(90deg,#27ae60,#f1c165,#c8704a);border-radius:999px;transition:width .5s"></div>' +
+        '</div>' +
+        '<div style="display:flex;justify-content:space-between;margin-bottom:6px">' + dotsHtml + '</div>' +
+        '<div style="font-size:11px;color:#7a5040;text-align:center;font-weight:700">' +
+          (points >= maxShown ? 'השגתם את כל המתנות!' : 'עוד ' + next.missing + ' נק״ עד ' + escapeHtml((next.gift.emoji||'') + ' ' + next.gift.name)) +
+        '</div>' +
+      '</div>';
+    var actionsEl = document.getElementById('profileActions');
+    if(actionsEl){
+      actionsEl.innerHTML = '<div class="profile-actions" style="margin-top:10px">' +
+        '<button type="button" class="profile-btn main" onclick="toggleCart(true);toggleProfile(false)">&#128722; סל קניות</button>' +
+        '<button type="button" class="profile-btn secondary" onclick="logoutUser()">התנתקות</button>' +
+        '</div>';
+    }
   }
+
 
   function renderProfileOrdersList(){
     ensureUI();
@@ -3086,7 +3275,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
   function starsByRate(rate){
     var r = Math.max(1, Math.min(5, Number(rate || 5)));
-    return '★★★★★'.slice(0, r) + '☆☆☆☆☆'.slice(0, 5 - r);
+    return '?'.slice(0, r) + '?'.slice(0, 5 - r);
   }
 
   function parseDateLike(input){
@@ -3400,7 +3589,17 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     try {
       var imageUrls = await uploadReviewImages(files);
-      var basePayload = {
+      // AI auto-moderation
+        var aiApproved = false;
+        try {
+          var aiRes = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 10,
+              messages: [{ role: 'user', content: 'Legitimate bakery review? YES or NO only: ' + textValue.slice(0,200) }] })
+          });
+          if(aiRes.ok){ var d=await aiRes.json(); aiApproved=((d.content&&d.content[0]&&d.content[0].text)||'').trim().toUpperCase().startsWith('YES'); }
+        } catch(e){}
+        var basePayload = {
         userId: currentUser.uid,
         userEmail: currentUser.email || '',
         name: name,
@@ -3408,8 +3607,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         rating: rating,
         text: textValue,
         images: imageUrls,
-        approved: false,
-        reviewStatus: 'pending'
+        approved: aiApproved,
+        reviewStatus: aiApproved ? 'approved' : 'pending'
       };
 
       var reviewSaved = false;
@@ -3438,37 +3637,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           }
         }
       }
-
-      if(!reviewSaved){
-        try {
-          var sheetOk = await sendReviewToSheets(Object.assign({ date: new Date().toLocaleString('he-IL') }, basePayload));
-          if(sheetOk){
-            reviewSaved = true;
-          }
-        } catch(sheetErr){
-          lastErr = sheetErr;
-        }
-      }
-
-      if(!reviewSaved){
-        throw lastErr || new Error('review-not-saved');
-      }
-
-      if(textEl) textEl.value = '';
-      if(imagesEl) imagesEl.value = '';
-      if(preview) preview.innerHTML = '';
-      toast('\u05d4\u05d1\u05d9\u05e7\u05d5\u05e8\u05ea \u05e0\u05e9\u05dc\u05d7\u05d4 \u05dc\u05e9\u05e8\u05d4 \u05dc\u05d0\u05d9\u05e9\u05d5\u05e8. \u05ea\u05e4\u05d5\u05e8\u05e1\u05dd \u05dc\u05d0\u05d7\u05e8 \u05d0\u05d9\u05e9\u05d5\u05e8, \u05ea\u05d5\u05d3\u05d4!');
-      await loadUserReviews();
-    } catch(err){
-      toast('\u05e9\u05d2\u05d9\u05d0\u05d4 \u05d1\u05e4\u05e8\u05e1\u05d5\u05dd \u05d1\u05d9\u05e7\u05d5\u05e8\u05ea: ' + (err && err.code ? err.code : 'error'));
-    } finally {
-      if(submitBtn){
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-        submitBtn.textContent = '\u05e4\u05e8\u05e1\u05d5\u05dd \u05d1\u05d9\u05e7\u05d5\u05e8\u05ea';
-      }
-    }
-  };
+\n;
 
 
 
@@ -3579,7 +3748,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
       confirmBtn.style.display = 'block';
       if(paymentStepConfirmed){
-        confirmBtn.textContent = 'התשלום סומן ✔';
+        confirmBtn.textContent = 'התשלום סומן ?';
         confirmBtn.classList.add('done');
       } else {
         confirmBtn.textContent = 'סימנתי ששילמתי';
@@ -3587,12 +3756,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       }
     }
 
-    if(sendBtn){
-      var allowSend = !!code && (!isExternalPaymentMethod(code) || amount <= 0 || paymentStepConfirmed);
-      sendBtn.disabled = false;
-      sendBtn.style.opacity = allowSend ? '1' : '0.7';
-      sendBtn.setAttribute('data-locked', allowSend ? '0' : '1');
-    }
+    if(sendBtn){\n      var allowSend = !!code;\n      sendBtn.disabled = !allowSend;\n      sendBtn.style.opacity = allowSend ? '1' : '0.6';\n      sendBtn.setAttribute('data-locked', allowSend ? '0' : '1');\n    }
   }
 
   window.updatePaymentAction = function(){
@@ -3626,8 +3790,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       return;
     }
 
-    updateCheckoutTotals();
-    var sheet = document.getElementById('paymentSheet');
+    updateCheckoutTotals();\n    if(!cartPaymentCode){\n      cartPaymentCode = 'cash';\n      paymentStepConfirmed = true;\n      paymentStepAmount = getCheckoutAmount();\n    }\n    var sheet = document.getElementById('paymentSheet');
     if(sheet){
       sheet.classList.add('open');
       updatePaymentSheetUI();
@@ -3748,13 +3911,28 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         d.id = docSnap.id;
         list.push(d);
       });
-    } catch(err){
-      list = [];
+      } catch(err){
+        list = [];
+      }
+      if(!Array.isArray(list) || list.length === 0){
+        list = DEFAULT_COUPONS.slice();
+      } else {
+        var byCode = {};
+        list.forEach(function(c){
+          var key = normalizeCouponCode(c.code || c.codeLower || c.id || '');
+          if(key) byCode[key] = true;
+        });
+        DEFAULT_COUPONS.forEach(function(c){
+          var key = normalizeCouponCode(c.code || c.codeLower || c.id || '');
+          if(key && !byCode[key]){
+            list.push(c);
+          }
+        });
+      }
+      couponsCache = list;
+      couponsLoadedAt = Date.now();
+      return list;
     }
-    couponsCache = list;
-    couponsLoadedAt = Date.now();
-    return list;
-  }
 
   function resolveCouponByCode(list, code){
     var target = normalizeCouponCode(code);
@@ -3967,7 +4145,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(cartItems.length === 0){
       cartEditId = null;
       list.innerHTML = '<div class="cart-empty">' +
-        '<div class="cart-empty-icon">🛒</div>' +
+        '<div class="cart-empty-icon"></div>' +
         '<div class="cart-empty-title">הסל ריק עדיין</div>' +
         '<div class="cart-empty-sub">הוסיפו מוצרים מהקטלוג והמתנות ימשיכו להתקדם.</div>' +
       '</div>';
@@ -4014,7 +4192,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         } else if(subtotal < DREAM_PACK_TARGET){
           dreamText.textContent = 'נשארו עוד ' + shekel(DREAM_PACK_TARGET - subtotal) + ' למתנה חלומית';
         } else {
-          dreamText.textContent = 'איזה כיף! הגעתם למתנה חלומית 🎉';
+          dreamText.textContent = 'איזה כיף! הגעתם למתנה חלומית ';
         }
       }
     }
@@ -4559,6 +4737,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var name = (document.getElementById('checkoutName').value || '').trim();
     var phone = (document.getElementById('checkoutPhone').value || '').trim();
     var payment = (cartPaymentCode || '').trim();
+    if(!payment){ payment = 'cash'; cartPaymentCode = 'cash'; }
     var paymentLabel = paymentLabelByCode(payment);
     var deliveryMode = (document.getElementById('checkoutDeliveryMode').value || 'pickup').trim();
     var deliveryCity = (document.getElementById('checkoutDeliveryCity').value || '').trim();
@@ -4574,9 +4753,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     if(!paymentLabel){
-      toast('בחרו שיטת תשלום');
-      openPaymentSheet();
-      return;
+      payment = 'cash';
+      cartPaymentCode = 'cash';
+      paymentLabel = paymentLabelByCode(payment);
     }
 
     var subtotal = getCartSubtotal();
@@ -4614,8 +4793,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         paymentStepConfirmed = false;
         paymentStepAmount = 0;
         updatePaymentAction();
-        toast('סיימו תשלום חיצוני ולחצו "סימנתי ששילמתי" לפני השליחה');
-        return;
+        toast('שימו לב: התשלום לא סומן עדיין. אפשר להמשיך לשלוח.');
       }
     }
 
@@ -4681,12 +4859,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       return base + extra;
     }).filter(Boolean).join(' | ');
 
-    var sheetsPayload = {
-      source: 'אתר',
-      orderNum: orderNum,
-      date: new Date().toLocaleString('he-IL'),
-      name: name,
-      phone: phone,
+      var sheetsPayload = {
+        source: 'אתר',
+        orderNum: orderNum,
+        date: new Date().toLocaleString('he-IL'),
+        name: name,
+        phone: phone,
       product: 'הזמנה מהאתר',
       description: itemNames,
       inscription: '',
@@ -4698,7 +4876,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       paymentCode: payment,
       paymentConfirmed: (isExternalPaymentMethod(payment) && orderTotal > 0) ? 'yes' : 'no',
       deliveryMode: deliveryMode,
-      deliveryCity: deliveryMode === 'delivery' ? delivery.cityLabel : 'איסוף עצמי',
+        deliveryCity: deliveryMode === 'delivery' ? (delivery.cityLabel || '') : 'איסוף עצמי',
       deliveryFee: shippingFee,
       address: deliveryMode === 'delivery' ? addressInput : '',
       readyBy: readyBy,
@@ -4709,11 +4887,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       orderTotal: orderTotal,
       pointsAdded: pointsToAdd,
       rewardRedeemed: reward ? (reward.name + ' (level ' + reward.level + ')') : '',
-      couponCode: couponPayload ? couponPayload.code : '',
-      couponType: couponPayload ? couponPayload.type : '',
-      couponValue: couponPayload ? couponPayload.value : '',
-      couponDiscount: couponPayload ? couponPayload.discount : ''
-    };
+        couponCode: couponPayload ? couponPayload.code : '',
+        couponType: couponPayload ? couponPayload.type : '',
+        couponValue: couponPayload ? couponPayload.value : '',
+        couponDiscount: couponPayload ? couponPayload.discount : ''
+      };
+      sheetsPayload = sanitizeSheetPayload(sheetsPayload);
 
     setCheckoutPending(true);
     var orderSaveInfo = null;
@@ -4815,6 +4994,26 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       toast('ההזמנה נקלטה בהצלחה בפאנל מנהלת ובגוגל שיטס.');
     }
 
+    // פתיחת WhatsApp לשרה עם פרטי ההזמנה
+    try {
+      var waLines = ['הזמנה חדשה! &#x1F389;'];
+      waLines.push('שם: ' + name + ' | טלפון: ' + phone);
+      waLines.push('תשלום: ' + paymentLabel);
+      waLines.push('קבלה: ' + (deliveryMode === 'delivery' ? ('משלוח ל' + (deliveryCity || 'לא צוין') + (addressInput ? ' | ' + addressInput : '')) : 'איסוף עצמי'));
+      if(readyBy) waLines.push('מועד רצוי: ' + readyBy);
+      cartItems.forEach(function(item, i){
+        if(!item || item.isReward) return;
+        waLines.push((i+1) + '. ' + (item.name||'') + (item.details ? ' — ' + item.details : ''));
+      });
+      if(reward) waLines.push('&#x1F381; מתנה: ' + reward.name);
+      if(orderTotal > 0) waLines.push('&#x1F4B0; סכום: &#x20AA;' + orderTotal);
+      if(note) waLines.push('&#x1F4DD; הערה: ' + note);
+      var waUrl = 'https://wa.me/' + SARA_PAYMENT_PHONE.replace(/[^0-9]/g,'').replace(/^0/,'972') + '?text=' + encodeURIComponent(waLines.join('\n'));
+      if(typeof window !== 'undefined'){
+        setTimeout(function(){ try { window.open(waUrl, '_blank'); } catch(e){ window.location.href = waUrl; } }, 400);
+      }
+    } catch(waErr){}
+
     try {
       addLocalOrderSnapshot(orderPayload);
       addProfileOrderSnapshot(orderPayload);
@@ -4896,7 +5095,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         document.getElementById('confirmBar').style.display = 'none';
       }
       if(document.getElementById('submitBtn')){
-        document.getElementById('submitBtn').textContent = '🛒 הוספה לסל';
+        document.getElementById('submitBtn').textContent = ' הוספה לסל';
       }
     };
   }
@@ -4935,19 +5134,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       }
       if(window.customSummary) details.push(window.customSummary);
 
-      if(window.customHasDedication){
-        var words = inscription ? inscription.split(/\s+/).filter(Boolean) : [];
-        if(words.length === 0){
-          toast('בחרתם תוספת הקדשה — כתבו עד 2 מילים');
-          return;
-        }
-        if(words.length > 2){
-          toast('אפשר עד 2 מילים בכיתוב');
-          return;
-        }
-      } else {
-        inscription = '';
-      }
+      if(window.customHasDedication){\n        if(!inscription){\n          toast('בחרתם תוספת הקדשה — כתבו הקדשה');\n          return;\n        }\n      } else {\n        inscription = '';\n      }
     } else {
       price = Number(window.selProd.price || 0);
       if(price > 0){
@@ -5015,7 +5202,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   var isAdmin = false;
   var adminRefreshTimer = null;
   var adminUsersCache = [];
-  var adminOrdersCache = [];
+  var adminOrdersCache = [];\n  var adminSheetOrdersCache = [];
   var adminOrdersSourceLabel = '';
   var adminOrderFilter = null;
   var adminOrderStatusFilter = '';
@@ -5052,7 +5239,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         area.style.display=wants?'block':'none';
         if(!wants){ var ins=document.getElementById('inscriptionInput'); if(ins) ins.value=''; }
         var title=area.querySelector('h4');
-        if(title) title.textContent = wants ? 'כיתוב על המארז (עד 2 מילים)' : 'כיתוב על המארז';
+        if(title) title.textContent = wants ? 'כיתוב על המארז ' : 'כיתוב על המארז';
     }
 
   function ensureAdminUI(){
@@ -5072,6 +5259,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.admin-note{font-size:12px;color:#7a5040;background:#fff;border:1px solid #f2d9c0;border-radius:10px;padding:8px;margin-bottom:10px}',
       '.admin-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 12px}',
       '.admin-kpi{background:#fff;border:1px solid #f2d9c0;border-radius:12px;padding:10px;box-shadow:0 6px 16px rgba(200,112,74,.08)}',
+      '.admin-kpi.clickable{cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}',
+      '.admin-kpi.clickable:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(200,112,74,.18)}',
       '.admin-kpi-title{font-size:11px;color:#7a5040;font-weight:800}',
       '.admin-kpi-value{font-size:18px;font-weight:900;color:#2d1a0e;margin-top:4px}',
       '.admin-kpi-sub{font-size:10px;color:#9a7060;font-weight:700;margin-top:2px}',
@@ -5120,6 +5309,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '.admin-order-modal{position:fixed;inset:0;z-index:1305;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.4);padding:16px}',
       '.admin-order-modal.open{display:flex}',
       '.admin-order-card{background:#fff;max-width:520px;width:100%;border-radius:16px;padding:14px 16px;border:1px solid #f2d9c0;box-shadow:0 20px 45px rgba(0,0,0,.25);max-height:90vh;overflow:auto}',
+      '.admin-revenue-modal{position:fixed;inset:0;z-index:1306;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.4);padding:16px}',
+      '.admin-revenue-modal.open{display:flex}',
+      '.admin-revenue-card{background:#fff;max-width:360px;width:100%;border-radius:16px;padding:14px 16px;border:1px solid #f2d9c0;box-shadow:0 20px 45px rgba(0,0,0,.25)}',
+      '.admin-rev-list{display:grid;gap:8px;margin-top:10px}',
+      '.admin-rev-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:10px;background:#fff6ee;border:1px solid #f2d9c0;font-size:13px;font-weight:700;color:#6b4433}',
       '.admin-order-title{font-weight:900;color:#2d1a0e;font-size:16px;margin-bottom:6px}',
       '.admin-order-kv{font-size:12px;color:#7a5040;line-height:1.7;margin-bottom:6px}',
       '.admin-order-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}',
@@ -5130,7 +5324,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     document.head.appendChild(style);
 
     document.body.insertAdjacentHTML('beforeend',
-      '<button id="adminFab" class="admin-fab" type="button" title="פאנל מנהלת" onclick="openAdminPanelSafe()">📊</button>' +
+      '<button id="adminFab" class="admin-fab" type="button" title="פאנל מנהלת" onclick="openAdminPanelSafe()">&#9881;</button>' +
       '<div id="adminOverlay" class="admin-overlay" onclick="toggleAdminPanel(false)"></div>' +
       '<div id="adminPanel" class="admin-panel">' +
         '<div class="admin-head"><strong>פאנל מנהלת - שרה</strong><button type="button" class="admin-btn" onclick="toggleAdminPanel(false)">סגירה</button></div>' +
@@ -5198,16 +5392,22 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           '</div>' +
         '</div>' +
       '</div>' +
-      '<div id="adminOrderModal" class="admin-order-modal" onclick="closeAdminOrderModal(event)">' +
-        '<div class="admin-order-card" onclick="event.stopPropagation()">' +
-          '<div class="admin-row"><div class="admin-order-title">פרטי הזמנה</div><button type="button" class="admin-btn" onclick="closeAdminOrderModal()">סגירה</button></div>' +
-          '<div id="adminOrderContent"></div>' +
-          '<div class="admin-order-actions">' +
-            '<button id="adminOrderSaveBtn" type="button" class="admin-btn" onclick="adminSaveOrderDetails()">שמירה ועדכון</button>' +
+        '<div id="adminOrderModal" class="admin-order-modal" onclick="closeAdminOrderModal(event)">' +
+          '<div class="admin-order-card" onclick="event.stopPropagation()">' +
+            '<div class="admin-row"><div class="admin-order-title">פרטי הזמנה</div><button type="button" class="admin-btn" onclick="closeAdminOrderModal()">סגירה</button></div>' +
+            '<div id="adminOrderContent"></div>' +
+            '<div class="admin-order-actions">' +
+              '<button id="adminOrderSaveBtn" type="button" class="admin-btn" onclick="adminSaveOrderDetails()">שמירה ועדכון</button>' +
+            '</div>' +
           '</div>' +
         '</div>' +
-      '</div>'
-    );
+        '<div id="adminRevenueModal" class="admin-revenue-modal" onclick="closeRevenueModal(event)">' +
+          '<div class="admin-revenue-card" onclick="event.stopPropagation()">' +
+            '<div class="admin-row"><div class="admin-order-title">הכנסות לפי חודשים</div><button type="button" class="admin-btn" onclick="closeRevenueModal()">סגירה</button></div>' +
+            '<div id="adminRevenueContent"></div>' +
+          '</div>' +
+        '</div>'
+      );
 
     adminUiReady = true;
     if(typeof window.adminCouponTypeChanged === 'function'){
@@ -5306,25 +5506,30 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(!fb) return [];
 
     var map = {};
-    function addUserFromOrder(orderDoc, fallbackId){
-      var d = orderDoc || {};
-      var uid = d.userId || '';
-      var email = d.userEmail || '';
-      var key = uid || email || '';
-      if(!key) return;
+      function addUserFromOrder(orderDoc, fallbackId){
+        var d = orderDoc || {};
+        var uid = d.userId || '';
+        var email = d.userEmail || '';
+        var phone = (d.customer && d.customer.phone) ? d.customer.phone : (d.phone || '');
+        var key = uid || email || '';
+        if(!key) return;
 
-      if(!map[key]){
-        map[key] = {
-          id: uid || fallbackId || key,
-          email: email || '',
-          fullName: (d.customer && d.customer.name) ? d.customer.name : (d.name || ''),
-          points: 0,
-          role: 'user',
-          redeemedRewards: []
-        };
-      } else if(!map[key].email && email){
-        map[key].email = email;
-      }
+        if(!map[key]){
+          map[key] = {
+            id: uid || fallbackId || key,
+            email: email || '',
+            fullName: (d.customer && d.customer.name) ? d.customer.name : (d.name || ''),
+            phone: phone || '',
+            points: 0,
+            role: 'user',
+            redeemedRewards: []
+          };
+        } else if(!map[key].email && email){
+          map[key].email = email;
+        }
+        if(!map[key].phone && phone){
+          map[key].phone = phone;
+        }
 
       var pts = Number((d.totals && d.totals.pointsToAdd) || 0);
       if(Number.isFinite(pts) && pts > 0){
@@ -5351,13 +5556,30 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return Object.keys(map).map(function(key){ return map[key]; });
   }
 
-  function toNumber(val){
-    if(val === null || typeof val === 'undefined') return 0;
-    if(typeof val === 'number') return Number.isFinite(val) ? val : 0;
-    var cleaned = String(val).replace(/[^\d.\-]/g, '');
-    var n = Number(cleaned);
-    return Number.isFinite(n) ? n : 0;
-  }
+    function toNumber(val){
+      if(val === null || typeof val === 'undefined') return 0;
+      if(typeof val === 'number') return Number.isFinite(val) ? val : 0;
+      var cleaned = String(val).replace(/[^\d.\-]/g, '');
+      var n = Number(cleaned);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function sanitizeSheetValue(val){
+      if(val === undefined || val === null) return '';
+      if(typeof val === 'string'){
+        var t = val.trim().toLowerCase();
+        if(t === 'undefined' || t === 'null') return '';
+      }
+      return val;
+    }
+
+    function sanitizeSheetPayload(payload){
+      var out = {};
+      Object.keys(payload || {}).forEach(function(key){
+        out[key] = sanitizeSheetValue(payload[key]);
+      });
+      return out;
+    }
 
   function normalizeSheetKey(key){
     return String(key || '').toLowerCase().replace(/\s+/g, '').replace(/[^\w#]/g, '');
@@ -5728,26 +5950,34 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     return { approved: null, rejected: null };
   }
 
-  async function fetchOrdersFromSheets(){
-    try {
-      var url = getSheetOrdersReadUrl();
-      if(!url) return [];
-      var bust = url;
+    async function fetchOrdersFromSheets(){
       try {
-        var needsBust = String(url).indexOf('docs.google.com/spreadsheets') >= 0 || String(url).indexOf('googleusercontent.com') >= 0;
+        SHEETS_ORDERS_LAST_ERROR = '';
+        var url = getSheetOrdersReadUrl();
+        if(!url) return [];
+        var bust = url;
+        try {
+          var needsBust = String(url).indexOf('docs.google.com/spreadsheets') >= 0 || String(url).indexOf('googleusercontent.com') >= 0;
         if(needsBust){
           bust = url + (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
         }
       } catch(e){}
-      var res = await fetch(bust, { method: 'GET', cache: 'no-store' });
-      var text = await res.text();
-      var data = null;
-      if(text){
-        try {
-          data = JSON.parse(text);
-        } catch(parseErr){
-          data = null;
+        var res = await fetch(bust, { method: 'GET', cache: 'no-store' });
+        if(!res.ok){
+          SHEETS_ORDERS_LAST_ERROR = 'HTTP ' + res.status;
         }
+        var text = await res.text();
+        if(text) text = text.replace(/^\uFEFF/, '');
+        if(text && /<html/i.test(text)){
+          SHEETS_ORDERS_LAST_ERROR = SHEETS_ORDERS_LAST_ERROR || 'html-response';
+        }
+        var data = null;
+        if(text){
+          try {
+            data = JSON.parse(text);
+          } catch(parseErr){
+            data = null;
+          }
       }
       var rows = [];
       if(data){
@@ -5756,33 +5986,42 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         var csvRows = parseCsv(text);
         rows = rowsToObjects(csvRows);
       }
-      if(!Array.isArray(rows)) return [];
-      return mapSheetOrders(rows);
-    } catch(err){
-      return [];
+        if(!Array.isArray(rows)) return [];
+        return mapSheetOrders(rows);
+      } catch(err){
+        try { SHEETS_ORDERS_LAST_ERROR = String(err && (err.code || err.message) ? (err.code || err.message) : err); } catch(e){}
+        return [];
+      }
     }
-  }
 
-  async function fetchReviewsFromSheets(){
-    try {
-      var url = getSheetReviewsReadUrl();
-      if(!url) return [];
-      var bust = url;
+    async function fetchReviewsFromSheets(){
       try {
-        var needsBust = String(url).indexOf('docs.google.com/spreadsheets') >= 0 || String(url).indexOf('googleusercontent.com') >= 0;
+        SHEETS_REVIEWS_LAST_ERROR = '';
+        var url = getSheetReviewsReadUrl();
+        if(!url) return [];
+        var bust = url;
+        try {
+          var needsBust = String(url).indexOf('docs.google.com/spreadsheets') >= 0 || String(url).indexOf('googleusercontent.com') >= 0;
         if(needsBust){
           bust = url + (url.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
         }
       } catch(e){}
-      var res = await fetch(bust, { method: 'GET', cache: 'no-store' });
-      var text = await res.text();
-      var data = null;
-      if(text){
-        try {
-          data = JSON.parse(text);
-        } catch(parseErr){
-          data = null;
+        var res = await fetch(bust, { method: 'GET', cache: 'no-store' });
+        if(!res.ok){
+          SHEETS_REVIEWS_LAST_ERROR = 'HTTP ' + res.status;
         }
+        var text = await res.text();
+        if(text) text = text.replace(/^\uFEFF/, '');
+        if(text && /<html/i.test(text)){
+          SHEETS_REVIEWS_LAST_ERROR = SHEETS_REVIEWS_LAST_ERROR || 'html-response';
+        }
+        var data = null;
+        if(text){
+          try {
+            data = JSON.parse(text);
+          } catch(parseErr){
+            data = null;
+          }
       }
       var rows = [];
       if(data){
@@ -5791,22 +6030,44 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         var csvRows = parseCsv(text);
         rows = rowsToObjects(csvRows);
       }
-      if(!Array.isArray(rows)) return [];
+        if(!Array.isArray(rows)) return [];
 
-      rows = rows.filter(function(r){
-        if(!r) return false;
-        if(Array.isArray(r)) return true;
-        var normalized = {};
-        Object.keys(r).forEach(function(k){ normalized[normalizeSheetKey(k)] = r[k]; });
-        var source = pickSheetValue(r, normalized, ['source'], ['מקור']);
-        return String(source || '').toLowerCase() === 'review';
-      });
+        var hasSourceColumn = rows.some(function(r){
+          if(!r || Array.isArray(r)) return false;
+          var normalized = {};
+          Object.keys(r).forEach(function(k){ normalized[normalizeSheetKey(k)] = r[k]; });
+          var source = pickSheetValue(r, normalized, ['source'], ['מקור']);
+          return typeof source !== 'undefined' && source !== null && String(source).trim() !== '';
+        });
 
-      return mapSheetReviews(rows);
-    } catch(err){
-      return [];
+        var hasReviewColumns = rows.some(function(r){
+          if(!r || Array.isArray(r)) return false;
+          var normalized = {};
+          Object.keys(r).forEach(function(k){ normalized[normalizeSheetKey(k)] = r[k]; });
+          var text = pickSheetValue(r, normalized, ['text','review','comment','message','description'], ['ביקורת','תגובה','תוכן']);
+          var rating = pickSheetValue(r, normalized, ['rating','stars'], ['דירוג','כוכבים']);
+          return !!(text || rating);
+        });
+
+        if(hasSourceColumn){
+          rows = rows.filter(function(r){
+            if(!r) return false;
+            if(Array.isArray(r)) return true;
+            var normalized = {};
+            Object.keys(r).forEach(function(k){ normalized[normalizeSheetKey(k)] = r[k]; });
+            var source = pickSheetValue(r, normalized, ['source'], ['מקור']);
+            return String(source || '').toLowerCase() === 'review';
+          });
+        } else if(!hasReviewColumns){
+          return [];
+        }
+
+        return mapSheetReviews(rows);
+      } catch(err){
+        try { SHEETS_REVIEWS_LAST_ERROR = String(err && (err.code || err.message) ? (err.code || err.message) : err); } catch(e){}
+        return [];
+      }
     }
-  }
 
   function getOrderTime(orderData){
     if(!orderData) return 0;
@@ -5874,23 +6135,25 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       var phone = String((d.customer && d.customer.phone) || d.phone || '').trim();
       var key = email || phone || (name ? normalizeAdminValue(name) : '');
       if(!key) return;
-      if(!map[key]){
-        map[key] = {
-          id: email || phone || key,
-          email: email || '',
-          fullName: name || '',
-          points: 0,
-          role: 'user',
-          redeemedRewards: []
-        };
-      }
+        if(!map[key]){
+          map[key] = {
+            id: email || phone || key,
+            email: email || '',
+            fullName: name || '',
+            phone: phone || '',
+            points: 0,
+            role: 'user',
+            redeemedRewards: []
+          };
+        }
       var pts = Number((d.totals && d.totals.pointsToAdd) || d.pointsAdded || 0);
       if(Number.isFinite(pts) && pts > 0){
         map[key].points += pts;
       }
-      if(!map[key].fullName && name) map[key].fullName = name;
-      if(!map[key].email && email) map[key].email = email;
-    });
+        if(!map[key].fullName && name) map[key].fullName = name;
+        if(!map[key].email && email) map[key].email = email;
+        if(!map[key].phone && phone) map[key].phone = phone;
+      });
     return Object.keys(map).map(function(k){ return map[k]; });
   }
 
@@ -5962,10 +6225,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var prepCount = countOrdersByStatus('preparing');
     var readyCount = countOrdersByStatus('ready');
     var outCount = countOrdersByStatus('out_for_delivery');
-    var revenueTotal = 0;
-    (adminOrdersCache || []).forEach(function(o){
-      revenueTotal += getOrderTotalValue(o);
-    });
+    var revenueOrders = (adminSheetOrdersCache && adminSheetOrdersCache.length) ? adminSheetOrdersCache : [];\n    var revenueTotal = 0;\n    (revenueOrders || []).forEach(function(o){\n      revenueTotal += getOrderTotalValue(o);\n    });\n    var monthTotals = getRevenueByMonth(revenueOrders);
+    var currentKey = getMonthKey(new Date());
+    var currentMonthTotal = monthTotals[currentKey] || 0;
     var usersCount = (adminUsersCache || []).length;
     if(usersCount === 0 && total > 0){
       try {
@@ -5983,7 +6245,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
     wrap.innerHTML =
       '<div class="admin-kpi"><div class="admin-kpi-title">סה״כ הזמנות</div><div class="admin-kpi-value">' + total + '</div><div class="admin-kpi-sub">כולל גוגל שיטס</div></div>' +
-      '<div class="admin-kpi"><div class="admin-kpi-title">הכנסות</div><div class="admin-kpi-value">' + shekel(revenueTotal) + '</div><div class="admin-kpi-sub">מצטבר עד היום</div></div>' +
+      '<div class="admin-kpi clickable" id="adminRevenueKpi" onclick="openRevenueModal()"><div class="admin-kpi-title">הכנסות</div><div class="admin-kpi-value">' + shekel(revenueTotal) + '</div><div class="admin-kpi-sub">החודש: ' + shekel(currentMonthTotal) + ' · לחצי לפירוט</div></div>' +
       '<div class="admin-kpi"><div class="admin-kpi-title">ממתינה</div><div class="admin-kpi-value">' + newCount + '</div><div class="admin-kpi-sub">חדשות</div></div>' +
       '<div class="admin-kpi"><div class="admin-kpi-title">בהכנה</div><div class="admin-kpi-value">' + prepCount + '</div><div class="admin-kpi-sub">בטיפול</div></div>' +
       '<div class="admin-kpi"><div class="admin-kpi-title">מוכן</div><div class="admin-kpi-value">' + readyCount + '</div><div class="admin-kpi-sub">לאיסוף/משלוח</div></div>' +
@@ -5991,6 +6253,62 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '<div class="admin-kpi"><div class="admin-kpi-title">משתמשים</div><div class="admin-kpi-value">' + usersCount + '</div><div class="admin-kpi-sub">סה״כ רשומים</div></div>';
   }
   window.renderAdminKpis = renderAdminKpis;
+
+  function getMonthKey(dateObj){
+    try {
+      var d = dateObj instanceof Date ? dateObj : new Date(dateObj);
+      if(isNaN(d.getTime())) return '';
+      var y = d.getFullYear();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      return y + '-' + m;
+    } catch(e){
+      return '';
+    }
+  }
+
+  function getMonthLabel(dateObj){
+    try {
+      return dateObj.toLocaleString('he-IL', { month: 'long', year: 'numeric' });
+    } catch(e){
+      return '';
+    }
+  }
+
+  function getRevenueByMonth(ordersList){\n    var map = {};\n    var source = Array.isArray(ordersList) ? ordersList : (adminOrdersCache || []);\n    (source || []).forEach(function(o){\n      var d = o && o.data ? o.data : {};\n      var ts = getOrderTime(d);\n      if(!ts) return;\n      var date = new Date(ts);\n      if(isNaN(date.getTime())) return;\n      var key = getMonthKey(date);\n      if(!key) return;\n      map[key] = (map[key] || 0) + getOrderTotalValue(o);\n    });\n    return map;\n  }
+
+  function getRecentMonths(count){
+    var out = [];
+    var now = new Date();
+    for(var i = 0; i < count; i++){
+      var d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      out.push({ key: getMonthKey(d), label: getMonthLabel(d) });
+    }
+    return out;
+  }
+
+  window.openRevenueModal = function(){
+    var modal = document.getElementById('adminRevenueModal');
+    var content = document.getElementById('adminRevenueContent');
+    if(!modal || !content) return;
+    var map = getRevenueByMonth();
+    var months = getRecentMonths(12);
+    var html = '<div class="admin-rev-list">';
+    months.forEach(function(m){
+      html += '<div class="admin-rev-row"><div>' + (m.label || m.key) + '</div><strong>' + shekel(map[m.key] || 0) + '</strong></div>';
+    });
+    html += '</div>';
+    content.innerHTML = html;
+    modal.classList.add('open');
+  };
+
+  window.closeRevenueModal = function(ev){
+    var modal = document.getElementById('adminRevenueModal');
+    if(!modal) return;
+    if(ev && ev.target && ev.target.id && ev.target.id !== 'adminRevenueModal'){
+      return;
+    }
+    modal.classList.remove('open');
+  };
 
   function updateOrderStatusTabs(){
     try {
@@ -6155,8 +6473,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       var deliveryFee = Number(checkout.deliveryFee || totals.shippingFee || 0);
       var deliveryText = deliveryMode === 'delivery'
         ? ('Delivery to ' + (deliveryCityLabel || 'no city selected') + ' | Delivery fee: ' + shekel(deliveryFee))
-        : 'Self pickup (free)';
-      var addressText = deliveryMode === 'delivery' ? (checkout.address || 'not provided') : (ADMIN_PICKUP_ADDRESS + ' (self pickup)');
+        : 'איסוף עצמי (חינם)';
+      var addressText = deliveryMode === 'delivery' ? (checkout.address || 'not provided') : (ADMIN_PICKUP_ADDRESS + ' (איסוף עצמי)');
 
       var status = normalizeOrderStatus(d.status);
       var statusText = orderStatusLabel(status, deliveryMode);
@@ -6176,13 +6494,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         actions += '<button class="admin-btn" type="button" onclick="event.stopPropagation();adminSetOrderStatus(\'' + safeRefPath + '\',\'' + next + '\')">' + nextBtn + '</button>';
       }
       if(waReady){
-        actions += '<a class="admin-btn" href="' + waReady + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp: ready</a>';
+        actions += '<a class="admin-btn" href="' + waReady + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WA: מוכן לאיסוף</a>';
       }
       if(waOut){
-        actions += '<a class="admin-btn" href="' + waOut + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp: out for delivery</a>';
+        actions += '<a class="admin-btn" href="' + waOut + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WA: יצא למשלוח</a>';
       }
       if(waDone){
-        actions += '<a class="admin-btn" href="' + waDone + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp: completed</a>';
+        actions += '<a class="admin-btn" href="' + waDone + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">WA: הושלם</a>';
       }
       if(orderReadOnly && !next && !waReady && !waOut && !waDone){
         actions += '<span class="admin-mini">קריאה בלבד</span>';
@@ -6232,7 +6550,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       }
 
       html += '<div class="admin-card admin-order-row" role="button" onclick="adminOpenOrder(\'' + safeRefPath + '\')">' +
-        '<div class="admin-row"><strong>' + (customer.name || 'No name') + '</strong>' + dateLabel + '</div>' +
+        '<div class="admin-row"><strong>' + (customer.name || 'ללא שם') + '</strong>' + dateLabel + '</div>' +
         '<div class="admin-mini">Order #: ' + orderNum + '</div>' +
         '<div class="admin-mini">User email: ' + (d.userEmail || 'unknown') + '</div>' +
         '<div class="admin-mini">Phone: ' + (customer.phone || 'unknown') + '</div>' +
@@ -6346,7 +6664,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       '<div class="admin-order-kv">משלוח: ' + escapeHtml(deliveryText) + '</div>' +
       '<div class="admin-order-kv">כתובת: ' + escapeHtml(addressText) + '</div>' +
       '<div class="admin-order-kv">פריטים: ' + escapeHtml(itemsText || 'ללא פריטים') + '</div>' +
-      '<div class="admin-order-kv">סכום: ' + shekel(totals.orderTotal || totals.autoOrderTotal || 0) + ' · נקודות: ' + Number(totals.pointsToAdd || 0) + '</div>' +
+      '<div class="admin-order-kv">סכום: ' + shekel(totals.orderTotal || totals.autoOrderTotal || 0) + ' · נקודות: ' + Number(totals.pointsToAdd || 0) + '</div>' +'<label class="admin-order-label">סכום הזמנה (ש"ח)</label>' +
+      '<input id="adminOrderTotal" class="admin-input" type="number" min="0" step="1" value="' + (totals.orderTotal || totals.autoOrderTotal || 0) + '">' +
       (couponLine ? ('<div class="admin-order-kv">' + couponLine + '</div>') : '') +
       (readOnly ? '<div class="admin-order-kv" style="color:#b23b2a;font-weight:800">קריאה בלבד (Google Sheets)</div>' : '') +
       '<label class="admin-order-label">סטטוס הזמנה</label>' +
@@ -6383,7 +6702,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var noteEl = document.getElementById('adminOrderNote');
     var newStatus = normalizeOrderStatus(statusEl ? statusEl.value : '');
     var newReadyBy = (readyEl && readyEl.value ? readyEl.value : '').trim();
-    var newNote = (noteEl && noteEl.value ? noteEl.value : '').trim();
+    var newNote = (noteEl && noteEl.value ? noteEl.value : '').trim();\n\n    var totalEl = document.getElementById('adminOrderTotal');\n    var totalRaw = totalEl && typeof totalEl.value !== 'undefined' ? String(totalEl.value || '').trim() : '';\n    var newTotal = totalRaw === '' ? NaN : Number(totalRaw);
 
     var current = adminActiveOrder.data || {};
     var checkout = current.checkout || {};
@@ -6404,11 +6723,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       updates['checkout.readyBy'] = newReadyBy;
       needsUpdate = true;
     }
-    if(newNote !== oldNote){
-      updates['checkout.note'] = newNote;
-      needsUpdate = true;
-    }
-    if(needsUpdate){
+    if(newNote !== oldNote){\n      updates['checkout.note'] = newNote;\n      needsUpdate = true;\n    }\n    var totals = current.totals || {};\n    var oldTotal = Number(totals.orderTotal || totals.autoOrderTotal || 0);\n    if(Number.isFinite(newTotal) && newTotal >= 0 && newTotal !== oldTotal){\n      updates['totals.orderTotal'] = newTotal;\n      updates['totals.autoOrderTotal'] = newTotal;\n      updates['totals.pointsToAdd'] = Math.floor(newTotal);\n      needsUpdate = true;\n    }\n    if(needsUpdate){
       updates.updatedAt = fb.serverTimestamp();
       try {
         await fb.updateDoc(docRef, updates);
@@ -6435,20 +6750,21 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var users = [];
     var usersQueryFailed = false;
 
-    try {
-      var snap = await fb.getDocs(fb.collection(fb.db, 'users'));
-      snap.forEach(function(docSnap){
-        var d = docSnap.data() || {};
-        users.push({ id: docSnap.id, email: d.email || '', fullName: d.fullName || '', points: Number(d.points || 0), role: d.role || '', redeemedRewards: d.redeemedRewards || [] });
-      });
-    } catch(err){
-      usersQueryFailed = true;
-    }
+      try {
+        var snap = await fb.getDocs(fb.collection(fb.db, 'users'));
+        snap.forEach(function(docSnap){
+          var d = docSnap.data() || {};
+          users.push({ id: docSnap.id, email: d.email || '', fullName: d.fullName || '', phone: d.phone || '', points: Number(d.points || 0), role: d.role || '', redeemedRewards: d.redeemedRewards || [], totalSpent: Number(d.totalSpent || 0) });
+        });
+      } catch(err){
+        usersQueryFailed = true;
+      }
 
     var fallbackUsers = await buildUsersFromOrdersFallback();
     var sheetUsers = [];
     try {
       var sheetOrders = await fetchOrdersFromSheets();
+      adminSheetOrdersCache = Array.isArray(sheetOrders) ? sheetOrders.slice() : [];
       if(sheetOrders && sheetOrders.length > 0){
         sheetUsers = buildUsersFromSheetOrders(sheetOrders);
       }
@@ -6469,11 +6785,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           byKey[key] = u;
           return;
         }
-        if(!byKey[key].email && u.email) byKey[key].email = u.email;
-        if(!byKey[key].fullName && u.fullName) byKey[key].fullName = u.fullName;
-        if(Number(u.points || 0) > Number(byKey[key].points || 0)) byKey[key].points = Number(u.points || 0);
-      });
-    }
+          if(!byKey[key].email && u.email) byKey[key].email = u.email;
+          if(!byKey[key].fullName && u.fullName) byKey[key].fullName = u.fullName;
+          if(!byKey[key].phone && u.phone) byKey[key].phone = u.phone;
+          if(Number(u.points || 0) > Number(byKey[key].points || 0)) byKey[key].points = Number(u.points || 0);
+        });
+      }
     if(users.length === 0 && usersQueryFailed){
       users = fallbackUsers;
     }
@@ -6496,11 +6813,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           byKeySheet[key] = u;
           return;
         }
-        if(!byKeySheet[key].email && u.email) byKeySheet[key].email = u.email;
-        if(!byKeySheet[key].fullName && u.fullName) byKeySheet[key].fullName = u.fullName;
-        if(Number(u.points || 0) > Number(byKeySheet[key].points || 0)) byKeySheet[key].points = Number(u.points || 0);
-      });
-    }
+          if(!byKeySheet[key].email && u.email) byKeySheet[key].email = u.email;
+          if(!byKeySheet[key].fullName && u.fullName) byKeySheet[key].fullName = u.fullName;
+          if(!byKeySheet[key].phone && u.phone) byKeySheet[key].phone = u.phone;
+          if(Number(u.points || 0) > Number(byKeySheet[key].points || 0)) byKeySheet[key].points = Number(u.points || 0);
+        });
+      }
 
     if(users.length === 0 && adminOrdersCache && adminOrdersCache.length > 0){
       try {
@@ -6512,20 +6830,28 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     adminUsersCache = users.slice();
     try { renderAdminKpis(); } catch(e){}
 
-    var spentByKey = {};
-    try {
-      (adminOrdersCache || []).forEach(function(o){
-        var d = (o && o.data) ? o.data : {};
-        var key = String(d.userId || '').trim();
-        if(!key){
+      var spentByKey = {};
+      var ordersCountByKey = {};
+      try {
+        (adminOrdersCache || []).forEach(function(o){
+          var d = (o && o.data) ? o.data : {};
+          var keys = [];
+          var uidKey = String(d.userId || '').trim();
+          if(uidKey) keys.push(uidKey);
           var emailKey = String(d.userEmail || d.email || (d.customer && d.customer.email) || '').trim().toLowerCase();
+          if(emailKey) keys.push(emailKey);
+          var phoneKey = String((d.customer && d.customer.phone) || d.phone || '').trim();
+          if(phoneKey) keys.push(phoneKey);
           var nameKey = String((d.customer && d.customer.name) || d.name || '').trim();
-          key = emailKey || (nameKey ? normalizeAdminValue(nameKey) : '');
-        }
-        if(!key) return;
-        spentByKey[key] = (spentByKey[key] || 0) + getOrderTotalValue(o);
-      });
-    } catch(e){}
+          if(nameKey) keys.push(normalizeAdminValue(nameKey));
+          keys = keys.filter(Boolean);
+          if(keys.length === 0) return;
+          keys.forEach(function(key){
+            spentByKey[key] = (spentByKey[key] || 0) + getOrderTotalValue(o);
+            ordersCountByKey[key] = (ordersCountByKey[key] || 0) + 1;
+          });
+        });
+      } catch(e){}
 
     if(users.length === 0){
       if(usersQueryFailed){
@@ -6538,37 +6864,55 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     }
 
     var html = '';
-    users.forEach(function(u){
-      var pr = calcProgress(u.points);
-      var rewardCount = getGiftLevels().filter(function(l){ return Number(u.points || 0) >= l; }).length;
-      var safeEmail = String(u.email || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-      var displayName = u.fullName || u.email || 'ללא שם';
-      var rawId = String(u.id || '').trim();
-      var safeId = rawId ? rawId.replace(/[^a-zA-Z0-9_-]/g, '_') : '';
-      var safeUserId = rawId.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-      var safeNameAttr = String(displayName || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-      var spentKey = rawId || String(u.email || '').trim().toLowerCase() || (displayName ? normalizeAdminValue(displayName) : '');
-      var spentValue = Number(u.totalSpent || 0);
-      if(!spentValue && spentKey && spentByKey[spentKey]){
-        spentValue = Number(spentByKey[spentKey] || 0);
-      }
-      var pointsControl = '';
-      if(rawId){
-        var inputId = 'adminPointsDec_' + safeId;
-        pointsControl =
+      users.forEach(function(u){
+        var pr = calcProgress(u.points);
+        var rewardCount = getGiftLevels().filter(function(l){ return Number(u.points || 0) >= l; }).length;
+        var safeEmail = String(u.email || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        var displayName = u.fullName || u.email || 'ללא שם';
+        var rawId = String(u.id || '').trim();
+        var phoneValue = String(u.phone || '').trim();
+        var safeId = rawId ? rawId.replace(/[^a-zA-Z0-9_-]/g, '_') : '';
+        var safeUserId = rawId.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        var safeNameAttr = String(displayName || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        var spentKey = rawId || String(u.email || '').trim().toLowerCase() || (displayName ? normalizeAdminValue(displayName) : '');
+        var spentValue = Number(u.totalSpent || 0);
+        if(!spentValue && spentKey && spentByKey[spentKey]){
+          spentValue = Number(spentByKey[spentKey] || 0);
+        }
+        var ordersCountValue = 0;
+        var countKeys = [];
+        if(rawId) countKeys.push(rawId);
+        if(u.email) countKeys.push(String(u.email).trim().toLowerCase());
+        if(phoneValue) countKeys.push(phoneValue);
+        if(displayName) countKeys.push(normalizeAdminValue(displayName));
+        countKeys.forEach(function(k){
+          if(ordersCountByKey[k] && ordersCountByKey[k] > ordersCountValue){
+            ordersCountValue = ordersCountByKey[k];
+          }
+        });
+        var pointsControl = '';
+        if(rawId){
+          var inputId = 'adminPointsDec_' + safeId;
+          pointsControl =
           '<div class="admin-grid" style="margin-top:8px">' +
             '<input id="' + inputId + '" class="admin-input" type="number" min="1" placeholder="כמה נק׳ להוריד">' +
             '<button class="admin-btn" type="button" onclick="adminDeductPoints(\'' + safeUserId + '\',\'' + inputId + '\')">הפחת נק׳</button>' +
           '</div>';
-      } else {
-        pointsControl = '<div class="admin-mini" style="margin-top:8px">לא ניתן לעדכן נקודות (אין מזהה משתמש)</div>';
-      }
-      var emailLine = u.email ? ('<div class="admin-mini">אימייל: ' + u.email + '</div>') : '';
-      html += '<div class="admin-card">' +
-        '<div class="admin-row"><strong>' + displayName + '</strong><span class="admin-mini">' + (u.role || 'user') + '</span></div>' +
-        emailLine +
-        '<div class="admin-mini">\u05e0\u05e7\u05d5\u05d3\u05d5\u05ea: ' + Number(u.points || 0) + ' | \u05d9\u05e2\u05d3 \u05d4\u05d1\u05d0: ' + pr.next + ' | \u05de\u05ea\u05e0\u05d5\u05ea \u05e4\u05ea\u05d5\u05d7\u05d5\u05ea: ' + rewardCount + '</div>' +
-        '<div class="admin-mini">\u05e1\u05d4"\u05db \u05e8\u05db\u05d9\u05e9\u05d5\u05ea: ' + shekel(spentValue) + '</div>' +
+        } else {
+          pointsControl = '<div class="admin-mini" style="margin-top:8px">לא ניתן לעדכן נקודות (אין מזהה משתמש)</div>';
+        }
+        var emailLine = u.email ? ('<div class="admin-mini">אימייל: <a href="mailto:' + u.email + '" style="color:var(--copper);font-weight:700;text-decoration:none" onclick="event.stopPropagation()">' + u.email + '</a></div>') : '';
+      if(false)
+        var phoneLine = phoneValue ? ('<div class="admin-mini">טלפון: <a href="tel:' + phoneValue + '" style="color:var(--copper);font-weight:700;text-decoration:none" onclick="event.stopPropagation()">' + phoneValue + '</a></div>') : '';
+      if(false)
+        var ordersLine = '<div class="admin-mini">הזמנות קודמות: ' + Number(ordersCountValue || 0) + '</div>';
+        html += '<div class="admin-card">' +
+          '<div class="admin-row"><strong>' + displayName + '</strong><span class="admin-mini">' + (u.role || 'user') + '</span></div>' +
+          emailLine +
+          phoneLine +
+          ordersLine +
+          '<div class="admin-mini">\u05e0\u05e7\u05d5\u05d3\u05d5\u05ea: ' + Number(u.points || 0) + ' | \u05d9\u05e2\u05d3 \u05d4\u05d1\u05d0: ' + pr.next + ' | \u05de\u05ea\u05e0\u05d5\u05ea \u05e4\u05ea\u05d5\u05d7\u05d5\u05ea: ' + rewardCount + '</div>' +
+          '<div class="admin-mini">\u05e1\u05d4"\u05db \u05e8\u05db\u05d9\u05e9\u05d5\u05ea: ' + shekel(spentValue) + '</div>' +
         '<div class="admin-progress"><div style="width:' + pr.pct + '%"></div></div>' +
         pointsControl +
         '<div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">' +
@@ -6679,7 +7023,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var lines = [];
 
     if(type === 'out_for_delivery'){
-      lines.push('היי ' + customerName + ', המשלוח של הזמנה #' + orderNum + ' בדרך אליך 🚚');
+      lines.push('היי ' + customerName + ', המשלוח של הזמנה #' + orderNum + ' בדרך אליך ');
       if(checkout && checkout.address){
         lines.push('לכתובת: ' + checkout.address);
       }
@@ -6688,13 +7032,13 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       }
     } else if(type === 'completed'){
       if(deliveryMode === 'delivery'){
-        lines.push('היי ' + customerName + ', הזמנה #' + orderNum + ' נמסרה בהצלחה. תודה רבה 🙏');
+        lines.push('היי ' + customerName + ', הזמנה #' + orderNum + ' נמסרה בהצלחה. תודה רבה ');
       } else {
-        lines.push('היי ' + customerName + ', הזמנה #' + orderNum + ' סומנה כנאספה. תודה רבה 🙏');
+        lines.push('היי ' + customerName + ', הזמנה #' + orderNum + ' סומנה כנאספה. תודה רבה ');
       }
     } else {
       if(deliveryMode === 'delivery'){
-        lines.push('היי ' + customerName + ', ההזמנה #' + orderNum + ' מוכנה 🎉');
+        lines.push('היי ' + customerName + ', ההזמנה #' + orderNum + ' מוכנה ');
         lines.push('נשלח לך הודעה כשהמשלוח יוצא לדרך.');
         if(cityLabel){
           lines.push('יעד משלוח: ' + cityLabel + (deliveryFee > 0 ? (' | דמי משלוח ' + shekel(deliveryFee)) : ''));
@@ -6703,7 +7047,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           lines.push('כתובת: ' + checkout.address);
         }
       } else {
-        lines.push('היי ' + customerName + ', ההזמנה #' + orderNum + ' מוכנה ואפשר להגיע לאסוף 🎁');
+        lines.push('היי ' + customerName + ', ההזמנה #' + orderNum + ' מוכנה ואפשר להגיע לאסוף ');
         lines.push('כתובת איסוף: ' + ADMIN_PICKUP_ADDRESS);
         try {
           var wazeLink = 'https://waze.com/ul?q=' + encodeURIComponent(ADMIN_PICKUP_ADDRESS);
@@ -6733,11 +7077,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     lines.push('סטטוס ההזמנה #' + orderNum + ' עודכן ל: ' + statusLabel + '.');
 
     if(status === 'out_for_delivery'){
-      lines.push('המשלוח יצא אלייך 🚚');
+      lines.push('המשלוח יצא אלייך ');
     } else if(status === 'completed'){
       lines.push(deliveryMode === 'delivery' ? 'ההזמנה נמסרה בהצלחה.' : 'ההזמנה סומנה כנאספה.');
     } else if(status === 'ready'){
-      lines.push(deliveryMode === 'delivery' ? 'ההזמנה מוכנה ותצא אלייך למשלוח.' : 'ההזמנה מוכנה לאיסוף 🎁');
+      lines.push(deliveryMode === 'delivery' ? 'ההזמנה מוכנה ותצא אלייך למשלוח.' : 'ההזמנה מוכנה לאיסוף ');
     }
 
     if(deliveryMode === 'delivery'){
@@ -6882,8 +7226,12 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       var orders = Object.keys(dedup).map(function(k){ return dedup[k]; });
       orders.sort(function(a,b){ return getOrderTime(b.data) - getOrderTime(a.data); });
 
-      var sheetOrders = await fetchOrdersFromSheets();
-      debugInfo.sheet = sheetOrders.length || 0;
+        var sheetOrders = await fetchOrdersFromSheets();
+      adminSheetOrdersCache = Array.isArray(sheetOrders) ? sheetOrders.slice() : [];
+        debugInfo.sheet = sheetOrders.length || 0;
+        if(SHEETS_ORDERS_LAST_ERROR){
+          debugInfo.sheetErr = SHEETS_ORDERS_LAST_ERROR;
+        }
       if(sheetOrders && sheetOrders.length > 0){
         sheetOrders.forEach(function(o){
           o.readOnly = true;
@@ -6930,7 +7278,8 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         wrap.innerHTML = '<div class="admin-mini">אין הרשאה לקריאת הזמנות מפיירבייס.' + hint + '</div>';
       } else {
         var readHint = getSheetOrdersReadUrl() ? '' : ' ודאי שהוגדר קישור קריאה לשיטס כדי למשוך הזמנות מגוגל שייטס.';
-        var debugLine = 'בדיקה: Firestore orders=' + debugInfo.top + ', collectionGroup=' + debugInfo.cg + ', suborders=' + debugInfo.sub + ', Sheets=' + debugInfo.sheet;
+        var hasSheetUrl = getSheetOrdersReadUrl() ? 'כן' : 'לא';
+        var debugLine = 'בדיקה: Firestore orders=' + debugInfo.top + ', collectionGroup=' + debugInfo.cg + ', suborders=' + debugInfo.sub + ', Sheets=' + debugInfo.sheet + ', SheetsURL=' + hasSheetUrl;
         var errParts = [];
         if(debugInfo.topErr) errParts.push('orders: ' + debugInfo.topErr);
         if(debugInfo.cgErr) errParts.push('group: ' + debugInfo.cgErr);
@@ -6976,7 +7325,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     try {
       var segs = String(orderRefPath).split('|').filter(Boolean);
       if(segs.length < 2){
-        notify('Invalid order path');
+        notify('נתיב הזמנה לא תקין');
         return;
       }
       var docRef = fb.doc(fb.db, ...segs);
@@ -7010,11 +7359,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       if(emailSent){
         notify('סטטוס עודכן ונשלח מייל ללקוחה');
       } else {
-        notify('Order status updated: ' + orderStatusLabelGeneric(nextStatus));
+        notify('מצב הזמנה עודכן: ' + orderStatusLabelGeneric(nextStatus));
       }
       await refreshOrders();
     } catch(err){
-      notify('Failed to update order status');
+      notify('עדכון סטטוס נכשל');
     }
   };
 
@@ -7247,22 +7596,24 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       }
 
       var map = {};
-      sourceOrders.forEach(function(o){
-        var d = o && o.data ? o.data : (o || {});
-        if(!d) return;
-        var uid = String(d.userId || '').trim();
-        var email = String(d.userEmail || d.email || (d.customer && d.customer.email) || '').trim().toLowerCase();
-        var name = String((d.customer && d.customer.name) || d.name || '').trim();
-        if(!name && email) name = email.split('@')[0];
-        var key = uid || email || name;
-        if(!key) return;
-        if(!map[key]){
-          map[key] = { uid: uid, email: email, name: name, points: 0, spent: 0 };
-        } else {
-          if(!map[key].uid && uid) map[key].uid = uid;
-          if(!map[key].email && email) map[key].email = email;
-          if(!map[key].name && name) map[key].name = name;
-        }
+        sourceOrders.forEach(function(o){
+          var d = o && o.data ? o.data : (o || {});
+          if(!d) return;
+          var uid = String(d.userId || '').trim();
+          var email = String(d.userEmail || d.email || (d.customer && d.customer.email) || '').trim().toLowerCase();
+          var name = String((d.customer && d.customer.name) || d.name || '').trim();
+          var phone = String((d.customer && d.customer.phone) || d.phone || '').trim();
+          if(!name && email) name = email.split('@')[0];
+          var key = uid || email || name;
+          if(!key) return;
+          if(!map[key]){
+            map[key] = { uid: uid, email: email, name: name, phone: phone, points: 0, spent: 0 };
+          } else {
+            if(!map[key].uid && uid) map[key].uid = uid;
+            if(!map[key].email && email) map[key].email = email;
+            if(!map[key].name && name) map[key].name = name;
+            if(!map[key].phone && phone) map[key].phone = phone;
+          }
         var pts = Number((d.totals && d.totals.pointsToAdd) || d.pointsAdded || 0);
         if(Number.isFinite(pts) && pts > 0){
           map[key].points += pts;
@@ -7297,16 +7648,17 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
           snap = await fb.getDoc(docRef);
         } catch(e){}
 
-        if(snap && snap.exists()){
-          var existing = snap.data() || {};
-          var patch = {};
-          if(u.email && !existing.email) patch.email = u.email;
-          if(u.name && !existing.fullName) patch.fullName = u.name;
-          if(u.name && !existing.fullNameLower) patch.fullNameLower = u.name.toLowerCase();
-          var existingSpent = Number(existing.totalSpent || 0);
-          if(u.spent > 0 && u.spent >= existingSpent){
-            patch.totalSpent = Number(u.spent || 0);
-          }
+          if(snap && snap.exists()){
+            var existing = snap.data() || {};
+            var patch = {};
+            if(u.email && !existing.email) patch.email = u.email;
+            if(u.name && !existing.fullName) patch.fullName = u.name;
+            if(u.name && !existing.fullNameLower) patch.fullNameLower = u.name.toLowerCase();
+            if(u.phone && !existing.phone) patch.phone = u.phone;
+            var existingSpent = Number(existing.totalSpent || 0);
+            if(u.spent > 0 && u.spent >= existingSpent){
+              patch.totalSpent = Number(u.spent || 0);
+            }
           if(Object.keys(patch).length > 0){
             patch.updatedAt = fb.serverTimestamp();
             try {
@@ -7314,15 +7666,16 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
               updated += 1;
             } catch(e){}
           }
-        } else {
-          var fullName = u.name || (u.email ? u.email.split('@')[0] : '');
-          var payload = {
-            email: u.email || '',
-            fullName: fullName,
-            fullNameLower: fullName ? fullName.toLowerCase() : '',
-            role: 'user',
-            points: Number(u.points || 0),
-            totalSpent: Number(u.spent || 0),
+          } else {
+            var fullName = u.name || (u.email ? u.email.split('@')[0] : '');
+            var payload = {
+              email: u.email || '',
+              fullName: fullName,
+              fullNameLower: fullName ? fullName.toLowerCase() : '',
+              phone: u.phone || '',
+              role: 'user',
+              points: Number(u.points || 0),
+              totalSpent: Number(u.spent || 0),
             redeemedRewards: [],
             createdAt: fb.serverTimestamp(),
             updatedAt: fb.serverTimestamp()
@@ -7351,6 +7704,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var wrap = document.getElementById('adminReviewsList');
     if(!wrap) return;
 
+    var debugInfo = { top: 0, cg: 0, sheet: 0, topErr: '', cgErr: '', sheetErr: '' };
     var collected = [];
     var byKey = {};
 
@@ -7367,25 +7721,35 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     if(fb){
       try {
         var snap = await fb.getDocs(fb.collection(fb.db, 'reviews'));
+        debugInfo.top = snap.size || 0;
         snap.forEach(function(docSnap){
           addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: 'reviews|' + docSnap.id });
         });
-      } catch(e){}
+      } catch(e){
+        debugInfo.topErr = String(e && (e.code || e.message) ? (e.code || e.message) : e);
+      }
 
       try {
         if(typeof fb.collectionGroup === 'function'){
           var cgSnap = await fb.getDocs(fb.query(fb.collectionGroup(fb.db, 'reviews')));
+          debugInfo.cg = cgSnap.size || 0;
           cgSnap.forEach(function(docSnap){
             var refPath = (docSnap.ref && docSnap.ref.path) ? String(docSnap.ref.path).split('/').join('|') : ('cg|reviews|' + docSnap.id);
             addCollected({ id: docSnap.id, data: docSnap.data() || {}, refPath: refPath });
           });
         }
-      } catch(e){}
+      } catch(e){
+        debugInfo.cgErr = String(e && (e.code || e.message) ? (e.code || e.message) : e);
+      }
     }
 
     var sheetReviews = await fetchReviewsFromSheets();
     if(sheetReviews && sheetReviews.length){
       sheetReviews.forEach(function(r){ addCollected(r); });
+    }
+    debugInfo.sheet = sheetReviews.length || 0;
+    if(SHEETS_REVIEWS_LAST_ERROR){
+      debugInfo.sheetErr = SHEETS_REVIEWS_LAST_ERROR;
     }
 
     var pending = collected.filter(function(item){
@@ -7397,6 +7761,18 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
 
     pending.sort(function(a,b){ return getReviewTime(b.data) - getReviewTime(a.data); });
     renderAdminReviews(pending);
+
+    if(pending.length === 0){
+      try {
+        var debugLine = 'בדיקה: Firestore=' + debugInfo.top + ', collectionGroup=' + debugInfo.cg + ', Sheets=' + debugInfo.sheet;
+        var errParts = [];
+        if(debugInfo.topErr) errParts.push('reviews: ' + debugInfo.topErr);
+        if(debugInfo.cgErr) errParts.push('group: ' + debugInfo.cgErr);
+        if(debugInfo.sheetErr) errParts.push('sheets: ' + debugInfo.sheetErr);
+        var errLine = errParts.length ? ('<div class="admin-mini">שגיאות: ' + escapeHtml(errParts.join(' | ')) + '</div>') : '';
+        wrap.innerHTML = wrap.innerHTML + '<div class="admin-mini" style="margin-top:6px">' + escapeHtml(debugLine) + '</div>' + errLine;
+      } catch(e){}
+    }
   }
 
   window.refreshAdminReviews = refreshAdminReviews;
@@ -7595,9 +7971,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
       if(codeEl) codeEl.value = '';
       if(valueEl) valueEl.value = '';
       await refreshCoupons();
-    } catch(err){
-      notify('שמירת קופון נכשלה');
-    }
+      } catch(err){
+        notify('שמירת קופון נכשלה: ' + (err && (err.code || err.message) ? (err.code || err.message) : 'שגיאה'));
+      }
   };
 
   window.adminToggleCoupon = async function(id, active){
@@ -7608,9 +7984,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
         updatedAt: fb.serverTimestamp()
       });
       await refreshCoupons();
-    } catch(err){
-      notify('עדכון קופון נכשל');
-    }
+      } catch(err){
+        notify('עדכון קופון נכשל: ' + (err && (err.code || err.message) ? (err.code || err.message) : 'שגיאה'));
+      }
   };
 
   window.adminSendCouponToAll = async function(code){
@@ -7630,7 +8006,7 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     var label = match ? (match.label || couponTypeLabel(match)) : '';
 
     var subject = 'קופון חדש משרה';
-    var message = 'היי אהובה!\nקוד הקופון שלך: ' + couponCode + (label ? (' (' + label + ')') : '') + '\nמחכה שתתפנקי 💛';
+    var message = 'היי אהובה!\nקוד הקופון שלך: ' + couponCode + (label ? (' (' + label + ')') : '') + '\nמחכה שתתפנקי ';
 
     var emails = (adminUsersCache || []).map(function(u){ return (u && u.email) ? u.email : ''; });
     await adminSendPromoEmails(emails, 'coupon', { subject: subject, message: message });
@@ -7735,9 +8111,9 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
     <span class="wm w7"></span>
     <span class="wm w8"></span>
 </div>
-<a id="authFab" class="auth-fab" href="#profileDrawer" role="button" title="התחברות" onclick="openProfileOrAuth()">👤</a>
-<a id="cartFab" class="cart-fab" href="#cartDrawer" role="button" title="סל" onclick="openCartOrAuth()">🛒<span id="cartBadge" class="cart-badge">0</span></a>
-<button id="a11yIcon" class="a11y-fab" aria-label="נגישות" title="נגישות" type="button">♿</button>
+<button id="authFab" class="auth-fab" type="button" title="האזור האישי" onclick="openProfileOrAuth()">&#128100;</button>
+<a id="cartFab" class="cart-fab" href="#cartDrawer" role="button" title="סל" onclick="openCartOrAuth()">&#128722;<span id="cartBadge" class="cart-badge">0</span></a>
+<button id="a11yIcon" class="a11y-fab" aria-label="נגישות" title="נגישות" type="button">&#9855;</button>
 <script>
 (function(){
   if(window.__saraFallbackClicksBound) return;
@@ -7796,7 +8172,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
   if(typeof window.openProfileOrAuth !== 'function'){
     window.openProfileOrAuth = function(){
-      safeOpenAuth();
+      ensureUI();
+      syncCurrentUser();
+      if(typeof window.toggleProfile === 'function'){
+        window.toggleProfile(true);
+      }
     };
   }
   if(typeof window.openCartOrAuth !== 'function'){
@@ -7820,7 +8200,11 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   }
   if(typeof window.submitOrder !== 'function'){
     window.submitOrder = function(){
-      safeOpenAuth();
+      if(typeof nudgeAuth === 'function'){
+        nudgeAuth('צריך להתחבר כדי להזמין ולקבל מתנות');
+      } else {
+        safeOpenAuth();
+      }
     };
   }
 
@@ -7876,72 +8260,123 @@ window.dispatchEvent(new CustomEvent('firebase-ready'));
   document.addEventListener('click', handle, true);
   document.addEventListener('pointerdown', handle, true);
   document.addEventListener('touchstart', handle, true);
-  setTimeout(showDebugPanel, 800);
-  setTimeout(function(){
-    try {
-      if(typeof window.setAdminButton === 'function'){
-        window.setAdminButton();
+    setTimeout(showDebugPanel, 800);
+    setTimeout(function(){
+      try {
+        if(typeof window.setAdminButton === 'function'){
+          window.setAdminButton();
+        }
+      } catch(e){}
+    }, 900);
+    setTimeout(function(){
+      try {
+        if(typeof window.updateCatIndicator === 'function'){
+          window.updateCatIndicator();
+        }
+      } catch(e){}
+    }, 950);
+    window.addEventListener('resize', function(){
+      try {
+        if(typeof window.updateCatIndicator === 'function'){
+          window.updateCatIndicator();
+        }
+      } catch(e){}
+    });
+    setTimeout(function(){
+      try {
+        if(typeof window.resetCatalogRail === 'function'){
+          if(typeof window.updateCatalogCentered === 'function'){
+            window.updateCatalogCentered();
+          }
+          if(typeof window.shuffleVisibleProducts === 'function'){
+            window.shuffleVisibleProducts();
+          }
+          window.resetCatalogRail();
+        }
+      } catch(e){}
+    }, 980);
+  })();
+  </script>
+  <script>
+    (function(){
+      function initPageSections(){
+        var sections = document.querySelectorAll('.page-section');
+        if(!sections || sections.length === 0) return;
+        if('IntersectionObserver' in window){
+          document.body.classList.add('io-ready');
+        }
+
+        var revealManual = function(){
+          var vh = window.innerHeight || 0;
+          sections.forEach(function(section){
+            if(section.classList.contains('is-visible')) return;
+            var rect = section.getBoundingClientRect();
+            var inView = rect.top < (vh * 0.85) && rect.bottom > (vh * 0.15);
+            if(inView){
+              section.classList.add('is-visible');
+            }
+          });
+        };
+
+        if('IntersectionObserver' in window){
+          var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+              if(entry.isIntersecting){
+                entry.target.classList.add('is-visible');
+              }
+            });
+          }, { threshold: 0.35 });
+          sections.forEach(function(section){
+            observer.observe(section);
+          });
+        }
+
+        revealManual();
+        window.addEventListener('scroll', revealManual, { passive: true });
+        window.addEventListener('resize', revealManual);
+
+        document.querySelectorAll('[data-stagger]').forEach(function(parent){
+          var kids = Array.prototype.slice.call(parent.children || []);
+          kids.forEach(function(child, idx){
+            child.classList.add('stagger-item');
+            child.style.setProperty('--stagger', idx);
+          });
+        });
       }
-    } catch(e){}
-  }, 900);
-})();
-</script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      function addSectionEmojis(){
+        var sections = document.querySelectorAll('.page-section');
+        sections.forEach(function(section){
+          if(section.querySelector('.section-emoji-layer')) return;
+          var layer = document.createElement('div');
+          layer.className = 'section-emoji-layer';
+          layer.setAttribute('aria-hidden','true');
+          layer.innerHTML = '<span class="se1"></span><span class="se2"></span><span class="se3"></span><span class="se4"></span><span class="se5"></span><span class="se6"></span>';
+          section.insertBefore(layer, section.firstChild);
+          var spans = layer.querySelectorAll('span');
+          spans.forEach(function(span){
+            var top = Math.floor(Math.random() * 70) + 10;
+            var left = Math.floor(Math.random() * 80) + 5;
+            var size = Math.floor(Math.random() * 8) + 18;
+            var dur = Math.floor(Math.random() * 8) + 10;
+            var delay = Math.floor(Math.random() * 8) * -1;
+            span.style.top = top + '%';
+            span.style.left = left + '%';
+            span.style.fontSize = size + 'px';
+            span.style.animationDuration = dur + 's';
+            span.style.animationDelay = delay + 's';
+          });
+        });
+      }
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', function(){
+          addSectionEmojis();
+          initPageSections();
+        });
+      } else {
+        addSectionEmojis();
+        initPageSections();
+      }
+    })();
+  </script>
+  </body>
+  </html>
