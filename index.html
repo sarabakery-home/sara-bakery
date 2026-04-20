@@ -5748,68 +5748,93 @@ function ensureUI(){
       '<button id="adminFab" class="admin-fab" type="button" title="פאנל מנהלת" onclick="openAdminPanelSafe()">📊</button>' +
       '<div id="adminOverlay" class="admin-overlay" onclick="toggleAdminPanel(false)"></div>' +
       '<div id="adminPanel" class="admin-panel">' +
-        '<div class="admin-head"><strong>פאנל מנהלת - שרה</strong><button type="button" class="admin-btn" onclick="toggleAdminPanel(false)">סגירה</button></div>' +
+        '<div class="admin-head">' +
+          '<div><strong style="font-size:15px">📊 לוח בקרה</strong><div id="adminHeadDate" style="font-size:11px;color:#9a7060"></div></div>' +
+          '<div style="display:flex;gap:6px">' +
+            '<button type="button" class="admin-btn" onclick="refreshAdminData()" title="רענון">🔄</button>' +
+            '<button type="button" class="admin-btn" style="background:#888" onclick="toggleAdminPanel(false)">✕ סגירה</button>' +
+          '</div>' +
+        '</div>' +
         '<div class="admin-body">' +
           '<div class="admin-tabs">' +
-            '<button class="admin-tab active" data-tab="orders" type="button" onclick="adminSwitchTab(\'orders\')">הזמנות</button>' +
-            '<button class="admin-tab" data-tab="users" type="button" onclick="adminSwitchTab(\'users\')">משתמשים</button>' +
-            '<button class="admin-tab" data-tab="coupons" type="button" onclick="adminSwitchTab(\'coupons\')">קופונים</button>' +
-            '<button class="admin-tab" data-tab="mailer" type="button" onclick="adminSwitchTab(\'mailer\')">מיילים</button>' +
-            '<button class="admin-tab" data-tab="reviews" type="button" onclick="adminSwitchTab(\'reviews\')">ביקורות</button>' +
+            '<button class="admin-tab active" data-tab="orders" type="button" onclick="adminSwitchTab(\'orders\')">📦 הזמנות</button>' +
+            '<button class="admin-tab" data-tab="users" type="button" onclick="adminSwitchTab(\'users\')">👥 לקוחות</button>' +
+            '<button class="admin-tab" data-tab="revenue" type="button" onclick="adminSwitchTab(\'revenue\')">💰 הכנסות</button>' +
+            '<button class="admin-tab" data-tab="coupons" type="button" onclick="adminSwitchTab(\'coupons\')">🎟️ קופונים</button>' +
+            '<button class="admin-tab" data-tab="mailer" type="button" onclick="adminSwitchTab(\'mailer\')">📨 הודעות</button>' +
+            '<button class="admin-tab" data-tab="reviews" type="button" onclick="adminSwitchTab(\'reviews\')">⭐ ביקורות</button>' +
           '</div>' +
           '<div id="adminKpis" class="admin-kpis"></div>' +
           '<div id="adminSectionOrders" class="admin-section active" data-section="orders">' +
-            '<div class="admin-order-tabs">' +
+            '<div class="admin-order-tabs" id="adminOrderStatusTabs">' +
               '<button class="admin-order-tab active" data-status="" type="button" onclick="adminFilterOrdersByStatus(\'\')">הכל</button>' +
-              '<button class="admin-order-tab" data-status="new" type="button" onclick="adminFilterOrdersByStatus(\'new\')">ממתינה</button>' +
-              '<button class="admin-order-tab" data-status="preparing" type="button" onclick="adminFilterOrdersByStatus(\'preparing\')">בהכנה</button>' +
-              '<button class="admin-order-tab" data-status="ready" type="button" onclick="adminFilterOrdersByStatus(\'ready\')">מוכן</button>' +
-              '<button class="admin-order-tab" data-status="out_for_delivery" type="button" onclick="adminFilterOrdersByStatus(\'out_for_delivery\')">משלוח יצא</button>' +
+              '<button class="admin-order-tab" data-status="new" type="button" onclick="adminFilterOrdersByStatus(\'new\')">📬 ממתינה</button>' +
+              '<button class="admin-order-tab" data-status="preparing" type="button" onclick="adminFilterOrdersByStatus(\'preparing\')">🔧 בהכנה</button>' +
+              '<button class="admin-order-tab" data-status="ready" type="button" onclick="adminFilterOrdersByStatus(\'ready\')">✅ מוכן</button>' +
+              '<button class="admin-order-tab" data-status="out_for_delivery" type="button" onclick="adminFilterOrdersByStatus(\'out_for_delivery\')">🚚 יצא</button>' +
+              '<button class="admin-order-tab" data-status="completed" type="button" onclick="adminFilterOrdersByStatus(\'completed\')">🎉 הושלם</button>' +
             '</div>' +
-            '<div style="display:flex;justify-content:space-between;align-items:center;margin:6px 0 8px"><strong>כל ההזמנות</strong><div style="display:flex;gap:6px"><button type="button" class="admin-btn" onclick="refreshOrders()">רענון</button><button id="adminNewOrdersBtn" type="button" class="admin-btn" onclick="adminShowNewOrders()">הזמנות חדשות</button></div></div>' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0">' +
+              '<span id="adminOrdersCount" class="admin-mini"></span>' +
+              '<button id="adminNewOrdersBtn" type="button" class="admin-btn" onclick="adminShowNewOrders()">🆕 חדשות</button>' +
+            '</div>' +
             '<div id="adminOrdersList"></div>' +
           '</div>' +
           '<div id="adminSectionUsers" class="admin-section" data-section="users">' +
-            '<div class="admin-note">סיסמאות משתמשים לא ניתנות לצפייה ב-Firebase (מאובטח). במקום זה אפשר לשלוח איפוס סיסמה למייל.</div>' +
-            '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px;flex-wrap:wrap">' +
-              '<strong>משתמשים</strong>' +
-              '<div style="display:flex;gap:6px;flex-wrap:wrap">' +
-                '<button type="button" class="admin-btn" onclick="refreshAdminData()">רענון</button>' +
-                '<button id="adminSyncUsersBtn" type="button" class="admin-btn" onclick="adminSyncUsersFromOrders()">סנכרון מהזמנות</button>' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">' +
+              '<strong>👥 כל הלקוחות</strong>' +
+              '<div style="display:flex;gap:6px">' +
+                '<button type="button" class="admin-btn" onclick="refreshUsers()">רענון</button>' +
+                '<button type="button" class="admin-btn" onclick="adminSyncUsersFromOrders()">סנכרון</button>' +
               '</div>' +
             '</div>' +
+            '<input id="adminUsersSearch" class="admin-input" type="text" placeholder="🔍 חיפוש לפי שם / מייל / טלפון..." oninput="adminSearchUsers(this.value)" style="margin-bottom:10px">' +
             '<div id="adminUsersList"></div>' +
           '</div>' +
+          '<div id="adminSectionRevenue" class="admin-section" data-section="revenue">' +
+            '<div id="adminRevenueContent"></div>' +
+          '</div>' +
           '<div id="adminSectionCoupons" class="admin-section" data-section="coupons">' +
-            '<div class="admin-card admin-coupons">' +
-              '<div class="admin-row"><strong>קופונים</strong><button type="button" class="admin-btn" onclick="refreshCoupons()">רענון</button></div>' +
-              '<div class="admin-help">צרי קוד קופון חדש (אחוז הנחה או 3+1 מתנה) ואז אפשר לשלוח אותו ללקוחות.</div>' +
-              '<input id="adminCouponCode" class="admin-input" type="text" placeholder="קוד קופון (לדוגמה: SWEET10)">' +
-              '<div class="admin-grid">' +
-                '<select id="adminCouponType" class="admin-input" onchange="adminCouponTypeChanged()">' +
-                  '<option value="percent">הנחה באחוזים</option>' +
-                  '<option value="bundle">3+1 מתנה</option>' +
-                '</select>' +
-                '<input id="adminCouponValue" class="admin-input" type="number" min="1" max="90" placeholder="אחוז (10)">' +
+            '<div class="admin-card" style="margin-bottom:12px">' +
+              '<div style="font-weight:900;font-size:14px;color:#2d1a0e;margin-bottom:10px">🎟️ צור קופון חדש</div>' +
+              '<label class="admin-order-label">קוד קופון (אותיות לטינית גדולות)</label>' +
+              '<input id="adminCouponCode" class="admin-input" type="text" placeholder="SWEET10" style="margin-bottom:8px;text-transform:uppercase">' +
+              '<label class="admin-order-label">סוג הנחה</label>' +
+              '<div style="display:flex;gap:12px;margin-bottom:8px;flex-wrap:wrap">' +
+                '<label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer"><input type="radio" name="couponTypeR" value="percent" checked onchange="adminCouponTypeChanged()"> % הנחה</label>' +
+                '<label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer"><input type="radio" name="couponTypeR" value="fixed" onchange="adminCouponTypeChanged()"> ₪ קבוע</label>' +
+                '<label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer"><input type="radio" name="couponTypeR" value="bundle" onchange="adminCouponTypeChanged()"> 3+1 מתנה</label>' +
               '</div>' +
-              '<div class="admin-actions"><button type="button" class="admin-btn" onclick="adminSaveCoupon()">שמור קופון</button></div>' +
-              '<div id="adminCouponsList"></div>' +
+              '<input id="adminCouponValue" class="admin-input" type="number" min="1" placeholder="10 (אחוז/שקל)" style="margin-bottom:8px">' +
+              '<input id="adminCouponLabel" class="admin-input" type="text" placeholder="תיאור: 10% הנחה לכל הזמנה" style="margin-bottom:8px">' +
+              '<button type="button" class="admin-btn" style="width:100%;padding:10px;font-size:13px" onclick="adminSaveCoupon()">💾 שמור קופון</button>' +
             '</div>' +
+            '<div style="font-weight:900;font-size:13px;margin-bottom:8px">קופונים קיימים</div>' +
+            '<div id="adminCouponsList"></div>' +
           '</div>' +
           '<div id="adminSectionMailer" class="admin-section" data-section="mailer">' +
-            '<div class="admin-card admin-mailer">' +
-              '<div class="admin-row"><strong>שליחת מייל מבצע</strong><button type="button" class="admin-btn" onclick="adminSendPromoToAll()">שליחה לכולם</button></div>' +
-              '<input id="adminPromoSubject" class="admin-input" type="text" placeholder="נושא המייל (לדוגמה: מבצע סוף שבוע)">' +
-              '<textarea id="adminPromoMessage" class="admin-textarea" placeholder="כתבי כאן הודעת מבצע או קופון..."></textarea>' +
-              '<div class="admin-help">אפשר לשלוח גם ללקוחה בודדת דרך הכפתור ברשימת המשתמשים.</div>' +
+            '<div class="admin-card" style="margin-bottom:12px">' +
+              '<div style="font-weight:900;font-size:14px;color:#2d1a0e;margin-bottom:10px">📨 שליחת הודעה</div>' +
+              '<label class="admin-order-label">נושא</label>' +
+              '<input id="adminPromoSubject" class="admin-input" type="text" placeholder="מבצע סוף שבוע 🎉" style="margin-bottom:8px">' +
+              '<label class="admin-order-label">תוכן ההודעה</label>' +
+              '<textarea id="adminPromoMessage" class="admin-textarea" placeholder="כתבי כאן את ההודעה..." style="height:100px"></textarea>' +
+              '<div class="admin-actions" style="margin-top:10px">' +
+                '<button type="button" class="admin-btn wa-btn" onclick="adminSendPromoViaWA()">💬 וואטסאפ לכולם</button>' +
+                '<button type="button" class="admin-btn" onclick="adminOpenMailtoAll()">✉️ מייל (mailto)</button>' +
+              '</div>' +
+            '</div>' +
+            '<div class="admin-card">' +
+              '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">' +
+                '<div style="font-weight:900;font-size:13px">📋 כתובות מייל לקוחות</div>' +
+                '<button type="button" class="admin-btn" onclick="adminCopyMailingList()">העתק</button>' +
+              '</div>' +
+              '<div id="adminMailingListWrap" style="background:#f9f1e8;border-radius:10px;padding:10px;font-size:11px;line-height:1.8;color:#6b4433;word-break:break-all;max-height:100px;overflow:auto">טוען...</div>' +
             '</div>' +
           '</div>' +
           '<div id="adminSectionReviews" class="admin-section" data-section="reviews">' +
-            '<div class="admin-card admin-reviews">' +
-              '<div class="admin-row"><strong>ביקורות לאישור</strong><button type="button" class="admin-btn" onclick="refreshAdminReviews()">רענון</button></div>' +
-              '<div class="admin-help">כאן רואים ביקורות חדשות ומאשרים לפני פרסום באתר.</div>' +
-              '<div id="adminReviewsList"></div>' +
-            '</div>' +
+            '<div class="admin-row" style="margin-bottom:10px"><strong>⭐ ביקורות לאישור</strong><button type="button" class="admin-btn" onclick="refreshAdminReviews()">רענון</button></div>' +
+            '<div id="adminReviewsList"></div>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -6581,27 +6606,40 @@ function ensureUI(){
   function adminSwitchTab(tabName){
     var target = String(tabName || '').trim() || 'orders';
     try {
-      var tabs = document.querySelectorAll('.admin-tab');
-      tabs.forEach(function(btn){
-        var key = btn.getAttribute('data-tab') || '';
-        btn.classList.toggle('active', key === target);
+      document.querySelectorAll('.admin-tab').forEach(function(btn){
+        btn.classList.toggle('active', (btn.getAttribute('data-tab')||'') === target);
       });
-      var sections = document.querySelectorAll('.admin-section');
-      sections.forEach(function(sec){
-        var key = sec.getAttribute('data-section') || '';
-        sec.classList.toggle('active', key === target);
+      document.querySelectorAll('.admin-section').forEach(function(sec){
+        sec.classList.toggle('active', (sec.getAttribute('data-section')||'') === target);
       });
     } catch(e){}
+
     if(target === 'orders'){
       try {
-        if(!adminOrdersCache || adminOrdersCache.length === 0){
-          refreshOrders();
-        }
-        if(typeof adminFilterOrdersByStatus === 'function'){
-          adminFilterOrdersByStatus(adminOrderStatusFilter || '');
-        }
+        if(!adminOrdersCache || adminOrdersCache.length === 0) refreshOrders();
+        if(typeof adminFilterOrdersByStatus === 'function') adminFilterOrdersByStatus(adminOrderStatusFilter || '');
       } catch(e){}
     }
+    if(target === 'users'){
+      try { refreshUsers(); } catch(e){}
+    }
+    if(target === 'revenue'){
+      try { renderAdminRevenueFull(); } catch(e){}
+    }
+    if(target === 'coupons'){
+      try { refreshCoupons(); } catch(e){}
+    }
+    if(target === 'mailer'){
+      try { adminRenderMailingList(); } catch(e){}
+    }
+    if(target === 'reviews'){
+      try { refreshAdminReviews(); } catch(e){}
+    }
+    // set date in header
+    try {
+      var hd = document.getElementById('adminHeadDate');
+      if(hd) hd.textContent = new Date().toLocaleString('he-IL',{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+    } catch(e){}
     try { renderAdminKpis(); } catch(e){}
   }
   window.adminSwitchTab = adminSwitchTab;
@@ -8355,25 +8393,23 @@ function ensureUI(){
 
   window.adminSaveCoupon = async function(){
     if(!isAdmin || !fb) return;
-    var codeEl = document.getElementById('adminCouponCode');
-    var typeEl = document.getElementById('adminCouponType');
+    var codeEl  = document.getElementById('adminCouponCode');
     var valueEl = document.getElementById('adminCouponValue');
-    if(!codeEl || !typeEl) return;
-    var code = normalizeCouponCode(codeEl.value || '');
-    var type = String(typeEl.value || 'percent');
+    var labelEl = document.getElementById('adminCouponLabel');
+    var radio   = document.querySelector('input[name="couponTypeR"]:checked');
+    var typeEl  = document.getElementById('adminCouponType'); // legacy fallback
+    if(!codeEl) return;
+    var code  = normalizeCouponCode(codeEl.value || '');
+    var type  = radio ? radio.value : (typeEl ? String(typeEl.value||'percent') : 'percent');
     var value = Number(valueEl && valueEl.value ? valueEl.value : 0);
 
-    if(!code){
-      notify('חסר קוד קופון');
-      return;
+    if(!code){ notify('חסר קוד קופון'); return; }
+    if((type === 'percent' || type === 'fixed') && (!Number.isFinite(value) || value <= 0)){
+      notify('ערך ההנחה לא תקין'); return;
     }
 
-    if(type === 'percent' && (!Number.isFinite(value) || value <= 0)){
-      notify('אחוז ההנחה לא תקין');
-      return;
-    }
-
-    var label = type === 'percent' ? (value + '% הנחה') : '3+1 מתנה';
+    var autoLabel = type === 'percent' ? (value + '% הנחה') : type === 'fixed' ? ('₪' + value + ' הנחה') : '3+1 מתנה';
+    var label = (labelEl && labelEl.value.trim()) ? labelEl.value.trim() : autoLabel;
     var docId = code.toLowerCase();
     var payload = {
       code: code,
@@ -8498,6 +8534,162 @@ function ensureUI(){
     wrapped.__adminWrapped = true;
     window.loginUser = wrapped;
   }
+
+
+  // ===== Revenue full view =====
+  window.renderAdminRevenueFull = function(){
+    var wrap = document.getElementById('adminRevenueContent');
+    if(!wrap) return;
+    var all = adminOrdersCache || [];
+    var monthTotals = getRevenueByMonth(all);
+    var months = getRecentMonths(6);
+
+    var totalAllTime = 0;
+    all.forEach(function(o){ totalAllTime += getOrderTotalValue(o); });
+
+    var now = new Date();
+    var currentKey = getMonthKey(now);
+    var currentMonthTotal = monthTotals[currentKey] || 0;
+    var monthName = now.toLocaleString('he-IL',{month:'long',year:'numeric'});
+
+    var monthRows = months.map(function(m){
+      var val = monthTotals[m.key] || 0;
+      var maxVal = Math.max.apply(null, months.map(function(mm){ return monthTotals[mm.key]||0; })) || 1;
+      var pct = Math.round((val/maxVal)*100);
+      var isCurrent = m.key === currentKey;
+      return '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">' +
+        '<div style="min-width:70px;font-size:12px;font-weight:700;color:#6b4433;text-align:right">' + m.label + (isCurrent?' ◀':'') + '</div>' +
+        '<div style="flex:1;background:#f0ddcf;border-radius:999px;height:22px;overflow:hidden;position:relative">' +
+          '<div style="width:' + pct + '%;height:100%;background:' + (isCurrent?'linear-gradient(90deg,#27ae60,#c8704a)':'linear-gradient(90deg,#c8704a55,#f2d9c0)') + ';border-radius:999px;transition:width .6s ease"></div>' +
+          '<span style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:800;color:#5a3424;white-space:nowrap">' + (val>0?shekel(val):'—') + '</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    // Orders by status
+    var newC = countOrdersByStatus('new');
+    var prepC = countOrdersByStatus('preparing');
+    var readyC = countOrdersByStatus('ready');
+    var outC = countOrdersByStatus('out_for_delivery');
+    var doneC = countOrdersByStatus('completed');
+
+    wrap.innerHTML =
+      '<div class="admin-card" style="margin-bottom:12px">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px">' +
+          '<div>' +
+            '<div style="font-size:11px;font-weight:800;color:#7a5040;text-transform:uppercase;letter-spacing:1px">חודש נוכחי · ' + monthName + '</div>' +
+            '<div style="font-family:Playfair Display,serif;font-size:34px;font-weight:900;color:#c8704a;line-height:1">' + shekel(currentMonthTotal) + '</div>' +
+          '</div>' +
+          '<div style="text-align:left">' +
+            '<div style="font-size:11px;color:#9a7060">סה״כ כל הזמנים</div>' +
+            '<div style="font-size:20px;font-weight:900;color:#2d1a0e">' + shekel(totalAllTime) + '</div>' +
+          '</div>' +
+        '</div>' +
+        monthRows +
+      '</div>' +
+      '<div class="admin-card">' +
+        '<div style="font-weight:900;margin-bottom:12px">📊 הזמנות לפי סטטוס</div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">' +
+          ['📬 ממתינות|'+newC+'|#c8704a','🔧 בהכנה|'+prepC+'|#8a6a00','✅ מוכנות|'+readyC+'|#1a7a3c','🚚 בדרך|'+outC+'|#2d4f9f','🎉 הושלמו|'+doneC+'|#555','📦 סה״כ|'+all.length+'|#2d1a0e'].map(function(s){
+            var parts = s.split('|');
+            return '<div style="background:#fff;border:1.5px solid #f2d9c0;border-radius:12px;padding:10px;text-align:center">' +
+              '<div style="font-size:12px;color:#7a5040;font-weight:700">' + parts[0] + '</div>' +
+              '<div style="font-size:24px;font-weight:900;color:' + parts[2] + '">' + parts[1] + '</div>' +
+            '</div>';
+          }).join('') +
+        '</div>' +
+      '</div>';
+  };
+  window.renderAdminRevenueFull = window.renderAdminRevenueFull;
+
+  // ===== Mailing list =====
+  window.adminRenderMailingList = function(){
+    var wrap = document.getElementById('adminMailingListWrap');
+    if(!wrap) return;
+    var emails = (adminUsersCache||[]).map(function(u){ return u&&u.email?u.email.trim().toLowerCase():''; }).filter(Boolean);
+    var unique = [];
+    var seen = {};
+    emails.forEach(function(e){ if(!seen[e]){ seen[e]=true; unique.push(e); } });
+    if(unique.length === 0){
+      wrap.textContent = 'אין מיילים זמינים — רענן משתמשים קודם';
+    } else {
+      wrap.textContent = unique.join(', ');
+    }
+  };
+
+  window.adminCopyMailingList = function(){
+    var wrap = document.getElementById('adminMailingListWrap');
+    var text = wrap ? wrap.textContent : '';
+    if(!text){ notify('אין מיילים להעתקה'); return; }
+    try {
+      navigator.clipboard.writeText(text).then(function(){
+        notify('הועתקו ' + text.split(',').length + ' כתובות');
+      }).catch(function(){
+        notify('העתק ידנית מהתיבה');
+      });
+    } catch(e){
+      notify('העתק ידנית מהתיבה');
+    }
+  };
+
+  window.adminOpenMailtoAll = function(){
+    var emails = (adminUsersCache||[]).map(function(u){ return u&&u.email?u.email.trim():''; }).filter(Boolean);
+    if(emails.length === 0){ notify('אין מיילים זמינים'); return; }
+    var subj = (document.getElementById('adminPromoSubject')&&document.getElementById('adminPromoSubject').value)||'הודעה מ-שרה';
+    var body = (document.getElementById('adminPromoMessage')&&document.getElementById('adminPromoMessage').value)||'';
+    var bcc = emails.join(',');
+    var url = 'mailto:?bcc=' + encodeURIComponent(bcc) + '&subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+    window.open(url);
+  };
+
+  window.adminSendPromoViaWA = function(){
+    var msg = (document.getElementById('adminPromoMessage')&&document.getElementById('adminPromoMessage').value)||'';
+    if(!msg){ notify('כתבי הודעה קודם'); return; }
+    var phones = (adminUsersCache||[]).map(function(u){ return u&&u.phone?String(u.phone).trim():''; }).filter(Boolean);
+    if(phones.length === 0){
+      // open WA without number - at least open the app with text ready
+      window.open('https://wa.me/?text=' + encodeURIComponent(msg));
+      notify('נפתח וואטסאפ — בחרי איש קשר ידנית');
+      return;
+    }
+    // Send to first phone as demo, notify about the rest
+    var firstPhone = normalizeWaNumber(phones[0]);
+    window.open('https://wa.me/' + firstPhone + '?text=' + encodeURIComponent(msg));
+    notify('נפתח וואטסאפ ל-' + phones[0] + ' · יש ' + phones.length + ' טלפונים ברשימה');
+  };
+
+  // ===== User search =====
+  var adminUsersSearchTerm = '';
+  window.adminSearchUsers = function(term){
+    adminUsersSearchTerm = String(term||'').trim().toLowerCase();
+    var wrap = document.getElementById('adminUsersList');
+    if(!wrap) return;
+    var items = wrap.querySelectorAll('.admin-card');
+    items.forEach(function(card){
+      var text = String(card.textContent||'').toLowerCase();
+      card.style.display = (!adminUsersSearchTerm || text.indexOf(adminUsersSearchTerm) >= 0) ? '' : 'none';
+    });
+  };
+
+  // ===== Coupon type radio helper =====
+  window.adminCouponTypeChanged = function(){
+    var radio = document.querySelector('input[name="couponTypeR"]:checked');
+    var type = radio ? radio.value : 'percent';
+    var valueEl = document.getElementById('adminCouponValue');
+    if(valueEl){
+      if(type === 'bundle'){
+        valueEl.placeholder = 'לא נדרש (3+1)';
+        valueEl.disabled = true;
+        valueEl.value = '';
+      } else if(type === 'fixed'){
+        valueEl.placeholder = 'כמה שקלים הנחה';
+        valueEl.disabled = false;
+      } else {
+        valueEl.placeholder = 'אחוז (לדוגמה: 10)';
+        valueEl.disabled = false;
+      }
+    }
+  };
 
   async function initAdminAddon(){
     ensureAdminUI();
